@@ -50,7 +50,7 @@ function writeDB(data) {
   }
 }
 
-// Helper to read config (Merges environment variables with config.json)
+// Helper to read config (Prioritizes OAuth token saved in config.json over outdated env vars)
 function readConfig() {
   let fileConfig = {};
   try {
@@ -62,10 +62,12 @@ function readConfig() {
     console.error('Error reading config file:', error);
   }
 
+  const token = fileConfig.linkedinAccessToken || process.env.LINKEDIN_ACCESS_TOKEN || '';
+
   return {
     linkedinClientId: process.env.LINKEDIN_CLIENT_ID || fileConfig.linkedinClientId || '78wufh5fqdx3t5',
     linkedinClientSecret: process.env.LINKEDIN_CLIENT_SECRET || fileConfig.linkedinClientSecret || '',
-    linkedinAccessToken: process.env.LINKEDIN_ACCESS_TOKEN || fileConfig.linkedinAccessToken || '',
+    linkedinAccessToken: token,
     linkedinPersonUrn: process.env.LINKEDIN_PERSON_URN || fileConfig.linkedinPersonUrn || 'urn:li:person:800423380',
     autoPublishEnabled: fileConfig.autoPublishEnabled !== undefined ? fileConfig.autoPublishEnabled : true,
     blockedDates: Array.isArray(fileConfig.blockedDates) ? fileConfig.blockedDates : []
