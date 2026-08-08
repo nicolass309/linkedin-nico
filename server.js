@@ -63,10 +63,10 @@ function readConfig() {
   }
 
   return {
-    linkedinClientId: process.env.LINKEDIN_CLIENT_ID || fileConfig.linkedinClientId || '',
+    linkedinClientId: process.env.LINKEDIN_CLIENT_ID || fileConfig.linkedinClientId || '78wufh5fqdx3t5',
     linkedinClientSecret: process.env.LINKEDIN_CLIENT_SECRET || fileConfig.linkedinClientSecret || '',
     linkedinAccessToken: process.env.LINKEDIN_ACCESS_TOKEN || fileConfig.linkedinAccessToken || '',
-    linkedinPersonUrn: process.env.LINKEDIN_PERSON_URN || fileConfig.linkedinPersonUrn || '',
+    linkedinPersonUrn: process.env.LINKEDIN_PERSON_URN || fileConfig.linkedinPersonUrn || 'urn:li:person:800423380',
     autoPublishEnabled: fileConfig.autoPublishEnabled !== undefined ? fileConfig.autoPublishEnabled : true,
     blockedDates: Array.isArray(fileConfig.blockedDates) ? fileConfig.blockedDates : []
   };
@@ -134,10 +134,9 @@ function fetchLinkedInRemotePosts(authorUrn, accessToken) {
 }
 
 // Algorithm to calculate the next available scheduling slot (Mon, Wed, Thu, Fri at 9:00 AM)
-// Blocks local posts, remote API posts, AND native LinkedIn web UI scheduled dates!
 async function getNextAvailableSlot(existingPosts, extraRemoteDates = []) {
   const config = readConfig();
-  const allowedDays = [1, 3, 4, 5]; // 1 = Mon, 3 = Wed, 4 = Thu, 5 = Fri
+  const allowedDays = [1, 3, 4, 5];
   const targetHour = 9;
   const targetMinute = 0;
 
@@ -150,10 +149,8 @@ async function getNextAvailableSlot(existingPosts, extraRemoteDates = []) {
       })
   );
 
-  // Block dates from remote LinkedIn API
   extraRemoteDates.forEach(d => scheduledDates.add(d));
 
-  // Block native LinkedIn UI scheduled dates configured in config.json
   if (config.blockedDates && Array.isArray(config.blockedDates)) {
     config.blockedDates.forEach(d => scheduledDates.add(d.trim()));
   }
@@ -188,7 +185,7 @@ async function getNextAvailableSlot(existingPosts, extraRemoteDates = []) {
   return fallback.toISOString();
 }
 
-// LinkedIn API Post Publisher Function
+// LinkedIn API Post Publisher Function (Supports both /rest/posts AND Microsoft ugcPosts Share)
 function publishToLinkedInAPI(postText, authorUrn, accessToken) {
   return new Promise((resolve, reject) => {
     if (!accessToken || !authorUrn) {
@@ -200,6 +197,7 @@ function publishToLinkedInAPI(postText, authorUrn, accessToken) {
       formattedAuthor = `urn:li:person:${formattedAuthor}`;
     }
 
+    // Primary: Modern LinkedIn Posts API (/rest/posts)
     const postData = JSON.stringify({
       author: formattedAuthor,
       commentary: postText,
@@ -230,17 +228,73 @@ function publishToLinkedInAPI(postText, authorUrn, accessToken) {
         if (res.statusCode >= 200 && res.statusCode < 300) {
           resolve({ success: true, statusCode: res.statusCode, data: responseBody });
         } else {
-          console.error('LinkedIn API Error Response:', responseBody);
-          reject(new Error(`Error de API de LinkedIn (Código ${res.statusCode}): ${responseBody}`));
+          // Fallback: Try Microsoft Share on LinkedIn UGC Post Endpoint (/v2/ugcPosts)
+          publishToLinkedInUGC(postText, formattedAuthor, accessToken)
+            .then(resolve)
+            .catch(() => {
+              reject(new Error(`Error de API de LinkedIn (Código ${res.statusCode}): ${responseBody}`));
+            });
         }
       });
     });
 
-    req.on('error', (e) => {
-      reject(e);
+    req.on('error', () => {
+      publishToLinkedInUGC(postText, formattedAuthor, accessToken)
+        .then(resolve)
+        .catch(reject);
     });
 
     req.write(postData);
+    req.end();
+  });
+}
+
+// Fallback: Microsoft Share on LinkedIn UGC Posts Endpoint (/v2/ugcPosts)
+function publishToLinkedInUGC(postText, authorUrn, accessToken) {
+  return new Promise((resolve, reject) => {
+    const ugcData = JSON.stringify({
+      author: authorUrn,
+      lifecycleState: 'PUBLISHED',
+      specificContent: {
+        'com.linkedin.ugc.ShareContent': {
+          shareCommentary: {
+            text: postText
+          },
+          shareMediaCategory: 'NONE'
+        }
+      },
+      visibility: {
+        'com.linkedin.ugc.MemberNetworkVisibility': 'PUBLIC'
+      }
+    });
+
+    const options = {
+      hostname: 'api.linkedin.com',
+      port: 443,
+      path: '/v2/ugcPosts',
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+        'X-Restli-Protocol-Version': '2.0.0',
+        'Content-Length': Buffer.byteLength(ugcData)
+      }
+    };
+
+    const req = https.request(options, (res) => {
+      let responseBody = '';
+      res.on('data', (chunk) => { responseBody += chunk; });
+      res.on('end', () => {
+        if (res.statusCode >= 200 && res.statusCode < 300) {
+          resolve({ success: true, statusCode: res.statusCode, data: responseBody });
+        } else {
+          reject(new Error(`Error UGC (Código ${res.statusCode}): ${responseBody}`));
+        }
+      });
+    });
+
+    req.on('error', reject);
+    req.write(ugcData);
     req.end();
   });
 }
