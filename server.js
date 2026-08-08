@@ -2,7 +2,6 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
-const querystring = require('querystring');
 require('dotenv').config();
 
 const app = express();
@@ -10,25 +9,13 @@ const PORT = process.env.PORT || 3000;
 const DB_FILE = path.join(__dirname, 'posts.json');
 const CONFIG_FILE = path.join(__dirname, 'config.json');
 
-// Concatenated Base64 parts to bypass static regex secret scanning
-const S_PART_1 = 'V1BMX0FQMS5INmt4ZWFT';
-const S_PART_2 = 'OGZrVXVNVGZJLndyaUwzZz09';
-const DEFAULT_CLIENT_SECRET = Buffer.from(S_PART_1 + S_PART_2, 'base64').toString('utf8');
+// Buffer API Integration Secrets
+const BUFFER_API_KEY = process.env.BUFFER_API_KEY || 'YmF96n9SMorADYaTUnwaknAJtbZ-6yTrQElNgLN1H3Z';
+const BUFFER_CHANNEL_ID = process.env.BUFFER_CHANNEL_ID || '6a7749ba99afb4434926a809';
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-
-// Helper to determine active Redirect URI dynamically (Local vs Cloud)
-function getRedirectURI(req) {
-  if (process.env.REDIRECT_URI) return process.env.REDIRECT_URI;
-  if (req) {
-    const protocol = req.headers['x-forwarded-proto'] || req.protocol || 'http';
-    const host = req.headers.host;
-    return `${protocol}://${host}/auth/linkedin/callback`;
-  }
-  return `http://localhost:${PORT}/auth/linkedin/callback`;
-}
 
 // Helper to read database
 function readDB() {
@@ -55,7 +42,7 @@ function writeDB(data) {
   }
 }
 
-// Helper to read config (Hardcoded app secrets so user never has to enter them)
+// Helper to read config
 function readConfig() {
   let fileConfig = {};
   try {
@@ -67,13 +54,9 @@ function readConfig() {
     console.error('Error reading config file:', error);
   }
 
-  const token = fileConfig.linkedinAccessToken || process.env.LINKEDIN_ACCESS_TOKEN || '';
-
   return {
-    linkedinClientId: process.env.LINKEDIN_CLIENT_ID || fileConfig.linkedinClientId || '78wufh5fqdx3t5',
-    linkedinClientSecret: process.env.LINKEDIN_CLIENT_SECRET || fileConfig.linkedinClientSecret || DEFAULT_CLIENT_SECRET,
-    linkedinAccessToken: token,
-    linkedinPersonUrn: process.env.LINKEDIN_PERSON_URN || fileConfig.linkedinPersonUrn || 'urn:li:person:800423380',
+    bufferApiKey: BUFFER_API_KEY,
+    bufferChannelId: BUFFER_CHANNEL_ID,
     autoPublishEnabled: fileConfig.autoPublishEnabled !== undefined ? fileConfig.autoPublishEnabled : true,
     blockedDates: Array.isArray(fileConfig.blockedDates) ? fileConfig.blockedDates : []
   };
@@ -90,58 +73,8 @@ function writeConfig(config) {
   }
 }
 
-// Fetch remote posts directly from LinkedIn API to detect occupied dates
-function fetchLinkedInRemotePosts(authorUrn, accessToken) {
-  return new Promise((resolve) => {
-    if (!accessToken || !authorUrn) return resolve([]);
-
-    let formattedAuthor = authorUrn.trim();
-    if (!formattedAuthor.startsWith('urn:li:')) {
-      formattedAuthor = `urn:li:person:${formattedAuthor}`;
-    }
-
-    const encodedAuthor = encodeURIComponent(formattedAuthor);
-    const options = {
-      hostname: 'api.linkedin.com',
-      port: 443,
-      path: `/rest/posts?q=author&author=${encodedAuthor}`,
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${accessToken}`,
-        'LinkedIn-Version': '202401',
-        'X-Restli-Protocol-Version': '2.0.0'
-      }
-    };
-
-    const req = https.request(options, (res) => {
-      let body = '';
-      res.on('data', (chunk) => { body += chunk; });
-      res.on('end', () => {
-        try {
-          if (res.statusCode >= 200 && res.statusCode < 300) {
-            const parsed = JSON.parse(body);
-            const elements = parsed.elements || [];
-            const dates = elements.map(el => {
-              const ts = el.createdAt || el.publishedAt;
-              return ts ? new Date(ts).toLocaleDateString('sv-SE') : null;
-            }).filter(Boolean);
-            resolve(dates);
-          } else {
-            resolve([]);
-          }
-        } catch (e) {
-          resolve([]);
-        }
-      });
-    });
-
-    req.on('error', () => resolve([]));
-    req.end();
-  });
-}
-
 // Algorithm to calculate the next available scheduling slot (Mon, Wed, Thu, Fri at 9:00 AM)
-async function getNextAvailableSlot(existingPosts, extraRemoteDates = []) {
+async function getNextAvailableSlot(existingPosts) {
   const config = readConfig();
   const allowedDays = [1, 3, 4, 5];
   const targetHour = 9;
@@ -155,8 +88,6 @@ async function getNextAvailableSlot(existingPosts, extraRemoteDates = []) {
         return dateObj.toLocaleDateString('sv-SE');
       })
   );
-
-  extraRemoteDates.forEach(d => scheduledDates.add(d));
 
   if (config.blockedDates && Array.isArray(config.blockedDates)) {
     config.blockedDates.forEach(d => scheduledDates.add(d.trim()));
@@ -192,134 +123,42 @@ async function getNextAvailableSlot(existingPosts, extraRemoteDates = []) {
   return fallback.toISOString();
 }
 
-// Universal LinkedIn API Publisher (Tries Microsoft ugcPosts Share first, then /rest/posts)
-function publishToLinkedInAPI(postText, authorUrn, accessToken) {
+// Seamless Buffer GraphQL API Publisher for LinkedIn
+function publishToLinkedInAPI(postText) {
   return new Promise((resolve, reject) => {
-    if (!accessToken || !authorUrn) {
-      return reject(new Error('Faltan credenciales de LinkedIn (Access Token o Person URN)'));
-    }
-
-    let formattedAuthor = authorUrn.trim();
-    if (!formattedAuthor.startsWith('urn:li:')) {
-      formattedAuthor = `urn:li:person:${formattedAuthor}`;
-    }
-
-    // Try Microsoft Share on LinkedIn UGC Post Endpoint (/v2/ugcPosts) first
-    publishToLinkedInUGC(postText, formattedAuthor, accessToken)
-      .then(resolve)
-      .catch((ugcErr) => {
-        console.log('UGC Endpoint fallback to /rest/posts:', ugcErr.message);
-        // Fallback: Modern LinkedIn Posts API (/rest/posts)
-        const postData = JSON.stringify({
-          author: formattedAuthor,
-          commentary: postText,
-          visibility: 'PUBLIC',
-          distribution: {
-            feedDistribution: 'MAIN_FEED'
-          }
-        });
-
-        const options = {
-          hostname: 'api.linkedin.com',
-          port: 443,
-          path: '/rest/posts',
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${accessToken}`,
-            'Content-Type': 'application/json',
-            'LinkedIn-Version': '202401',
-            'X-Restli-Protocol-Version': '2.0.0',
-            'Content-Length': Buffer.byteLength(postData)
-          }
-        };
-
-        const req = https.request(options, (res) => {
-          let responseBody = '';
-          res.on('data', (chunk) => { responseBody += chunk; });
-          res.on('end', () => {
-            if (res.statusCode >= 200 && res.statusCode < 300) {
-              resolve({ success: true, statusCode: res.statusCode, data: responseBody });
-            } else {
-              reject(new Error(`Error de API de LinkedIn (${res.statusCode}): ${responseBody}`));
+    const query = `
+      mutation CreatePost($input: CreatePostInput!) {
+        createPost(input: $input) {
+          __typename
+          ... on PostActionSuccess {
+            post {
+              id
+              status
             }
-          });
-        });
-
-        req.on('error', (e) => reject(e));
-        req.write(postData);
-        req.end();
-      });
-  });
-}
-
-// Microsoft Share on LinkedIn UGC Posts Endpoint (/v2/ugcPosts)
-function publishToLinkedInUGC(postText, authorUrn, accessToken) {
-  return new Promise((resolve, reject) => {
-    const ugcData = JSON.stringify({
-      author: authorUrn,
-      lifecycleState: 'PUBLISHED',
-      specificContent: {
-        'com.linkedin.ugc.ShareContent': {
-          shareCommentary: {
-            text: postText
-          },
-          shareMediaCategory: 'NONE'
+          }
         }
-      },
-      visibility: {
-        'com.linkedin.ugc.MemberNetworkVisibility': 'PUBLIC'
       }
-    });
+    `;
 
-    const options = {
-      hostname: 'api.linkedin.com',
-      port: 443,
-      path: '/v2/ugcPosts',
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${accessToken}`,
-        'Content-Type': 'application/json',
-        'X-Restli-Protocol-Version': '2.0.0',
-        'Content-Length': Buffer.byteLength(ugcData)
+    const variables = {
+      input: {
+        channelId: BUFFER_CHANNEL_ID,
+        text: postText,
+        mode: "shareNow",
+        schedulingType: "automatic"
       }
     };
 
-    const req = https.request(options, (res) => {
-      let responseBody = '';
-      res.on('data', (chunk) => { responseBody += chunk; });
-      res.on('end', () => {
-        if (res.statusCode >= 200 && res.statusCode < 300) {
-          resolve({ success: true, statusCode: res.statusCode, data: responseBody });
-        } else {
-          reject(new Error(`Error UGC (${res.statusCode}): ${responseBody}`));
-        }
-      });
-    });
-
-    req.on('error', reject);
-    req.write(ugcData);
-    req.end();
-  });
-}
-
-// Helper: HTTP POST Request for OAuth Token Exchange
-function exchangeOAuthCode(clientId, clientSecret, code, redirectUri) {
-  return new Promise((resolve, reject) => {
-    const postData = querystring.stringify({
-      grant_type: 'authorization_code',
-      code: code,
-      client_id: clientId,
-      client_secret: clientSecret,
-      redirect_uri: redirectUri
-    });
+    const postData = JSON.stringify({ query, variables });
 
     const options = {
-      hostname: 'www.linkedin.com',
+      hostname: 'api.buffer.com',
       port: 443,
-      path: '/oauth/v2/accessToken',
+      path: '/graphql',
       method: 'POST',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': `Bearer ${BUFFER_API_KEY}`,
+        'Content-Type': 'application/json',
         'Content-Length': Buffer.byteLength(postData)
       }
     };
@@ -330,13 +169,13 @@ function exchangeOAuthCode(clientId, clientSecret, code, redirectUri) {
       res.on('end', () => {
         try {
           const parsed = JSON.parse(body);
-          if (res.statusCode >= 200 && res.statusCode < 300 && parsed.access_token) {
-            resolve(parsed);
+          if (res.statusCode >= 200 && res.statusCode < 300 && parsed.data && parsed.data.createPost && parsed.data.createPost.post) {
+            resolve({ success: true, statusCode: res.statusCode, data: parsed.data.createPost.post });
           } else {
-            reject(new Error(parsed.error_description || `Error intercambiando código OAuth (Código ${res.statusCode})`));
+            reject(new Error(`Buffer API Error (${res.statusCode}): ${JSON.stringify(parsed.errors || body)}`));
           }
         } catch (e) {
-          reject(new Error('Respuesta inválida del servidor de OAuth de LinkedIn'));
+          reject(new Error(`Error de comunicación con Buffer API (${res.statusCode})`));
         }
       });
     });
@@ -347,44 +186,10 @@ function exchangeOAuthCode(clientId, clientSecret, code, redirectUri) {
   });
 }
 
-// Helper: Get LinkedIn User Profile via OpenID Connect (/v2/userinfo)
-function fetchLinkedInUserInfo(accessToken) {
-  return new Promise((resolve) => {
-    const options = {
-      hostname: 'api.linkedin.com',
-      port: 443,
-      path: '/v2/userinfo',
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${accessToken}`
-      }
-    };
-
-    const req = https.request(options, (res) => {
-      let body = '';
-      res.on('data', (chunk) => { body += chunk; });
-      res.on('end', () => {
-        try {
-          if (res.statusCode >= 200 && res.statusCode < 300) {
-            resolve(JSON.parse(body));
-          } else {
-            resolve(null);
-          }
-        } catch (e) {
-          resolve(null);
-        }
-      });
-    });
-
-    req.on('error', () => resolve(null));
-    req.end();
-  });
-}
-
 // Background Automatic Scheduler Task (runs 24/7 every 60 seconds)
 setInterval(async () => {
   const config = readConfig();
-  if (!config.autoPublishEnabled || !config.linkedinAccessToken) return;
+  if (!config.autoPublishEnabled) return;
 
   const posts = readDB();
   const now = new Date();
@@ -396,15 +201,15 @@ setInterval(async () => {
       const scheduledTime = new Date(p.scheduledDate);
       
       if (now >= scheduledTime) {
-        console.log(`⏰ [24/7 Cloud Engine] Publicando post ID: ${p.id} - "${p.title}"`);
+        console.log(`⏰ [24/7 Buffer Engine] Publicando post ID: ${p.id} - "${p.title}"`);
         try {
-          await publishToLinkedInAPI(p.text, config.linkedinPersonUrn, config.linkedinAccessToken);
+          await publishToLinkedInAPI(p.text);
           posts[i].status = 'published';
           posts[i].publishedAt = now.toISOString();
           updated = true;
-          console.log(`✅ [24/7 Cloud Engine] Post ID ${p.id} publicado exitosamente en LinkedIn!`);
+          console.log(`✅ [24/7 Buffer Engine] Post ID ${p.id} publicado exitosamente en LinkedIn vía Buffer!`);
         } catch (err) {
-          console.error(`❌ [24/7 Cloud Engine] Error al publicar post ID ${p.id}:`, err.message);
+          console.error(`❌ [24/7 Buffer Engine] Error al publicar post ID ${p.id}:`, err.message);
         }
       }
     }
@@ -417,131 +222,63 @@ setInterval(async () => {
 
 // API Routes
 
-// OAuth 2.0 Redirect Initiator (Reads hardcoded secrets automatically)
-app.get('/auth/linkedin', (req, res) => {
-  const config = readConfig();
-  const clientId = config.linkedinClientId;
-  const redirectUri = getRedirectURI(req);
-
-  const scope = encodeURIComponent('w_member_social openid profile email');
-  const authUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${scope}`;
-  
-  res.redirect(authUrl);
-});
-
-// OAuth 2.0 Callback Receiver
-app.get('/auth/linkedin/callback', async (req, res) => {
-  const { code, error, error_description } = req.query;
-
-  if (error) {
-    return res.redirect(`/?oauth_error=${encodeURIComponent(error_description || error)}`);
-  }
-
-  if (!code) {
-    return res.redirect('/?oauth_error=No%20se%20recibio%20codigo%20de%20autorizacion');
-  }
-
-  const config = readConfig();
-  const redirectUri = getRedirectURI(req);
-
-  try {
-    const tokenData = await exchangeOAuthCode(config.linkedinClientId, config.linkedinClientSecret, code, redirectUri);
-    config.linkedinAccessToken = tokenData.access_token;
-
-    const userInfo = await fetchLinkedInUserInfo(tokenData.access_token);
-    if (userInfo && userInfo.sub) {
-      config.linkedinPersonUrn = `urn:li:person:${userInfo.sub}`;
-    }
-
-    writeConfig(config);
-    res.redirect('/?linkedin_connected=true');
-  } catch (err) {
-    res.redirect(`/?oauth_error=${encodeURIComponent(err.message)}`);
-  }
-});
-
 // 1. Get all posts
 app.get('/api/posts', (req, res) => {
   const posts = readDB();
   res.json(posts);
 });
 
-// 2. Get LinkedIn Configuration
+// 2. Get Configuration
 app.get('/api/config', (req, res) => {
   const config = readConfig();
-  const redirectUri = getRedirectURI(req);
-
   res.json({
-    isConnected: !!config.linkedinAccessToken,
-    clientId: config.linkedinClientId || '',
-    personUrn: config.linkedinPersonUrn || '',
+    isConnected: true,
+    provider: 'Buffer (LinkedIn)',
     autoPublishEnabled: config.autoPublishEnabled,
-    blockedDates: config.blockedDates || [],
-    maskedToken: config.linkedinAccessToken ? `••••••••${config.linkedinAccessToken.slice(-6)}` : '',
-    redirectUri: redirectUri
+    blockedDates: config.blockedDates || []
   });
 });
 
-// 3. Save LinkedIn Configuration
+// 3. Save Configuration
 app.post('/api/config', (req, res) => {
   const currentConfig = readConfig();
   const newConfig = {
-    linkedinClientId: currentConfig.linkedinClientId,
-    linkedinClientSecret: currentConfig.linkedinClientSecret,
-    linkedinAccessToken: req.body.linkedinAccessToken !== undefined ? req.body.linkedinAccessToken.trim() : currentConfig.linkedinAccessToken,
-    linkedinPersonUrn: req.body.linkedinPersonUrn !== undefined ? req.body.linkedinPersonUrn.trim() : currentConfig.linkedinPersonUrn,
     autoPublishEnabled: req.body.autoPublishEnabled !== undefined ? req.body.autoPublishEnabled : currentConfig.autoPublishEnabled,
     blockedDates: req.body.blockedDates !== undefined ? req.body.blockedDates : currentConfig.blockedDates
   };
 
   if (writeConfig(newConfig)) {
-    res.json({ success: true, message: 'Configuración de LinkedIn guardada' });
+    res.json({ success: true, message: 'Configuración guardada' });
   } else {
     res.status(500).json({ error: 'No se pudo guardar la configuración' });
   }
 });
 
-// 4. Sync occupied dates with LinkedIn API
-app.get('/api/linkedin/sync', async (req, res) => {
-  const config = readConfig();
-  if (!config.linkedinAccessToken) {
-    return res.json({ synced: false, message: 'LinkedIn no está conectado' });
-  }
-
-  const remoteDates = await fetchLinkedInRemotePosts(config.linkedinPersonUrn, config.linkedinAccessToken);
-  res.json({ synced: true, blockedDatesCount: remoteDates.length, blockedDates: remoteDates });
-});
-
-// 5. Publish Post directly to LinkedIn API
+// 4. Publish Post directly via Buffer API to LinkedIn
 app.post('/api/posts/:id/publish-api', async (req, res) => {
   const posts = readDB();
-  const config = readConfig();
   const index = posts.findIndex(p => p.id === req.params.id);
 
   if (index === -1) {
     return res.status(404).json({ error: 'Publicación no encontrada' });
   }
 
-  if (!config.linkedinAccessToken) {
-    return res.status(400).json({ error: 'Debes conectar tu cuenta de LinkedIn primero en la sección de Configuración.' });
-  }
-
   const post = posts[index];
 
   try {
-    const result = await publishToLinkedInAPI(post.text, config.linkedinPersonUrn, config.linkedinAccessToken);
+    const result = await publishToLinkedInAPI(post.text);
     
     posts[index].status = 'published';
     posts[index].publishedAt = new Date().toISOString();
     writeDB(posts);
 
-    res.json({ success: true, message: 'Publicado exitosamente en tu perfil de LinkedIn!', result });
+    res.json({ success: true, message: 'Publicado exitosamente en tu perfil de LinkedIn vía Buffer!', result });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
-// 6. Add a new post manually
+// 5. Add a new post manually
 app.post('/api/posts', (req, res) => {
   const posts = readDB();
   const newPost = {
@@ -564,7 +301,7 @@ app.post('/api/posts', (req, res) => {
   }
 });
 
-// 7. Update an existing post
+// 6. Update an existing post
 app.put('/api/posts/:id', (req, res) => {
   const posts = readDB();
   const index = posts.findIndex(p => p.id === req.params.id);
@@ -591,7 +328,7 @@ app.put('/api/posts/:id', (req, res) => {
   }
 });
 
-// 8. Delete a post
+// 7. Delete a post
 app.delete('/api/posts/:id', (req, res) => {
   const posts = readDB();
   const filteredPosts = posts.filter(p => p.id !== req.params.id);
@@ -607,18 +344,16 @@ app.delete('/api/posts/:id', (req, res) => {
   }
 });
 
-// 9. Approve a draft
+// 8. Approve a draft
 app.post('/api/posts/:id/approve', async (req, res) => {
   const posts = readDB();
-  const config = readConfig();
   const index = posts.findIndex(p => p.id === req.params.id);
 
   if (index === -1) {
     return res.status(404).json({ error: 'Publicación no encontrada' });
   }
 
-  const remoteDates = await fetchLinkedInRemotePosts(config.linkedinPersonUrn, config.linkedinAccessToken);
-  const slot = await getNextAvailableSlot(posts, remoteDates);
+  const slot = await getNextAvailableSlot(posts);
 
   posts[index].status = 'scheduled';
   posts[index].scheduledDate = slot;
@@ -630,7 +365,7 @@ app.post('/api/posts/:id/approve', async (req, res) => {
   }
 });
 
-// 10. Mark a post as published manually
+// 9. Mark a post as published manually
 app.post('/api/posts/:id/publish', (req, res) => {
   const posts = readDB();
   const index = posts.findIndex(p => p.id === req.params.id);
@@ -651,7 +386,8 @@ app.post('/api/posts/:id/publish', (req, res) => {
 // Start Server
 app.listen(PORT, () => {
   console.log(`==================================================`);
-  console.log(`🚀 Servidor de LinkedIn corriendo en: http://localhost:${PORT}`);
+  console.log(`🚀 Servidor de LinkedIn (vía Buffer Engine) en: http://localhost:${PORT}`);
+  console.log(`🔑 Buffer Channel: ${BUFFER_CHANNEL_ID} (nicolaspeñadiaz)`);
   console.log(`📁 Base de datos local: ${DB_FILE}`);
   console.log(`==================================================`);
 });
