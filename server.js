@@ -67,7 +67,8 @@ function readConfig() {
     linkedinClientSecret: process.env.LINKEDIN_CLIENT_SECRET || fileConfig.linkedinClientSecret || '',
     linkedinAccessToken: process.env.LINKEDIN_ACCESS_TOKEN || fileConfig.linkedinAccessToken || '',
     linkedinPersonUrn: process.env.LINKEDIN_PERSON_URN || fileConfig.linkedinPersonUrn || '',
-    autoPublishEnabled: fileConfig.autoPublishEnabled !== undefined ? fileConfig.autoPublishEnabled : true
+    autoPublishEnabled: fileConfig.autoPublishEnabled !== undefined ? fileConfig.autoPublishEnabled : true,
+    blockedDates: Array.isArray(fileConfig.blockedDates) ? fileConfig.blockedDates : []
   };
 }
 
@@ -133,7 +134,9 @@ function fetchLinkedInRemotePosts(authorUrn, accessToken) {
 }
 
 // Algorithm to calculate the next available scheduling slot (Mon, Wed, Thu, Fri at 9:00 AM)
+// Blocks local posts, remote API posts, AND native LinkedIn web UI scheduled dates!
 async function getNextAvailableSlot(existingPosts, extraRemoteDates = []) {
+  const config = readConfig();
   const allowedDays = [1, 3, 4, 5]; // 1 = Mon, 3 = Wed, 4 = Thu, 5 = Fri
   const targetHour = 9;
   const targetMinute = 0;
@@ -147,7 +150,13 @@ async function getNextAvailableSlot(existingPosts, extraRemoteDates = []) {
       })
   );
 
+  // Block dates from remote LinkedIn API
   extraRemoteDates.forEach(d => scheduledDates.add(d));
+
+  // Block native LinkedIn UI scheduled dates configured in config.json
+  if (config.blockedDates && Array.isArray(config.blockedDates)) {
+    config.blockedDates.forEach(d => scheduledDates.add(d.trim()));
+  }
 
   let current = new Date();
   
@@ -421,6 +430,7 @@ app.get('/api/config', (req, res) => {
     clientSecret: config.linkedinClientSecret ? `••••••••${config.linkedinClientSecret.slice(-4)}` : '',
     personUrn: config.linkedinPersonUrn || '',
     autoPublishEnabled: config.autoPublishEnabled,
+    blockedDates: config.blockedDates || [],
     maskedToken: config.linkedinAccessToken ? `••••••••${config.linkedinAccessToken.slice(-6)}` : '',
     redirectUri: redirectUri
   });
@@ -434,7 +444,8 @@ app.post('/api/config', (req, res) => {
     linkedinClientSecret: req.body.linkedinClientSecret !== undefined ? req.body.linkedinClientSecret.trim() : currentConfig.linkedinClientSecret,
     linkedinAccessToken: req.body.linkedinAccessToken !== undefined ? req.body.linkedinAccessToken.trim() : currentConfig.linkedinAccessToken,
     linkedinPersonUrn: req.body.linkedinPersonUrn !== undefined ? req.body.linkedinPersonUrn.trim() : currentConfig.linkedinPersonUrn,
-    autoPublishEnabled: req.body.autoPublishEnabled !== undefined ? req.body.autoPublishEnabled : currentConfig.autoPublishEnabled
+    autoPublishEnabled: req.body.autoPublishEnabled !== undefined ? req.body.autoPublishEnabled : currentConfig.autoPublishEnabled,
+    blockedDates: req.body.blockedDates !== undefined ? req.body.blockedDates : currentConfig.blockedDates
   };
 
   if (writeConfig(newConfig)) {
