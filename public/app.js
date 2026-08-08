@@ -1,6 +1,6 @@
 // State Management
 let posts = [];
-let linkedinConfig = { isConnected: false, personUrn: '', autoPublishEnabled: true };
+let linkedinConfig = { isConnected: false, clientId: '', clientSecret: '', personUrn: '', autoPublishEnabled: true, redirectUri: '' };
 let activeTab = 'dashboard';
 let selectedPost = null;
 
@@ -17,10 +17,14 @@ const topbarConnectionText = document.getElementById('topbar-connection-text');
 const sidebarConnectionStatus = document.getElementById('sidebar-connection-status');
 
 // Settings Elements
+const settingsClientId = document.getElementById('settings-client-id');
+const settingsClientSecret = document.getElementById('settings-client-secret');
+const settingsRedirectUri = document.getElementById('settings-redirect-uri');
 const settingsToken = document.getElementById('settings-token');
 const settingsUrn = document.getElementById('settings-urn');
 const settingsAutopublish = document.getElementById('settings-autopublish');
 const btnSaveSettings = document.getElementById('btn-save-settings');
+const btnOauthLogin = document.getElementById('btn-oauth-login');
 
 // Modal Elements
 const modalPost = document.getElementById('modal-post');
@@ -50,7 +54,22 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchPosts();
     fetchConfig();
     setupEventListeners();
+    checkUrlQueryParams();
 });
+
+// Check URL query parameters for OAuth status redirects
+function checkUrlQueryParams() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('linkedin_connected')) {
+        showToast('🚀 ¡Conectado exitosamente con tu cuenta de LinkedIn!', 'success');
+        // Clean URL
+        window.history.replaceState({}, document.title, window.location.pathname);
+    } else if (urlParams.has('oauth_error')) {
+        const errorMsg = urlParams.get('oauth_error');
+        showToast(`Error de autenticación OAuth: ${errorMsg}`, 'danger');
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+}
 
 // Fetch all posts from API
 async function fetchPosts() {
@@ -92,6 +111,15 @@ function updateConnectionUI() {
         sidebarConnectionStatus.innerText = '🔴';
     }
 
+    if (settingsClientId && linkedinConfig.clientId) {
+        settingsClientId.value = linkedinConfig.clientId;
+    }
+    if (settingsClientSecret && linkedinConfig.clientSecret) {
+        settingsClientSecret.placeholder = `Secret guardado (${linkedinConfig.clientSecret})`;
+    }
+    if (settingsRedirectUri && linkedinConfig.redirectUri) {
+        settingsRedirectUri.value = linkedinConfig.redirectUri;
+    }
     if (settingsUrn) {
         settingsUrn.value = linkedinConfig.personUrn || '';
     }
@@ -163,6 +191,23 @@ function setupEventListeners() {
         btnSaveSettings.addEventListener('click', saveLinkedInSettings);
     }
 
+    // OAuth 2.0 Login button handler
+    if (btnOauthLogin) {
+        btnOauthLogin.addEventListener('click', () => {
+            const clientId = (settingsClientId ? settingsClientId.value.trim() : '') || linkedinConfig.clientId;
+            const clientSecret = (settingsClientSecret ? settingsClientSecret.value.trim() : '') || linkedinConfig.clientSecret;
+
+            if (!clientId) {
+                showToast('Por favor pega tu Client ID de LinkedIn primero', 'warning');
+                if (settingsClientId) settingsClientId.focus();
+                return;
+            }
+
+            // Redirect to backend OAuth login endpoint
+            window.location.href = `/auth/linkedin?client_id=${encodeURIComponent(clientId)}&client_secret=${encodeURIComponent(clientSecret)}`;
+        });
+    }
+
     // Global Search filter
     globalSearch.addEventListener('input', (e) => {
         const query = e.target.value.toLowerCase();
@@ -172,18 +217,20 @@ function setupEventListeners() {
 
 // Save LinkedIn Settings
 async function saveLinkedInSettings() {
-    const token = settingsToken.value.trim();
-    const urn = settingsUrn.value.trim();
-    const autopublish = settingsAutopublish.checked;
+    const clientId = settingsClientId ? settingsClientId.value.trim() : '';
+    const clientSecret = settingsClientSecret ? settingsClientSecret.value.trim() : '';
+    const token = settingsToken ? settingsToken.value.trim() : '';
+    const urn = settingsUrn ? settingsUrn.value.trim() : '';
+    const autopublish = settingsAutopublish ? settingsAutopublish.checked : true;
 
     const payload = {
         autoPublishEnabled: autopublish,
         linkedinPersonUrn: urn
     };
 
-    if (token) {
-        payload.linkedinAccessToken = token;
-    }
+    if (clientId) payload.linkedinClientId = clientId;
+    if (clientSecret) payload.linkedinClientSecret = clientSecret;
+    if (token) payload.linkedinAccessToken = token;
 
     try {
         const response = await fetch('/api/config', {
@@ -195,7 +242,7 @@ async function saveLinkedInSettings() {
         if (!response.ok) throw new Error('No se pudo guardar la configuración');
         
         showToast('Configuración de LinkedIn guardada correctamente', 'success');
-        settingsToken.value = '';
+        if (settingsToken) settingsToken.value = '';
         fetchConfig();
     } catch (error) {
         showToast(error.message, 'danger');
