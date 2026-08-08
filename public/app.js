@@ -417,11 +417,65 @@ function renderDraftsTab(draftPosts) {
     `).join('');
 }
 
-// 3. Calendar/Timeline Tab Render
-function renderCalendarTab(scheduledPosts) {
+// Helper to render individual timeline card
+function renderTimelineItem(post) {
+    const date = new Date(post.publishedAt || post.scheduledDate);
+    const day = date.getDate();
+    const month = date.toLocaleDateString('es-ES', { month: 'short' });
+    const time = date.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+    const weekday = date.toLocaleDateString('es-ES', { weekday: 'short' });
+
+    return `
+        <div class="timeline-item ${post.status === 'published' ? 'published' : ''}">
+            <div class="timeline-date-col">
+                <span class="timeline-date-day">${weekday} ${day}</span>
+                <span class="timeline-date-month">${month}</span>
+                <span class="timeline-date-time">${time}</span>
+            </div>
+            <div class="timeline-info-col">
+                <img src="${post.image || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800'}" alt="Thumb" class="timeline-post-thumb" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800'">
+                <div class="timeline-text-wrap">
+                    <span class="timeline-post-title">${post.title}</span>
+                    <div class="timeline-post-category">
+                        <span>${post.category}</span>
+                        <span class="status-indicator-pill ${post.status}">
+                            ${post.status === 'scheduled' ? 'Programado' : 'Publicado'}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-actions-col">
+                <button class="btn btn-secondary" onclick="openModal('${post.id}')">
+                    <i class="fa-solid fa-eye"></i> Ver / Editar
+                </button>
+                ${post.status === 'scheduled' ? `
+                    ${linkedinConfig.isConnected ? `
+                        <button class="btn btn-primary" onclick="publishDirectViaAPI('${post.id}')">
+                            <i class="fa-solid fa-bolt"></i> Publicar API
+                        </button>
+                    ` : ''}
+                    <button class="btn btn-success" onclick="triggerPublishFlow('${post.id}')">
+                        <i class="fa-solid fa-paper-plane"></i> Copiar
+                    </button>
+                ` : ''}
+            </div>
+        </div>
+    `;
+}
+
+// 3. Calendar/Timeline Tab Render (Divided into Scheduled vs Published sections)
+function renderCalendarTab(allNonDraftPosts) {
     const container = document.getElementById('calendar-container');
 
-    if (scheduledPosts.length === 0) {
+    const scheduled = allNonDraftPosts
+        .filter(p => p.status === 'scheduled')
+        .sort((a, b) => new Date(a.scheduledDate) - new Date(b.scheduledDate));
+
+    const published = allNonDraftPosts
+        .filter(p => p.status === 'published')
+        .sort((a, b) => new Date(b.publishedAt || b.scheduledDate) - new Date(a.publishedAt || a.scheduledDate));
+
+    if (scheduled.length === 0 && published.length === 0) {
         container.innerHTML = `
             <div class="empty-state">
                 <i class="fa-solid fa-calendar-days"></i>
@@ -432,57 +486,47 @@ function renderCalendarTab(scheduledPosts) {
         return;
     }
 
-    const sortedTimeline = [...scheduledPosts].sort((a, b) => {
-        if (a.status === b.status) {
-            return new Date(a.scheduledDate) - new Date(b.scheduledDate);
-        }
-        return a.status === 'scheduled' ? -1 : 1;
-    });
+    let html = '';
 
-    container.innerHTML = sortedTimeline.map(post => {
-        const date = new Date(post.scheduledDate);
-        const day = date.getDate();
-        const month = date.toLocaleDateString('es-ES', { month: 'short' });
-        const time = date.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
-        const weekday = date.toLocaleDateString('es-ES', { weekday: 'short' });
+    // SECTION 1: UPCOMING SCHEDULED POSTS
+    html += `
+        <div class="calendar-section-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0a66c2; display: flex; align-items: center; gap: 0.6rem;">
+                <i class="fa-solid fa-clock"></i> Próximas Publicaciones Programadas (${scheduled.length})
+            </h3>
+        </div>
+    `;
 
-        return `
-            <div class="timeline-item ${post.status === 'published' ? 'published' : ''}">
-                <div class="timeline-date-col">
-                    <span class="timeline-date-day">${weekday} ${day}</span>
-                    <span class="timeline-date-month">${month}</span>
-                    <span class="timeline-date-time">${time}</span>
-                </div>
-                <div class="timeline-info-col">
-                    <img src="${post.image || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800'}" alt="Thumb" class="timeline-post-thumb" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800'">
-                    <div class="timeline-text-wrap">
-                        <span class="timeline-post-title">${post.title}</span>
-                        <div class="timeline-post-category">
-                            <span>${post.category}</span>
-                            <span class="status-indicator-pill ${post.status}">
-                                ${post.status === 'scheduled' ? 'Programado' : 'Publicado'}
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-actions-col">
-                    <button class="btn btn-secondary" onclick="openModal('${post.id}')">
-                        <i class="fa-solid fa-eye"></i> Ver / Editar
-                    </button>
-                    ${post.status === 'scheduled' ? `
-                        ${linkedinConfig.isConnected ? `
-                            <button class="btn btn-primary" onclick="publishDirectViaAPI('${post.id}')">
-                                <i class="fa-solid fa-bolt"></i> Publicar API
-                            </button>
-                        ` : ''}
-                        <button class="btn btn-success" onclick="triggerPublishFlow('${post.id}')">
-                            <i class="fa-solid fa-paper-plane"></i> Copiar
-                        </button>
-                    ` : ''}
-                </div>
+    if (scheduled.length === 0) {
+        html += `
+            <div style="padding: 1.5rem; background: rgba(255, 255, 255, 0.02); border-radius: 12px; border: 1px dashed rgba(255, 255, 255, 0.1); margin-bottom: 2.5rem; text-align: center; color: var(--text-secondary);">
+                <p>No tienes publicaciones programadas pendientes por salir.</p>
             </div>
         `;
-    }).join('');
+    } else {
+        html += `<div class="timeline-group" style="margin-bottom: 2.5rem;">` + scheduled.map(renderTimelineItem).join('') + `</div>`;
+    }
+
+    // SECTION 2: PUBLISHED POSTS HISTORY
+    html += `
+        <div class="calendar-section-header" style="display: flex; align-items: center; justify-content: space-between; margin-top: 1rem; margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #10b981; display: flex; align-items: center; gap: 0.6rem;">
+                <i class="fa-solid fa-circle-check"></i> Historial de Publicaciones Realizadas (${published.length})
+            </h3>
+        </div>
+    `;
+
+    if (published.length === 0) {
+        html += `
+            <div style="padding: 1.5rem; background: rgba(255, 255, 255, 0.02); border-radius: 12px; border: 1px dashed rgba(255, 255, 255, 0.1); text-align: center; color: var(--text-secondary);">
+                <p>Aún no has realizado publicaciones anteriores.</p>
+            </div>
+        `;
+    } else {
+        html += `<div class="timeline-group">` + published.map(renderTimelineItem).join('') + `</div>`;
+    }
+
+    container.innerHTML = html;
 }
 
 // ----------------------------------------------------
