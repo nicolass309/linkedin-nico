@@ -123,8 +123,8 @@ async function getNextAvailableSlot(existingPosts) {
   return fallback.toISOString();
 }
 
-// Seamless Buffer GraphQL API Publisher for LinkedIn
-function publishToLinkedInAPI(postText) {
+// Seamless Buffer GraphQL API Publisher with Image Support for LinkedIn
+function publishToLinkedInAPI(postText, imageUrl) {
   return new Promise((resolve, reject) => {
     const query = `
       mutation CreatePost($input: CreatePostInput!) {
@@ -148,6 +148,16 @@ function publishToLinkedInAPI(postText) {
         schedulingType: "automatic"
       }
     };
+
+    if (imageUrl && imageUrl.trim()) {
+      variables.input.assets = [
+        {
+          image: {
+            url: imageUrl.trim()
+          }
+        }
+      ];
+    }
 
     const postData = JSON.stringify({ query, variables });
 
@@ -203,7 +213,7 @@ setInterval(async () => {
       if (now >= scheduledTime) {
         console.log(`⏰ [24/7 Buffer Engine] Publicando post ID: ${p.id} - "${p.title}"`);
         try {
-          await publishToLinkedInAPI(p.text);
+          await publishToLinkedInAPI(p.text, p.image);
           posts[i].status = 'published';
           posts[i].publishedAt = now.toISOString();
           updated = true;
@@ -266,13 +276,13 @@ app.post('/api/posts/:id/publish-api', async (req, res) => {
   const post = posts[index];
 
   try {
-    const result = await publishToLinkedInAPI(post.text);
+    const result = await publishToLinkedInAPI(post.text, post.image);
     
     posts[index].status = 'published';
     posts[index].publishedAt = new Date().toISOString();
     writeDB(posts);
 
-    res.json({ success: true, message: 'Publicado exitosamente en tu perfil de LinkedIn vía Buffer!', result });
+    res.json({ success: true, message: 'Publicado exitosamente en tu perfil de LinkedIn vía Buffer con imagen!', result });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
