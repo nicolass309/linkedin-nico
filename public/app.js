@@ -62,11 +62,9 @@ function checkUrlQueryParams() {
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('linkedin_connected')) {
         showToast('🚀 ¡Conectado exitosamente con tu cuenta de LinkedIn!', 'success');
-        // Clean URL
         window.history.replaceState({}, document.title, window.location.pathname);
     } else if (urlParams.has('oauth_error')) {
-        const errorMsg = urlParams.get('oauth_error');
-        showToast(`Error de autenticación OAuth: ${errorMsg}`, 'danger');
+        showToast('💡 Copia tu Client ID y Client Secret de la pestaña Auth en LinkedIn Developers', 'warning');
         window.history.replaceState({}, document.title, window.location.pathname);
     }
 }
