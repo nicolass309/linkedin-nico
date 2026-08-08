@@ -73,12 +73,13 @@ function writeConfig(config) {
   }
 }
 
-// Algorithm to calculate the next available scheduling slot (Mon, Wed, Thu, Fri at 9:00 AM)
+// Algorithm to calculate the next available scheduling slot (Mon, Wed, Thu, Fri at 9:00 AM Chile Time / 13:00 UTC)
 async function getNextAvailableSlot(existingPosts) {
   const config = readConfig();
   const allowedDays = [1, 3, 4, 5];
-  const targetHour = 9;
-  const targetMinute = 0;
+  // 9:00 AM Chile Time (CLT / UTC-4) corresponds to 13:00 UTC
+  const targetHourUTC = 13;
+  const targetMinuteUTC = 0;
 
   const scheduledDates = new Set(
     existingPosts
@@ -96,30 +97,30 @@ async function getNextAvailableSlot(existingPosts) {
   let current = new Date();
   
   for (let i = 0; i < 100; i++) {
-    const dayOfWeek = current.getDay();
+    const dayOfWeek = current.getUTCDay();
     
     if (allowedDays.includes(dayOfWeek)) {
       const isToday = i === 0;
-      const hours = current.getHours();
+      const hours = current.getUTCHours();
       const candidateDateStr = current.toLocaleDateString('sv-SE');
 
-      if (isToday && hours >= targetHour) {
-        current.setDate(current.getDate() + 1);
+      if (isToday && hours >= targetHourUTC) {
+        current.setUTCDate(current.getUTCDate() + 1);
         continue;
       }
 
       if (!scheduledDates.has(candidateDateStr)) {
         const slot = new Date(current);
-        slot.setHours(targetHour, targetMinute, 0, 0);
+        slot.setUTCHours(targetHourUTC, targetMinuteUTC, 0, 0);
         return slot.toISOString();
       }
     }
-    current.setDate(current.getDate() + 1);
+    current.setUTCDate(current.getUTCDate() + 1);
   }
   
   const fallback = new Date();
-  fallback.setDate(fallback.getDate() + 1);
-  fallback.setHours(targetHour, targetMinute, 0, 0);
+  fallback.setUTCDate(fallback.getUTCDate() + 1);
+  fallback.setUTCHours(targetHourUTC, targetMinuteUTC, 0, 0);
   return fallback.toISOString();
 }
 
@@ -398,6 +399,7 @@ app.listen(PORT, () => {
   console.log(`==================================================`);
   console.log(`🚀 Servidor de LinkedIn (vía Buffer Engine) en: http://localhost:${PORT}`);
   console.log(`🔑 Buffer Channel: ${BUFFER_CHANNEL_ID} (nicolaspeñadiaz)`);
+  console.log(`📁 Zona Horaria: 9:00 AM Chile (13:00 UTC)`);
   console.log(`📁 Base de datos local: ${DB_FILE}`);
   console.log(`==================================================`);
 });
