@@ -108,5 +108,38 @@
     "author": "Inspirado en Ilya Strebulaev",
     "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
     "category": "Productividad & Gestión"
+  },
+  {
+    "id": "13",
+    "status": "draft",
+    "title": "La regla de los 5 minutos para evaluar cualquier proyecto de software",
+    "text": "Cuando un proyecto se retrasa semanas o meses, casi nunca es por falta de horas de trabajo.\n\nEs por falta de claridad en los primeros 5 minutos de definición.\n\nAntes de empezar a construir cualquier solución técnica, aplico este filtro rápido de 3 preguntas:\n\n1. ¿Quién va a usar esto diariamente y qué tarea le ahorra? Si la respuesta es vaga o abstracta, la funcionalidad probablemente terminará archivada.\n\n2. ¿Cuál es el formato exacto del resultado final? (¿Un reporte en PDF, una alerta por mensaje, una tabla en pantalla?). Definir el resultado primero ahorra el 50% de las reuniones.\n\n3. ¿Qué pasa si el sistema falla? Si la falla no bloquea la operación principal, no pierdas días creando arquitecturas ultrasofisticadas para casos raros.\n\nConstruir rápido es valioso, pero construir lo correcto a la primera es lo que realmente marca la diferencia.\n\n¿Tienes algún filtro rápido antes de arrancar un nuevo proyecto?",
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800",
+    "scheduledDate": null,
+    "author": "Productividad & Criterio Tech",
+    "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
+    "category": "Gestión & Desarrollo"
+  },
+  {
+    "id": "14",
+    "status": "draft",
+    "title": "Por qué el código más limpio suele ser el que no escribes",
+    "text": "Hay una gran diferencia entre un desarrollador junior y uno experimentado:\n\nEl junior busca resolver un problema escribiendo 300 líneas de código nuevo.\nEl experimentado busca resolver el mismo problema eliminando 100 líneas existentes o reutilizando componentes probados.\n\nCada línea de código que agregas a un proyecto es una responsabilidad más que mantener, probar y corregir a futuro.\n\nPara mantener bases de código ágiles y fáciles de escalar, considera estas 3 reglas de oro:\n\n1. Reutiliza antes de reinventar: Si una librería madura o una API ya resuelve el problema de forma segura, no gastes semanas rehaciéndola desde cero.\n\n2. Di 'no' a las funcionalidades 'por si acaso': Construye solo lo que el usuario necesita hoy. La flexibilidad prematura casi siempre se convierte en deuda técnica.\n\n3. Simplifica las dependencias: Menos módulos conectados significan menos puntos de falla cuando se actualizan los sistemas.\n\nEl mejor código es aquel que es tan simple que no deja espacio para errores ocultos.\n\n¿Qué parte de tu código has simplificado recientemente con excelentes resultados?",
+    "image": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=800",
+    "scheduledDate": null,
+    "author": "Inspirado en Creadores de Ingeniería",
+    "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
+    "category": "Arquitectura & Buenas Prácticas"
+  },
+  {
+    "id": "15",
+    "status": "draft",
+    "title": "El hábito diario que diferencia a los profesionales de tecnología que escalan rápido",
+    "text": "En el mundo de la tecnología, la brecha entre quienes se quedan estancados y quienes avanzan rápido rara vez tiene que ver con el talento innato.\n\nTiene que ver con la forma en que documentan y comparten lo que aprenden.\n\nDedicar 10 minutos al final de cada día a registrar aprendizajes clave cambia por completo tu trayectoria:\n\n1. Documenta las soluciones a los errores difíciles: Si te tomó 2 horas resolver un fallo complejo hoy, escríbelo. La próxima vez que ocurra, lo resolverás en 2 minutos.\n\n2. Sintetiza conceptos complejos en palabras simples: Si puedes explicárselo a un compañero sin usar jerga confusa, significa que realmente lo dominas.\n\n3. Construye tu propia biblioteca de recursos: Guardar fragmentos de código, plantillas y flujos probados te convierte en un profesional increíblemente eficiente.\n\nLa memoria humana falla; un sistema de notas bien estructurado se convierte en tu mayor activo profesional.\n\n¿Guardas un registro diario de lo que aprendes o confías en la memoria?",
+    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800",
+    "scheduledDate": null,
+    "author": "Crecimiento Profesional",
+    "originalUrl": "https://www.linkedin.com/in/stasbel/",
+    "category": "Carrera Tech & Crecimiento"
   }
 ]
