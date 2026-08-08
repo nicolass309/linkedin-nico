@@ -73,10 +73,10 @@ function writeConfig(config) {
   }
 }
 
-// Algorithm to calculate the next available scheduling slot (Mon, Wed, Thu, Fri at 9:00 AM Chile Time / 13:00 UTC)
+// Algorithm to calculate the next available scheduling slot (Mon, Tue, Wed, Thu, Fri at 9:00 AM Chile Time / 13:00 UTC)
 async function getNextAvailableSlot(existingPosts) {
   const config = readConfig();
-  const allowedDays = [1, 3, 4, 5];
+  const allowedDays = [1, 2, 3, 4, 5]; // Mon, Tue, Wed, Thu, Fri
   // 9:00 AM Chile Time (CLT / UTC-4) corresponds to 13:00 UTC
   const targetHourUTC = 13;
   const targetMinuteUTC = 0;
@@ -400,6 +400,7 @@ app.listen(PORT, () => {
   console.log(`🚀 Servidor de LinkedIn (vía Buffer Engine) en: http://localhost:${PORT}`);
   console.log(`🔑 Buffer Channel: ${BUFFER_CHANNEL_ID} (nicolaspeñadiaz)`);
   console.log(`📁 Zona Horaria: 9:00 AM Chile (13:00 UTC)`);
+  console.log(`📅 Días de Publicación: Lunes a Viernes (1, 2, 3, 4, 5)`);
   console.log(`📁 Base de datos local: ${DB_FILE}`);
   console.log(`==================================================`);
 });
