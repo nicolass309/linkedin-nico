@@ -108,7 +108,7 @@ function fetchLinkedInRemotePosts(authorUrn, accessToken) {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${accessToken}`,
-        'LinkedIn-Version': '202405',
+        'LinkedIn-Version': '202401',
         'X-Restli-Protocol-Version': '2.0.0'
       }
     };
@@ -227,7 +227,7 @@ function publishToLinkedInAPI(postText, authorUrn, accessToken) {
           headers: {
             'Authorization': `Bearer ${accessToken}`,
             'Content-Type': 'application/json',
-            'LinkedIn-Version': '202405',
+            'LinkedIn-Version': '202401',
             'X-Restli-Protocol-Version': '2.0.0',
             'Content-Length': Buffer.byteLength(postData)
           }
