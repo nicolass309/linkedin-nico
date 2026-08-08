@@ -64,7 +64,7 @@ function checkUrlQueryParams() {
         showToast('🚀 ¡Conectado exitosamente con tu cuenta de LinkedIn!', 'success');
         window.history.replaceState({}, document.title, window.location.pathname);
     } else if (urlParams.has('oauth_error')) {
-        showToast('💡 Copia tu Client ID y Client Secret de la pestaña Auth en LinkedIn Developers', 'warning');
+        showToast('💡 Ve a Conexión LinkedIn y haz clic en "Conectar con LinkedIn (1 Clic)"', 'warning');
         window.history.replaceState({}, document.title, window.location.pathname);
     }
 }
