@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nicoinnova | LinkedIn Scheduler Dashboard</title>
+    <meta name="description" content="Dashboard de gestión y programación autónoma de contenidos para LinkedIn.">
+    <!-- Google Fonts: Outfit & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo">
+                    <i class="fa-brands fa-linkedin-in logo-icon"></i>
+                </div>
+                <h2>nico<span>innova</span></h2>
+            </div>
+            
+            <nav class="nav-menu">
+                <button class="nav-item active" data-tab="dashboard">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Resumen</span>
+                </button>
+                <button class="nav-item" data-tab="drafts">
+                    <i class="fa-solid fa-file-pen"></i>
+                    <span>Borradores</span>
+                    <span class="badge" id="drafts-count">0</span>
+                </button>
+                <button class="nav-item" data-tab="calendar">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span>Calendario</span>
+                    <span class="badge badge-accent" id="scheduled-count">0</span>
+                </button>
+                <button class="nav-item" data-tab="settings">
+                    <i class="fa-solid fa-plug"></i>
+                    <span>Conexión LinkedIn</span>
+                    <span class="badge-status" id="sidebar-connection-status">🔴</span>
+                </button>
+                <button class="nav-item" data-tab="instructions">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span>Cómo Generar</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="avatar-container">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150" alt="Foto de perfil" class="user-avatar">
+                        <div class="status-indicator online"></div>
+                    </div>
+                    <div class="user-info">
+                        <h4>nicoinnova</h4>
+                        <p>Creador & Automatizador</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header Bar -->
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Buscar publicaciones..." id="global-search">
+                </div>
+                <div class="action-buttons">
+                    <div class="connection-pill disconnected" id="topbar-connection-pill">
+                        <i class="fa-solid fa-circle-dot"></i> <span id="topbar-connection-text">LinkedIn Sin Conectar</span>
+                    </div>
+                    <button class="btn btn-secondary" id="btn-refresh">
+                        <i class="fa-solid fa-rotate"></i> Actualizar
+                    </button>
+                    <button class="btn btn-primary" id="btn-new-post">
+                        <i class="fa-solid fa-plus"></i> Crear Post
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Content Screens -->
+            <div class="content-wrapper">
+                <!-- RESUMEN TAB -->
+                <section class="tab-content active" id="tab-dashboard">
+                    <div class="welcome-banner">
+                        <div class="banner-text">
+                            <h1>¡Hola, Nico! 👋</h1>
+                            <p>Tu calendario está listo. Las publicaciones se programan automáticamente los <strong>Lunes, Miércoles, Jueves y Viernes a las 9:00 AM</strong>.</p>
+                        </div>
+                        <div class="banner-stats">
+                            <div class="stat-mini">
+                                <span class="stat-value" id="stat-published">0</span>
+                                <span class="stat-label">Publicados</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon icon-blue">
+                                <i class="fa-solid fa-file-invoice"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3 id="stat-drafts">0</h3>
+                                <p>Borradores esperando revisión</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon icon-purple">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3 id="stat-scheduled">0</h3>
+                                <p>Programados en calendario</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon icon-green">
+                                <i class="fa-solid fa-calendar-check"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3 id="stat-days-covered">0</h3>
+                                <p>Días próximos cubiertos</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-split">
+                        <!-- Next scheduled post card -->
+                        <div class="split-card next-post-preview">
+                            <div class="card-header">
+                                <h2><i class="fa-solid fa-rocket header-icon"></i> Próxima Publicación</h2>
+                                <span class="badge badge-accent" id="next-post-date">Sin programar</span>
+                            </div>
+                            <div class="card-body" id="next-post-container">
+                                <div class="empty-state">
+                                    <i class="fa-solid fa-calendar-minus"></i>
+                                    <p>No hay publicaciones programadas. ¡Prueba a aprobar un borrador!</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Calendar Summary Matrix -->
+                        <div class="split-card week-matrix">
+                            <div class="card-header">
+                                <h2><i class="fa-solid fa-calendar-week header-icon"></i> Slot de Publicaciones (9:00 AM)</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="week-days-grid">
+                                    <div class="day-slot-card" data-day="1">
+                                        <div class="day-name">Lunes</div>
+                                        <div class="day-status" id="slot-mon">Libre</div>
+                                    </div>
+                                    <div class="day-slot-card" data-day="2" data-disabled="true">
+                                        <div class="day-name">Martes</div>
+                                        <div class="day-status disabled">Sin Post</div>
+                                    </div>
+                                    <div class="day-slot-card" data-day="3">
+                                        <div class="day-name">Miércoles</div>
+                                        <div class="day-status" id="slot-wed">Libre</div>
+                                    </div>
+                                    <div class="day-slot-card" data-day="4">
+                                        <div class="day-name">Jueves</div>
+                                        <div class="day-status" id="slot-thu">Libre</div>
+                                    </div>
+                                    <div class="day-slot-card" data-day="5">
+                                        <div class="day-name">Viernes</div>
+                                        <div class="day-status" id="slot-fri">Libre</div>
+                                    </div>
+                                    <div class="day-slot-card" data-day="6" data-disabled="true">
+                                        <div class="day-name">Sábado</div>
+                                        <div class="day-status disabled">Sin Post</div>
+                                    </div>
+                                    <div class="day-slot-card" data-day="0" data-disabled="true">
+                                        <div class="day-name">Domingo</div>
+                                        <div class="day-status disabled">Sin Post</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- BORRADORES TAB -->
+                <section class="tab-content" id="tab-drafts">
+                    <div class="section-title-bar">
+                        <div>
+                            <h1>Bandeja de Borradores</h1>
+                            <p>Posts creados por Antigravity. Revísalos, edítalos y apruébalos para programarlos.</p>
+                        </div>
+                    </div>
+                    <div class="drafts-grid" id="drafts-container">
+                        <!-- Draft Cards injected dynamically -->
+                    </div>
+                </section>
+
+                <!-- CALENDARIO TAB -->
+                <section class="tab-content" id="tab-calendar">
+                    <div class="section-title-bar">
+                        <div>
+                            <h1>Cola de Publicación</h1>
+                            <p>Contenido programado cronológicamente. Las publicaciones saldrán a las 9:00 AM los días señalados.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-container" id="calendar-container">
+                        <!-- Scheduled posts timeline injected dynamically -->
+                    </div>
+                </section>
+
+                <!-- CONEXIÓN LINKEDIN TAB -->
+                <section class="tab-content" id="tab-settings">
+                    <div class="section-title-bar">
+                        <h1>Conexión e Integración con LinkedIn API (OAuth 2.0)</h1>
+                        <p>Conecta tu cuenta de LinkedIn con un solo clic mediante OAuth 2.0 o ingresa las credenciales de tu aplicación de desarrollador.</p>
+                    </div>
+
+                    <div class="instructions-card" style="margin-bottom: 2rem;">
+                        <h2 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--color-primary);"><i class="fa-solid fa-key"></i> Autenticación Rápida (OAuth 2.0)</h2>
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Copia el <strong>Client ID</strong> y <strong>Client Secret</strong> de la pestaña <strong>Auth</strong> de tu app en LinkedIn Developers:</p>
+                        
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <label for="settings-client-id">Client ID</label>
+                                <input type="text" id="settings-client-id" class="form-control" placeholder="Pega tu Client ID aquí">
+                            </div>
+                            <div class="form-group col">
+                                <label for="settings-client-secret">Client Secret</label>
+                                <input type="password" id="settings-client-secret" class="form-control" placeholder="Pega tu Client Secret aquí">
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="background: rgba(10, 102, 194, 0.1); border: 1px solid rgba(10, 102, 194, 0.3); padding: 1rem; border-radius: 12px; margin-bottom: 1.5rem;">
+                            <label style="color: #93c5fd; font-size: 0.9rem; font-weight: 700; margin-bottom: 5px;">⚠️ URL de Redirección Autorizada (Pégala en LinkedIn Developers -> Auth):</label>
+                            <div style="display: flex; gap: 10px; align-items: center;">
+                                <input type="text" id="settings-redirect-uri" class="form-control" value="http://localhost:3000/auth/linkedin/callback" readonly style="background: rgba(0,0,0,0.4); font-family: monospace;">
+                                <button class="btn btn-secondary" onclick="navigator.clipboard.writeText('http://localhost:3000/auth/linkedin/callback'); showToast('URL copiada al portapapeles', 'success');">
+                                    <i class="fa-solid fa-copy"></i> Copiar
+                                </button>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                            <button class="btn btn-primary" id="btn-oauth-login" style="padding: 0.8rem 1.8rem; font-size: 1.05rem;">
+                                <i class="fa-brands fa-linkedin"></i> Iniciar Sesión con LinkedIn (OAuth 2.0)
+                            </button>
+                            <button class="btn btn-secondary" id="btn-save-settings">
+                                <i class="fa-solid fa-floppy-disk"></i> Guardar Credenciales
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="instructions-card">
+                        <h2 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-secondary);"><i class="fa-solid fa-sliders"></i> Opciones Avanzadas (Token & Person URN Manual)</h2>
+                        <div class="form-group">
+                            <label for="settings-token">Access Token de LinkedIn (Manual)</label>
+                            <input type="password" id="settings-token" class="form-control" placeholder="Pega tu token de acceso (ej: AQ...)">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="settings-urn">Person URN o ID de Perfil</label>
+                            <input type="text" id="settings-urn" class="form-control" placeholder="Ejemplo: urn:li:person:abcdefg123 o tu ID personal">
+                        </div>
+
+                        <div class="form-group" style="display: flex; align-items: center; gap: 10px; margin-top: 15px;">
+                            <input type="checkbox" id="settings-autopublish" checked style="width: 18px; height: 18px; cursor: pointer;">
+                            <label for="settings-autopublish" style="margin: 0; cursor: pointer;">Activar publicación automática cuando llegue la fecha y hora programada</label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- INSTRUCCIONES TAB -->
+                <section class="tab-content" id="tab-instructions">
+                    <div class="section-title-bar">
+                        <h1>¿Cómo generar nuevos borradores con Antigravity?</h1>
+                        <p>Sigue estas instrucciones sencillas para alimentar la cola de publicaciones de forma continua.</p>
+                    </div>
+                    <div class="instructions-card">
+                        <div class="instructions-step">
+                            <div class="step-num">1</div>
+                            <div class="step-desc">
+                                <h3>Pídemelo en el chat</h3>
+                                <p>Escríbeme en nuestra ventana de chat solicitando nuevos posts. Por ejemplo: <i>"Hola Antigravity, por favor busca nuevas publicaciones virales de los perfiles que seguimos y redacta 3 borradores para LinkedIn"</i>.</p>
+                            </div>
+                        </div>
+                        <div class="instructions-step">
+                            <div class="step-num">2</div>
+                            <div class="step-desc">
+                                <h3>Mi Proceso de Curación</h3>
+                                <p>Yo haré la búsqueda en la web de noticias tecnológicas recientes, tendencias virales en Reddit/X o posts de los creadores (Yaroslav Rebryk, Stas Bel, Roy Lee, Ilya Strebulaev y Nico Manzaneque). Filtraré cualquier mención publicitaria corporativa y redactaré el borrador en español natural.</p>
+                            </div>
+                        </div>
+                        <div class="instructions-step">
+                            <div class="step-num">3</div>
+                            <div class="step-desc">
+                                <h3>Inyección Automática</h3>
+                                <p>Escribiré los borradores generados directamente en el archivo <code>posts.json</code> de tu proyecto. Cuando vuelvas a cargar o refresques el Dashboard, aparecerán en la pestaña <strong>Borradores</strong> listos para ti.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- MODAL EDITOR Y PREVIEW DE LINKEDIN -->
+    <div class="modal-backdrop" id="modal-post">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="modal-title-text">Editar Publicación</h3>
+                <button class="btn-close-modal" id="btn-close-modal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body-split">
+                <!-- Editor Side -->
+                <div class="editor-side">
+                    <div class="form-group">
+                        <label for="edit-title">Título Interno</label>
+                        <input type="text" id="edit-title" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-text">Cuerpo del Post</label>
+                        <textarea id="edit-text" class="form-control text-editor" rows="12"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="edit-category">Categoría</label>
+                            <input type="text" id="edit-category" class="form-control">
+                        </div>
+                        <div class="form-group col">
+                            <label for="edit-image">URL de Imagen</label>
+                            <input type="text" id="edit-image" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group" id="scheduled-date-group">
+                        <label for="edit-date">Fecha de Programación (Manual)</label>
+                        <input type="datetime-local" id="edit-date" class="form-control">
+                    </div>
+                </div>
+
+                <!-- Live LinkedIn Mockup Preview Side -->
+                <div class="preview-side">
+                    <h3>Vista Previa en LinkedIn</h3>
+                    <div class="linkedin-mockup">
+                        <div class="mockup-header">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150" alt="Avatar" class="mockup-avatar">
+                            <div class="mockup-user-info">
+                                <span class="mockup-name">nicoinnova <span class="badge-connect">• 1er</span></span>
+                                <span class="mockup-headline">Automatización B2B | Sistemas de Inteligencia Artificial</span>
+                                <span class="mockup-time">Ahora • <i class="fa-solid fa-earth-americas"></i></span>
+                            </div>
+                            <button class="mockup-dots"><i class="fa-solid fa-ellipsis"></i></button>
+                        </div>
+                        <div class="mockup-body">
+                            <p class="mockup-text" id="mockup-post-text">Contenido del post...</p>
+                            <span class="mockup-see-more" id="mockup-see-more">...ver más</span>
+                        </div>
+                        <div class="mockup-media" id="mockup-media-container">
+                            <img src="" alt="Previsualización de Portada" id="mockup-image" class="mockup-post-image">
+                        </div>
+                        <div class="mockup-reactions">
+                            <div class="reaction-icons">
+                                <span class="reaction-icon like"><i class="fa-solid fa-thumbs-up"></i></span>
+                                <span class="reaction-icon celebrate"><i class="fa-solid fa-hands-clapping"></i></span>
+                                <span class="reaction-icon support"><i class="fa-solid fa-heart"></i></span>
+                                <span class="reaction-count">142 • 12 comentarios</span>
+                            </div>
+                        </div>
+                        <div class="mockup-actions">
+                            <button class="mockup-action-btn"><i class="fa-regular fa-thumbs-up"></i> Recomendar</button>
+                            <button class="mockup-action-btn"><i class="fa-regular fa-comment-dots"></i> Comentar</button>
+                            <button class="mockup-action-btn"><i class="fa-solid fa-repeat"></i> Compartir</button>
+                            <button class="mockup-action-btn"><i class="fa-regular fa-paper-plane"></i> Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="left-actions">
+                    <button class="btn btn-danger" id="btn-delete-post"><i class="fa-solid fa-trash"></i> Eliminar</button>
+                </div>
+                <div class="right-actions">
+                    <button class="btn btn-secondary" id="btn-save-draft">Guardar Borrador</button>
+                    <button class="btn btn-accent" id="btn-approve-post"><i class="fa-solid fa-circle-check"></i> Aprobar y Programar</button>
+                    <button class="btn btn-primary hidden" id="btn-publish-api"><i class="fa-solid fa-bolt"></i> Publicar Directo con API</button>
+                    <button class="btn btn-success hidden" id="btn-publish-helper"><i class="fa-solid fa-paper-plane"></i> Asistente de Copiado</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOTIFICATION SYSTEM -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Client Application Logic -->
+    <script src="app.js"></script>
+</body>
+</html>
