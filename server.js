@@ -9,11 +9,21 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const DB_FILE = path.join(__dirname, 'posts.json');
 const CONFIG_FILE = path.join(__dirname, 'config.json');
-const REDIRECT_URI = process.env.REDIRECT_URI || `http://localhost:${PORT}/auth/linkedin/callback`;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Helper to determine active Redirect URI dynamically (Local vs Cloud)
+function getRedirectURI(req) {
+  if (process.env.REDIRECT_URI) return process.env.REDIRECT_URI;
+  if (req) {
+    const protocol = req.headers['x-forwarded-proto'] || req.protocol || 'http';
+    const host = req.headers.host;
+    return `${protocol}://${host}/auth/linkedin/callback`;
+  }
+  return `http://localhost:${PORT}/auth/linkedin/callback`;
+}
 
 // Helper to read database
 function readDB() {
@@ -227,14 +237,14 @@ function publishToLinkedInAPI(postText, authorUrn, accessToken) {
 }
 
 // Helper: HTTP POST Request for OAuth Token Exchange
-function exchangeOAuthCode(clientId, clientSecret, code) {
+function exchangeOAuthCode(clientId, clientSecret, code, redirectUri) {
   return new Promise((resolve, reject) => {
     const postData = querystring.stringify({
       grant_type: 'authorization_code',
       code: code,
       client_id: clientId,
       client_secret: clientSecret,
-      redirect_uri: REDIRECT_URI
+      redirect_uri: redirectUri
     });
 
     const options = {
@@ -356,8 +366,9 @@ app.get('/auth/linkedin', (req, res) => {
     writeConfig(config);
   }
 
+  const redirectUri = getRedirectURI(req);
   const scope = encodeURIComponent('w_member_social openid profile email');
-  const authUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${clientId}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=${scope}`;
+  const authUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${scope}`;
   
   res.redirect(authUrl);
 });
@@ -375,9 +386,10 @@ app.get('/auth/linkedin/callback', async (req, res) => {
   }
 
   const config = readConfig();
+  const redirectUri = getRedirectURI(req);
 
   try {
-    const tokenData = await exchangeOAuthCode(config.linkedinClientId, config.linkedinClientSecret, code);
+    const tokenData = await exchangeOAuthCode(config.linkedinClientId, config.linkedinClientSecret, code, redirectUri);
     config.linkedinAccessToken = tokenData.access_token;
 
     const userInfo = await fetchLinkedInUserInfo(tokenData.access_token);
@@ -401,6 +413,8 @@ app.get('/api/posts', (req, res) => {
 // 2. Get LinkedIn Configuration
 app.get('/api/config', (req, res) => {
   const config = readConfig();
+  const redirectUri = getRedirectURI(req);
+
   res.json({
     isConnected: !!config.linkedinAccessToken,
     clientId: config.linkedinClientId || '',
@@ -408,7 +422,7 @@ app.get('/api/config', (req, res) => {
     personUrn: config.linkedinPersonUrn || '',
     autoPublishEnabled: config.autoPublishEnabled,
     maskedToken: config.linkedinAccessToken ? `••••••••${config.linkedinAccessToken.slice(-6)}` : '',
-    redirectUri: REDIRECT_URI
+    redirectUri: redirectUri
   });
 });
 
@@ -581,7 +595,6 @@ app.post('/api/posts/:id/publish', (req, res) => {
 app.listen(PORT, () => {
   console.log(`==================================================`);
   console.log(`🚀 Servidor de LinkedIn corriendo en: http://localhost:${PORT}`);
-  console.log(`🔑 OAuth Redirect URI: ${REDIRECT_URI}`);
   console.log(`📁 Base de datos local: ${DB_FILE}`);
   console.log(`==================================================`);
 });
