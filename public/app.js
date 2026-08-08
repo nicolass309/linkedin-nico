@@ -95,34 +95,21 @@ async function fetchConfig() {
 
 // Update LinkedIn Connection Status UI
 function updateConnectionUI() {
+    const oauthStatusIcon = document.getElementById('oauth-status-icon');
+    const oauthStatusLabel = document.getElementById('oauth-status-label');
+
     if (linkedinConfig.isConnected) {
         topbarConnectionPill.className = 'connection-pill connected';
         topbarConnectionText.innerText = 'LinkedIn Conectado';
         sidebarConnectionStatus.innerText = '🟢';
-        
-        if (settingsToken && linkedinConfig.maskedToken) {
-            settingsToken.placeholder = `Token guardado (${linkedinConfig.maskedToken})`;
-        }
+        if (oauthStatusIcon) oauthStatusIcon.innerText = '🟢';
+        if (oauthStatusLabel) oauthStatusLabel.innerText = 'LinkedIn Conectado Exitosamente';
     } else {
         topbarConnectionPill.className = 'connection-pill disconnected';
         topbarConnectionText.innerText = 'LinkedIn Sin Conectar';
         sidebarConnectionStatus.innerText = '🔴';
-    }
-
-    if (settingsClientId && linkedinConfig.clientId) {
-        settingsClientId.value = linkedinConfig.clientId;
-    }
-    if (settingsClientSecret && linkedinConfig.clientSecret) {
-        settingsClientSecret.placeholder = `Secret guardado (${linkedinConfig.clientSecret})`;
-    }
-    if (settingsRedirectUri && linkedinConfig.redirectUri) {
-        settingsRedirectUri.value = linkedinConfig.redirectUri;
-    }
-    if (settingsUrn) {
-        settingsUrn.value = linkedinConfig.personUrn || '';
-    }
-    if (settingsAutopublish) {
-        settingsAutopublish.checked = linkedinConfig.autoPublishEnabled;
+        if (oauthStatusIcon) oauthStatusIcon.innerText = '🔴';
+        if (oauthStatusLabel) oauthStatusLabel.innerText = 'Sin Conectar';
     }
 }
 
@@ -189,20 +176,10 @@ function setupEventListeners() {
         btnSaveSettings.addEventListener('click', saveLinkedInSettings);
     }
 
-    // OAuth 2.0 Login button handler
+    // OAuth 2.0 Login button handler (1-click direct redirect)
     if (btnOauthLogin) {
         btnOauthLogin.addEventListener('click', () => {
-            const clientId = (settingsClientId ? settingsClientId.value.trim() : '') || linkedinConfig.clientId;
-            const clientSecret = (settingsClientSecret ? settingsClientSecret.value.trim() : '') || linkedinConfig.clientSecret;
-
-            if (!clientId) {
-                showToast('Por favor pega tu Client ID de LinkedIn primero', 'warning');
-                if (settingsClientId) settingsClientId.focus();
-                return;
-            }
-
-            // Redirect to backend OAuth login endpoint
-            window.location.href = `/auth/linkedin?client_id=${encodeURIComponent(clientId)}&client_secret=${encodeURIComponent(clientSecret)}`;
+            window.location.href = '/auth/linkedin';
         });
     }
 

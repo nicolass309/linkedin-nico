@@ -218,60 +218,25 @@
                 <!-- CONEXIÓN LINKEDIN TAB -->
                 <section class="tab-content" id="tab-settings">
                     <div class="section-title-bar">
-                        <h1>Conexión e Integración con LinkedIn API (OAuth 2.0)</h1>
-                        <p>Conecta tu cuenta de LinkedIn con un solo clic mediante OAuth 2.0 o ingresa las credenciales de tu aplicación de desarrollador.</p>
+                        <h1>Conexión e Integración con LinkedIn API</h1>
+                        <p>Vincula tu cuenta oficial de LinkedIn con 1 solo clic. Las claves y secretos de aplicación están preconfigurados de forma segura en el servidor.</p>
                     </div>
 
-                    <div class="instructions-card" style="margin-bottom: 2rem;">
-                        <h2 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--color-primary);"><i class="fa-solid fa-key"></i> Autenticación Rápida (OAuth 2.0)</h2>
-                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Copia el <strong>Client ID</strong> y <strong>Client Secret</strong> de la pestaña <strong>Auth</strong> de tu app en LinkedIn Developers:</p>
+                    <div class="instructions-card" style="margin-bottom: 2rem; text-align: center; padding: 3rem 2rem;">
+                        <div id="oauth-status-badge" style="display: inline-flex; align-items: center; gap: 10px; padding: 0.6rem 1.4rem; background: rgba(10, 102, 194, 0.15); border: 1px solid var(--color-primary); border-radius: 30px; margin-bottom: 1.5rem;">
+                            <span id="oauth-status-icon" style="font-size: 1.2rem;">🟢</span>
+                            <span id="oauth-status-label" style="font-weight: 600; font-size: 1.05rem; color: #fff;">LinkedIn Conectado</span>
+                        </div>
+
+                        <h2 style="font-size: 1.6rem; margin-bottom: 1rem; color: #fff;">Vincula tu perfil de LinkedIn</h2>
+                        <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem auto; font-size: 1.05rem; line-height: 1.6;">
+                            Al hacer clic en el botón a continuación, te redirigiremos a la pantalla oficial de inicio de sesión de LinkedIn para autorizar la publicación automática en tu muro.
+                        </p>
                         
-                        <div class="form-row">
-                            <div class="form-group col">
-                                <label for="settings-client-id">Client ID</label>
-                                <input type="text" id="settings-client-id" class="form-control" placeholder="Pega tu Client ID aquí">
-                            </div>
-                            <div class="form-group col">
-                                <label for="settings-client-secret">Client Secret</label>
-                                <input type="password" id="settings-client-secret" class="form-control" placeholder="Pega tu Client Secret aquí">
-                            </div>
-                        </div>
-
-                        <div class="form-group" style="background: rgba(10, 102, 194, 0.1); border: 1px solid rgba(10, 102, 194, 0.3); padding: 1rem; border-radius: 12px; margin-bottom: 1.5rem;">
-                            <label style="color: #93c5fd; font-size: 0.9rem; font-weight: 700; margin-bottom: 5px;">⚠️ URL de Redirección Autorizada (Pégala en LinkedIn Developers -> Auth):</label>
-                            <div style="display: flex; gap: 10px; align-items: center;">
-                                <input type="text" id="settings-redirect-uri" class="form-control" value="http://localhost:3000/auth/linkedin/callback" readonly style="background: rgba(0,0,0,0.4); font-family: monospace;">
-                                <button class="btn btn-secondary" onclick="navigator.clipboard.writeText('http://localhost:3000/auth/linkedin/callback'); showToast('URL copiada al portapapeles', 'success');">
-                                    <i class="fa-solid fa-copy"></i> Copiar
-                                </button>
-                            </div>
-                        </div>
-
-                        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
-                            <button class="btn btn-primary" id="btn-oauth-login" style="padding: 0.8rem 1.8rem; font-size: 1.05rem;">
-                                <i class="fa-brands fa-linkedin"></i> Iniciar Sesión con LinkedIn (OAuth 2.0)
+                        <div style="display: flex; justify-content: center; gap: 1rem;">
+                            <button class="btn btn-primary" id="btn-oauth-login" style="padding: 1rem 2.5rem; font-size: 1.15rem; font-weight: 700; border-radius: 40px; box-shadow: 0 0 25px rgba(10, 102, 194, 0.5);">
+                                <i class="fa-brands fa-linkedin" style="font-size: 1.3rem;"></i> Conectar con LinkedIn (1 Clic)
                             </button>
-                            <button class="btn btn-secondary" id="btn-save-settings">
-                                <i class="fa-solid fa-floppy-disk"></i> Guardar Credenciales
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="instructions-card">
-                        <h2 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-secondary);"><i class="fa-solid fa-sliders"></i> Opciones Avanzadas (Token & Person URN Manual)</h2>
-                        <div class="form-group">
-                            <label for="settings-token">Access Token de LinkedIn (Manual)</label>
-                            <input type="password" id="settings-token" class="form-control" placeholder="Pega tu token de acceso (ej: AQ...)">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="settings-urn">Person URN o ID de Perfil</label>
-                            <input type="text" id="settings-urn" class="form-control" placeholder="Ejemplo: urn:li:person:abcdefg123 o tu ID personal">
-                        </div>
-
-                        <div class="form-group" style="display: flex; align-items: center; gap: 10px; margin-top: 15px;">
-                            <input type="checkbox" id="settings-autopublish" checked style="width: 18px; height: 18px; cursor: pointer;">
-                            <label for="settings-autopublish" style="margin: 0; cursor: pointer;">Activar publicación automática cuando llegue la fecha y hora programada</label>
                         </div>
                     </div>
                 </section>
