@@ -12,7 +12,7 @@
   },
   {
     "id": "2",
-    "status": "scheduled",
+    "status": "published",
     "title": "El error que comete el 90% al programar con IA",
     "text": "Veo a diario a desarrolladores frustrados porque las herramientas de IA les dan código basura.\n\nEl problema no es la IA. Es cómo le piden las cosas.\n\nEl mayor error es pedirle que construya una función entera de 200 líneas de golpe.\n\nLa IA empieza bien, se pierde a la mitad y termina inventando variables.\n\nPara que la IA trabaje para ti (y no al revés), usa el método modular:\n\n1. Divide el problema: Si necesitas un sistema de autenticación, no le pidas todo el sistema. Pídele primero la lógica para validar el correo.\n2. Revisa y compila: Prueba esa pequeña función. Si funciona, pásala a tu editor.\n3. Añade contexto paso a paso: Usa el código verificado como contexto y pídele la siguiente parte (por ejemplo, guardar la contraseña cifrada).\n\nTrabajar con IA es como delegar tareas a un interno muy rápido pero despistado: dale tareas de 15 minutos, no proyectos de 3 semanas.\n\n¿Cómo integras tú la IA en tu flujo de trabajo diario?",
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800",
@@ -47,11 +47,55 @@
     "id": "5",
     "status": "scheduled",
     "title": "La IA de voz ya no suena robótica: la era de la latencia ultrabaja",
-    "text": "Si alguna vez has interactuado con un asistente de voz automatizado, seguro recuerdas esa incómoda pausa de 2 o 3 segundos antes de que te responda.\n\nEso arruinaba por completo la sensación de conversación real.\n\nEsta semana estuve experimentando con la integración de nuevos modelos de voz de baja latencia y el cambio es abismal.\n\nHemos pasado de respuestas pausadas a interacciones fluidas de menos de 500 milisegundos de retraso. Es tan rápido que el cerebro humano no percibe la demora, sintiéndose como una conversación telefónica normal.\n\nEsto abre un abanico gigante de posibilidades:\n\n- Soporte al cliente que realmente resuelve dudas en tiempo real sin desesperar al usuario.\n- Práctica de idiomas interactiva con feedback instantáneo sobre tu pronunciación.\n- Asistentes virtuales que pueden interrumpirse en tiempo real si decides cambiar de tema a mitad de frase.\n\nLa barrera entre la comunicación humana y la interacción con máquinas de voz se está disolviendo.\n\n¿Prefieres escribirle a un chat de IA o hablarle por voz si pudieras elegir?",
+    "text": "Si alguna vez has interactuado con un asistente de voz automatizado, seguro recuerdas esa incómoda pausa de 2 o 3 segundos antes de que te responda.\n\nEso arruinaba por completo la sensación de conversación real.\n\nEsta semana estuve experimentando con la integración de nuevos modelos de voz de baja latencia y el cambio es abismal.\n\nHemos pasado de respuestas pausadas a interacciones fluidas de menos de 500 milisegundos de retraso. Es tan rápido que el cerebro humano no percibe la demora, sintiéndose como una conversación telefónica normal.\n\nEsto abra un abanico gigante de posibilidades:\n\n- Soporte al cliente que realmente resuelve dudas en tiempo real sin desesperar al usuario.\n- Práctica de idiomas interactiva con feedback instantáneo sobre tu pronunciación.\n- Asistentes virtuales que pueden interrumpirse en tiempo real si decides cambiar de tema a mitad de frase.\n\nLa barrera entre la comunicación humana y la interacción con máquinas de voz se está disolviendo.\n\n¿Prefieres escribirle a un chat de IA o hablarle por voz si pudieras elegir?",
     "image": "https://images.unsplash.com/photo-1589254065878-42c9da997008?w=800",
     "scheduledDate": "2026-08-17T13:00:00.000Z",
     "author": "Inspirado en Yaroslav Rebryk",
     "originalUrl": "https://www.linkedin.com/in/yrebryk/",
     "category": "Tecnología & IA de Voz"
+  },
+  {
+    "id": "6",
+    "status": "draft",
+    "title": "Por qué el 80% de los desarrolladores usan mal los asistentes de IA",
+    "text": "El error más común al programar con IA no es la herramienta que usas.\n\nEs tratar a la IA como un programador senior cuando en realidad es un copiloto ultrarrápido que necesita contexto claro.\n\nVeo a desarrolladores pedirle a la IA: 'Créame una aplicación completa para X' y frustrarse cuando el código falla a los 5 minutos.\n\nLos desarrolladores que realmente están multiplicando su velocidad por 5x siguen estas 3 reglas simples:\n\n1. Modos de una sola responsabilidad: No le pidas arquitectura, lógica y estilos en un solo prompt. Pídele un componente a la vez con entradas y salidas estrictas.\n\n2. Documentación como contexto: En lugar de explicarle las cosas en lenguaje coloquial, pásale la interfaz o el esquema JSON exacto de tus datos.\n\n3. Refactorización modular: Si una función tiene más de 30 líneas, la IA cometerá errores. Divide tu código en funciones pequeñas e independientes.\n\nLa IA no va a reemplazar a los desarrolladores que piensan de forma estructurada; va a reemplazar a los que programan a ciegas sin revisar la arquitectura.\n\n¿Cuál es la regla de oro que a ti te funciona mejor al programar con IA?",
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800",
+    "scheduledDate": null,
+    "author": "Google Trends & Roy Lee",
+    "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
+    "category": "IA & Desarrollo"
+  },
+  {
+    "id": "7",
+    "status": "draft",
+    "title": "El secreto de la automatización: Menos herramientas, más lógica",
+    "text": "Hace un tiempo pensaba que para automatizar un proceso complejo necesitaba conectar 10 herramientas distintas y 5 webhooks.\n\nMe equivocaba por completo.\n\nLa mayoría de las automatizaciones que fallan en producción no fallan por problemas técnicos de las plataformas. Fallan por sobreingeniería.\n\nCuando simplificas el flujo a lo esencial, pasan tres cosas mágicas:\n\n1. El mantenimiento se reduce a cero: Si una herramienta falla en una cadena de 10, todo se detiene. Si tu flujo tiene 2 pasos claros, la estabilidad es del 99.9%.\n\n2. La velocidad de ejecución se dispara: Cada salto de API agrega latencia. Cuanto más directo sea el camino entre el evento y la acción, más rápida será la respuesta.\n\n3. Es fácil de auditar: Cuando ocurre un error, sabes exactamente dónde buscar en cuestión de segundos en lugar de revisar horas de logs dispersos.\n\nAntes de agregar un nuevo nodo o herramienta a tu flujo de trabajo, pregúntate: ¿realmente esto aporta valor al resultado final o solo está haciendo el sistema más frágil?\n\nLa elegancia en la tecnología no está en la complejidad, sino en la simplicidad que funciona sin interrupciones.",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
+    "scheduledDate": null,
+    "author": "Inspirado en Nico Manzaneque",
+    "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
+    "category": "Automatización & Productividad"
+  },
+  {
+    "id": "8",
+    "status": "draft",
+    "title": "Los 3 pilares para aprender cualquier tecnología en la era de la IA",
+    "text": "La velocidad con la que aparecen nuevas librerías y modelos de IA hoy en día es abrumadora. Si intentas aprenderlo todo desde cero, te agotarás en dos semanas.\n\nLa clave no es memorizar sintaxis. Es dominar los conceptos fundamentales.\n\nEsta es la estrategia de 3 pasos que uso para aprender cualquier tecnología nueva en cuestión de días:\n\n1. Entender el 'por qué' antes del 'cómo': Antes de escribir una sola línea de código o configurar un flujo, investiga qué problema concreto resuelve esa herramienta que las anteriores no podían resolver.\n\n2. Construir un prototipo mínimo en 24 horas: No pases semanas leyendo documentación teórica. Crea un proyecto pequeño de prueba de concepto que funcione de extremo a extremo el mismo día.\n\n3. Usar la IA como tutora socrática: Pídele a la IA que te haga preguntas sobre cómo funciona el código por dentro en lugar de simplemente pedirle que te dé las respuestas hechas.\n\nEl conocimiento superficial se vuelve obsoleto rápido. La capacidad de aprender e integrar rápido es lo que te mantendrá siempre vigente.\n\n¿Cómo abordas tú el estudio de herramientas nuevas cuando el tiempo es limitado?",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800",
+    "scheduledDate": null,
+    "author": "Inspirado en Stas Bel & Yaroslav Rebryk",
+    "originalUrl": "https://www.linkedin.com/in/stasbel/",
+    "category": "Aprendizaje & IA"
+  },
+  {
+    "id": "9",
+    "status": "draft",
+    "title": "La regla del 80/20 aplicada al desarrollo de proyectos",
+    "text": "El 80% del valor de un proyecto de software proviene del 20% de sus funcionalidades centrales.\n\nSin embargo, es muy fácil caer en la trampa de pasar el 80% del tiempo puliendo detalles secundarios que casi ningún usuario notará al principio.\n\nPara mantener un ritmo constante de entregas sin perder calidad, este es el filtro de trabajo que aplico:\n\n1. Definir el núcleo no negociable: ¿Cuál es la única función que, si no existiera, haría que el producto fuera inútil? Todo lo demás es secundario.\n\n2. Lanzar rápido para validar con datos reales: La retroalimentación de usuarios reales vale 100 veces más que cualquier suposición en una reunión de planificación.\n\n3. Iterar basándote en uso, no en especulaciones: Construye nuevas características solo cuando los usuarios las soliciten activamente o los datos demuestren que las necesitan.\n\nPerfeccionar lo que nadie necesita es el mayor desperdicio de energía en el desarrollo de software.\n\n¿Qué criterio usas tú para decidir qué funcionalidad construir primero?",
+    "image": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800",
+    "scheduledDate": null,
+    "author": "Inspirado en Ilya Strebulaev",
+    "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
+    "category": "Productividad & Gestión"
   }
 ]
