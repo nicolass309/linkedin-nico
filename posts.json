@@ -91,7 +91,7 @@
     "id": "8",
     "status": "draft",
     "title": "Los 3 pilares para aprender cualquier tecnología en la era de la IA",
-    "text": "La velocidad con la que aparecen nuevas librerías y modelos de IA hoy en día es abrumadora. Si intentas aprenderlo todo desde cero, te agotarás en dos semanas.\n\nLa clave no es memorizar sintaxis. Es dominar los conceptos fundamentales.\n\nEsta es la estrategia de 3 pasos que uso para aprender cualquier tecnología nueva en cuestión de días:\n\n1. Entender el 'por qué' antes del 'cómo': Antes de escribir una sola línea de código o configurar un flujo, investiga qué problema concreto resuelve esa herramienta que las anteriores no podían resolver.\n\n2. Construir un prototipo mínimo en 24 horas: No pases semanas leyendo documentación teórica. Crea un proyecto pequeño de prueba de concepto que funcione de extremo a extremo el mismo día.\n\n3. Usar la IA como tutora socrática: Pídele a la IA que te haga preguntas sobre cómo funciona el código por dentro en lugar de simplemente pedirle que te dé las respuestas hechas.\n\nEl conocimiento superficial se vuelve obsoleto rápido. La capacidad de aprender e integrar rápido es lo que te mantendrá siempre vigente.\n\n¿Cómo abordas tú el estudio de herramientas nuevas cuando el tiempo es limited?",
+    "text": "La velocidad con la que aparecen nuevas librerías y modelos de IA hoy en día es abrumadora. Si intentas aprenderlo todo desde cero, te agotarás en dos semanas.\n\nLa clave no es memorizar sintaxis. Es dominar los conceptos fundamentales.\n\nEsta es la estrategia de 3 pasos que uso para aprender cualquier tecnología nueva en cuestión de días:\n\n1. Entender el 'por qué' antes del 'cómo': Antes de escribir una sola línea de código o configurar un flujo, investiga qué problema concreto resuelve esa herramienta que las anteriores no podían resolver.\n\n2. Construir un prototipo mínimo en 24 horas: No pases semanas leyendo documentación teórica. Crea un proyecto pequeño de prueba de concepto que funcione de extremo a extremo el mismo día.\n\n3. Usar la IA como tutora socrática: Pídele a la IA que te haga preguntas sobre cómo funciona el código por dentro en lugar de simplemente pedirle que te dé las respuestas hechas.\n\nEl conocimiento superficial se vuelve obsoleto rápido. La capacidad de aprender e integrar rápido es lo que te mantendrá siempre vigente.\n\n¿Cómo abordas tú el estudio de herramientas nuevas cuando el tiempo es limitado?",
     "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800",
     "scheduledDate": null,
     "author": "Inspirado en Stas Bel & Yaroslav Rebryk",
@@ -141,5 +141,60 @@
     "author": "Crecimiento Profesional",
     "originalUrl": "https://www.linkedin.com/in/stasbel/",
     "category": "Carrera Tech & Crecimiento"
+  },
+  {
+    "id": "16",
+    "status": "draft",
+    "title": "La diferencia entre automatizar procesos y crear caos a velocidad",
+    "text": "Automatizar un proceso desordenado solo produce desorden a mayor velocidad.\n\nAntes de construir cualquier flujo automático entre herramientas, es fundamental simplificar el proceso manual.\n\nEste es el checklist de 3 pasos que sigo antes de crear cualquier automatización:\n\n1. Eliminar pasos innecesarios: Si una tarea no aporta un resultado directo al usuario o al negocio, elimínala antes de intentar automatizarla.\n\n2. Estandarizar las entradas de datos: Los flujos automáticos se rompen cuando la información llega en formatos variables. Asegúrate de que los datos tengan una estructura uniforme.\n\n3. Diseñar alertas de excepción: En lugar de asumir que todo funcionará siempre bien, configura avisos inmediatos cuando un dato llegue incompleto o con error.\n\nLa verdadera eficiencia no consiste en conectar más herramientas, sino en crear procesos limpios que funcionen sin fricción.\n\n¿Qué proceso en tu equipo se beneficiaría más de ser simplificado hoy?",
+    "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800",
+    "scheduledDate": null,
+    "author": "Estrategia de Automatización",
+    "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
+    "category": "Automatización & Estrategia"
+  },
+  {
+    "id": "17",
+    "status": "draft",
+    "title": "Por qué la documentación viva es el mejor activo de un equipo de desarrollo",
+    "text": "La mayoría de los proyectos pierden semanas de trabajo no por falta de capacidad técnica, sino por falta de memoria compartida.\n\nCuando la única persona que entiende cómo funciona un módulo se va de vacaciones o cambia de proyecto, todo el ritmo del equipo se frena.\n\nLa solución no es escribir extensos manuales en PDF que nadie vuelve a leer, sino mantener documentación viva:\n\n1. Esquemas de datos claros: Un buen archivo de tipos o diagrama de base de datos explica más que 10 páginas de texto plano.\n\n2. Registros de decisiones de arquitectura: Documentar brevemente por qué se eligió una solución específica evita discusiones repetidas meses después.\n\n3. Guías de inicio rápido: Cualquier nuevo miembro del equipo debería ser capaz de ejecutar el proyecto en su máquina local en menos de una hora.\n\nDocumentar bien no es una tarea secundaria; es la base para escalar productos de forma sostenible.\n\n¿Cada cuánto tiempo actualizan la documentación interna en tu proyecto?",
+    "image": "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800",
+    "scheduledDate": null,
+    "author": "Cultura de Ingeniería",
+    "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
+    "category": "Buenas Prácticas & Equipo"
+  },
+  {
+    "id": "18",
+    "status": "draft",
+    "title": "La regla del prototipo de 24 horas: Cómo validar ideas sin perder meses",
+    "text": "El mayor riesgo al lanzar un nuevo producto o funcionalidad no es que falle técnicamente.\n\nEs pasar tres meses construyéndolo para descubrir que nadie lo necesitaba.\n\nPara evitar este desperdicio de tiempo y recursos, uso la regla del prototipo de 24 horas:\n\n1. Construir solo la experiencia visual principal: No configures bases de datos complejas ni lógica avanzada el primer día. Crea una interfaz funcional donde el usuario pueda interactuar con el flujo principal.\n\n2. Probar con usuarios reales inmediatamente: Muestra el prototipo a 5 personas de tu público objetivo y observa dónde se detienen o qué dudas tienen.\n\n3. Decidir basándote en comportamiento, no en opiniones: Lo que la gente dice que quiere y lo que realmente usa son dos cosas muy distintas.\n\nSi una idea vale la pena, 24 horas son suficientes para obtener los primeros datos reales sobre su potencial.\n\n¿Cuál fue la última idea que probaste antes de construirla por completo?",
+    "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800",
+    "scheduledDate": null,
+    "author": "Desarrollo Ágil",
+    "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
+    "category": "Startups & Innovación"
+  },
+  {
+    "id": "19",
+    "status": "draft",
+    "title": "Por qué la simplicidad en la arquitectura de software vence a la tendencia",
+    "text": "Cada año aparece un nuevo paradigma o patrón de arquitectura que promete resolver todos los problemas del desarrollo de software.\n\nSin embargo, los sistemas más estables y rentables del mundo suelen estar construidos sobre arquitecturas sorprendentemente simples.\n\nAdoptar tecnología por moda en lugar de por necesidad real trae consecuencias costosas:\n\n1. Complejidad operativa innecesaria: Distribuir un sistema en decenas de microservicios cuando tu tráfico cabe en un solo servidor agrega latencia y dificultad de depuración.\n\n2. Curva de aprendizaje para el equipo: Cada nueva herramienta en tu stack requiere tiempo de adaptación y especialización.\n\n3. Costos ocultos de mantenimiento: Mantener servicios dispersos multiplica la cantidad de infraestructura a monitorear.\n\nEl objetivo de la arquitectura de software es resolver problemas de negocio de la forma más limpia y directa posible.\n\n¿Qué tecnología decidiste no implementar recientemente para mantener la simplicidad de tu sistema?",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800",
+    "scheduledDate": null,
+    "author": "Diseño de Sistemas",
+    "originalUrl": "https://www.linkedin.com/in/stasbel/",
+    "category": "Arquitectura & Software"
+  },
+  {
+    "id": "20",
+    "status": "draft",
+    "title": "El arte de descomponer problemas complejos en tareas de 15 minutos",
+    "text": "Frente a un proyecto gigante, la parálisis por análisis es el obstáculo más común.\n\nIntentar resolver un desafío de arquitectura de una sola vez suele derivar en bloqueo y frustración.\n\nLa habilidad más valiosa en el desarrollo moderno es saber dividir grandes problemas en microtareas de 15 minutos:\n\n1. Define una entrada y una salida clara para cada microtarea: En lugar de 'crear el módulo de usuarios', enfócate en 'escribir la función que valida el formato de correo'.\n\n2. Resuelve una pequeña pieza a la vez: Cada microtarea completada genera impulso y claridad para la siguiente.\n\n3. Combina los bloques verificados: Al unir piezas pequeñas que ya funcionan de forma independiente, el sistema completo se ensambla de manera fluida.\n\nCuando descompones lo complejo en pasos simples, la velocidad de ejecución se vuelve constante y predecible.\n\n¿Cómo organizas tus tareas cuando te enfrentas a un desafío técnico grande?",
+    "image": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800",
+    "scheduledDate": null,
+    "author": "Metodología de Trabajo",
+    "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
+    "category": "Productividad & IA"
   }
 ]
