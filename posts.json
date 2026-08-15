@@ -33,17 +33,6 @@
     "category": "IA & Desarrollo"
   },
   {
-    "id": "3",
-    "status": "scheduled",
-    "title": "Deja de redactar correos manualmente: Automatización de bandeja",
-    "text": "Pasamos un promedio de 2.5 horas al día respondiendo correos electrónicos.\n\nLa mayoría son respuestas repetitivas: agendar llamadas, enviar propuestas, confirmar facturas o responder preguntas frecuentes.\n\nNo uses ChatGPT para copiar y pegar cada respuesta. Es ineficiente y se nota.\n\nEn su lugar, puedes estructurar un sistema automático en 3 pasos utilizando herramientas no-code:\n\n1. Clasificación automática: Crea un trigger que analice el asunto y el cuerpo del correo entrante para etiquetarlo según su intención (soporte, ventas, administrativo).\n2. Redacción contextualizada: Conecta el correo etiquetado a un modelo de lenguaje con plantillas de tu negocio. El sistema redactará un borrador adaptado al tono de tu marca, extrayendo los datos clave automáticamente.\n3. Guardar como borrador (Revisión humana): No envíes el correo directamente. Haz que el flujo lo guarde en tu carpeta de 'Borradores' en Gmail o Outlook. Tú solo entras, revisas y le das a 'Enviar'.\n\nDe esta forma, mantienes el control de lo que sale, pero te ahorras el 90% del tiempo de escritura.\n\n¿Qué parte de tu día administrativo te gustaría automatizar primero?",
-    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800",
-    "scheduledDate": "2026-08-31T13:00:00.000Z",
-    "author": "Inspirado en Nico Manzaneque",
-    "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
-    "category": "Automatización & IA"
-  },
-  {
     "id": "7",
     "status": "scheduled",
     "title": "El secreto de la automatización: Menos herramientas, más lógica",
@@ -53,6 +42,105 @@
     "author": "Inspirado en Nico Manzaneque",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
     "category": "Automatización & Productividad"
+  },
+  {
+    "id": "8",
+    "status": "scheduled",
+    "title": "Los 3 pilares para aprender cualquier tecnología en la era de la IA",
+    "text": "La velocidad con la que aparecen nuevas librerías y modelos de IA hoy en día es abrumadora. Si intentas aprenderlo todo desde cero, te agotarás en dos semanas.\n\nLa clave no es memorizar sintaxis. Es dominar los conceptos fundamentales.\n\nEsta es la estrategia de 3 pasos que uso para aprender cualquier tecnología nueva en cuestión de días:\n\n1. Entender el 'por qué' antes del 'cómo': Antes de escribir una sola línea de código o configurar un flujo, investiga qué problema concreto resuelve esa herramienta que las anteriores no podían resolver.\n\n2. Construir un prototipo mínimo en 24 horas: No pases semanas leyendo documentación teórica. Crea un proyecto pequeño de prueba de concepto que funcione de extremo a extremo el mismo día.\n\n3. Usar la IA como tutora socrática: Pídele a la IA que te haga preguntas sobre cómo funciona el código por dentro en lugar de simplemente pedirle que te dé las respuestas hechas.\n\nEl conocimiento superficial se vuelve obsoleto rápido. La capacidad de aprender e integrar rápido es lo que te mantendrá siempre vigente.\n\n¿Cómo abordas tú el estudio de herramientas nuevas cuando el tiempo es limitado?",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800",
+    "scheduledDate": "2026-08-19T13:00:00.000Z",
+    "author": "Inspirado en Stas Bel & Yaroslav Rebryk",
+    "originalUrl": "https://www.linkedin.com/in/stasbel/",
+    "category": "Aprendizaje & IA"
+  },
+  {
+    "id": "9",
+    "status": "scheduled",
+    "title": "La regla del 80/20 aplicada al desarrollo de proyectos",
+    "text": "El 80% del valor de un proyecto de software proviene del 20% de sus funcionalidades centrales.\n\nSin embargo, es muy fácil caer en la trampa de pasar el 80% del tiempo puliendo detalles secundarios que casi ningún usuario notará al principio.\n\nPara mantener un ritmo constante de entregas sin perder calidad, este es el filtro de trabajo que aplico:\n\n1. Definir el núcleo no negociable: ¿Cuál es la única función que, si no existiera, haría que el producto fuera inútil? Todo lo demás es secundario.\n\n2. Lanzar rápido para validar con datos reales: La retroalimentación de usuarios reales vale 100 veces más que cualquier suposición en una reunión de planificación.\n\n3. Iterar basándote en uso, no en especulaciones: Construye nuevas características solo cuando los usuarios las soliciten activamente o los datos demuestren que las necesitan.\n\nPerfeccionar lo que nadie necesita es el mayor desperdicio de energía en el desarrollo de software.\n\n¿Qué criterio usas tú para decidir qué funcionalidad construir primero?",
+    "image": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800",
+    "scheduledDate": "2026-08-20T13:00:00.000Z",
+    "author": "Inspirado en Ilya Strebulaev",
+    "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
+    "category": "Productividad & Gestión"
+  },
+  {
+    "id": "13",
+    "status": "scheduled",
+    "title": "La regla de los 5 minutos para evaluar cualquier proyecto de software",
+    "text": "Cuando un proyecto se retrasa semanas o meses, casi nunca es por falta de horas de trabajo.\n\nEs por falta de claridad en los primeros 5 minutos de definición.\n\nAntes de empezar a construir cualquier solución técnica, aplico este filtro rápido de 3 preguntas:\n\n1. ¿Quién va a usar esto diariamente y qué tarea le ahorra? Si la respuesta es vaga o abstracta, la funcionalidad probablemente terminará archivada.\n\n2. ¿Cuál es el formato exacto del resultado final? (¿Un reporte en PDF, una alerta por mensaje, una tabla en pantalla?). Definir el resultado primero ahorra el 50% de las reuniones.\n\n3. ¿Qué pasa si el sistema falla? Si la falla no bloquea la operación principal, no pierdas días creando arquitecturas ultrasofisticadas para casos raros.\n\nConstruir rápido es valioso, pero construir lo correcto a la primera es lo que realmente marca la diferencia.\n\n¿Tienes algún filtro rápido antes de arrancar un nuevo proyecto?",
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800",
+    "scheduledDate": "2026-08-21T13:00:00.000Z",
+    "author": "Productividad & Criterio Tech",
+    "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
+    "category": "Gestión & Desarrollo"
+  },
+  {
+    "id": "14",
+    "status": "scheduled",
+    "title": "Por qué el código más limpio suele ser el que no escribes",
+    "text": "Hay una gran diferencia entre un desarrollador junior y uno experimentado:\n\nEl junior busca resolver un problema escribiendo 300 líneas de código nuevo.\nEl experimentado busca resolver el mismo problema eliminando 100 líneas existentes o reutilizando componentes probados.\n\nCada línea de código que agregas a un proyecto es una responsabilidad más que mantener, probar y corregir a futuro.\n\nPara mantener bases de código ágiles y fáciles de escalar, considera estas 3 reglas de oro:\n\n1. Reutiliza antes de reinventar: Si una librería madura o una API ya resuelve el problema de forma segura, no gastes semanas rehaciéndola desde cero.\n\n2. Di 'no' a las funcionalidades 'por si acaso': Construye solo lo que el usuario necesita hoy. La flexibilidad prematura casi siempre se convierte en deuda técnica.\n\n3. Simplifica las dependencias: Menos módulos conectados significan menos puntos de falla cuando se actualizan los sistemas.\n\nEl mejor código es aquel que es tan simple que no deja espacio para errores ocultos.\n\n¿Qué parte de tu código has simplificado recientemente con excelentes resultados?",
+    "image": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=800",
+    "scheduledDate": "2026-08-24T13:00:00.000Z",
+    "author": "Inspirado en Creadores de Ingeniería",
+    "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
+    "category": "Arquitectura & Buenas Prácticas"
+  },
+  {
+    "id": "15",
+    "status": "scheduled",
+    "title": "El hábito diario que diferencia a los profesionales de tecnología que escalan rápido",
+    "text": "En el mundo de la tecnología, la brecha entre quienes se quedan estancados y quienes avanzan rápido rara vez tiene que ver con el talento innato.\n\nTiene que ver con la forma en que documentan y comparten lo que aprenden.\n\nDedicar 10 minutos al final de cada día a registrar aprendizajes clave cambia por completo tu trayectoria:\n\n1. Documenta las soluciones a los errores difíciles: Si te tomó 2 horas resolver un fallo complejo hoy, escríbelo. La próxima vez que ocurra, lo resolverás en 2 minutos.\n\n2. Sintetiza conceptos complejos en palabras simples: Si puedes explicárselo a un compañero sin usar jerga confusa, significa que realmente lo dominas.\n\n3. Construye tu propia biblioteca de recursos: Guardar fragmentos de código, plantillas y flujos probados te convierte en un profesional increíblemente eficiente.\n\nLa memoria humana falla; un sistema de notas bien estructurado se convierte en tu mayor activo profesional.\n\n¿Guardas un registro diario de lo que aprendes o confías en la memoria?",
+    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800",
+    "scheduledDate": "2026-08-25T13:00:00.000Z",
+    "author": "Crecimiento Profesional",
+    "originalUrl": "https://www.linkedin.com/in/stasbel/",
+    "category": "Carrera Tech & Crecimiento"
+  },
+  {
+    "id": "16",
+    "status": "scheduled",
+    "title": "La diferencia entre automatizar procesos y crear caos a velocidad",
+    "text": "Automatizar un proceso desordenado solo produce desorden a mayor velocidad.\n\nAntes de construir cualquier flujo automático entre herramientas, es fundamental simplificar el proceso manual.\n\nEste es el checklist de 3 pasos que sigo antes de crear cualquier automatización:\n\n1. Eliminar pasos innecesarios: Si una tarea no aporta un resultado directo al usuario o al negocio, elimínala antes de intentar automatizarla.\n\n2. Estandarizar las entradas de datos: Los flujos automáticos se rompen cuando la información llega en formatos variables. Asegúrate de que los datos tengan una estructura uniforme.\n\n3. Diseñar alertas de excepción: En lugar de asumir que todo funcionará siempre bien, configura avisos inmediatos cuando un dato llegue incompleto o con error.\n\nLa verdadera eficiencia no consiste en conectar más herramientas, sino en crear procesos limpios que funcionen sin fricción.\n\n¿Qué proceso en tu equipo se beneficiaría más de ser simplificado hoy?",
+    "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800",
+    "scheduledDate": "2026-08-26T13:00:00.000Z",
+    "author": "Estrategia de Automatización",
+    "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
+    "category": "Automatización & Estrategia"
+  },
+  {
+    "id": "17",
+    "status": "scheduled",
+    "title": "Por qué la documentación viva es el mejor activo de un equipo de desarrollo",
+    "text": "La mayoría de los proyectos pierden semanas de trabajo no por falta de capacidad técnica, sino por falta de memoria compartida.\n\nCuando la única persona que entiende cómo funciona un módulo se va de vacaciones o cambia de proyecto, todo el ritmo del equipo se frena.\n\nLa solución no es escribir extensos manuales en PDF que nadie vuelve a leer, sino mantener documentación viva:\n\n1. Esquemas de datos claros: Un buen archivo de tipos o diagrama de base de datos explica más que 10 páginas de texto plano.\n\n2. Registros de decisiones de arquitectura: Documentar brevemente por qué se eligió una solución específica evita discusiones repetidas meses después.\n\n3. Guías de inicio rápido: Cualquier nuevo miembro del equipo debería ser capaz de ejecutar el proyecto en su máquina local en menos de una hora.\n\nDocumentar bien no es una tarea secundaria; es la base para escalar productos de forma sostenible.\n\n¿Cada cuánto tiempo actualizan la documentación interna en tu proyecto?",
+    "image": "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800",
+    "scheduledDate": "2026-08-27T13:00:00.000Z",
+    "author": "Cultura de Ingeniería",
+    "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
+    "category": "Buenas Prácticas & Equipo"
+  },
+  {
+    "id": "18",
+    "status": "scheduled",
+    "title": "La regla del prototipo de 24 horas: Cómo validar ideas sin perder meses",
+    "text": "El mayor riesgo al lanzar un nuevo producto o funcionalidad no es que falle técnicamente.\n\nEs pasar tres meses construyéndolo para descubrir que nadie lo necesitaba.\n\nPara evitar este desperdicio de tiempo y recursos, uso la regla del prototipo de 24 horas:\n\n1. Construir solo la experiencia visual principal: No configures bases de datos complejas ni lógica avanzada el primer día. Crea una interfaz funcional donde el usuario pueda interactuar con el flujo principal.\n\n2. Probar con usuarios reales inmediatamente: Muestra el prototipo a 5 personas de tu público objetivo y observa dónde se detienen o qué dudas tienen.\n\n3. Decidir basándote en comportamiento, no en opiniones: Lo que la gente dice que quiere y lo que realmente usa son dos cosas muy distintas.\n\nSi una idea vale la pena, 24 horas son suficientes para obtener los primeros datos reales sobre su potencial.\n\n¿Cuál fue la última idea que probaste antes de construirla por completo?",
+    "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800",
+    "scheduledDate": "2026-08-28T13:00:00.000Z",
+    "author": "Desarrollo Ágil",
+    "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
+    "category": "Startups & Innovación"
+  },
+  {
+    "id": "3",
+    "status": "scheduled",
+    "title": "Deja de redactar correos manualmente: Automatización de bandeja",
+    "text": "Pasamos un promedio de 2.5 horas al día respondiendo correos electrónicos.\n\nLa mayoría son respuestas repetitivas: agendar llamadas, enviar propuestas, confirmar facturas o responder preguntas frecuentes.\n\nNo uses ChatGPT para copiar y pegar cada respuesta. Es ineficiente y se nota.\n\nEn su lugar, puedes estructurar un sistema automático en 3 pasos utilizando herramientas no-code:\n\n1. Clasificación automática: Crea un trigger que analice el asunto y el cuerpo del correo entrante para etiquetarlo según su intención (soporte, ventas, administrativo).\n2. Redacción contextualizada: Conecta el correo etiquetado a un modelo de lenguaje con plantillas de tu negocio. El sistema redactará un borrador adaptado al tono de tu marca, extrayendo los datos clave automáticamente.\n3. Guardar como borrador (Revisión humana): No envíes el correo directamente. Haz que el flujo lo guarde en tu carpeta de 'Borradores' en Gmail o Outlook. Tú solo entras, revisas y le das a 'Enviar'.\n\nDe esta forma, mantienes el control de lo que sale, pero te ahorras el 90% del tiempo de escritura.\n\n¿Qué parte de tu día administrativo te gustaría automatizar primero?",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800",
+    "scheduledDate": "2026-08-31T13:00:00.000Z",
+    "author": "Inspirado en Nico Manzaneque",
+    "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
+    "category": "Automatización & IA"
   },
   {
     "id": "10",
@@ -88,111 +176,23 @@
     "category": "Carrera & Futuro Tech"
   },
   {
-    "id": "8",
-    "status": "draft",
-    "title": "Los 3 pilares para aprender cualquier tecnología en la era de la IA",
-    "text": "La velocidad con la que aparecen nuevas librerías y modelos de IA hoy en día es abrumadora. Si intentas aprenderlo todo desde cero, te agotarás en dos semanas.\n\nLa clave no es memorizar sintaxis. Es dominar los conceptos fundamentales.\n\nEsta es la estrategia de 3 pasos que uso para aprender cualquier tecnología nueva en cuestión de días:\n\n1. Entender el 'por qué' antes del 'cómo': Antes de escribir una sola línea de código o configurar un flujo, investiga qué problema concreto resuelve esa herramienta que las anteriores no podían resolver.\n\n2. Construir un prototipo mínimo en 24 horas: No pases semanas leyendo documentación teórica. Crea un proyecto pequeño de prueba de concepto que funcione de extremo a extremo el mismo día.\n\n3. Usar la IA como tutora socrática: Pídele a la IA que te haga preguntas sobre cómo funciona el código por dentro en lugar de simplemente pedirle que te dé las respuestas hechas.\n\nEl conocimiento superficial se vuelve obsoleto rápido. La capacidad de aprender e integrar rápido es lo que te mantendrá siempre vigente.\n\n¿Cómo abordas tú el estudio de herramientas nuevas cuando el tiempo es limitado?",
-    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800",
-    "scheduledDate": null,
-    "author": "Inspirado en Stas Bel & Yaroslav Rebryk",
-    "originalUrl": "https://www.linkedin.com/in/stasbel/",
-    "category": "Aprendizaje & IA"
-  },
-  {
-    "id": "9",
-    "status": "draft",
-    "title": "La regla del 80/20 aplicada al desarrollo de proyectos",
-    "text": "El 80% del valor de un proyecto de software proviene del 20% de sus funcionalidades centrales.\n\nSin embargo, es muy fácil caer en la trampa de pasar el 80% del tiempo puliendo detalles secundarios que casi ningún usuario notará al principio.\n\nPara mantener un ritmo constante de entregas sin perder calidad, este es el filtro de trabajo que aplico:\n\n1. Definir el núcleo no negociable: ¿Cuál es la única función que, si no existiera, haría que el producto fuera inútil? Todo lo demás es secundario.\n\n2. Lanzar rápido para validar con datos reales: La retroalimentación de usuarios reales vale 100 veces más que cualquier suposición en una reunión de planificación.\n\n3. Iterar basándote en uso, no en especulaciones: Construye nuevas características solo cuando los usuarios las soliciten activamente o los datos demuestren que las necesitan.\n\nPerfeccionar lo que nadie necesita es el mayor desperdicio de energía en el desarrollo de software.\n\n¿Qué criterio usas tú para decidir qué funcionalidad construir primero?",
-    "image": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800",
-    "scheduledDate": null,
-    "author": "Inspirado en Ilya Strebulaev",
-    "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
-    "category": "Productividad & Gestión"
-  },
-  {
-    "id": "13",
-    "status": "draft",
-    "title": "La regla de los 5 minutos para evaluar cualquier proyecto de software",
-    "text": "Cuando un proyecto se retrasa semanas o meses, casi nunca es por falta de horas de trabajo.\n\nEs por falta de claridad en los primeros 5 minutos de definición.\n\nAntes de empezar a construir cualquier solución técnica, aplico este filtro rápido de 3 preguntas:\n\n1. ¿Quién va a usar esto diariamente y qué tarea le ahorra? Si la respuesta es vaga o abstracta, la funcionalidad probablemente terminará archivada.\n\n2. ¿Cuál es el formato exacto del resultado final? (¿Un reporte en PDF, una alerta por mensaje, una tabla en pantalla?). Definir el resultado primero ahorra el 50% de las reuniones.\n\n3. ¿Qué pasa si el sistema falla? Si la falla no bloquea la operación principal, no pierdas días creando arquitecturas ultrasofisticadas para casos raros.\n\nConstruir rápido es valioso, pero construir lo correcto a la primera es lo que realmente marca la diferencia.\n\n¿Tienes algún filtro rápido antes de arrancar un nuevo proyecto?",
-    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800",
-    "scheduledDate": null,
-    "author": "Productividad & Criterio Tech",
-    "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
-    "category": "Gestión & Desarrollo"
-  },
-  {
-    "id": "14",
-    "status": "draft",
-    "title": "Por qué el código más limpio suele ser el que no escribes",
-    "text": "Hay una gran diferencia entre un desarrollador junior y uno experimentado:\n\nEl junior busca resolver un problema escribiendo 300 líneas de código nuevo.\nEl experimentado busca resolver el mismo problema eliminando 100 líneas existentes o reutilizando componentes probados.\n\nCada línea de código que agregas a un proyecto es una responsabilidad más que mantener, probar y corregir a futuro.\n\nPara mantener bases de código ágiles y fáciles de escalar, considera estas 3 reglas de oro:\n\n1. Reutiliza antes de reinventar: Si una librería madura o una API ya resuelve el problema de forma segura, no gastes semanas rehaciéndola desde cero.\n\n2. Di 'no' a las funcionalidades 'por si acaso': Construye solo lo que el usuario necesita hoy. La flexibilidad prematura casi siempre se convierte en deuda técnica.\n\n3. Simplifica las dependencias: Menos módulos conectados significan menos puntos de falla cuando se actualizan los sistemas.\n\nEl mejor código es aquel que es tan simple que no deja espacio para errores ocultos.\n\n¿Qué parte de tu código has simplificado recientemente con excelentes resultados?",
-    "image": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=800",
-    "scheduledDate": null,
-    "author": "Inspirado en Creadores de Ingeniería",
-    "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
-    "category": "Arquitectura & Buenas Prácticas"
-  },
-  {
-    "id": "15",
-    "status": "draft",
-    "title": "El hábito diario que diferencia a los profesionales de tecnología que escalan rápido",
-    "text": "En el mundo de la tecnología, la brecha entre quienes se quedan estancados y quienes avanzan rápido rara vez tiene que ver con el talento innato.\n\nTiene que ver con la forma en que documentan y comparten lo que aprenden.\n\nDedicar 10 minutos al final de cada día a registrar aprendizajes clave cambia por completo tu trayectoria:\n\n1. Documenta las soluciones a los errores difíciles: Si te tomó 2 horas resolver un fallo complejo hoy, escríbelo. La próxima vez que ocurra, lo resolverás en 2 minutos.\n\n2. Sintetiza conceptos complejos en palabras simples: Si puedes explicárselo a un compañero sin usar jerga confusa, significa que realmente lo dominas.\n\n3. Construye tu propia biblioteca de recursos: Guardar fragmentos de código, plantillas y flujos probados te convierte en un profesional increíblemente eficiente.\n\nLa memoria humana falla; un sistema de notas bien estructurado se convierte en tu mayor activo profesional.\n\n¿Guardas un registro diario de lo que aprendes o confías en la memoria?",
-    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800",
-    "scheduledDate": null,
-    "author": "Crecimiento Profesional",
-    "originalUrl": "https://www.linkedin.com/in/stasbel/",
-    "category": "Carrera Tech & Crecimiento"
-  },
-  {
-    "id": "16",
-    "status": "draft",
-    "title": "La diferencia entre automatizar procesos y crear caos a velocidad",
-    "text": "Automatizar un proceso desordenado solo produce desorden a mayor velocidad.\n\nAntes de construir cualquier flujo automático entre herramientas, es fundamental simplificar el proceso manual.\n\nEste es el checklist de 3 pasos que sigo antes de crear cualquier automatización:\n\n1. Eliminar pasos innecesarios: Si una tarea no aporta un resultado directo al usuario o al negocio, elimínala antes de intentar automatizarla.\n\n2. Estandarizar las entradas de datos: Los flujos automáticos se rompen cuando la información llega en formatos variables. Asegúrate de que los datos tengan una estructura uniforme.\n\n3. Diseñar alertas de excepción: En lugar de asumir que todo funcionará siempre bien, configura avisos inmediatos cuando un dato llegue incompleto o con error.\n\nLa verdadera eficiencia no consiste en conectar más herramientas, sino en crear procesos limpios que funcionen sin fricción.\n\n¿Qué proceso en tu equipo se beneficiaría más de ser simplificado hoy?",
-    "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800",
-    "scheduledDate": null,
-    "author": "Estrategia de Automatización",
-    "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
-    "category": "Automatización & Estrategia"
-  },
-  {
-    "id": "17",
-    "status": "draft",
-    "title": "Por qué la documentación viva es el mejor activo de un equipo de desarrollo",
-    "text": "La mayoría de los proyectos pierden semanas de trabajo no por falta de capacidad técnica, sino por falta de memoria compartida.\n\nCuando la única persona que entiende cómo funciona un módulo se va de vacaciones o cambia de proyecto, todo el ritmo del equipo se frena.\n\nLa solución no es escribir extensos manuales en PDF que nadie vuelve a leer, sino mantener documentación viva:\n\n1. Esquemas de datos claros: Un buen archivo de tipos o diagrama de base de datos explica más que 10 páginas de texto plano.\n\n2. Registros de decisiones de arquitectura: Documentar brevemente por qué se eligió una solución específica evita discusiones repetidas meses después.\n\n3. Guías de inicio rápido: Cualquier nuevo miembro del equipo debería ser capaz de ejecutar el proyecto en su máquina local en menos de una hora.\n\nDocumentar bien no es una tarea secundaria; es la base para escalar productos de forma sostenible.\n\n¿Cada cuánto tiempo actualizan la documentación interna en tu proyecto?",
-    "image": "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800",
-    "scheduledDate": null,
-    "author": "Cultura de Ingeniería",
-    "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
-    "category": "Buenas Prácticas & Equipo"
-  },
-  {
-    "id": "18",
-    "status": "draft",
-    "title": "La regla del prototipo de 24 horas: Cómo validar ideas sin perder meses",
-    "text": "El mayor riesgo al lanzar un nuevo producto o funcionalidad no es que falle técnicamente.\n\nEs pasar tres meses construyéndolo para descubrir que nadie lo necesitaba.\n\nPara evitar este desperdicio de tiempo y recursos, uso la regla del prototipo de 24 horas:\n\n1. Construir solo la experiencia visual principal: No configures bases de datos complejas ni lógica avanzada el primer día. Crea una interfaz funcional donde el usuario pueda interactuar con el flujo principal.\n\n2. Probar con usuarios reales inmediatamente: Muestra el prototipo a 5 personas de tu público objetivo y observa dónde se detienen o qué dudas tienen.\n\n3. Decidir basándote en comportamiento, no en opiniones: Lo que la gente dice que quiere y lo que realmente usa son dos cosas muy distintas.\n\nSi una idea vale la pena, 24 horas son suficientes para obtener los primeros datos reales sobre su potencial.\n\n¿Cuál fue la última idea que probaste antes de construirla por completo?",
-    "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800",
-    "scheduledDate": null,
-    "author": "Desarrollo Ágil",
-    "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
-    "category": "Startups & Innovación"
-  },
-  {
     "id": "19",
-    "status": "draft",
+    "status": "scheduled",
     "title": "Por qué la simplicidad en la arquitectura de software vence a la tendencia",
     "text": "Cada año aparece un nuevo paradigma o patrón de arquitectura que promete resolver todos los problemas del desarrollo de software.\n\nSin embargo, los sistemas más estables y rentables del mundo suelen estar construidos sobre arquitecturas sorprendentemente simples.\n\nAdoptar tecnología por moda en lugar de por necesidad real trae consecuencias costosas:\n\n1. Complejidad operativa innecesaria: Distribuir un sistema en decenas de microservicios cuando tu tráfico cabe en un solo servidor agrega latencia y dificultad de depuración.\n\n2. Curva de aprendizaje para el equipo: Cada nueva herramienta en tu stack requiere tiempo de adaptación y especialización.\n\n3. Costos ocultos de mantenimiento: Mantener servicios dispersos multiplica la cantidad de infraestructura a monitorear.\n\nEl objetivo de la arquitectura de software es resolver problemas de negocio de la forma más limpia y directa posible.\n\n¿Qué tecnología decidiste no implementar recientemente para mantener la simplicidad de tu sistema?",
     "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800",
-    "scheduledDate": null,
+    "scheduledDate": "2026-09-07T13:00:00.000Z",
     "author": "Diseño de Sistemas",
     "originalUrl": "https://www.linkedin.com/in/stasbel/",
     "category": "Arquitectura & Software"
   },
   {
     "id": "20",
-    "status": "draft",
+    "status": "scheduled",
     "title": "El arte de descomponer problemas complejos en tareas de 15 minutos",
     "text": "Frente a un proyecto gigante, la parálisis por análisis es el obstáculo más común.\n\nIntentar resolver un desafío de arquitectura de una sola vez suele derivar en bloqueo y frustración.\n\nLa habilidad más valiosa en el desarrollo moderno es saber dividir grandes problemas en microtareas de 15 minutos:\n\n1. Define una entrada y una salida clara para cada microtarea: En lugar de 'crear el módulo de usuarios', enfócate en 'escribir la función que valida el formato de correo'.\n\n2. Resuelve una pequeña pieza a la vez: Cada microtarea completada genera impulso y claridad para la siguiente.\n\n3. Combina los bloques verificados: Al unir piezas pequeñas que ya funcionan de forma independiente, el sistema completo se ensambla de manera fluida.\n\nCuando descompones lo complejo en pasos simples, la velocidad de ejecución se vuelve constante y predecible.\n\n¿Cómo organizas tus tareas cuando te enfrentas a un desafío técnico grande?",
     "image": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800",
-    "scheduledDate": null,
+    "scheduledDate": "2026-09-08T13:00:00.000Z",
     "author": "Metodología de Trabajo",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
     "category": "Productividad & IA"
