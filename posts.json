@@ -198,58 +198,58 @@
     "category": "Productividad & IA"
   },
   {
-    "id": "21",
+    "id": "26",
     "status": "draft",
-    "title": "Por qué las mejores APIs son las que no necesitan manual de instrucciones",
-    "text": "Una API mal diseñada exige que el desarrollador lea 20 páginas de documentación solo para enviar su primera petición.\n\nUna API excelente es intuitiva desde la primera línea de código.\n\nPara diseñar interfaces de programación que otros desarrolladores amen usar, aplico estos 3 principios fundamentales:\n\n1. Nombres predecibles y consistentes: Usa verbos y sustantivos claros. Si un endpoint se llama 'obtenerUsuario', el de actualización no debería llamarse 'modificarDatosCliente'.\n\n2. Respuestas de error descriptivas: Un error 400 que solo dice 'Solicitud inválida' frustra a cualquiera. Explica exactamente qué campo falta y qué formato se esperaba.\n\n3. Valores por defecto sensatos: Permite que las peticiones simples funcionen con la mínima cantidad de parámetros requeridos.\n\nEl tiempo que inviertes simplificando una API se multiplica en cientos de horas ahorradas para quienes se integran con ella.\n\n¿Cuál es la API más limpia e intuitiva con la que has trabajado?",
-    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800",
+    "title": "La regla del registro silencioso: Cómo depurar problemas sin saturar los servidores",
+    "text": "Guardar registros de todo lo que ocurre en un servidor parece una buena idea hasta que recibes una factura gigante de almacenamiento.\n\nEl exceso de logs desordenados oculta las alertas verdaderamente críticas entre miles de mensajes irrelevantes.\n\nPara mantener una observabilidad limpia y útil en producción, aplico estos 3 criterios:\n\n1. Niveles de severidad estrictos: Guarda información detallada únicamente en entornos de prueba. En producción, registra solo advertencias, errores y eventos de negocio clave.\n\n2. Contexto estructurado en formato JSON: Evita mensajes en texto plano como 'falló el usuario'. Registra objetos con identificador de petición, código de estado y tiempo de respuesta.\n\n3. Métrica antes que log: Si solo necesitas contar cuántas veces ocurre un evento, usa un contador en lugar de escribir una línea de registro cada vez.\n\nUn sistema de observabilidad bien diseñado te da respuestas claras en segundos cuando ocurre una incidencia.\n\n¿Cómo gestionan los registros de eventos en tu infraestructura actual?",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
     "scheduledDate": null,
-    "author": "Diseño de Interfaces",
+    "author": "Observabilidad & Logs",
     "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
-    "category": "Arquitectura & APIs"
+    "category": "Infraestructura & Observabilidad"
   },
   {
-    "id": "22",
+    "id": "27",
     "status": "draft",
-    "title": "La trampa del refinamiento infinito: Cuándo parar de pulir código",
-    "text": "El perfeccionismo en el desarrollo de software es una espada de doble filo.\n\nPor un lado, quieres entregar código limpio y bien estructurado. Por otro, pasar días refactorizando una función secundaria detiene el avance de todo el proyecto.\n\nPara saber cuándo un código está listo para salir a producción, uso este filtro de 3 comprobaciones:\n\n1. ¿Cumple los requisitos funcionales de forma consistente? Si pasa todas las pruebas unitarias y maneja casos de borde, la lógica principal está resuelta.\n\n2. ¿Es fácil de entender para otro desarrollador? Si alguien más puede leer el módulo y comprender la intención sin explicaciones verbales, la estructura es correcta.\n\n3. ¿Es seguro y escalable para el uso esperado? Si cumple con los estándares de seguridad y soporta la carga estimada, pulir aspectos estéticos puede esperar a la siguiente iteración.\n\nEl código perfecto no existe. El código que entrega valor real a usuarios reales es el que marca la diferencia.\n\n¿Cómo decides tú cuál es el momento exacto para dar por terminado un módulo?",
-    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800",
+    "title": "Por qué el mantenimiento preventivo de software ahorra el 80% de las emergencias",
+    "text": "Esperar a que una librería quede obsoleta o una base de datos se llene para actuar es la receta perfecta para las llamadas de emergencia a medianoche.\n\nEl software que no se cuida de forma constante se degrada con el tiempo a medida que cambian sus entornos.\n\nEsta es la rutina de mantenimiento preventivo que recomiendo aplicar mensualmente:\n\n1. Actualización gradual de dependencias: Actualiza paquetes secundarios en parches pequeños en lugar de hacer grandes saltos de versión cada año.\n\n2. Revisión de consultas lentas: Analiza las peticiones a base de datos que tardan más de lo habitual y optimiza los índices antes de que aumente el tráfico.\n\n3. Limpieza de código muerto: Elimina funciones y archivos que ya no se invocan en ningún flujo del sistema.\n\nEl mantenimiento constante exige disciplina, pero la tranquilidad de operar sistemas estables vale cada minuto invertido.\n\n¿Cada cuánto tiempo programan jornadas de mantenimiento en tu equipo?",
+    "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800",
     "scheduledDate": null,
-    "author": "Ingeniería Práctica",
+    "author": "Ingeniería de Software",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
-    "category": "Buenas Prácticas & Productividad"
+    "category": "Mantenimiento & Calidad"
   },
   {
-    "id": "23",
+    "id": "28",
     "status": "draft",
-    "title": "Por qué el pensamiento sistémico supera a la resolución puntual de errores",
-    "text": "Cuando un sistema falla en producción, la respuesta tentadora es aplicar un parche rápido sobre el síntoma inmediato.\n\nSin embargo, si no entiendes la causa raíz, el mismo problema reaparecerá semanas después con un formato distinto.\n\nEl pensamiento sistémico en tecnología implica analizar cómo interactúan todas las piezas:\n\n1. Rastrear el flujo de datos completo: En lugar de modificar solo la base de datos, analiza cómo viajó la información desde la interfaz hasta el backend.\n\n2. Evaluar efectos secundarios: Pregúntate si la corrección que estás aplicando romperá otra funcionalidad conectada al mismo componente.\n\n3. Crear salvaguardas para el futuro: Agrega una prueba automatizada que valide específicamente el escenario de falla para que no vuelva a ocurrir.\n\nApagar incendios alivia el momento; diseñar sistemas resilientes evita los incendios por completo.\n\n¿Prefieres parches rápidos para salir del paso o análisis profundos de causa raíz?",
-    "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800",
+    "title": "El patrón del aislante en código: Protegiendo tu aplicación de librerías externas",
+    "text": "Acoplar la lógica central de tu negocio directamente a una librería de terceros es uno de los errores de arquitectura más difíciles de corregir.\n\nSi la librería cambia su interfaz, queda descontinuada o aumenta sus precios, tendrás que modificar decenas de archivos en todo tu proyecto.\n\nPara evitar esta dependencia rígida, el patrón del aislante (o adaptador) es fundamental:\n\n1. Define tu propia interfaz interna: Crea una estructura clara de las funciones que tu aplicación necesita, sin importar qué proveedor las ejecute por detrás.\n\n2. Implementa un envoltorio único: Haz que solo una clase o módulo interactúe directamente con la API o librería externa.\n\n3. Cambia de proveedor sin tocar el negocio: Si mañana necesitas cambiar de herramienta, solo tendrás que modificar el envoltorio sin alterar el resto del código.\n\nMantener la lógica de tu negocio desvinculada de herramientas externas te da total flexibilidad y control sobre tu software.\n\n¿Usas envoltorios propios cuando integras librerías de terceros?",
+    "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800",
     "scheduledDate": null,
-    "author": "Pensamiento Sistémico",
+    "author": "Arquitectura Limpia",
     "originalUrl": "https://www.linkedin.com/in/stasbel/",
-    "category": "Estrategia & Desarrollo"
+    "category": "Patrones de Diseño"
   },
   {
-    "id": "24",
+    "id": "29",
     "status": "draft",
-    "title": "Cómo gestionar la deuda técnica antes de que paralice tu producto",
-    "text": "La deuda técnica es como una tarjeta de crédito: pedir prestado velocidad hoy puede ayudarte a lanzar antes, pero los intereses acumulados terminarán frenando cada nuevo desarrollo.\n\nEl error no es adquirir deuda técnica, sino ignorarla hasta que el sistema se vuelve inmanejable.\n\nEsta es la estrategia de 3 pasos para mantener la deuda técnica bajo control:\n\n1. Visibilidad y etiquetado: Documenta los atajos técnicos que tomas durante el desarrollo y agrégalos a una lista de pendientes de refactorización.\n\n2. Regla del 20% del sprint: Dedica un porcentaje fijo de cada ciclo de trabajo a limpiar módulos antiguos y actualizar librerías obsoletas.\n\n3. Refactorizar mientras construyes: Aplica la regla del boy scout: deja el código un poco más limpio de lo que lo encontraste cada vez que modifiques un archivo.\n\nTratar la deuda técnica como parte del mantenimiento regular evita que un proyecto caiga en la necesidad de ser reconstruido desde cero.\n\n¿Qué porcentaje de tiempo dedica tu equipo a la limpieza de deuda técnica?",
-    "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800",
+    "title": "Por qué la empatía técnica es la habilidad más infravalorada en desarrollo",
+    "text": "Escribir código que la computadora entienda es el paso básico. Escribir código que otros seres humanos puedan entender y mantener es el verdadero arte.\n\nLa empatía técnica es la capacidad de ponerse en el lugar del desarrollador que leerá tu trabajo dentro de seis meses.\n\nPracticar la empatía técnica en el día a día se resume en 3 acciones concretas:\n\n1. Nombres de variables significativos: Evita abreviaturas cripticas que solo tú entiendes mientras programas.\n\n2. Commits pequeños y descriptivos: Explica en el historial de cambios el 'por qué' se tomó una decisión, no solo qué archivos se modificaron.\n\n3. Revisiones de código constructivas: Comenta con el objetivo de mejorar la solución y compartir conocimiento, no de señalar errores de forma destructiva.\n\nLos equipos de ingeniería más productivos no son los que tienen a las mentes más brillantes en solitario, sino los que colaboran con mayor claridad.\n\n¿Qué hábitos de tu equipo hacen que el código sea más fácil de mantener entre todos?",
+    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800",
     "scheduledDate": null,
-    "author": "Gestión de Software",
+    "author": "Liderazgo en Ingeniería",
     "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
-    "category": "Gestión & Arquitectura"
+    "category": "Cultura Tech & Liderazgo"
   },
   {
-    "id": "25",
+    "id": "30",
     "status": "draft",
-    "title": "El valor de construir en público: Transparencia como acelerador de carrera",
-    "text": "Durante años se pensó que el trabajo en tecnología debía realizarse en absoluto silencio hasta el día del lanzamiento oficial.\n\nHoy, los profesionales y emprendedores que avanzan más rápido son los que comparten su proceso de construcción en público.\n\nMostrar tu camino mientras desarrollas un proyecto aporta ventajas enormes:\n\n1. Retroalimentación en tiempo real: Detectas fallos de usabilidad y dudas de clientes potenciales mucho antes de terminar el producto.\n\n2. Generación de confianza y autoridad: Documentar tus aciertos y aprendizajes demuestra tu criterio técnico mejor que cualquier currículum tradicional.\n\n3. Red de contactos afines: Atraes a colaboradores, clientes y mentores que se identifican con el problema que estás resolviendo.\n\nNo necesitas tener todo resuelto para empezar a compartir; el aprendizaje en el camino es lo que genera mayor conexión.\n\n¿Has compartido públicamente los avances de algún proyecto en el que estés trabajando?",
-    "image": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=800",
+    "title": "La regla de los límites en los modelos de IA: Evitando respuestas incoherentes",
+    "text": "Cuando un modelo de lenguaje entrega respuestas vagas o inventa información, casi siempre se debe a la ausencia de restricciones claras en las instrucciones.\n\nPedirle a la IA 'escribe sobre X' le da demasiada libertad para especular.\n\nPara obtener resultados precisos y consistentes, estructura tus instrucciones con estos 3 límites indispensables:\n\n1. Define el formato de salida estricto: Especifica si esperas una lista de 3 puntos, un esquema JSON válido o un párrafo de máximo 50 palabras.\n\n2. Establece lo que NO debe hacer: Indicar explícitamente las prohibiciones (ej. 'no uses jerga corporativa', 'no asumas datos no mencionados') reduce los errores drásticamente.\n\n3. Proporciona ejemplos de referencia (Few-shot): Incluir 1 o 2 ejemplos del resultado ideal guía al modelo con mayor eficacia que párrafos enteros de explicación.\n\nLa precisión en las respuestas de la IA es directamente proporcional a la claridad de los límites que estableces.\n\n¿Qué restricción te ha dado mejores resultados al trabajar con modelos de lenguaje?",
+    "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800",
     "scheduledDate": null,
-    "author": "Comunidad & Marca Personal",
+    "author": "Ingeniería de Prompts",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
-    "category": "Carrera Tech & Comunidad"
+    "category": "IA & Prompting"
   }
 ]
