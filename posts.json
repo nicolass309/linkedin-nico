@@ -251,5 +251,60 @@
     "author": "Ingeniería de Prompts",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
     "category": "IA & Prompting"
+  },
+  {
+    "id": "31",
+    "status": "draft",
+    "title": "La regla del despliegue continuo: Por qué los cambios pequeños reducen el riesgo a cero",
+    "text": "Acumular tres semanas de desarrollo para hacer un gran despliegue el viernes por la tarde es la forma más rápida de arruinar tu fin de semana.\n\nCuando despliegas cientos de cambios a la vez, diagnosticar cuál de ellos provocó una falla es casi imposible.\n\nLos equipos de ingeniería con mayor disponibilidad siguen la regla del despliegue continuo en pasos pequeños:\n\n1. Cambios independientes y de alcance reducido: Despliega cada funcionalidad tan pronto como pase las pruebas unitarias, en lugar de esperar a paquetes gigantes.\n\n2. Interruptores de código (Feature Flags): Activa o desactiva nuevas funciones en producción sin necesidad de volver a desplegar todo el servidor.\n\n3. Reversión automática en un clic: Configura tu tubería de despliegue para que vuelva a la versión anterior de inmediato si el porcentaje de errores aumenta.\n\nLa frecuencia de despliegue no es una métrica de vanidad; es la mejor garantía de estabilidad para tu infraestructura.\n\n¿Cada cuánto tiempo realizan lanzamientos a producción en tu proyecto?",
+    "image": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800",
+    "scheduledDate": null,
+    "author": "Cultura DevOps",
+    "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
+    "category": "DevOps & Despliegue"
+  },
+  {
+    "id": "32",
+    "status": "draft",
+    "title": "Cómo abordar la refactorización de código heredado sin romper producción",
+    "text": "Reescribir un sistema legado desde cero casi siempre toma el doble de tiempo estimado y genera errores que el sistema antiguo ya tenía resueltos.\n\nLa refactorización inteligente no reemplaza todo de golpe; transforma el código de manera gradual mientras sigue funcionando.\n\nEsta es la estrategia del estrangulador para actualizar código antiguo de forma segura:\n\n1. Cobertura de pruebas de caracterización: Antes de modificar una sola línea, escribe pruebas que documenten exactamente cómo responde el sistema actual frente a diferentes entradas.\n\n2. Reemplazo por partes: Crea la nueva implementación en paralelo y redirige un pequeño porcentaje del tráfico para verificar su comportamiento real.\n\n3. Eliminación progresiva del código viejo: Una vez que el nuevo módulo procesa el 100% de la carga sin incidencias, retira la implementación antigua.\n\nLa mejor arquitectura es la que evoluciona de forma continua sin interrumpir el servicio al cliente.\n\n¿Prefieres reescrituras completas o refactorizaciones graduales?",
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800",
+    "scheduledDate": null,
+    "author": "Ingeniería de Software",
+    "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
+    "category": "Refactorización & Arquitectura"
+  },
+  {
+    "id": "33",
+    "status": "draft",
+    "title": "Por qué la optimización prematura destruye la velocidad de desarrollo",
+    "text": "Gastar días optimizando una consulta que se ejecuta dos veces al día es un desperdicio de recursos de ingeniería.\n\nLa optimización prematura hace que el código sea más complejo de leer y mantener antes de saber si realmente existe un cuello de botella.\n\nPara optimizar con criterio profesional, sigue esta secuencia basada en datos reales:\n\n1. Mide primero con herramientas de perfilado: Identifica con métricas objetivas qué función o consulta representa el mayor porcentaje del tiempo de respuesta.\n\n2. Enfócate en el 20% que genera el 80% de la latencia: Aplica mejoras únicamente donde el impacto en la experiencia del usuario sea perceptible.\n\n3. Verifica el resultado con pruebas de carga: Comprueba que la optimización redujo los tiempos sin introducir complejidad innecesaria.\n\nLa claridad del código debe ser la prioridad por defecto; la optimización es una respuesta guiada por mediciones reales.\n\n¿Cuál ha sido el cuello de botella de rendimiento más insospechado que has encontrado?",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800",
+    "scheduledDate": null,
+    "author": "Optimización Práctica",
+    "originalUrl": "https://www.linkedin.com/in/stasbel/",
+    "category": "Rendimiento & Código"
+  },
+  {
+    "id": "34",
+    "status": "draft",
+    "title": "El arte de redactar solicitudes de cambio (Pull Requests) que da gusto revisar",
+    "text": "Enviar una solicitud de cambio con 45 archivos modificados y una descripción vacía es asegurar que nadie la revise con la atención que merece.\n\nLas solicitudes de cambio gigantescas se aprueban a ciegas o se quedan semanas estancadas esperando revisión.\n\nPara facilitar la revisión y acelerar la integración de tu código, aplica estas 3 reglas:\n\n1. Mantén los cambios enfocados en un solo objetivo: Si arreglas un error y al mismo tiempo quieres formatear 10 archivos, divídelo en dos solicitudes independientes.\n\n2. Explica el contexto en el resumen: Incluye qué problema resuelve el cambio, cómo probarlo y capturas de pantalla si afecta a la interfaz.\n\n3. Revisa tu propio código antes de asignarlo: Haz una primera inspección de tus diferencias para corregir detalles menores y comentarios temporales.\n\nFacilitar el trabajo de tus compañeros al revisar código es una de las muestras más claras de madurez profesional.\n\n¿Cuál es la regla principal que aplican en tu equipo para revisar código?",
+    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800",
+    "scheduledDate": null,
+    "author": "Colaboración en Código",
+    "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
+    "category": "Buenas Prácticas & Trabajo en Equipo"
+  },
+  {
+    "id": "35",
+    "status": "draft",
+    "title": "Cómo estructurar el primer día de un desarrollador para acelerar su integración",
+    "text": "Pasar la primera semana de un nuevo integrante entre permisos denegados, documentación desactualizada y repositorios rotos destruye su motivación inicial.\n\nEl objetivo del proceso de integración debe ser que el nuevo desarrollador realice su primer despliegue a producción el primer día.\n\nEsta es la estructura de integración rápida que funciona en equipos de alto rendimiento:\n\n1. Repositorio de configuración automática: Un solo comando en la terminal debe instalar todas las dependencias y levantar el entorno local en minutos.\n\n2. Asignación de un mentor de acompañamiento: Designa a un compañero del equipo para resolver dudas de contexto y acompañar sus primeras entregas.\n\n3. Una tarea pequeña y real para el día 1: Asigna la corrección de un detalle menor o actualización de documentación para que experimente el flujo completo de entrega.\n\nUn proceso de integración fluido transforma el entusiasmo inicial en productividad real desde la primera semana.\n\n¿Cómo fue tu mejor experiencia de integración al sumarte a un nuevo equipo?",
+    "image": "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800",
+    "scheduledDate": null,
+    "author": "Liderazgo & Equipos",
+    "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
+    "category": "Liderazgo Tech & Onboarding"
   }
 ]
