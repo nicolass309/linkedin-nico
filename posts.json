@@ -168,7 +168,7 @@
     "id": "12",
     "status": "scheduled",
     "title": "El rol del desarrollador en 2026: De escritor de código a arquitecto de soluciones",
-    "text": "Hace unos años, el valor de un desarrollador se medía en gran parte por su capacidad para memorizar sintaxis y algoritmos complejos.\n\nHoy en día, cualquier modelo de lenguaje puede escribir la sintaxis de 20 lenguajes de programación en segundos.\n\nEsto no significa que la profesión esté desapareciendo; significa que está evolucionando hacia un nivel mucho más estratégico.\n\nEl desarrollador del futuro es, ante todo, un arquitecto de soluciones:\n\n1. Visión de negocio: Entender el impacto económico de cada decisión técnica.\n2. Diseño de sistemas resilientes: Saber cómo conectar apis, bases de datos y modelos de IA para que no fallen bajo carga.\n3. Criterio de seguridad y calidad: Identificar vulnerabilidades y alucinaciones que la IA pasa por alto.\n\nLa programación ya no se trata de teclear rápido, sino de pensar bien.\n\n¿Hacia dónde crees que se encamina la profesión en los próximos años?",
+    "text": "Hace unos años, el valor de un desarrollador se medía en gran parte por su capacidad para memorizar sintaxis y algoritmos complejos.\n\nHoy en día, cualquier modelo de lenguaje puede escribir la sintaxis de 20 lenguajes de programación en segundos.\n\nEsto no significa que la profesión esté desapareciendo; significa que está evolucionando hacia un nivel mucho más strategic.\n\nEl desarrollador del futuro es, ante todo, un arquitecto de soluciones:\n\n1. Visión de negocio: Entender el impacto económico de cada decisión técnica.\n2. Diseño de sistemas resilientes: Saber cómo conectar apis, bases de datos y modelos de IA para que no fallen bajo carga.\n3. Criterio de seguridad y calidad: Identificar vulnerabilidades y alucinaciones que la IA pasa por alto.\n\nLa programación ya no se trata de teclear rápido, sino de pensar bien.\n\n¿Hacia dónde crees que se encamina la profesión en los próximos años?",
     "image": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800",
     "scheduledDate": "2026-09-04T13:00:00.000Z",
     "author": "Futuro de la Programación",
@@ -416,5 +416,38 @@
     "author": "Inspirado en Creadores de Productividad",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
     "category": "Productividad & Mentalidad"
+  },
+  {
+    "id": "46",
+    "status": "draft",
+    "title": "La paradoja de la herramienta perfecta: Por qué cambiar de aplicación no resolverá tu falta de sistema",
+    "text": "Probar una nueva aplicación de notas o un gestor de tareas cada dos semanas produce la ilusión de estar siendo más productivo.\n\nLa triste realidad es que la mejor herramienta del mundo en manos de un proceso desordenado solo genera frustración digital.\n\nPara dejar de saltar entre aplicaciones y construir un flujo de trabajo que realmente funcione, aplica estas 3 reglas:\n\n1. El sistema manda sobre la herramienta: Define cómo capturas, organizas y ejecutas tus tareas en un papel antes de buscar software para automatizarlo.\n\n2. Elige herramientas con la menor fricción posible: Si abrir una aplicación y crear una nota requiere más de dos clics, terminarás abandonándola.\n\n3. Revisa y limpia tu sistema una vez por semana: Dedica 20 minutos los viernes a vaciar tu bandeja de entrada y reorganizar pendientes.\n\nLa productividad no consiste en acumular aplicaciones elegantes, sino en mantener la mente despejada para ejecutar sin fricción.\n\n¿Cuántas aplicaciones de notas o tareas has cambiado en el último año?",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800",
+    "scheduledDate": null,
+    "author": "Inspirado en Nico Manzaneque",
+    "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
+    "category": "Productividad & Herramientas"
+  },
+  {
+    "id": "47",
+    "status": "draft",
+    "title": "Por qué el 90% de los proyectos fallan por mala comunicación y no por problemas técnicos",
+    "text": "Cuando un proyecto de software o una iniciativa de negocio se retrasa, rara vez se debe a la dificultad del código o la falta de tecnología.\n\nEl 90% de los retrasos ocurren por expectativas no alineadas, especificaciones ambiguas y falta de claridad entre los equipos.\n\nEsta es la rutina de 3 pasos para eliminar malentendidos en cualquier proyecto:\n\n1. Define el 'Criterio de Hecho' de forma no ambigua: Antes de arrancar cualquier tarea, escribe exactamente qué condiciones deben cumplirse para darla por terminada.\n\n2. Comunicación asíncrona por defecto: Usa mensajes estructurados y grabaciones cortas en lugar de convocar a reuniones de una hora para actualizaciones simples.\n\n3. Confirmación de entendimiento: Al delegar una responsabilidad, pide a la otra persona que resuma en sus palabras lo que entendió antes de comenzar.\n\nConstruir soluciones técnicas es fácil cuando todos en el equipo están alineados hacia la misma meta sin ruido en la comunicación.\n\n¿En tu experiencia, cuál es la causa principal de los retrasos en proyectos?",
+    "image": "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800",
+    "scheduledDate": null,
+    "author": "Inspirado en Roy Lee",
+    "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
+    "category": "Liderazgo & Gestión"
+  },
+  {
+    "id": "48",
+    "status": "draft",
+    "title": "El mito del capital inicial: Por qué recaudar demasiado dinero temprano arruina a las startups",
+    "text": "Tener una cuenta bancaria llena de capital en la etapa inicial de una empresa suele disfrazar problemas graves de modelo de negocio.\n\nLa escasez de recursos obliga a los fundadores a ser creativos, escuchar a los clientes y construir únicamente lo indispensable.\n\nLos datos de aceleradoras de negocios muestran 3 ventajas claras de operar con disciplina financiera desde el día uno:\n\n1. Enfoque obsesivo en ventas reales: Cuando no hay fondos ilimitados, la única forma de sobrevivir es cobrando a clientes por valor real desde el primer mes.\n\n2. Disciplina de costos fijos: Te acostumbras a mantener estructuras livianas y contratar únicamente cuando la demanda operativa lo exige de forma crítica.\n\n3. Mayor porcentaje de propiedad para los fundadores: Llegar a etapas avanzadas con tracción probada te permite negociar mejores condiciones de valoración.\n\nEl dinero financia el crecimiento, pero la claridad de propuesta y la satisfacción del usuario son las que construyen empresas perdurables.\n\n¿Crees que es mejor levantar capital lo antes posible o bootsrapear hasta tener ventas?",
+    "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800",
+    "scheduledDate": null,
+    "author": "Inspirado en Ilya Strebulaev",
+    "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
+    "category": "Startups & Capital"
   }
 ]
