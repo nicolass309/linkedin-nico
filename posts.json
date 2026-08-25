@@ -361,5 +361,60 @@
     "author": "Estrategia de Producto",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
     "category": "Startups & Producto"
+  },
+  {
+    "id": "41",
+    "status": "draft",
+    "title": "El error de $50,000 que comete el 80% de las startups al contratar su primer equipo técnico",
+    "text": "El 80% de las startups en etapa temprana queman su presupuesto contratando perfiles equivocados en el momento equivocado.\n\nBuscan desarrolladores hiperespecializados en tecnologías de moda cuando lo que realmente necesitan es velocidad de validación.\n\nLos datos de cientos de empresas emergentes muestran un patrón claro en las contrataciones exitosas:\n\n1. El primer perfil debe ser un generalista rápido: Al principio necesitas a alguien capaz de construir un prototipo completo en días, no a un especialista que pase un mes optimizando servidores.\n\n2. Contrata por capacidad de aprendizaje, no por lista de herramientas: Las librerías cambian cada seis meses. La habilidad de aprender e integrar tecnologías nuevas en 48 horas vale 10 veces más.\n\n3. Enfoque en el producto antes que en la perfección técnica: Código limpio que nadie usa vale cero. Un sistema imperfecto que valida una necesidad real genera tracción inmediata.\n\nEn las etapas iniciales, la velocidad para encontrar el encaje con el mercado le gana a cualquier arquitectura sofisticada.\n\n¿Cuál fue el primer perfil que contrataron en tu proyecto o empresa?",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
+    "scheduledDate": null,
+    "author": "Inspirado en Ilya Strebulaev",
+    "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
+    "category": "Startups & Negocios"
+  },
+  {
+    "id": "42",
+    "status": "draft",
+    "title": "La regla de los 3 prompts: Cómo obtener resultados perfectos sin perder horas intentando",
+    "text": "Si necesitas escribir un prompt de tres páginas para que un modelo de IA te dé una respuesta útil, estás usando la herramienta al revés.\n\nIntentar que la inteligencia artificial adivine lo que quieres en un solo intento produce respuestas genéricas y aburridas.\n\nLos profesionales que obtienen resultados extraordinarios usan la regla de los 3 prompts iterativos:\n\n1. Prompt de rol y contexto: Define la identidad del asistente y el objetivo general sin pedir el resultado final todavía (ej. 'Actúa como un director de marketing analizando este texto').\n\n2. Prompt de insumos estructurados: Pásale los datos de referencia o la información exacta sobre la que debe trabajar (ej. 'Aquí están los 3 testimonios de clientes').\n\n3. Prompt de restricción y formato: Pídele la tarea específica especificando el tono, la extensión y lo que debe evitar (ej. 'Redacta 3 ganchos en menos de 20 palabras cada uno').\n\nDividir la interacción en pasos cortos le da al modelo el contexto necesario para entregar respuestas precisas a la primera.\n\n¿Usas conversaciones paso a paso con la IA o intentas pedir todo en un solo mensaje?",
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800",
+    "scheduledDate": null,
+    "author": "Inspirado en Roy Lee",
+    "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
+    "category": "IA & Productividad"
+  },
+  {
+    "id": "43",
+    "status": "draft",
+    "title": "El filtro de 15 minutos: Cómo automatizar el 80% de tus tareas repetitivas este fin de semana",
+    "text": "La razón por la que sientes que no tienes tiempo para proyectos estratégicos es porque tu día está lleno de microtareas administrativas.\n\nPasar 15 minutos copiando datos de un correo a una planilla parece inocuo, pero repetido 20 veces por semana suma más de 20 horas al mes.\n\nPara eliminar estas fugas de tiempo sin programar código complejo, aplica este filtro de 3 pasos:\n\n1. Registra tus tareas repetitivas durante 3 días: Anota cada actividad manual que hagas más de dos veces por semana (enviar facturas, agendar citas, mover archivos).\n\n2. Selecciona la tarea de menor complejidad y mayor frecuencia: No intentes automatizar todo tu trabajo de golpe. Empieza por el proceso más simple que te tome entre 10 y 20 minutos diarios.\n\n3. Conecta el evento desencadenante con la acción: Usa herramientas no-code para que cada vez que llegue un dato (ej. nuevo formulario), se ejecute la acción automáticamente sin tu intervención.\n\nRecuperar 5 horas a la semana cambia por completo tu capacidad para enfocar en lo que realmente hace crecer tu carrera o negocio.\n\n¿Cuál es la tarea manual más molesta que repites todas las semanas?",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
+    "scheduledDate": null,
+    "author": "Inspirado en Nico Manzaneque",
+    "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
+    "category": "Automatización & Procesos"
+  },
+  {
+    "id": "44",
+    "status": "draft",
+    "title": "Por qué los profesionales que documentan sus procesos ganan el doble en tecnología",
+    "text": "El talento técnico abre puertas, pero la capacidad de sistematizar y transmitir conocimiento es lo que te promueve a posiciones de liderazgo.\n\nLos profesionales que se vuelven indispensables no son los que guardan todos los secretos en su cabeza, sino los que crean sistemas que otros pueden ejecutar.\n\nEsta es la guía de 3 pasos para convertir tu trabajo diario en un activo de carrera:\n\n1. Crea guías de resolución rápida para problemas complejos: Cada vez que resuelvas un fallo que te tomó más de una hora, documenta los pasos exactos de la solución en una nota pública.\n\n2. Diseña plantillas reutilizables para tu equipo: Si estructuras un formato para reportes o especificaciones técnicas, compártelo abiertamente para estandarizar el trabajo.\n\n3. Construye tu biblioteca personal de recursos: Guardar soluciones probadas te permite resolver en 5 minutos desafíos que a otros les tomarían días.\n\nQuien comparte lo que aprende multiplica su impacto y se convierte en el referente natural de cualquier organización.\n\n¿Sueles documentar tus soluciones o confías en la memoria para la próxima vez?",
+    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800",
+    "scheduledDate": null,
+    "author": "Inspirado en Stas Bel",
+    "originalUrl": "https://www.linkedin.com/in/stasbel/",
+    "category": "Carrera Tech & Crecimiento"
+  },
+  {
+    "id": "45",
+    "status": "draft",
+    "title": "La ilusión de la multitarea: Por qué hacer 3 cosas a la vez destruye la calidad de tu trabajo",
+    "text": "Responder mensajes, revisar código y planificar un proyecto al mismo tiempo no te hace más eficiente.\n\nEl cerebro humano no realiza multitarea real; lo que hace es cambiar de contexto rápidamente, consumiendo energía mental en cada transición.\n\nEstudios de rendimiento muestran que cambiar constantemente de foco reduce la capacidad analítica hasta en un 40%.\n\nPara recuperar el enfoque profundo y terminar tareas en la mitad del tiempo, aplica estas 3 reglas:\n\n1. Bloques de trabajo sin interrupciones de 90 minutos: Apaga notificaciones y cierra pestañas secundarias durante un bloque de enfoque absoluto.\n\n2. Agrupa las tareas administrativas en un solo horario: Revisa y responde todos los mensajes y correos en dos momentos fijos del día, no cada 5 minutos.\n\n3. Define la única prioridad del día antes de empezar: Si solo pudieras completar una tarea hoy para considerar el día exitoso, ¿cuál sería?\n\nLa velocidad real no viene de correr en todas direcciones, sino de avanzar sin interrupciones en una sola meta a la vez.\n\n¿Cuántas veces al día sientes que pierdes el foco por culpa de las notificaciones?",
+    "image": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800",
+    "scheduledDate": null,
+    "author": "Inspirado en Creadores de Productividad",
+    "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
+    "category": "Productividad & Mentalidad"
   }
 ]
