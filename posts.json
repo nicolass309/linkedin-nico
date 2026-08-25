@@ -306,5 +306,60 @@
     "author": "Liderazgo & Equipos",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
     "category": "Liderazgo Tech & Onboarding"
+  },
+  {
+    "id": "36",
+    "status": "draft",
+    "title": "La regla del índice en base de datos: Por qué agregar índices a ciegas ralentiza las escrituras",
+    "text": "Frente a una consulta lenta en la base de datos, la solución impulsiva suele ser agregar un índice a cada columna mencionada en la búsqueda.\n\nSin embargo, cada índice nuevo que agregas tiene un costo directo en el rendimiento de cada inserción, actualización y borrado de datos.\n\nPara diseñar índices eficientes sin penalizar la velocidad del sistema, aplico estas 3 reglas:\n\n1. Índices compuestos bien ordenados: El orden de las columnas en un índice compuesto importa. Coloca primero la columna con mayor cardinalidad (la que filtra más registros).\n\n2. Monitorea índices duplicados o no utilizados: Las bases de datos modernas permiten identificar qué índices no se han usado en meses. Elimínalos para liberar memoria.\n\n3. Prioriza las lecturas críticas: Si una tabla recibe miles de escrituras por segundo y pocas lecturas, mantén los índices al mínimo indispensable.\n\nLa optimización de bases de datos requiere equilibrar la velocidad de lectura con el costo de mantenimiento de las escrituras.\n\n¿Cuál es la estrategia que mejor les funciona en su equipo para mantener bases de datos rápidas?",
+    "image": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800",
+    "scheduledDate": null,
+    "author": "Optimización de Datos",
+    "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
+    "category": "Bases de Datos & Rendimiento"
+  },
+  {
+    "id": "37",
+    "status": "draft",
+    "title": "Por qué la programación defensiva evita fallas silenciosas en producción",
+    "text": "Asumir que las peticiones externas siempre llegarán con datos completos y bien formateados es la causa número uno de errores no controlados.\n\nLa programación defensiva no consiste en llenar el código de bloques de excepción vacíos, sino en validar las entradas en la frontera del sistema.\n\nEsta es la estructura en 3 capas que protege tus funciones frente a datos corruptos:\n\n1. Validar tipos e intenciones en la entrada: Comprueba que los parámetros requeridos existan y cumplan con el formato esperado antes de ejecutar cualquier lógica de negocio.\n\n2. Fallar rápido y de forma explícita: Si una condición previa no se cumple, interrumpe la ejecución inmediatamente con un mensaje de error claro.\n\n3. Valores de retorno predecibles: Evita retornar tipos de datos diferentes según la situación (ej. a veces una lista y a veces nulo). Mantén la coherencia en las respuestas.\n\nValidar los datos al ingresar a tu sistema evita que un error menor se propague y corrompa registros más adelante.\n\n¿Qué nivel de validación aplican en la entrada de sus APIs?",
+    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800",
+    "scheduledDate": null,
+    "author": "Calidad de Código",
+    "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
+    "category": "Buenas Prácticas & Calidad"
+  },
+  {
+    "id": "38",
+    "status": "draft",
+    "title": "Procesamiento asíncrono de tareas: Cómo mantener tu aplicación rápida bajo alta carga",
+    "text": "Hacer que el usuario espere 10 segundos en la pantalla mientras tu servidor envía un correo o genera un reporte PDF destruye la experiencia de uso.\n\nCualquier operación que tome más de 200 milisegundos y no sea indispensable para responder la petición actual debe procesarse en segundo plano.\n\nPara implementar procesamiento asíncrono con colas de tareas de forma estable, considera estos 3 pasos:\n\n1. Responde de inmediato al usuario: Confirma que la solicitud fue recibida y devuelve un identificador de seguimiento en milisegundos.\n\n2. Aísla a los trabajadores en segundo plano: Ejecuta los procesos pesados en servidores independientes para que un pico de tareas no ralentice la aplicación principal.\n\n3. Configura reintentos automáticos con reintento exponencial: Si un servicio externo falla temporalmente, reintenta la tarea aumentando el intervalo entre intentos.\n\nDelegar tareas pesadas a colas en segundo plano garantiza que tu aplicación responda rápido sin importar la carga de trabajo.\n\n¿Qué procesos de tu aplicación se beneficiarían de pasar a segundo plano?",
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800",
+    "scheduledDate": null,
+    "author": "Diseño de Sistemas",
+    "originalUrl": "https://www.linkedin.com/in/stasbel/",
+    "category": "Arquitectura & Backend"
+  },
+  {
+    "id": "39",
+    "status": "draft",
+    "title": "Código inteligente vs código legible: Por qué la claridad siempre gana",
+    "text": "Hay desarrolladores que disfrutan escribir funciones de una sola línea combinando múltiples operadores complejos para demostrar su destreza.\n\nSin embargo, ese código 'inteligente' suele convertirse en un dolor de cabeza cuando otro desarrollador intenta modificarlo meses después.\n\nLa verdadera elegancia en la programación se refleja en código tan claro que parece trivial:\n\n1. Prefiere nombres explícitos sobre comentarios explicativos: Si una función se llama 'calcularImpuestoConDescuento', no necesitas agregar un comentario arriba para explicar qué hace.\n\n2. Divide expresiones complejas en variables intermedias: Darle un nombre claro a una condición booleana hace que la estructura lógica sea evidente de inmediato.\n\n3. Mantén un nivel de abstracción uniforme por función: Una función de alto nivel no debería mezclar llamadas de arquitectura con manipulaciones detalladas de cadenas.\n\nEl código se lee muchas más veces de las que se escribe; priorizar la legibilidad ahorra tiempo a todo el equipo.\n\n¿Prefieres soluciones concisas en una línea o explicativas en varios pasos?",
+    "image": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=800",
+    "scheduledDate": null,
+    "author": "Buenas Prácticas",
+    "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
+    "category": "Cultura Tech & Legibilidad"
+  },
+  {
+    "id": "40",
+    "status": "draft",
+    "title": "Del Producto Mínimo Viable (MVP) al Producto Mínimo Encantador (MLP)",
+    "text": "El concepto tradicional de MVP llevó a muchos equipos a lanzar productos feos, lentos y frustrantes bajo la justificación de 'validar rápido'.\n\nHoy en día, con tanta oferta en el mercado, un producto que solo es 'viable' no es suficiente para captar la atención de los usuarios.\n\nLa tendencia actual evoluciona hacia el Producto Mínimo Encantador (MLP):\n\n1. Pocas funcionalidades, pero ejecutadas de forma impecable: Reduce el alcance al mínimo, pero asegúrate de que esa única función principal sea rápida y agradable de usar.\n\n2. Detalle en las microinteracciones: Una animación fluida, un mensaje de bienvenida personalizado o una pantalla de error empática generan conexión inmediata.\n\n3. Velocidad de respuesta como característica clave: La rapidez de la interfaz transmite profesionalismo y confianza desde el primer clic.\n\nNo se trata de construir más cosas, sino de hacer que lo poco que construyas enamore a tus primeros usuarios.\n\n¿Qué detalle en una aplicación te ha hecho convertirte en usuario frecuente?",
+    "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800",
+    "scheduledDate": null,
+    "author": "Estrategia de Producto",
+    "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
+    "category": "Startups & Producto"
   }
 ]
