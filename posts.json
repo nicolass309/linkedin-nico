@@ -168,7 +168,7 @@
     "id": "12",
     "status": "scheduled",
     "title": "El rol del desarrollador en 2026: De escritor de código a arquitecto de soluciones",
-    "text": "Hace unos años, el valor de un desarrollador se medía en gran parte por su capacidad para memorizar sintaxis y algoritmos complejos.\n\nHoy en día, cualquier modelo de lenguaje puede escribir la sintaxis de 20 lenguajes de programación en segundos.\n\nEsto no significa que la profesión esté desapareciendo; significa que está evolucionando hacia un nivel mucho más strategic.\n\nEl desarrollador del futuro es, ante todo, un arquitecto de soluciones:\n\n1. Visión de negocio: Entender el impacto económico de cada decisión técnica.\n2. Diseño de sistemas resilientes: Saber cómo conectar apis, bases de datos y modelos de IA para que no fallen bajo carga.\n3. Criterio de seguridad y calidad: Identificar vulnerabilidades y alucinaciones que la IA pasa por alto.\n\nLa programación ya no se trata de teclear rápido, sino de pensar bien.\n\n¿Hacia dónde crees que se encamina la profesión en los próximos años?",
+    "text": "Hace unos años, el valor de un desarrollador se medía en gran parte por su capacidad para memorizar sintaxis y algoritmos complejos.\n\nHoy en día, cualquier modelo de lenguaje puede escribir la sintaxis de 20 lenguajes de programación en segundos.\n\nEsto no significa que la profesión esté desapareciendo; significa que está evolucionando hacia un nivel mucho más estratégico.\n\nEl desarrollador del futuro es, ante todo, un arquitecto de soluciones:\n\n1. Visión de negocio: Entender el impacto económico de cada decisión técnica.\n2. Diseño de sistemas resilientes: Saber cómo conectar apis, bases de datos y modelos de IA para que no fallen bajo carga.\n3. Criterio de seguridad y calidad: Identificar vulnerabilidades y alucinaciones que la IA pasa por alto.\n\nLa programación ya no se trata de teclear rápido, sino de pensar bien.\n\n¿Hacia dónde crees que se encamina la profesión en los próximos años?",
     "image": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800",
     "scheduledDate": "2026-09-04T13:00:00.000Z",
     "author": "Futuro de la Programación",
@@ -212,7 +212,7 @@
     "id": "27",
     "status": "draft",
     "title": "Por qué el mantenimiento preventivo de software ahorra el 80% de las emergencias",
-    "text": "Esperar a que una librería quede obsoleta o una base de datos se llene para actuar es la receta perfecta para las llamadas de emergencia a medianoche.\n\nEl software que no se cuida de forma constante se degrada con el tiempo a medida que cambian sus entornos.\n\nEsta es la rutina de mantenimiento preventivo que recomiendo aplicar mensualmente:\n\n1. Actualización gradual de dependencias: Actualiza paquetes secundarios en parches pequeños en lugar de hacer grandes saltos de versión cada año.\n\n2. Revisión de consultas lentas: Analiza las peticiones a base de datos que tardan más de lo habitual y optimiza los índices antes de que aumente el tráfico.\n\n3. Limpieza de código muerto: Elimina funciones y archivos que ya no se invocan en ningún flujo del sistema.\n\nEl mantenimiento constante exige disciplina, pero la tranquilidad de operar sistemas estables vale cada minuto invertido.\n\n¿Cada cuánto tiempo programan jornadas de mantenimiento en tu equipo?",
+    "text": "Esperar a que una librería quede obsoleta o una base de datos se llene para actuar es la receta perfecta para las llamadas de emergencia a medianoche.\n\nEl software que no se cuida de forma constante se degrada con el tiempo a medida que cambian sus entornos.\n\nEsta es la rutina de mantenimiento preventivo que recomiendo aplicar mensualmente:\n\n1. Actualización gradual de dependencias: Actualiza paquetes secundarios en parches pequeños en lugar de hacer grandes saltos de versión cada año.\n\n2. Revisión de consultas lentas: Analiza las peticiones a base de datos que tardan más de lo habitual y optimiza los índices antes de que aumente el tráfico.\n\n3. Limpieza de código muerto: Elimina funciones y archivos que ya no se invocan en ningún flujo del sistema.\n\nEl mantenimiento constante exige disciplina, pero la tranquilidad de operar sistemas estables vale cada minuto invested.\n\n¿Cada cuánto tiempo programan jornadas de mantenimiento en tu equipo?",
     "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800",
     "scheduledDate": null,
     "author": "Ingeniería de Software",
@@ -449,5 +449,38 @@
     "author": "Inspirado en Ilya Strebulaev",
     "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
     "category": "Startups & Capital"
+  },
+  {
+    "id": "49",
+    "status": "draft",
+    "title": "La regla del 1% diario: Cómo construir una ventaja competitiva imbatible en 12 meses",
+    "text": "Subestimamos masivamente lo que podemos lograr en un año e sobreestimamos lo que podemos hacer en una sola tarde.\n\nIntentar transformar tu carrera o negocio de la noche a la mañana solo produce agotamiento y frustración.\n\nLa verdadera diferencia entre los profesionales promedio y los de alto rendimiento es el interés compuesto de los pequeños hábitos:\n\n1. 20 minutos de lectura técnica o de negocios al día: Equivale a leer más de 12 libros especializados al año sobre tu sector.\n\n2. Escribir 100 palabras de aprendizajes diarios: Documentar lo que descubres fija el conocimiento y construye tu biblioteca personal.\n\n3. Una pequeña mejora a tu sistema de trabajo cada semana: Eliminar una sola fricción semanal hace que tu operación sea 50% más eficiente al cabo de un año.\n\nLa consistencia discreta vence al entusiasmo desbordado en cualquier disciplina a largo plazo.\n\n¿Cuál es ese pequeño hábito de 15 minutos que mantienes todos los días?",
+    "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800",
+    "scheduledDate": null,
+    "author": "Inspirado en Creadores de Productividad",
+    "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
+    "category": "Crecimiento Personal & Carrera"
+  },
+  {
+    "id": "50",
+    "status": "draft",
+    "title": "Por qué el 'Sí' prematuro a clientes inadecuados destruye el margen de tu negocio",
+    "text": "Aceptar a cualquier cliente en las primeras etapas por desesperación de facturar suele convertirse en una trampa mortal para las empresas.\n\nLos clientes que exigen descuentos excesivos o piden cambios fuera de alcance consumen el 80% del tiempo de tu equipo y generan el 20% de los ingresos.\n\nPara proteger la rentabilidad y salud de tu operación, aplica estos 3 filtros antes de firmar un contrato:\n\n1. Perfil de Cliente Ideal (ICP) estricto: Define las características exactas de las empresas a las que realmente puedes entregarles un valor transformador.\n\n2. Decir 'No' a solicitudes fuera de tu propuesta central: Adaptar tu solución a medida para cada cliente impide que tu producto o servicio pueda escalar.\n\n3. Evalúa la alineación de expectativas desde la primera llamada: Si un prospecto no respeta tu proceso de trabajo antes de contratar, tampoco lo hará después.\n\nUn negocio saludable se construye tanto por los clientes que decides aceptar como por las propuestas que decides rechazar.\n\n¿Alguna vez has tenido que rechazar a un cliente que no encajaba con tu visión?",
+    "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800",
+    "scheduledDate": null,
+    "author": "Inspirado en Ilya Strebulaev",
+    "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
+    "category": "Startups & Estrategia B2B"
+  },
+  {
+    "id": "51",
+    "status": "draft",
+    "title": "El arte del diseño de contextos en IA: Cómo duplicar la velocidad de tu equipo sin cambiar de herramientas",
+    "text": "El 90% del valor que obtienes de los modelos de inteligencia artificial no depende del modelo en sí, sino de la calidad del contexto que le proporcionas.\n\nTratar a la IA como una búsqueda en la web produce respuestas superficiales. Tratarla como un colaborador alimentado con contexto estructurado transforma el resultado.\n\nEsta es la arquitectura de contexto en 3 capas que uso diariamente:\n\n1. Archivos de referencia estandarizados: En lugar de explicar la historia de tu proyecto cada vez, mantén un archivo de texto con las reglas y estructura de tu negocio listo para adjuntar.\n\n2. Glosario de términos y formato deseado: Define explícitamente el vocabulario que debe usar y el esquema visual de la respuesta antes de pedir el análisis.\n\n3. Separar la fase de análisis de la fase de generación: Pide primero a la IA que analice los datos y te devuelva los puntos clave; si el análisis es correcto, pídele que genere la versión final.\n\nEl secreto para multiplicar tu productividad no es buscar la herramienta mágica, sino aprender a alimentar a la IA con contexto de alta calidad.\n\n¿Tienes archivos de plantilla o contexto que reutilizas con los modelos de IA?",
+    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800",
+    "scheduledDate": null,
+    "author": "Inspirado en Stas Bel",
+    "originalUrl": "https://www.linkedin.com/in/stasbel/",
+    "category": "IA & Productividad"
   }
 ]
