@@ -4,6 +4,50 @@ let linkedinConfig = { isConnected: false, clientId: '', clientSecret: '', perso
 let activeTab = 'dashboard';
 let selectedPost = null;
 
+// LocalStorage Persistence Keys
+const LS_SCHEDULED_KEY = 'nico_linkedin_scheduled_cache_v2';
+const LS_PUBLISHED_KEY = 'nico_linkedin_published_cache_v2';
+
+function getLocalScheduled() {
+    try {
+        return JSON.parse(localStorage.getItem(LS_SCHEDULED_KEY) || '{}');
+    } catch (e) {
+        return {};
+    }
+}
+
+function saveLocalScheduled(id, scheduledDate) {
+    try {
+        const current = getLocalScheduled();
+        current[id] = { status: 'scheduled', scheduledDate };
+        localStorage.setItem(LS_SCHEDULED_KEY, JSON.stringify(current));
+    } catch (e) {}
+}
+
+function getLocalPublished() {
+    try {
+        return JSON.parse(localStorage.getItem(LS_PUBLISHED_KEY) || '[]');
+    } catch (e) {
+        return [];
+    }
+}
+
+function saveLocalPublished(id) {
+    try {
+        const current = getLocalPublished();
+        if (!current.includes(id)) {
+            current.push(id);
+            localStorage.setItem(LS_PUBLISHED_KEY, JSON.stringify(current));
+        }
+        // Remove from scheduled cache if now published
+        const sched = getLocalScheduled();
+        if (sched[id]) {
+            delete sched[id];
+            localStorage.setItem(LS_SCHEDULED_KEY, JSON.stringify(sched));
+        }
+    } catch (e) {}
+}
+
 // DOM Elements
 const navItems = document.querySelectorAll('.nav-item');
 const tabContents = document.querySelectorAll('.tab-content');
@@ -69,12 +113,52 @@ function checkUrlQueryParams() {
     }
 }
 
-// Fetch all posts from API
+// Fetch all posts from API and synchronize local cache
 async function fetchPosts() {
     try {
         const response = await fetch('/api/posts');
         if (!response.ok) throw new Error('Error al obtener publicaciones');
         posts = await response.json();
+
+        // Check if client has local approvals that the server doesn't know about (e.g. Render restart)
+        const localSched = getLocalScheduled();
+        const localPub = getLocalPublished();
+        let needsSync = false;
+
+        posts.forEach(p => {
+            if (p.status === 'draft' && localSched[p.id]) {
+                needsSync = true;
+            }
+            if (p.status !== 'published' && localPub.includes(p.id)) {
+                needsSync = true;
+            }
+        });
+
+        if (needsSync) {
+            try {
+                const syncRes = await fetch('/api/posts/sync-client', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ scheduledMap: localSched, publishedIds: localPub })
+                });
+                if (syncRes.ok) {
+                    const syncData = await syncRes.json();
+                    if (syncData.posts) posts = syncData.posts;
+                }
+            } catch (syncErr) {
+                console.error('Error syncing client cache:', syncErr);
+            }
+        }
+
+        // Keep local cache updated with published items from server
+        posts.forEach(p => {
+            if (p.status === 'published') {
+                saveLocalPublished(p.id);
+            } else if (p.status === 'scheduled' && p.scheduledDate) {
+                saveLocalScheduled(p.id, p.scheduledDate);
+            }
+        });
+
         renderAll();
     } catch (error) {
         showToast(error.message, 'danger');
@@ -269,7 +353,7 @@ function showToast(message, type = 'primary') {
     setTimeout(() => {
         toast.classList.remove('active');
         setTimeout(() => toast.remove(), 300);
-    }, 3500);
+    }, 4000);
 }
 
 // ----------------------------------------------------
@@ -333,7 +417,7 @@ function renderDashboardTab(drafts, scheduled, published) {
         nextPostContainer.innerHTML = `
             <div class="empty-state">
                 <i class="fa-solid fa-calendar-minus"></i>
-                <p>No tienes publicaciones programadas para esta semana.</p>
+                <p>No tienes publicaciones programadas pendientes.</p>
                 <button class="btn btn-primary" onclick="navItems[1].click()" style="margin-top: 10px;">
                     Ver Borradores
                 </button>
@@ -349,9 +433,11 @@ function renderDashboardTab(drafts, scheduled, published) {
     };
 
     Object.keys(slotDays).forEach(key => {
-        slotDays[key].el.innerText = 'Libre';
-        slotDays[key].el.className = 'day-status free';
-        slotDays[key].el.removeAttribute('onclick');
+        if (slotDays[key].el) {
+            slotDays[key].el.innerText = 'Libre';
+            slotDays[key].el.className = 'day-status free';
+            slotDays[key].el.removeAttribute('onclick');
+        }
     });
 
     const today = new Date();
@@ -359,7 +445,7 @@ function renderDashboardTab(drafts, scheduled, published) {
         const postDate = new Date(post.scheduledDate);
         const dayOfWeek = postDate.getDay();
         
-        if (slotDays[dayOfWeek]) {
+        if (slotDays[dayOfWeek] && slotDays[dayOfWeek].el) {
             const diffTime = Math.abs(postDate - today);
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
             
@@ -419,7 +505,7 @@ function renderDraftsTab(draftPosts) {
 
 // Helper to render individual timeline card
 function renderTimelineItem(post) {
-    const date = new Date(post.publishedAt || post.scheduledDate);
+    const date = new Date(post.publishedAt || post.scheduledDate || Date.now());
     const day = date.getDate();
     const month = date.toLocaleDateString('es-ES', { month: 'short' });
     const time = date.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
@@ -448,50 +534,27 @@ function renderTimelineItem(post) {
                 <button class="btn btn-secondary" onclick="openModal('${post.id}')">
                     <i class="fa-solid fa-eye"></i> Ver / Editar
                 </button>
-                ${post.status === 'scheduled' ? `
-                    ${linkedinConfig.isConnected ? `
-                        <button class="btn btn-primary" onclick="publishDirectViaAPI('${post.id}')">
-                            <i class="fa-solid fa-bolt"></i> Publicar API
-                        </button>
-                    ` : ''}
-                    <button class="btn btn-success" onclick="triggerPublishFlow('${post.id}')">
-                        <i class="fa-solid fa-paper-plane"></i> Copiar
-                    </button>
-                ` : ''}
             </div>
         </div>
     `;
 }
 
-// 3. Calendar/Timeline Tab Render (Divided into Scheduled vs Published sections)
-function renderCalendarTab(allNonDraftPosts) {
+// 3. Calendar Tab Render
+function renderCalendarTab(scheduledAndPublished) {
     const container = document.getElementById('calendar-container');
-
-    const scheduled = allNonDraftPosts
+    const scheduled = scheduledAndPublished
         .filter(p => p.status === 'scheduled')
         .sort((a, b) => new Date(a.scheduledDate) - new Date(b.scheduledDate));
-
-    const published = allNonDraftPosts
+    const published = scheduledAndPublished
         .filter(p => p.status === 'published')
         .sort((a, b) => new Date(b.publishedAt || b.scheduledDate) - new Date(a.publishedAt || a.scheduledDate));
 
-    if (scheduled.length === 0 && published.length === 0) {
-        container.innerHTML = `
-            <div class="empty-state">
-                <i class="fa-solid fa-calendar-days"></i>
-                <h2>Calendario de publicación vacío</h2>
-                <p>Ve a la sección de borradores y aprueba publicaciones para llenar tu calendario automatizado.</p>
-            </div>
-        `;
-        return;
-    }
-
     let html = '';
 
-    // SECTION 1: UPCOMING SCHEDULED POSTS
+    // SECTION 1: SCHEDULED POSTS
     html += `
         <div class="calendar-section-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
-            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0a66c2; display: flex; align-items: center; gap: 0.6rem;">
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #3b82f6; display: flex; align-items: center; gap: 0.6rem;">
                 <i class="fa-solid fa-clock"></i> Próximas Publicaciones Programadas (${scheduled.length})
             </h3>
         </div>
@@ -533,11 +596,22 @@ function renderCalendarTab(allNonDraftPosts) {
 // DRAFT APPROVAL DIRECT ACTION
 // ----------------------------------------------------
 async function approvePostDirect(id) {
+    const post = posts.find(p => p.id === id);
+    if (post && post.status === 'published') {
+        showToast('Esta publicación ya fue publicada previamente. No se duplicará.', 'warning');
+        return;
+    }
+
     try {
         const response = await fetch(`/api/posts/${id}/approve`, { method: 'POST' });
         if (!response.ok) throw new Error('No se pudo aprobar el borrador');
         const approvedPost = await response.json();
         
+        // Save to client localStorage cache
+        if (approvedPost.scheduledDate) {
+            saveLocalScheduled(approvedPost.id, approvedPost.scheduledDate);
+        }
+
         const date = new Date(approvedPost.scheduledDate);
         const formattedDate = date.toLocaleDateString('es-ES', { 
             weekday: 'long', 
@@ -585,7 +659,9 @@ function openModal(id) {
             btnApprovePost.classList.add('hidden');
             btnPublishHelper.classList.remove('hidden');
             
-            if (linkedinConfig.isConnected && btnPublishApi) {
+            if (selectedPost.status === 'published') {
+                if (btnPublishApi) btnPublishApi.classList.add('hidden');
+            } else if (linkedinConfig.isConnected && btnPublishApi) {
                 btnPublishApi.classList.remove('hidden');
             } else if (btnPublishApi) {
                 btnPublishApi.classList.add('hidden');
@@ -757,7 +833,13 @@ async function publishDirectViaAPI(id) {
         
         if (!response.ok) throw new Error(data.error || 'Error al publicar vía API');
 
-        showToast('🚀 ¡Publicado exitosamente en tu cuenta de LinkedIn!', 'success');
+        if (data.alreadyPublished) {
+            showToast('ℹ️ ' + data.message, 'warning');
+        } else {
+            showToast('🚀 ¡Publicado exitosamente en tu cuenta de LinkedIn!', 'success');
+        }
+        
+        saveLocalPublished(targetId);
         if (selectedPost) closeModal();
         fetchPosts();
     } catch (error) {
@@ -799,6 +881,7 @@ async function publishToLinkedIn() {
         const response = await fetch(`/api/posts/${selectedPost.id}/publish`, { method: 'POST' });
         if (!response.ok) throw new Error('No se pudo actualizar el estado a publicado');
         
+        saveLocalPublished(selectedPost.id);
         closeModal();
         fetchPosts();
     } catch (error) {
