@@ -1198,9 +1198,9 @@ textarea.form-control {
 
 .mockup-media {
     margin: 0 -16px;
-    max-height: 250px;
+    max-height: 480px;
     overflow: hidden;
-    background: #f3f3f3;
+    background: #0f172a;
     border-top: 1px solid #f0f0f0;
     border-bottom: 1px solid #f0f0f0;
     display: flex;
@@ -1211,8 +1211,9 @@ textarea.form-control {
 .mockup-post-image {
     width: 100%;
     height: auto;
-    object-fit: cover;
-    max-height: 250px;
+    object-fit: contain;
+    max-height: 480px;
+    display: block;
 }
 
 .mockup-reactions {
