@@ -221,10 +221,11 @@
     "title": "La regla del registro silencioso: Cómo depurar problemas sin saturar los servidores",
     "text": "Guardar registros de todo lo que ocurre en un servidor parece una buena idea hasta que recibes una factura gigante de almacenamiento.\n\nEl exceso de logs desordenados oculta las alertas verdaderamente críticas entre miles de mensajes irrelevantes.\n\nPara mantener una observabilidad limpia y útil en producción, aplico estos 3 criterios:\n\n1. Niveles de severidad estrictos: Guarda información detallada únicamente en entornos de prueba. En producción, registra solo advertencias, errores y eventos de negocio clave.\n\n2. Contexto estructurado en formato JSON: Evita mensajes en texto plano como 'falló el usuario'. Registra objetos con identificador de petición, código de estado y tiempo de respuesta.\n\n3. Métrica antes que log: Si solo necesitas contar cuántas veces ocurre un evento, usa un contador en lugar de escribir una línea de registro cada vez.\n\nUn sistema de observabilidad bien diseñado te da respuestas claras en segundos cuando ocurre una incidencia.\n\n¿Cómo gestionan los registros de eventos en tu infraestructura actual?",
     "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop&q=80",
-    "scheduledDate": "2026-08-31T13:00:00.000Z",
+    "scheduledDate": "2026-09-01T18:00:00.000Z",
     "author": "Observabilidad & Logs",
     "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
-    "category": "Infraestructura & Observabilidad"
+    "category": "Infraestructura & Observabilidad",
+    "bufferPostId": "6a964be4d351db8f326969a8"
   },
   {
     "id": "27",
@@ -235,7 +236,8 @@
     "scheduledDate": "2026-09-01T13:00:00.000Z",
     "author": "Ingeniería de Software",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
-    "category": "Mantenimiento & Calidad"
+    "category": "Mantenimiento & Calidad",
+    "bufferPostId": "6a964c399ffb57a8b98821e8"
   },
   {
     "id": "28",
@@ -246,7 +248,8 @@
     "scheduledDate": "2026-09-02T13:00:00.000Z",
     "author": "Arquitectura Limpia",
     "originalUrl": "https://www.linkedin.com/in/stasbel/",
-    "category": "Patrones de Diseño"
+    "category": "Patrones de Diseño",
+    "bufferPostId": "6a964c3a6075208a15a68afa"
   },
   {
     "id": "29",
@@ -257,7 +260,8 @@
     "scheduledDate": "2026-09-03T13:00:00.000Z",
     "author": "Liderazgo en Ingeniería",
     "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
-    "category": "Cultura Tech & Liderazgo"
+    "category": "Cultura Tech & Liderazgo",
+    "bufferPostId": "6a964c3b712ccf3a98fa8bd5"
   },
   {
     "id": "30",
@@ -268,7 +272,8 @@
     "scheduledDate": "2026-09-04T13:00:00.000Z",
     "author": "Ingeniería de Prompts",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
-    "category": "IA & Prompting"
+    "category": "IA & Prompting",
+    "bufferPostId": "6a964c3c712ccf3a98fa8bf9"
   },
   {
     "id": "31",
@@ -279,7 +284,8 @@
     "scheduledDate": "2026-09-07T13:00:00.000Z",
     "author": "Cultura DevOps",
     "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
-    "category": "DevOps & Despliegue"
+    "category": "DevOps & Despliegue",
+    "bufferPostId": "6a964c3dd351db8f32696eec"
   },
   {
     "id": "32",
@@ -290,7 +296,8 @@
     "scheduledDate": "2026-09-08T13:00:00.000Z",
     "author": "Ingeniería de Software",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
-    "category": "Refactorización & Arquitectura"
+    "category": "Refactorización & Arquitectura",
+    "bufferPostId": "6a964c3ee7374ae2697dc167"
   },
   {
     "id": "33",
@@ -301,7 +308,8 @@
     "scheduledDate": "2026-09-09T13:00:00.000Z",
     "author": "Optimización Práctica",
     "originalUrl": "https://www.linkedin.com/in/stasbel/",
-    "category": "Rendimiento & Código"
+    "category": "Rendimiento & Código",
+    "bufferPostId": "6a964c3f6075208a15a68b48"
   },
   {
     "id": "34",
@@ -312,7 +320,8 @@
     "scheduledDate": "2026-09-10T13:00:00.000Z",
     "author": "Colaboración en Código",
     "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
-    "category": "Buenas Prácticas & Trabajo en Equipo"
+    "category": "Buenas Prácticas & Trabajo en Equipo",
+    "bufferPostId": "6a964c40e7374ae2697dc18b"
   },
   {
     "id": "35",
@@ -323,7 +332,8 @@
     "scheduledDate": "2026-09-11T13:00:00.000Z",
     "author": "Liderazgo & Equipos",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
-    "category": "Liderazgo Tech & Onboarding"
+    "category": "Liderazgo Tech & Onboarding",
+    "bufferPostId": "6a964c41e7374ae2697dc1af"
   },
   {
     "id": "36",

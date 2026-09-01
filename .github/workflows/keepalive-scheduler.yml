@@ -1,0 +1,17 @@
+name: LinkedIn Keep-Alive & Auto-Sync Cron
+
+on:
+  schedule:
+    # Run every 30 minutes to keep Render awake and sync Buffer queue
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+jobs:
+  ping-and-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Render & Sync Buffer Queue
+        run: |
+          echo "Pinging LinkedIn server and syncing Buffer queue..."
+          curl -s -f "https://linkedin-nico.onrender.com/api/sync-queue" || curl -s "https://linkedin-nico.onrender.com/api/posts" || true
+          echo "Done."

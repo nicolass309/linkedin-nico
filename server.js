@@ -1,16 +1,22 @@
 const express = require('express');
-const fs = require('fs');
 const path = require('path');
+const fs = require('fs');
 const https = require('https');
 const crypto = require('crypto');
-require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Middleware
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Database File Paths
 const DB_FILE = path.join(__dirname, 'posts.json');
 const CONFIG_FILE = path.join(__dirname, 'config.json');
 
-// Buffer API Integration Secrets
+// Buffer API Production Credentials (LinkedIn Direct Channel)
 const BUFFER_API_KEY = process.env.BUFFER_API_KEY || 'YmF96n9SMorADYaTUnwaknAJtbZ-6yTrQElNgLN1H3Z';
 const BUFFER_CHANNEL_ID = process.env.BUFFER_CHANNEL_ID || '6a7749ba99afb4434926a809';
 
@@ -19,34 +25,27 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN || '';
 const GITHUB_REPO = process.env.GITHUB_REPO || 'nicolass309/linkedin-nico';
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'main';
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Helper to compute unique content signature for deduplication
+// Helper to calculate unique content signature (for deduplication)
 function getPostSignature(title, text) {
-  const clean = (String(title || '') + '|' + String(text || ''))
-    .toLowerCase()
-    .replace(/[^\w\s]/gi, '')
-    .replace(/\s+/g, ' ')
-    .trim();
-  return crypto.createHash('sha256').update(clean).digest('hex');
+  const normalized = `${(title || '').trim().toLowerCase()}|||${(text || '').replace(/\s+/g, ' ').trim().toLowerCase()}`;
+  return crypto.createHash('sha256').update(normalized).digest('hex');
 }
 
-// Helper to push updates to GitHub repo automatically
-function syncToGitHub(postsData, commitMsg = 'Auto-sync posts database from dashboard') {
-  if (!GITHUB_TOKEN) return Promise.resolve(false);
+// Helper to push database changes directly to GitHub (Solves Render ephemeral container disk wipes)
+async function syncToGitHub(postsData, commitMessage = 'Auto-sync database from LinkedIn App') {
+  if (!GITHUB_TOKEN) {
+    return false;
+  }
 
   return new Promise((resolve) => {
     try {
       const getOptions = {
         hostname: 'api.github.com',
-        port: 443,
         path: `/repos/${GITHUB_REPO}/contents/posts.json?ref=${GITHUB_BRANCH}`,
         method: 'GET',
         headers: {
+          'User-Agent': 'LinkedIn-AutoPoster',
           'Authorization': `Bearer ${GITHUB_TOKEN}`,
-          'User-Agent': 'LinkedIn-Automation-Dashboard',
           'Accept': 'application/vnd.github.v3+json'
         }
       };
@@ -55,30 +54,27 @@ function syncToGitHub(postsData, commitMsg = 'Auto-sync posts database from dash
         let body = '';
         res.on('data', chunk => { body += chunk; });
         res.on('end', () => {
-          let sha = null;
-          if (res.statusCode === 200) {
-            try {
-              const parsed = JSON.parse(body);
-              sha = parsed.sha;
-            } catch (e) {}
-          }
+          let sha = '';
+          try {
+            const parsed = JSON.parse(body);
+            sha = parsed.sha || '';
+          } catch (e) {}
 
+          const newContentBase64 = Buffer.from(JSON.stringify(postsData, null, 2)).toString('base64');
           const putData = JSON.stringify({
-            message: commitMsg,
-            content: Buffer.from(JSON.stringify(postsData, null, 2)).toString('base64'),
-            branch: GITHUB_BRANCH,
-            ...(sha ? { sha } : {})
+            message: commitMessage,
+            content: newContentBase64,
+            sha: sha || undefined,
+            branch: GITHUB_BRANCH
           });
 
           const putOptions = {
             hostname: 'api.github.com',
-            port: 443,
             path: `/repos/${GITHUB_REPO}/contents/posts.json`,
             method: 'PUT',
             headers: {
+              'User-Agent': 'LinkedIn-AutoPoster',
               'Authorization': `Bearer ${GITHUB_TOKEN}`,
-              'User-Agent': 'LinkedIn-Automation-Dashboard',
-              'Accept': 'application/vnd.github.v3+json',
               'Content-Type': 'application/json',
               'Content-Length': Buffer.byteLength(putData)
             }
@@ -86,7 +82,7 @@ function syncToGitHub(postsData, commitMsg = 'Auto-sync posts database from dash
 
           const putReq = https.request(putOptions, (putRes) => {
             if (putRes.statusCode >= 200 && putRes.statusCode < 300) {
-              console.log('☁️ [GitHub Cloud Sync] posts.json sincronizado y commiteado exitosamente a GitHub');
+              console.log('✅ [GitHub Auto-Sync] Sincronización exitosa con el repositorio remoto.');
               resolve(true);
             } else {
               resolve(false);
@@ -125,7 +121,6 @@ function readDB() {
 function writeDB(data, commitMsg) {
   try {
     fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2), 'utf8');
-    // Asynchronously sync to GitHub if token available
     syncToGitHub(data, commitMsg).catch(() => {});
     return true;
   } catch (error) {
@@ -150,7 +145,7 @@ function readConfig() {
     bufferApiKey: BUFFER_API_KEY,
     bufferChannelId: BUFFER_CHANNEL_ID,
     autoPublishEnabled: fileConfig.autoPublishEnabled !== undefined ? fileConfig.autoPublishEnabled : true,
-    blockedDates: Array.isArray(fileConfig.blockedDates) ? fileConfig.blockedDates : [],
+    blockedDates: Array.isArray(config => config.blockedDates) ? fileConfig.blockedDates : [],
     githubConnected: !!GITHUB_TOKEN
   };
 }
@@ -217,7 +212,85 @@ async function getNextAvailableSlot(existingPosts) {
   return fallback.toISOString();
 }
 
-// Seamless Buffer GraphQL API Publisher with Image Support for LinkedIn
+// Native Buffer GraphQL API Scheduler (Queues post in Buffer Cloud for exact execution)
+function scheduleBufferPost(text, imageUrl, dueAtISO) {
+  return new Promise((resolve, reject) => {
+    const query = `
+      mutation CreatePost($input: CreatePostInput!) {
+        createPost(input: $input) {
+          __typename
+          ... on PostActionSuccess {
+            post {
+              id
+              status
+              dueAt
+            }
+          }
+          ... on MutationError {
+            message
+          }
+        }
+      }
+    `;
+
+    const variables = {
+      input: {
+        channelId: BUFFER_CHANNEL_ID,
+        text: text,
+        mode: "customScheduled",
+        schedulingType: "automatic",
+        needsApproval: false,
+        dueAt: dueAtISO
+      }
+    };
+
+    if (imageUrl && imageUrl.trim()) {
+      variables.input.assets = [
+        {
+          image: {
+            url: imageUrl.trim()
+          }
+        }
+      ];
+    }
+
+    const postData = JSON.stringify({ query, variables });
+    const options = {
+      hostname: 'api.buffer.com',
+      port: 443,
+      path: '/graphql',
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${BUFFER_API_KEY}`,
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(postData)
+      }
+    };
+
+    const req = https.request(options, (res) => {
+      let body = '';
+      res.on('data', chunk => { body += chunk; });
+      res.on('end', () => {
+        try {
+          const parsed = JSON.parse(body);
+          if (parsed.data?.createPost?.post?.id) {
+            resolve({ success: true, post: parsed.data.createPost.post });
+          } else {
+            resolve({ success: false, error: parsed.data?.createPost?.message || parsed.errors?.[0]?.message || 'Unknown Buffer Error' });
+          }
+        } catch (e) {
+          resolve({ success: false, error: 'Failed to parse Buffer response' });
+        }
+      });
+    });
+
+    req.on('error', err => resolve({ success: false, error: err.message }));
+    req.write(postData);
+    req.end();
+  });
+}
+
+// Immediate Buffer Publisher (for manual 1-click publishing)
 function publishToLinkedInAPI(postText, imageUrl) {
   return new Promise((resolve, reject) => {
     const query = `
@@ -254,7 +327,6 @@ function publishToLinkedInAPI(postText, imageUrl) {
     }
 
     const postData = JSON.stringify({ query, variables });
-
     const options = {
       hostname: 'api.buffer.com',
       port: 443,
@@ -269,7 +341,7 @@ function publishToLinkedInAPI(postText, imageUrl) {
 
     const req = https.request(options, (res) => {
       let body = '';
-      res.on('data', (chunk) => { body += chunk; });
+      res.on('data', chunk => { body += chunk; });
       res.on('end', () => {
         try {
           const parsed = JSON.parse(body);
@@ -290,89 +362,43 @@ function publishToLinkedInAPI(postText, imageUrl) {
   });
 }
 
-// State tracking for Anti-Spam & Auto-Publish Firewall
-let isPublishingBusy = false;
-let lastPublishTimestamp = 0;
-const MIN_INTERVAL_BETWEEN_AUTO_POSTS_MS = 30 * 60 * 1000; // Minimum 30 min cooldown between auto posts
-
-// Background Automatic Scheduler Task (runs 24/7 every 60 seconds with strict safety guards)
-setInterval(async () => {
-  const config = readConfig();
-  if (!config.autoPublishEnabled) return;
-  if (isPublishingBusy) return;
-
+// Auto-Replenish Buffer Cloud Queue Engine
+async function syncQueueWithBuffer(posts) {
   const now = new Date();
-  
-  // Guard 1: Enforce minimum interval between any auto publications
-  if (now.getTime() - lastPublishTimestamp < MIN_INTERVAL_BETWEEN_AUTO_POSTS_MS) {
-    return;
-  }
+  const scheduledPosts = posts
+    .filter(p => p.status === 'scheduled' && p.scheduledDate && new Date(p.scheduledDate).getTime() > now.getTime())
+    .sort((a, b) => new Date(a.scheduledDate) - new Date(b.scheduledDate));
 
-  const posts = readDB();
-  let updated = false;
-
-  // Build signatures of all previously published posts to prevent any duplicate
-  const publishedSignatures = new Set(
-    posts
-      .filter(p => p.status === 'published')
-      .map(p => getPostSignature(p.title, p.text))
-  );
-
-  for (let i = 0; i < posts.length; i++) {
-    const p = posts[i];
-    if (p.status === 'scheduled' && p.scheduledDate) {
-      const scheduledTime = new Date(p.scheduledDate);
-      const diffMs = now.getTime() - scheduledTime.getTime();
-
-      // Guard 2: OVERDUE SAFETY SHIELD
-      // If a post's scheduled date is more than 20 minutes in the past, DO NOT AUTO-PUBLISH!
-      // This prevents the disaster of batch-publishing past posts when a server wakes up.
-      if (diffMs > 20 * 60 * 1000) {
-        console.warn(`🛡️ [Safety Shield] Post ID ${p.id} ("${p.title}") venció hace ${Math.round(diffMs / 60000)} minutos. Se desactiva la autopublicación en lote por seguridad.`);
-        posts[i].status = 'draft';
-        posts[i].scheduledDate = null;
-        updated = true;
-        continue;
-      }
-
-      // Guard 3: Active publication window (between 0 and 20 minutes from scheduled time)
-      if (diffMs >= 0 && diffMs <= 20 * 60 * 1000) {
-        const sig = getPostSignature(p.title, p.text);
-
-        // Guard 4: Deduplication check
-        if (publishedSignatures.has(sig)) {
-          console.warn(`🛡️ [Deduplication Guard] Post ID ${p.id} ya fue publicado previamente con idéntico texto. Marcando como publicado sin duplicar en LinkedIn.`);
-          posts[i].status = 'published';
-          posts[i].publishedAt = now.toISOString();
-          updated = true;
-          continue;
+  let newlyQueued = 0;
+  for (const post of scheduledPosts) {
+    if (!post.bufferPostId) {
+      console.log(`📡 [Queue Engine] Pushing Post ID ${post.id} ("${post.title.substring(0, 30)}...") to Buffer Cloud Queue for ${post.scheduledDate}`);
+      const res = await scheduleBufferPost(post.text, post.image, post.scheduledDate);
+      if (res.success && res.post?.id) {
+        post.bufferPostId = res.post.id;
+        newlyQueued++;
+        console.log(`   -> Queued in Buffer! ID: ${post.bufferPostId}`);
+      } else {
+        console.log(`   -> Buffer Queue Notice: ${res.error}`);
+        // If queue limit (10 posts) is reached, stop pushing
+        if (res.error && res.error.includes('limit reached')) {
+          break;
         }
-
-        console.log(`⏰ [24/7 Buffer Engine] Publicando post ID: ${p.id} - "${p.title}"`);
-        isPublishingBusy = true;
-
-        try {
-          await publishToLinkedInAPI(p.text, p.image);
-          posts[i].status = 'published';
-          posts[i].publishedAt = now.toISOString();
-          lastPublishTimestamp = now.getTime();
-          publishedSignatures.add(sig);
-          updated = true;
-          console.log(`✅ [24/7 Buffer Engine] Post ID ${p.id} publicado exitosamente en LinkedIn vía Buffer!`);
-        } catch (err) {
-          console.error(`❌ [24/7 Buffer Engine] Error al publicar post ID ${p.id}:`, err.message);
-        } finally {
-          isPublishingBusy = false;
-        }
-
-        // Guard 5: Publish MAXIMUM 1 post per scheduler cycle to make spam impossible
-        break;
       }
     }
   }
+  return newlyQueued;
+}
 
-  if (updated) {
-    writeDB(posts, 'Auto-update published statuses');
+// Periodic In-Server Check (runs every 60s when server is active)
+setInterval(async () => {
+  const config = readConfig();
+  if (!config.autoPublishEnabled) return;
+
+  const posts = readDB();
+  const newlyQueued = await syncQueueWithBuffer(posts);
+  if (newlyQueued > 0) {
+    writeDB(posts, `Buffer Queue Engine: Synced ${newlyQueued} posts to Buffer cloud`);
   }
 }, 60000);
 
@@ -422,38 +448,11 @@ app.post('/api/posts/:id/publish-api', async (req, res) => {
 
   const post = posts[index];
 
-  // Check if already published
-  if (post.status === 'published') {
-    return res.json({ 
-      success: true, 
-      alreadyPublished: true, 
-      message: 'Esta publicación ya figura como publicada en LinkedIn. Se evitó duplicarla.', 
-      post 
-    });
-  }
-
-  // Deduplication check across all published posts
-  const sig = getPostSignature(post.title, post.text);
-  const alreadyPublished = posts.some(p => p.status === 'published' && getPostSignature(p.title, p.text) === sig);
-
-  if (alreadyPublished) {
-    posts[index].status = 'published';
-    posts[index].publishedAt = posts[index].publishedAt || new Date().toISOString();
-    writeDB(posts, `Mark post ${post.id} as published (duplicate prevented)`);
-    return res.json({
-      success: true,
-      alreadyPublished: true,
-      message: 'Un post con el mismo contenido ya fue publicado en LinkedIn anteriormente. Se marcó como Publicado para evitar duplicados.',
-      post: posts[index]
-    });
-  }
-
   try {
     const result = await publishToLinkedInAPI(post.text, post.image);
     
     posts[index].status = 'published';
     posts[index].publishedAt = new Date().toISOString();
-    lastPublishTimestamp = Date.now();
     writeDB(posts, `Published post ${post.id} to LinkedIn via Buffer`);
 
     res.json({ success: true, message: 'Publicado exitosamente en tu perfil de LinkedIn vía Buffer!', result });
@@ -486,7 +485,7 @@ app.post('/api/posts', (req, res) => {
 });
 
 // 6. Update an existing post
-app.put('/api/posts/:id', (req, res) => {
+app.put('/api/posts/:id', async (req, res) => {
   const posts = readDB();
   const index = posts.findIndex(p => p.id === req.params.id);
 
@@ -494,15 +493,26 @@ app.put('/api/posts/:id', (req, res) => {
     return res.status(404).json({ error: 'Publicación no encontrada' });
   }
 
+  const oldDate = posts[index].scheduledDate;
+  const newDate = req.body.scheduledDate !== undefined ? req.body.scheduledDate : posts[index].scheduledDate;
+
   const updatedPost = {
     ...posts[index],
     title: req.body.title !== undefined ? req.body.title : posts[index].title,
     text: req.body.text !== undefined ? req.body.text : posts[index].text,
     image: req.body.image !== undefined ? req.body.image : posts[index].image,
-    scheduledDate: req.body.scheduledDate !== undefined ? req.body.scheduledDate : posts[index].scheduledDate,
+    scheduledDate: newDate,
     status: req.body.status !== undefined ? req.body.status : posts[index].status,
     category: req.body.category !== undefined ? req.body.category : posts[index].category
   };
+
+  // If date changed, reset bufferPostId and reschedule in Buffer
+  if (newDate && newDate !== oldDate && updatedPost.status === 'scheduled') {
+    const bufferRes = await scheduleBufferPost(updatedPost.text, updatedPost.image, newDate);
+    if (bufferRes.success && bufferRes.post?.id) {
+      updatedPost.bufferPostId = bufferRes.post.id;
+    }
+  }
 
   posts[index] = updatedPost;
   if (writeDB(posts, `Update post ${req.params.id} "${updatedPost.title}"`)) {
@@ -528,7 +538,7 @@ app.delete('/api/posts/:id', (req, res) => {
   }
 });
 
-// 8. Approve a draft (with Future Slot and Deduplication Safety)
+// 8. Approve a draft (Schedules directly in Buffer Cloud)
 app.post('/api/posts/:id/approve', async (req, res) => {
   const posts = readDB();
   const index = posts.findIndex(p => p.id === req.params.id);
@@ -537,7 +547,6 @@ app.post('/api/posts/:id/approve', async (req, res) => {
     return res.status(404).json({ error: 'Publicación no encontrada' });
   }
 
-  // Safety check: if already published, don't schedule again!
   if (posts[index].status === 'published') {
     return res.json({ 
       ...posts[index],
@@ -549,6 +558,12 @@ app.post('/api/posts/:id/approve', async (req, res) => {
 
   posts[index].status = 'scheduled';
   posts[index].scheduledDate = slot;
+
+  // Schedule directly in Buffer Cloud
+  const bufferRes = await scheduleBufferPost(posts[index].text, posts[index].image, slot);
+  if (bufferRes.success && bufferRes.post?.id) {
+    posts[index].bufferPostId = bufferRes.post.id;
+  }
 
   if (writeDB(posts, `Approve & schedule post ${req.params.id} for ${slot}`)) {
     res.json(posts[index]);
@@ -576,10 +591,31 @@ app.post('/api/posts/:id/publish', (req, res) => {
   }
 });
 
-// 10. Client LocalStorage Sync Endpoint (Restores client approvals if server ever restarted)
-app.post('/api/posts/sync-client', (req, res) => {
-  const clientApproved = req.body.scheduledMap || {}; // Map of { [id]: { status, scheduledDate } }
-  const clientPublished = req.body.publishedIds || []; // List of IDs published on client
+// 10. Buffer Queue Sync & Keep-Alive Cron Endpoint
+app.get('/api/sync-queue', async (req, res) => {
+  const posts = readDB();
+  const newlyQueued = await syncQueueWithBuffer(posts);
+  if (newlyQueued > 0) {
+    writeDB(posts, `Buffer Sync Endpoint: Queued ${newlyQueued} posts`);
+  }
+  
+  const queuedCount = posts.filter(p => p.status === 'scheduled' && p.bufferPostId).length;
+  const pendingCount = posts.filter(p => p.status === 'scheduled' && !p.bufferPostId).length;
+
+  res.json({
+    success: true,
+    message: 'Buffer Queue Synced',
+    queuedInBuffer: queuedCount,
+    pendingInDatabase: pendingCount,
+    newlyQueuedThisRun: newlyQueued,
+    timestamp: new Date().toISOString()
+  });
+});
+
+// 11. Client LocalStorage Sync Endpoint
+app.post('/api/posts/sync-client', async (req, res) => {
+  const clientApproved = req.body.scheduledMap || {};
+  const clientPublished = req.body.publishedIds || [];
 
   const posts = readDB();
   let updated = false;
@@ -587,13 +623,11 @@ app.post('/api/posts/sync-client', (req, res) => {
   for (let i = 0; i < posts.length; i++) {
     const id = posts[i].id;
     
-    // If client marked it published, keep it published
     if (clientPublished.includes(id) && posts[i].status !== 'published') {
       posts[i].status = 'published';
       posts[i].publishedAt = posts[i].publishedAt || new Date().toISOString();
       updated = true;
     }
-    // If client approved it and backend still has it as draft, restore scheduled slot
     else if (clientApproved[id] && posts[i].status === 'draft') {
       posts[i].status = 'scheduled';
       posts[i].scheduledDate = clientApproved[id].scheduledDate;
@@ -602,7 +636,8 @@ app.post('/api/posts/sync-client', (req, res) => {
   }
 
   if (updated) {
-    writeDB(posts, 'Sync client-side local cache to server');
+    await syncQueueWithBuffer(posts);
+    writeDB(posts, 'Sync client-side local cache to server and Buffer');
   }
 
   res.json({ success: true, posts });
@@ -611,11 +646,11 @@ app.post('/api/posts/sync-client', (req, res) => {
 // Start Server
 app.listen(PORT, () => {
   console.log(`==================================================`);
-  console.log(`🚀 Servidor de LinkedIn (vía Buffer Engine) en: http://localhost:${PORT}`);
+  console.log(`🚀 Servidor de LinkedIn (vía Buffer Cloud Engine) en: http://localhost:${PORT}`);
   console.log(`🔑 Buffer Channel: ${BUFFER_CHANNEL_ID} (nicolaspeñadiaz)`);
   console.log(`📁 Zona Horaria: 9:00 AM Chile (13:00 UTC)`);
   console.log(`📅 Días de Publicación: Lunes a Viernes (1, 2, 3, 4, 5)`);
-  console.log(`🛡️ Escudo Anti-Spam y Deduplicación Activado`);
+  console.log(`🛡️ Buffer Cloud Native Scheduling & Keep-Alive Activado`);
   console.log(`📁 Base de datos local: ${DB_FILE}`);
   console.log(`==================================================`);
 });
