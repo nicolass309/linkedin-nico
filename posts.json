@@ -565,5 +565,38 @@
     "author": "Inspirado en Stas Bel",
     "originalUrl": "https://www.linkedin.com/in/stasbel/",
     "category": "Buenas Prácticas & Infraestructura"
+  },
+  {
+    "id": "57",
+    "status": "draft",
+    "title": "La Ley de Parkinson Invertida: Por qué darte 3 semanas para un proyecto garantiza que tardes 3 semanas",
+    "text": "Si te das 30 días para limpiar tu casa, tardarás 30 días.\n\nSi te das 3 horas porque vienen visitas, tardarás 3 horas.\n\nEl software, los proyectos y los negocios funcionan bajo la misma regla invisible: La Ley de Parkinson. El trabajo se expande hasta llenar el tiempo disponible para completarlo.\n\nCuando un equipo se da 6 meses para lanzar un producto, pasan 5 meses discutiendo detalles secundarios que ningún cliente notará.\n\nPara multiplicar tu velocidad de entrega por 3x sin quemar al equipo, aplica estas 3 restricciones artificiales:\n\n1. La regla del límite de 48 horas:\nEn lugar de planificar meses por adelantado, define qué versión mínima funcional puedes tener probada con usuarios en menos de 48 horas.\n\n2. Reuniones de 15 minutos con agenda estricta:\nSi una reunión dura 60 minutos por defecto en el calendario, la gente hablará 60 minutos. Reducir los bloques a 15 minutos fuerza a ir directo a las decisiones.\n\n3. Restricción de alcance antes de retrasar fechas:\nSi la fecha límite se acerca, no extiendas el plazo. Elimina el 50% de las funcionalidades accesorias y entrega el núcleo impecable.\n\nLa creatividad y la eficiencia florecen bajo límites claros; la abundancia de tiempo solo produce sobreingeniería.\n\n¿Qué proyecto tienes entre manos que podrías terminar hoy mismo si redujeras su alcance a la mitad?",
+    "image": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=1200&auto=format&fit=crop&q=80",
+    "scheduledDate": null,
+    "author": "Inspirado en Sahil Bloom & Alex Hormozi",
+    "originalUrl": "https://www.linkedin.com/in/sahilbloom/",
+    "category": "Productividad & Mentalidad Estratégica"
+  },
+  {
+    "id": "58",
+    "status": "draft",
+    "title": "El Síndrome de la Torre de Marfil: Por qué programar a espaldas del cliente arruina al 90% de los desarrolladores",
+    "text": "El error más doloroso de un desarrollador no es un bug en producción.\n\nEs pasar 3 meses construyendo una arquitectura perfecta con TypeScript estricto, microservicios y bases de datos distribuidas... para una funcionalidad que ningún cliente quería.\n\nEn tecnología, es muy fácil enamorarse de la complejidad técnica y olvidarse del problema real de negocio.\n\nLos constructores de software más rentables siguen este ciclo de 3 pasos antes de escribir una sola línea de código:\n\n1. Habla con 3 usuarios antes de abrir el editor:\nDescubre exactamente qué tarea manual les hace perder 30 minutos al día. Ese es tu único objetivo a resolver.\n\n2. Elige la solución más aburrida y rápida:\nSi una base de datos simple en PostgreSQL y un solo servidor resuelven el problema, no inventes una infraestructura hipercompleja.\n\n3. Mide uso real, no opiniones:\nLo que un cliente dice en una entrevista importa poco; lo que hace cuando tiene el producto en sus manos lo es todo.\n\nEl mejor código no es el más sofisticado, sino aquel que resuelve un problema real a la primera.\n\n¿Alguna vez pasaste semanas programando algo que al final casi nadie usó?",
+    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80",
+    "scheduledDate": null,
+    "author": "Inspirado en Roy Lee & Paul Graham",
+    "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
+    "category": "Startups & Desarrollo de Software"
+  },
+  {
+    "id": "59",
+    "status": "draft",
+    "title": "La Trampa del Experto Ocupado: Por qué trabajar 12 horas al día es un síntoma de malos sistemas",
+    "text": "Estar ocupado 12 horas al día no es una medalla de honor.\n\nEs una señal de que tu trabajo depende de tu esfuerzo manual y no de sistemas inteligentes.\n\nMuchos profesionales caen en la trampa de creer que trabajar más horas equivale a generar más valor. En la economía del conocimiento y la IA, el apalancamiento lo cambia todo.\n\nPara pasar de 'trabajador saturado' a 'operador estratégico', estructura tus actividades en esta pirámide de 4 niveles:\n\n1. Eliminar (El filtro radical):\nEl 30% de lo que haces a diario no aporta ningún resultado tangible. Cancela reportes que nadie lee y tareas que nadie agradece.\n\n2. Automatizar (Flujos No-Code e IA):\nTodo lo que sea copiar datos, enviar correos repetitivos o clasificar información debe ejecutarse automáticamente en segundo plano.\n\n3. Documentar (Crear sistemas replicables):\nSi resuelves un problema complejo hoy, escribe el paso a paso para que cualquier compañero pueda ejecutarlo la próxima vez sin consultarte.\n\n4. Foco de Alto Valor:\nDedica tu energía mental exclusivamente a las 2 o 3 decisiones que mueven el 80% de los ingresos o el impacto de tu proyecto.\n\nTrabajar duro es el primer paso; trabajar con sistemas es lo que te permite escalar de verdad.\n\n¿Qué tarea repetitiva de tu semana deberías haber automatizado hace seis meses?",
+    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&auto=format&fit=crop&q=80",
+    "scheduledDate": null,
+    "author": "Inspirado en Nico Manzaneque & Dan Koe",
+    "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
+    "category": "Automatización & Sistemas de Trabajo"
   }
 ]
