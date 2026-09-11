@@ -217,7 +217,7 @@
   },
   {
     "id": "26",
-    "status": "scheduled",
+    "status": "published",
     "title": "La regla del registro silencioso: Cómo depurar problemas sin saturar los servidores",
     "text": "Guardar registros de todo lo que ocurre en un servidor parece una buena idea hasta que recibes una factura gigante de almacenamiento.\n\nEl exceso de logs desordenados oculta las alertas verdaderamente críticas entre miles de mensajes irrelevantes.\n\nPara mantener una observabilidad limpia y útil en producción, aplico estos 3 criterios:\n\n1. Niveles de severidad estrictos: Guarda información detallada únicamente en entornos de prueba. En producción, registra solo advertencias, errores y eventos de negocio clave.\n\n2. Contexto estructurado en formato JSON: Evita mensajes en texto plano como 'falló el usuario'. Registra objetos con identificador de petición, código de estado y tiempo de respuesta.\n\n3. Métrica antes que log: Si solo necesitas contar cuántas veces ocurre un evento, usa un contador en lugar de escribir una línea de registro cada vez.\n\nUn sistema de observabilidad bien diseñado te da respuestas claras en segundos cuando ocurre una incidencia.\n\n¿Cómo gestionan los registros de eventos en tu infraestructura actual?",
     "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop&q=80",
@@ -225,11 +225,12 @@
     "author": "Observabilidad & Logs",
     "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
     "category": "Infraestructura & Observabilidad",
-    "bufferPostId": "6a964be4d351db8f326969a8"
+    "bufferPostId": "6a964be4d351db8f326969a8",
+    "publishedAt": "2026-09-01T18:00:00.000Z"
   },
   {
     "id": "27",
-    "status": "scheduled",
+    "status": "published",
     "title": "Por qué el mantenimiento preventivo de software ahorra el 80% de las emergencias",
     "text": "Esperar a que una librería quede obsoleta o una base de datos se llene para actuar es la receta perfecta para las llamadas de emergencia a medianoche.\n\nEl software que no se cuida de forma constante se degrada con el tiempo a medida que cambian sus entornos.\n\nEsta es la rutina de mantenimiento preventivo que recomiendo aplicar mensualmente:\n\n1. Actualización gradual de dependencias: Actualiza paquetes secundarios en parches pequeños en lugar de hacer grandes saltos de versión cada año.\n\n2. Revisión de consultas lentas: Analiza las peticiones a base de datos que tardan más de lo habitual y optimiza los índices antes de que aumente el tráfico.\n\n3. Limpieza de código muerto: Elimina funciones y archivos que ya no se invocan en ningún flujo del sistema.\n\nEl mantenimiento constante exige disciplina, pero la tranquilidad de operar sistemas estables vale cada minuto invertido.\n\n¿Cada cuánto tiempo programan jornadas de mantenimiento en tu equipo?",
     "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1200&auto=format&fit=crop&q=80",
@@ -237,11 +238,12 @@
     "author": "Ingeniería de Software",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
     "category": "Mantenimiento & Calidad",
-    "bufferPostId": "6a964c399ffb57a8b98821e8"
+    "bufferPostId": "6a964c399ffb57a8b98821e8",
+    "publishedAt": "2026-09-01T13:00:00.000Z"
   },
   {
     "id": "28",
-    "status": "scheduled",
+    "status": "published",
     "title": "El patrón del aislante en código: Protegiendo tu aplicación de librerías externas",
     "text": "Acoplar la lógica central de tu negocio directamente a una librería de terceros es uno de los errores de arquitectura más difíciles de corregir.\n\nSi la librería cambia su interfaz, queda descontinuada o aumenta sus precios, tendrás que modificar decenas de archivos en todo tu proyecto.\n\nPara evitar esta dependencia rígida, el patrón del aislante (o adaptador) es fundamental:\n\n1. Define tu propia interfaz interna: Crea una estructura clara de las funciones que tu aplicación necesita, sin importar qué proveedor las ejecute por detrás.\n\n2. Implementa un envoltorio único: Haz que solo una clase o módulo interactúe directamente con la API o librería externa.\n\n3. Cambia de proveedor sin tocar el negocio: Si mañana necesitas cambiar de herramienta, solo tendrás que modificar el envoltorio sin alterar el resto del código.\n\nMantener la lógica de tu negocio desvinculada de herramientas externas te da total flexibilidad y control sobre tu software.\n\n¿Usas envoltorios propios cuando integras librerías de terceros?",
     "image": "https://images.unsplash.com/photo-1508873535684-277a3cbcc4e8?w=1200&auto=format&fit=crop&q=80",
@@ -249,11 +251,12 @@
     "author": "Arquitectura Limpia",
     "originalUrl": "https://www.linkedin.com/in/stasbel/",
     "category": "Patrones de Diseño",
-    "bufferPostId": "6a964c3a6075208a15a68afa"
+    "bufferPostId": "6a964c3a6075208a15a68afa",
+    "publishedAt": "2026-09-02T13:00:00.000Z"
   },
   {
     "id": "29",
-    "status": "scheduled",
+    "status": "published",
     "title": "Por qué la empatía técnica es la habilidad más infravalorada en desarrollo",
     "text": "Escribir código que la computadora entienda es el paso básico. Escribir código que otros seres humanos puedan entender y mantener es el verdadero arte.\n\nLa empatía técnica es la capacidad de ponerse en el lugar del desarrollador que leerá tu trabajo dentro de seis meses.\n\nPracticar la empatía técnica en el día a día se resume en 3 acciones concretas:\n\n1. Nombres de variables significativos: Evita abreviaturas cripticas que solo tú entiendes mientras programas.\n\n2. Commits pequeños y descriptivos: Explica en el historial de cambios el 'por qué' se tomó una decisión, no solo qué archivos se modificaron.\n\n3. Revisiones de código constructivas: Comenta con el objetivo de mejorar la solución y compartir conocimiento, no de señalar errores de forma destructiva.\n\nLos equipos de ingeniería más productivos no son los que tienen a las mentes más brillantes en solitario, sino los que colaboran con mayor claridad.\n\n¿Qué hábitos de tu equipo hacen que el código sea más fácil de mantener entre todos?",
     "image": "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200&auto=format&fit=crop&q=80",
@@ -261,11 +264,12 @@
     "author": "Liderazgo en Ingeniería",
     "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
     "category": "Cultura Tech & Liderazgo",
-    "bufferPostId": "6a964c3b712ccf3a98fa8bd5"
+    "bufferPostId": "6a964c3b712ccf3a98fa8bd5",
+    "publishedAt": "2026-09-03T13:00:00.000Z"
   },
   {
     "id": "30",
-    "status": "scheduled",
+    "status": "published",
     "title": "La regla de los límites en los modelos de IA: Evitando respuestas incoherentes",
     "text": "Cuando un modelo de lenguaje entrega respuestas vagas o inventa información, casi siempre se debe a la ausencia de restricciones claras en las instrucciones.\n\nPedirle a la IA 'escribe sobre X' le da demasiada libertad para especular.\n\nPara obtener resultados precisos y consistentes, estructura tus instrucciones con estos 3 límites indispensables:\n\n1. Define el formato de salida estricto: Especifica si esperas una lista de 3 puntos, un esquema JSON válido o un párrafo de máximo 50 palabras.\n\n2. Establece lo que NO debe hacer: Indicar explícitamente las prohibiciones (ej. 'no uses jerga corporativa', 'no asumas datos no mencionados') reduce los errores drásticamente.\n\n3. Proporciona ejemplos de referencia (Few-shot): Incluir 1 o 2 ejemplos del resultado ideal guía al modelo con mayor eficacia que párrafos enteros de explicación.\n\nLa precisión en las respuestas de la IA es directamente proporcional a la claridad de los límites que estableces.\n\n¿Qué restricción te ha dado mejores resultados al trabajar con modelos de lenguaje?",
     "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&auto=format&fit=crop&q=80",
@@ -273,11 +277,12 @@
     "author": "Ingeniería de Prompts",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
     "category": "IA & Prompting",
-    "bufferPostId": "6a964c3c712ccf3a98fa8bf9"
+    "bufferPostId": "6a964c3c712ccf3a98fa8bf9",
+    "publishedAt": "2026-09-04T13:00:00.000Z"
   },
   {
     "id": "31",
-    "status": "scheduled",
+    "status": "published",
     "title": "La regla del despliegue continuo: Por qué los cambios pequeños reducen el riesgo a cero",
     "text": "Acumular tres semanas de desarrollo para hacer un gran despliegue el viernes por la tarde es la forma más rápida de arruinar tu fin de semana.\n\nCuando despliegas cientos de cambios a la vez, diagnosticar cuál de ellos provocó una falla es casi imposible.\n\nLos equipos de ingeniería con mayor disponibilidad siguen la regla del despliegue continuo en pasos pequeños:\n\n1. Cambios independientes y de alcance reducido: Despliega cada funcionalidad tan pronto como pase las pruebas unitarias, en lugar de esperar a paquetes gigantes.\n\n2. Interruptores de código (Feature Flags): Activa o desactiva nuevas funciones en producción sin necesidad de volver a desplegar todo el servidor.\n\n3. Reversión automática en un clic: Configura tu tubería de despliegue para que vuelva a la versión anterior de inmediato si el porcentaje de errores aumenta.\n\nLa frecuencia de despliegue no es una métrica de vanidad; es la mejor garantía de estabilidad para tu infraestructura.\n\n¿Cada cuánto tiempo realizan lanzamientos a producción en tu proyecto?",
     "image": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=1200&auto=format&fit=crop&q=80",
@@ -285,11 +290,12 @@
     "author": "Cultura DevOps",
     "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
     "category": "DevOps & Despliegue",
-    "bufferPostId": "6a964c3dd351db8f32696eec"
+    "bufferPostId": "6a964c3dd351db8f32696eec",
+    "publishedAt": "2026-09-07T13:00:00.000Z"
   },
   {
     "id": "32",
-    "status": "scheduled",
+    "status": "published",
     "title": "Cómo abordar la refactorización de código heredado sin romper producción",
     "text": "Reescribir un sistema legado desde cero casi siempre toma el doble de tiempo estimado y genera errores que el sistema antiguo ya tenía resueltos.\n\nLa refactorización inteligente no reemplaza todo de golpe; transforma el código de manera gradual mientras sigue funcionando.\n\nEsta es la estrategia del estrangulador para actualizar código antiguo de forma segura:\n\n1. Cobertura de pruebas de caracterización: Antes de modificar una sola línea, escribe pruebas que documenten exactamente cómo responde el sistema actual frente a diferentes entradas.\n\n2. Reemplazo por partes: Crea la nueva implementación en paralelo y redirige un pequeño porcentaje del tráfico para verificar su comportamiento real.\n\n3. Eliminación progresiva del código viejo: Una vez que el nuevo módulo procesa el 100% de la carga sin incidencias, retira la implementación antigua.\n\nLa mejor arquitectura es la que evoluciona de forma continua sin interrumpir el servicio al cliente.\n\n¿Prefieres reescrituras completas o refactorizaciones graduales?",
     "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&auto=format&fit=crop&q=80",
@@ -297,11 +303,12 @@
     "author": "Ingeniería de Software",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
     "category": "Refactorización & Arquitectura",
-    "bufferPostId": "6a964c3ee7374ae2697dc167"
+    "bufferPostId": "6a964c3ee7374ae2697dc167",
+    "publishedAt": "2026-09-08T13:00:00.000Z"
   },
   {
     "id": "33",
-    "status": "scheduled",
+    "status": "published",
     "title": "Por qué la optimización prematura destruye la velocidad de desarrollo",
     "text": "Gastar días optimizando una consulta que se ejecuta dos veces al día es un desperdicio de recursos de ingeniería.\n\nLa optimización prematura hace que el código sea más complejo de leer y mantener antes de saber si realmente existe un cuello de botella.\n\nPara optimizar con criterio profesional, sigue esta secuencia basada en datos reales:\n\n1. Mide primero con herramientas de perfilado: Identifica con métricas objetivas qué función o consulta representa el mayor porcentaje del tiempo de respuesta.\n\n2. Enfócate en el 20% que genera el 80% de la latencia: Aplica mejoras únicamente donde el impacto en la experiencia del usuario sea perceptible.\n\n3. Verifica el resultado con pruebas de carga: Comprueba que la optimización redujo los tiempos sin introducir complejidad innecesaria.\n\nLa claridad del código debe ser la prioridad por defecto; la optimización es una respuesta guiada por mediciones reales.\n\n¿Cuál ha sido el cuello de botella de rendimiento más insospechado que has encontrado?",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80",
@@ -309,11 +316,12 @@
     "author": "Optimización Práctica",
     "originalUrl": "https://www.linkedin.com/in/stasbel/",
     "category": "Rendimiento & Código",
-    "bufferPostId": "6a964c3f6075208a15a68b48"
+    "bufferPostId": "6a964c3f6075208a15a68b48",
+    "publishedAt": "2026-09-09T13:00:00.000Z"
   },
   {
     "id": "34",
-    "status": "scheduled",
+    "status": "published",
     "title": "El arte de redactar solicitudes de cambio (Pull Requests) que da gusto revisar",
     "text": "Enviar una solicitud de cambio con 45 archivos modificados y una descripción vacía es asegurar que nadie la revise con la atención que merece.\n\nLas solicitudes de cambio gigantescas se aprueban a ciegas o se quedan semanas estancadas esperando revisión.\n\nPara facilitar la revisión y acelerar la integración de tu código, aplica estas 3 reglas:\n\n1. Mantén los cambios enfocados en un solo objetivo: Si arreglas un error y al mismo tiempo quieres formatear 10 archivos, divídelo en dos solicitudes independientes.\n\n2. Explica el contexto en el resumen: Incluye qué problema resuelve el cambio, cómo probarlo y capturas de pantalla si afecta a la interfaz.\n\n3. Revisa tu propio código antes de asignarlo: Haz una primera inspección de tus diferencias para corregir detalles menores y comentarios temporales.\n\nFacilitar el trabajo de tus compañeros al revisar código es una de las muestras más claras de madurez profesional.\n\n¿Cuál es la regla principal que aplican en tu equipo para revisar código?",
     "image": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&auto=format&fit=crop&q=80",
@@ -321,11 +329,12 @@
     "author": "Colaboración en Código",
     "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
     "category": "Buenas Prácticas & Trabajo en Equipo",
-    "bufferPostId": "6a964c40e7374ae2697dc18b"
+    "bufferPostId": "6a964c40e7374ae2697dc18b",
+    "publishedAt": "2026-09-10T13:00:00.000Z"
   },
   {
     "id": "35",
-    "status": "scheduled",
+    "status": "published",
     "title": "Cómo estructurar el primer día de un desarrollador para acelerar su integración",
     "text": "Pasar la primera semana de un nuevo integrante entre permisos denegados, documentación desactualizada y repositorios rotos destruye su motivación inicial.\n\nEl objetivo del proceso de integración debe ser que el nuevo desarrollador realice su primer despliegue a producción el primer día.\n\nEsta es la estructura de integración rápida que funciona en equipos de alto rendimiento:\n\n1. Repositorio de configuración automática: Un solo comando en la terminal debe instalar todas las dependencias y levantar el entorno local en minutos.\n\n2. Asignación de un mentor de acompañamiento: Designa a un compañero del equipo para resolver dudas de contexto y acompañar sus primeras entregas.\n\n3. Una tarea pequeña y real para el día 1: Asigna la corrección de un detalle menor o actualización de documentación para que experimente el flujo completo de entrega.\n\nUn proceso de integración fluido transforma el entusiasmo inicial en productividad real desde la primera semana.\n\n¿Cómo fue tu mejor experiencia de integración al sumarte a un nuevo equipo?",
     "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&auto=format&fit=crop&q=80",
@@ -333,7 +342,8 @@
     "author": "Liderazgo & Equipos",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
     "category": "Liderazgo Tech & Onboarding",
-    "bufferPostId": "6a964c41e7374ae2697dc1af"
+    "bufferPostId": "6a964c41e7374ae2697dc1af",
+    "publishedAt": "2026-09-11T13:00:00.000Z"
   },
   {
     "id": "36",
@@ -598,5 +608,60 @@
     "author": "Inspirado en Nico Manzaneque & Dan Koe",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
     "category": "Automatización & Sistemas de Trabajo"
+  },
+  {
+    "id": "60",
+    "status": "draft",
+    "title": "La Regla de la Asimetría Inversa: Por qué el 90% gana dinero lineal y el 10% exponencial",
+    "text": "Si cambias tu tiempo por dinero, tienes un límite biológico: 24 horas al día.\n\nEn la era de la IA y el código, construir software o contenido cuesta lo mismo atender a 1 persona que a 100.000.\n\nEste es el mayor cambio de paradigma económico de nuestra generación: el apalancamiento sin permiso.\n\nPara pasar de ingresos lineales a crecimiento exponencial, aplica estos 3 principios de apalancamiento:\n\n1. El costo marginal de reproducción cero:\nUn código bien escrito, un flujo automatizado o una biblioteca de contenidos se replica infinitas veces sin costarte una hora extra de tu vida.\n\n2. Vende resultados, no horas de trabajo:\nAl cliente no le importa si tardaste 10 horas o 10 minutos con IA; le importa el valor y la velocidad de la solución.\n\n3. Construye activos mientras duermes:\nDedica al menos 1 hora diaria a crear herramientas, sistemas o documentación que sigan trabajando cuando tú apagues la pantalla.\n\nEl trabajo duro te da un salario; los sistemas escalables te dan libertad y crecimiento real.\n\n¿Qué activo o sistema estás construyendo hoy que seguirá dándote valor en 12 meses?",
+    "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1200&auto=format&fit=crop&q=80",
+    "scheduledDate": null,
+    "author": "Inspirado en Alex Hormozi & Justin Welsh",
+    "originalUrl": "https://www.linkedin.com/in/justinwelsh/",
+    "category": "Negocios & Apalancamiento"
+  },
+  {
+    "id": "61",
+    "status": "draft",
+    "title": "Por qué saber programar es más valioso hoy que hace 5 años (a pesar de la IA)",
+    "text": "Muchos pensaron que la IA reemplazaría a los desarrolladores de software en 2026.\n\nLo que realmente ocurrió es que eliminó la barrera para crear prototipos rápidos, pero multiplicó por 10x el valor de quienes entienden arquitectura, seguridad y flujos de datos reales.\n\nCualquiera puede pedirle a un modelo de lenguaje que genere 100 líneas de código.\n\nPero solo un profesional con criterio técnico puede hacer 3 cosas indispensables:\n\n1. Diseñar arquitecturas resilientes:\nSaber cómo conectar bases de datos, APIs y colas asíncronas para que el sistema no colapse bajo 10.000 peticiones concurrentes.\n\n2. Auditar la seguridad y los casos de borde:\nIdentificar vulnerabilidades silenciosas, fugas de memoria y alucinaciones que la IA pasa por alto.\n\n3. Evolucionar de programador a director técnico:\nEn lugar de teclear código carácter por carácter, ahora diriges un equipo de asistentes de IA para construir productos en días en lugar de meses.\n\nLa IA no reemplaza a los desarrolladores que piensan de forma estructurada; reemplaza a quienes solo memorizaban sintaxis.\n\n¿Cómo ha cambiado tu forma de enfocar el desarrollo técnico con las herramientas de IA?",
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&auto=format&fit=crop&q=80",
+    "scheduledDate": null,
+    "author": "Inspirado en Roy Lee & Andrei Karpathy",
+    "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
+    "category": "IA & Carrera Tech"
+  },
+  {
+    "id": "62",
+    "status": "draft",
+    "title": "El Error de los $100,000 en Startups: Construir lo que crees que quieren vs lo que pagan",
+    "text": "El mayor elogio que un cliente puede darte no es decir 'qué buena idea'.\n\nEs sacar su tarjeta de crédito y pagar por la solución antes de que esté 100% terminada.\n\nEl 80% de las startups fracasan no por problemas técnicos, sino porque construyen productos impecables que nadie estaba dispuesto a comprar.\n\nPara validar la demanda real antes de gastar meses programando, aplica este filtro de 3 pasos:\n\n1. La prueba de la preventa:\nSi tienes una propuesta de valor clara, consigue 3 cartas de intención o pagos anticipados antes de escribir una sola línea de código complejo.\n\n2. El dolor agudo frente a la vitamina:\nNo construyas soluciones que sean 'agradables de tener' (vitaminas). Resuelve problemas que le cuesten miles de dólares o semanas de retraso al cliente (analgésicos).\n\n3. Si nadie se queja del precio, estás cobrando demasiado poco:\nCobrar un precio justo filtra a los clientes comprometidos y te da margen para ofrecer un servicio extraordinario.\n\nLas opiniones no pagan servidores; las transacciones reales son la única validación que cuenta.\n\n¿Cuál es el mejor criterio que has usado para validar si un producto tiene futuro comercial?",
+    "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1200&auto=format&fit=crop&q=80",
+    "scheduledDate": null,
+    "author": "Inspirado en Ilya Strebulaev & Sam Altman",
+    "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
+    "category": "Startups & Ventas B2B"
+  },
+  {
+    "id": "63",
+    "status": "draft",
+    "title": "El Protocolo de las 3 Respuestas: Cómo atender prospectos en 2 minutos sin vivir pegado al teléfono",
+    "text": "El 78% de los clientes B2B contratan al primer proveedor que les responde con claridad y profesionalismo.\n\nSi un cliente potencial te escribe solicitando una propuesta y tardas 4 horas en contestar, ya perdiste la oportunidad frente a tu competencia.\n\nNo necesitas contratar un equipo de guardia 24/7. Puedes estructurar un sistema automático en 3 capas:\n\n1. Captura instantánea y enriquecimiento:\nUn formulario conectado a un webhook que extrae los datos del prospecto (sitio web, sector, tamaño de empresa) en 3 segundos.\n\n2. Calificación por IA contextual:\nUn modelo que evalúa si el prospecto cumple con tu Perfil de Cliente Ideal (ICP) y clasifica la urgencia del requerimiento.\n\n3. Enlace dinámico de agendamiento:\nEl sistema envía un correo personalizado con un resumen de cómo puedes ayudarlo y un enlace directo a tu calendario para fijar la llamada.\n\nLa velocidad de respuesta transmite solidez y respeto por el tiempo del cliente desde el primer contacto.\n\n¿Cuánto tiempo tarda en promedio tu negocio en responder a un nuevo prospecto interesado?",
+    "image": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=1200&auto=format&fit=crop&q=80",
+    "scheduledDate": null,
+    "author": "Inspirado en Nico Manzaneque",
+    "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
+    "category": "Automatización & Ventas"
+  },
+  {
+    "id": "64",
+    "status": "draft",
+    "title": "La Trampa de la Optimización Infinita: Por qué cambiar de herramientas no salvará un producto sin tracción",
+    "text": "He visto a equipos pasar 2 meses migrando de React a Next.js, de REST a GraphQL y de PostgreSQL a Supabase... para un producto que todavía tiene cero usuarios activos.\n\nLa optimización prematura de herramientas es la forma más sofisticada de procrastinación en tecnología.\n\nPara no caer en la trampa del perfeccionismo técnico, los constructores pragmáticos siguen estas 3 reglas:\n\n1. La regla del 'Stack Aburrido':\nUsa las tecnologías que tu equipo ya domina a la perfección. La velocidad para resolver problemas de clientes siempre le gana a la última tendencia de moda.\n\n2. Optimiza la velocidad de aprendizaje, no los milisegundos:\nEn etapas tempranas, lo que necesitas es descubrir qué quiere el mercado, no crear una infraestructura capaz de soportar a un millón de usuarios imaginarios.\n\n3. Refactoriza solo cuando el dolor sea real:\nNo arregles problemas de escalabilidad que todavía no tienes. Construye, valida, cobra y luego escala sobre bases sólidas.\n\nEl éxito de un proyecto no se mide por la elegancia de su stack, sino por el valor real que entrega todos los días.\n\n¿Qué decisión técnica tomaste en el pasado que hoy simplificarías por completo?",
+    "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&auto=format&fit=crop&q=80",
+    "scheduledDate": null,
+    "author": "Inspirado en Stas Bel & James Clear",
+    "originalUrl": "https://www.linkedin.com/in/stasbel/",
+    "category": "Arquitectura & Pragmatismo"
   }
 ]

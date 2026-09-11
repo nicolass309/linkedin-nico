@@ -150,6 +150,15 @@ async function fetchPosts() {
             }
         }
 
+        // Automatically promote past scheduled posts to published in real-time
+        const now = new Date();
+        posts = posts.map(p => {
+            if (p.status === 'scheduled' && p.scheduledDate && new Date(p.scheduledDate) <= now) {
+                return { ...p, status: 'published', publishedAt: p.publishedAt || p.scheduledDate };
+            }
+            return p;
+        });
+
         // Keep local cache updated with published items from server
         posts.forEach(p => {
             if (p.status === 'published') {

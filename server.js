@@ -404,9 +404,24 @@ setInterval(async () => {
 
 // API Routes
 
-// 1. Get all posts
+// 1. Get all posts (with real-time auto-promotion of past scheduled posts)
 app.get('/api/posts', (req, res) => {
   const posts = readDB();
+  const now = new Date();
+  let updated = false;
+
+  posts.forEach(p => {
+    if (p.status === 'scheduled' && p.scheduledDate && new Date(p.scheduledDate) <= now) {
+      p.status = 'published';
+      p.publishedAt = p.publishedAt || p.scheduledDate;
+      updated = true;
+    }
+  });
+
+  if (updated) {
+    writeDB(posts, 'Auto-update past scheduled posts to published in real-time');
+  }
+
   res.json(posts);
 });
 
