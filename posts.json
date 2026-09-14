@@ -586,5 +586,60 @@
     "author": "Inspirado en Nico Manzaneque",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
     "category": "Automatización & Sistemas"
+  },
+  {
+    "id": "73",
+    "status": "draft",
+    "title": "7 Startups Chilenas y de Latam de IA & Automatización que están escalando en serio",
+    "text": "No todas las startups de Inteligencia Artificial están en Silicon Valley ni quemando millones en marketing.\n\nEn Chile y Latinoamérica hay un grupo de empresas resolviendo dolores brutales de industrias tradicionales con IA, software de infraestructura y automatización que no paran de crecer:\n\n1. @Fintoc (Chile 🇨🇱):\nLa infraestructura de pagos y Open Banking que conecta cuentas bancarias directamente con comercios para eliminar intermediarios y reducir comisiones a una fracción.\n\n2. @Cero.ai (Chile / Latam 🇨🇱):\nAgentes de IA conversacionales para el sector salud que reducen el ausentismo médico en clínicas y hospitales gestionando citas de forma autónoma.\n\n3. @SimpliRoute (Chile 🇨🇱):\nAlgoritmos de optimización logística e IA que recalculan rutas en tiempo real para flotas de reparto, reduciendo hasta un 30% los costos de combustible.\n\n4. @Examedi (Chile / México 🇨🇱🇲🇽):\nSalud y telemedicina a domicilio apalancada en tecnología para coordinar exámenes médicos y enfermería en menos de 2 horas.\n\n5. @Clay (Chile 🇨🇱):\nAutomatización contable y financiera con IA que concilia bancos, facturas del SII y estados de flujo de caja sin hojas de cálculo manuales.\n\n6. @Buk (Chile / Latam 🇨🇱):\nLa plataforma líder de gestión de personas que automatizó el pago de remuneraciones, encuestas de clima y talento para miles de empresas en la región.\n\n7. @Poliglota (Chile / Latam 🇨🇱):\nAprendizaje de idiomas apalancado en grupos de conversación y analítica de datos para medir el progreso real de fluidez en profesionales.\n\nEl verdadero talento tecnológico de nuestra región no está creando 'juguetes de IA', sino construyendo soluciones que le ahorran millones de dólares y miles de horas a los negocios todos los días.\n\n¿Qué otra startup o empresa tecnológica chilena o de Latam crees que debería estar sí o sí en esta lista? (Etiquétala en los comentarios 👇)",
+    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80",
+    "scheduledDate": null,
+    "author": "Curaduría Ecosistema Latam",
+    "originalUrl": "https://www.linkedin.com/in/nicolaspe%C3%B1adiaz/",
+    "category": "Startups & Ecosistema Latam"
+  },
+  {
+    "id": "74",
+    "status": "draft",
+    "title": "El Archivo SYSTEM-PROMPT.md para auditar código y arquitectura con IA",
+    "text": "Si le pides a ChatGPT o Claude 'revisa este código', te dirá que todo se ve bien y cambiará dos nombres de variables.\n\nPara que la IA actúe como un Ingeniero de Software Staff y no como un asistente condescendiente, debes configurar un archivo de instrucciones estrictas.\n\nEste es el esquema de 4 reglas que uso en mi archivo SYSTEM-PROMPT.md antes de pasar cualquier módulo a revisión:\n\n1. Rol de Crítico Implacable:\n'Actúa como un Lead Architect especializado en seguridad y escalabilidad. Tu objetivo no es halagar el código, sino encontrar vulnerabilidades, cuellos de botella y fugas de memoria'.\n\n2. Análisis de Casos de Borde (Edge Cases):\n'Identifica exactamente qué ocurre si la base de datos responde con timeout, si el usuario envía un payload vacío o si la API de terceros cae'.\n\n3. Prohibición de Refactorizaciones Cosméticas:\n'No sugieras cambios de estilo o sintaxis que no aporten una mejora medible en rendimiento, mantenibilidad o seguridad'.\n\n4. Propuesta de Solución con Código Mínimo:\n'Entrega el cambio exacto con el menor número de líneas posibles para evitar introducir nueva deuda técnica'.\n\nCuando elevas el nivel de exigencia de las instrucciones, los modelos de IA se convierten en tu mejor filtro de calidad antes de enviar a producción.\n\nSi quieres la plantilla completa del archivo SYSTEM-PROMPT.md lista para copiar en tu editor, escribe 'PROMPT' en los comentarios y te la comparto por mensaje directo.",
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&auto=format&fit=crop&q=80",
+    "scheduledDate": null,
+    "author": "Ingeniería de Software & IA",
+    "originalUrl": "https://www.linkedin.com/in/nicolaspe%C3%B1adiaz/",
+    "category": "IA & Arquitectura"
+  },
+  {
+    "id": "75",
+    "status": "draft",
+    "title": "Las 3 preguntas que hace el CEO de Y Combinator antes de invertir $500,000",
+    "text": "Garry Tan (CEO de @Y Combinator) ha evaluado a miles de fundadores en la aceleradora más exitosa del mundo.\n\nEn una sesión con fundadores, reveló que no le importan las presentaciones de 40 diapositivas ni las proyecciones financieras a cinco años.\n\nPara saber si una startup sobrevivirá, solo busca respuestas claras a estas 3 preguntas:\n\n1. ¿Cuántos cambios lanzaron a producción la semana pasada?\nLa velocidad de iteración es la métrica número uno de supervivencia. Un equipo que lanza 3 mejoras por semana aprende 10 veces más rápido que uno que pasa un mes planificando.\n\n2. ¿Con cuántos clientes insatisfechos hablaste en los últimos 7 días?\nLos clientes que te felicitan inflan tu ego; los que están frustrados te dicen exactamente qué funcionalidad le falta a tu producto para que estén dispuestos a pagar más.\n\n3. ¿Por qué este problema no lo resuelve una empresa gigante hoy?\nSi tu única ventaja es que eres más rápido, te aplastarán. Necesitas entender un dolor específico tan a fondo que a los gigantes corporativos les parezca demasiado pequeño para prestarle atención.\n\nEl éxito en startups y tecnología no viene de ideas complejas, sino de una obsesión implacable por resolver un problema real a toda velocidad.\n\n¿Cuál de estas 3 preguntas crees que es la más difícil de responder con honestidad en tu proyecto?",
+    "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1200&auto=format&fit=crop&q=80",
+    "scheduledDate": null,
+    "author": "Inspirado en Garry Tan (Y Combinator)",
+    "originalUrl": "https://www.linkedin.com/in/garrytan/",
+    "category": "Startups & Y Combinator"
+  },
+  {
+    "id": "76",
+    "status": "draft",
+    "title": "El Stack de IA de $0 al mes que reemplaza a un equipo de 3 personas",
+    "text": "Muchas empresas creen que para automatizar sus operaciones necesitan contratar licencias Enterprise de $2,000 al mes.\n\nLa realidad es que con herramientas de código abierto y capas gratuitas puedes estructurar un sistema completo de captación y atención en un fin de semana sin pagar un solo dólar:\n\n1. @n8n.io (Community Edition - Autoalojado):\nEl motor de automatización de flujos más potente del mercado. Puedes conectar formularios, bases de datos y correos sin límites de ejecuciones por mes.\n\n2. @Supabase (Capa Gratuita de PostgreSQL):\nTu base de datos relacional y autenticación en la nube. Te permite almacenar contactos, estados de clientes y registros con velocidad instantánea.\n\n3. DeepSeek / Ollama (Modelos de IA Locales):\nPara clasificar mensajes entrantes, resumir documentos y redactar borradores de respuesta con costo de API prácticamente cero.\n\n4. Webhooks Nativos:\nConectar las acciones de tu sitio web directamente a tu flujo sin intermediarios de pago que cobren por cada tarea realizada.\n\nEl verdadero apalancamiento no se compra con presupuestos gigantes; se construye conectando herramientas sólidas con una arquitectura simple.\n\n¿Qué herramienta gratuita o de código abierto se ha vuelto indispensable en tu flujo de trabajo diario?",
+    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&auto=format&fit=crop&q=80",
+    "scheduledDate": null,
+    "author": "Automatización & Open Source",
+    "originalUrl": "https://www.linkedin.com/in/nicolaspe%C3%B1adiaz/",
+    "category": "Herramientas & Automatización"
+  },
+  {
+    "id": "77",
+    "status": "draft",
+    "title": "El Fraude de la Automatización Rápida: Por qué conectar 15 herramientas destruye empresas",
+    "text": "He visto a empresas pagar cientos de dólares al mes conectando Typeform con Google Sheets, Slack, Notion, Airtable y HubSpot...\n\nHasta que un día cambia la estructura de un formulario, falla una sola clave API y se pierden 40 prospectos calificados en silencio sin que nadie se entere.\n\nEl 'Espagueti de Automatizaciones' es la nueva deuda técnica de las empresas modernas.\n\nPara construir sistemas de automatización que no colapsen a los tres meses, los operadores expertos siguen estas 3 reglas de resiliencia:\n\n1. La regla de una sola fuente de verdad (Single Source of Truth):\nElige un solo lugar donde viva la información maestra (tu base de datos o tu CRM). Si duplicas datos en cinco hojas de cálculo, el descontrol es inevitable.\n\n2. Manejo de errores y alertas visibles:\nSi un flujo automático falla, el sistema debe enviar una alerta inmediata a un canal de emergencias con los datos que no se pudieron procesar para no perder ninguna venta.\n\n3. Menos pasos, menos puntos de fallo:\nCada herramienta extra que metes en una cadena es una probabilidad más de que algo se rompa. Si puedes resolver un proceso en 2 pasos directos, nunca uses 6.\n\nLa mejor automatización no es la que tiene más nodos en pantalla, sino la que funciona de forma invisible y sólida los 365 días del año.\n\n¿Alguna vez sufriste la caída silenciosa de una automatización en tu negocio?",
+    "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&auto=format&fit=crop&q=80",
+    "scheduledDate": null,
+    "author": "Arquitectura & Resiliencia",
+    "originalUrl": "https://www.linkedin.com/in/nicolaspe%C3%B1adiaz/",
+    "category": "Arquitectura & Procesos"
   }
 ]
