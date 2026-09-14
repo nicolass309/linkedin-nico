@@ -351,10 +351,11 @@
     "title": "Así conviertes a Claude en una máquina de crear contenido",
     "text": "El 90% de la gente usa Claude como un buscador sofisticado: le piden un post y reciben un texto genérico lleno de clichés.\n\nClaude 3.5 Sonnet tiene la mejor capacidad de redacción del mercado, pero solo si le entregas la arquitectura de contexto correcta.\n\nPara transformarlo en tu mejor redactor y estratega de contenido, este es el sistema en 3 capas que debes usar:\n\n1. El archivo de voz de marca (Brand Voice File):\nNo le digas 'escribe profesional pero cercano'. Pásale un archivo de texto con 3 publicaciones tuyas que hayan tenido éxito, tus reglas de vocabulario prohibido y tu estructura de párrafos cortos.\n\n2. La regla del esquema previo (Outline First):\nNunca le pidas el borrador final en el primer mensaje. Pídele primero 3 ganchos iniciales y la estructura de puntos clave. Elige el mejor esquema y recién ahí dale la orden de redactar.\n\n3. Restricción radical de 'lenguaje corporativo':\nIncluye en tus instrucciones: 'Prohibido usar palabras vacías como revolucionario, sinergia, holístico o en el vertiginoso mundo de hoy'.\n\nCuando alimentas al modelo con tu contexto y límites claros, la velocidad de producción se multiplica por 5x sin perder tu toque humano.\n\n¿Has probado a entrenar un archivo de contexto para tus publicaciones de IA?",
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&auto=format&fit=crop&q=80",
-    "scheduledDate": "2026-09-14T13:00:00.000Z",
+    "scheduledDate": "2026-09-15T13:00:00.000Z",
     "author": "Inspirado en Roy Lee",
     "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
-    "category": "IA & Contenido"
+    "category": "IA & Contenido",
+    "bufferPostId": "6aa8860b4041488d44fb6768"
   },
   {
     "id": "66",
@@ -362,10 +363,11 @@
     "title": "Los códigos secretos de ChatGPT no existen",
     "text": "Las guías de '500 Prompts Secretos para hacerte millonario con ChatGPT' son el equivalente moderno a vender humo digital.\n\nNo existen fórmulas mágicas ni códigos ocultos que hagan que un modelo de lenguaje piense por ti.\n\nLa inteligencia artificial funciona bajo un principio matemático simple: la calidad de la salida es directamente proporcional a la calidad de los datos de entrada.\n\nLos profesionales que obtienen resultados extraordinarios con IA no usan 'prompts secretos'; aplican estos 3 fundamentos:\n\n1. Contexto real sobre plantillas genéricas:\nUna plantilla de 300 palabras copiada de internet vale cero comparada con un prompt simple de 3 líneas que incluya tus datos reales de clientes o tu código de proyecto.\n\n2. Iteración en conversación:\nTratar a la IA como un colaborador con el que dialogas paso a paso en lugar de intentar obtener el producto final en un solo mensaje gigante.\n\n3. Criterio técnico humano para auditar:\nEl valor no está en generar texto a toda velocidad, sino en saber identificar alucinaciones, errores de lógica y ajustar el resultado.\n\nDeja de coleccionar listas de prompts interminables; domina el arte de dar contexto claro y estructurado.\n\n¿Cuál es el mito sobre la IA que más te cansa escuchar hoy en día?",
     "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&auto=format&fit=crop&q=80",
-    "scheduledDate": "2026-09-15T13:00:00.000Z",
+    "scheduledDate": "2026-09-16T13:00:00.000Z",
     "author": "Inspirado en Stas Bel",
     "originalUrl": "https://www.linkedin.com/in/stasbel/",
-    "category": "IA & Productividad"
+    "category": "IA & Productividad",
+    "bufferPostId": "6aa8860cac4a884f436ac38c"
   },
   {
     "id": "67",
@@ -373,10 +375,11 @@
     "title": "Puedes apostar a que Jesús vuelva antes que GTA VI",
     "text": "En plataformas de predicción descentralizadas como Polymarket, la gente está apostando millones de dólares a eventos absurdos:\n\nHay más probabilidades registradas de que descubramos vida extraterrestre este año a que se lance un software sin retrasos en su fecha oficial.\n\nMás allá del meme, esto revela una transformación gigante en cómo medimos la verdad en internet: La Economía de la Predicción.\n\nHistóricamente, los analistas y opinólogos de redes sociales podían equivocarse mil veces sin ninguna consecuencia.\n\nLos mercados de predicción cambian el juego con 3 realidades:\n\n1. Dinero en juego (Skin in the Game):\nUna opinión respaldada por dinero real en un mercado abierto es 10 veces más precisa que cualquier encuesta tradicional.\n\n2. El costo de la reputación en tecnología:\nPrometer lanzamientos imposibles genera atención a corto plazo, pero destruye la confianza del mercado cuando los plazos se incumplen.\n\n3. Sabiduría colectiva vs expertos individuales:\nLos mercados abiertos procesan información en tiempo real mucho más rápido que cualquier comité de expertos.\n\nEl futuro de la información no estará en quién grita más fuerte en redes, sino en qué dice la probabilidad colectiva respaldada por datos.\n\n¿Qué lanzamiento tecnológico o evento estás esperando con más escepticismo?",
     "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&auto=format&fit=crop&q=80",
-    "scheduledDate": "2026-09-16T13:00:00.000Z",
+    "scheduledDate": "2026-09-17T13:00:00.000Z",
     "author": "Inspirado en Creadores de Predicción",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
-    "category": "Economía Digital & Tendencias"
+    "category": "Economía Digital & Tendencias",
+    "bufferPostId": "6aa8860c9a26ed5c2acdcfb5"
   },
   {
     "id": "68",
@@ -384,10 +387,11 @@
     "title": "Por qué todos los diseños creados con IA se parecen",
     "text": "Fondos oscuros con neón morado, personajes de plastilina 3D hiperbrillantes y tipografías flotantes.\n\nSeguro has visto este estilo 100 veces en la última semana: el 'look IA' se ha convertido en el nuevo cliché visual de internet.\n\n¿Por qué ocurre esto?\n\nPorque la mayoría de las herramientas de generación de imágenes fueron entrenadas sobre los mismos bancos de datos, convergiendo en un promedio estético predecible y artificial.\n\nPara que tu marca destaque en un mar de contenido homogéneo, sigue estas 3 reglas visuales:\n\n1. Fotografía real y sobria:\nLas imágenes auténticas de espacios de trabajo reales, pizarras con notas y personas en situaciones genuinas generan 3x más confianza que un render futurista exagerado.\n\n2. Diseño editorial minimalista:\nInspírate en la estética de publicaciones como Stripe Press o The Economist: tipografías limpias, alto contraste y gráficos estructurados.\n\n3. La imperfección humana como diferencial:\nUn boceto rápido o un diagrama a mano comunica más autenticidad que una imagen generada con 50 modificadores de estilo.\n\nCuando todos usan las mismas herramientas automáticas, la sobriedad y la autenticidad se convierten en tu mayor ventaja competitiva.\n\n¿También sientes que el 'estilo IA' ya saturó tu feed de redes sociales?",
     "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=1200&auto=format&fit=crop&q=80",
-    "scheduledDate": "2026-09-17T13:00:00.000Z",
+    "scheduledDate": "2026-09-18T13:00:00.000Z",
     "author": "Inspirado en Creadores de Diseño",
     "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
-    "category": "Diseño & Marca"
+    "category": "Diseño & Marca",
+    "bufferPostId": "6aa8860da283eff81a50f33a"
   },
   {
     "id": "69",
@@ -395,10 +399,11 @@
     "title": "La prueba del CRM abandonado",
     "text": "El 70% de las empresas que compran licencias de $50,000 al año en Salesforce o HubSpot tienen sus bases de datos desiertas y desactualizadas.\n\nEl problema nunca fue la herramienta.\n\nEl problema es que exigirle a un equipo de ventas que pase 2 horas al día escribiendo notas manuales después de cada llamada es una batalla perdida.\n\nSi un sistema requiere disciplina heroica para mantenerse al día, está condenado a morir.\n\nLa automatización moderna resuelve la 'prueba del CRM' mediante 3 pasos invisibles:\n\n1. Registro automático de reuniones:\nAsistentes de IA que transcriben las llamadas, extraen los acuerdos clave y actualizan el estado de la oportunidad sin que el vendedor abra el CRM.\n\n2. Enriquecimiento de contactos en segundo plano:\nFlujos automáticos que completan el cargo, tamaño de empresa y sector del prospecto a partir de su correo electrónico.\n\n3. Alertas de seguimiento accionables:\nEn lugar de revisar dashboards complejos, el comercial recibe un mensaje directo en Slack con los 3 clientes a los que debe llamar hoy.\n\nEl mejor software no es el que tiene 500 funciones en pantalla, sino el que trabaja de forma invisible en segundo plano.\n\n¿En tu empresa mantienen el CRM al día o es una tarea que todos evitan?",
     "image": "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1200&auto=format&fit=crop&q=80",
-    "scheduledDate": "2026-09-18T13:00:00.000Z",
+    "scheduledDate": "2026-09-21T13:00:00.000Z",
     "author": "Inspirado en Nico Manzaneque",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
-    "category": "Ventas B2B & Automatización"
+    "category": "Ventas B2B & Automatización",
+    "bufferPostId": "6aa8860dac4a884f436ac3dd"
   },
   {
     "id": "60",
@@ -406,10 +411,11 @@
     "title": "La Regla de la Asimetría Inversa: Por qué el 90% gana dinero lineal y el 10% exponencial",
     "text": "Si cambias tu tiempo por dinero, tienes un límite biológico: 24 horas al día.\n\nEn la era de la IA y el código, construir software o contenido cuesta lo mismo atender a 1 persona que a 100.000.\n\nEste es el mayor cambio de paradigma económico de nuestra generación: el apalancamiento sin permiso.\n\nPara pasar de ingresos lineales a crecimiento exponencial, aplica estos 3 principios de apalancamiento:\n\n1. El costo marginal de reproducción cero:\nUn código bien escrito, un flujo automatizado o una biblioteca de contenidos se replica infinitas veces sin costarte una hora extra de tu vida.\n\n2. Vende resultados, no horas de trabajo:\nAl cliente no le importa si tardaste 10 horas o 10 minutos con IA; le importa el valor y la velocidad de la solución.\n\n3. Construye activos mientras duermes:\nDedica al menos 1 hora diaria a crear herramientas, sistemas o documentación que sigan trabajando cuando tú apagues la pantalla.\n\nEl trabajo duro te da un salario; los sistemas escalables te dan libertad y crecimiento real.\n\n¿Qué activo o sistema estás construyendo hoy que seguirá dándote valor en 12 meses?",
     "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1200&auto=format&fit=crop&q=80",
-    "scheduledDate": "2026-09-21T13:00:00.000Z",
+    "scheduledDate": "2026-09-23T13:00:00.000Z",
     "author": "Inspirado en Alex Hormozi & Justin Welsh",
     "originalUrl": "https://www.linkedin.com/in/justinwelsh/",
-    "category": "Negocios & Apalancamiento"
+    "category": "Negocios & Apalancamiento",
+    "bufferPostId": "6aa8860ea56f2b823c931e86"
   },
   {
     "id": "61",
@@ -417,10 +423,11 @@
     "title": "Por qué saber programar es más valioso hoy que hace 5 años (a pesar de la IA)",
     "text": "Muchos pensaron que la IA reemplazaría a los desarrolladores de software en 2026.\n\nLo que realmente ocurrió es que eliminó la barrera para crear prototipos rápidos, pero multiplicó por 10x el valor de quienes entienden arquitectura, seguridad y flujos de datos reales.\n\nCualquiera puede pedirle a un modelo de lenguaje que genere 100 líneas de código.\n\nPero solo un profesional con criterio técnico puede hacer 3 cosas indispensables:\n\n1. Diseñar arquitecturas resilientes:\nSaber cómo conectar bases de datos, APIs y colas asíncronas para que el sistema no colapse bajo 10.000 peticiones concurrentes.\n\n2. Auditar la seguridad y los casos de borde:\nIdentificar vulnerabilidades silenciosas, fugas de memoria y alucinaciones que la IA pasa por alto.\n\n3. Evolucionar de programador a director técnico:\nEn lugar de teclear código carácter por carácter, ahora diriges un equipo de asistentes de IA para construir productos en días en lugar de meses.\n\nLa IA no reemplaza a los desarrolladores que piensan de forma estructurada; reemplaza a quienes solo memorizaban sintaxis.\n\n¿Cómo ha cambiado tu forma de enfocar el desarrollo técnico con las herramientas de IA?",
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&auto=format&fit=crop&q=80",
-    "scheduledDate": "2026-09-22T13:00:00.000Z",
+    "scheduledDate": "2026-09-24T13:00:00.000Z",
     "author": "Inspirado en Roy Lee & Andrei Karpathy",
     "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
-    "category": "IA & Carrera Tech"
+    "category": "IA & Carrera Tech",
+    "bufferPostId": "6aa8860f4041488d44fb67a0"
   },
   {
     "id": "71",
@@ -428,10 +435,11 @@
     "title": "Elon Musk y Jensen Huang apuestan por la robótica",
     "text": "Jensen Huang (CEO de Nvidia) y Elon Musk coinciden en una predicción para los próximos 10 años:\n\nLa Inteligencia Artificial en pantallas (chatbots y software) es solo la primera fase. La verdadera revolución ocurrirá con la 'IA Física': robots humanoides operando en el mundo real.\n\n¿Por qué los mayores fabricantes de chips y vehículos están girando hacia este sector?\n\n1. El mundo está construido para la forma humana:\nFábricas, escaleras, puertas y herramientas están diseñadas para bípedos con manos de 5 dedos. Un robot con forma humana puede integrarse en cualquier entorno sin rediseñar la infraestructura.\n\n2. La crisis demográfica global:\nLa escasez de mano de obra en logística, manufactura y construcción está empujando a las industrias a automatizar las tareas físicas más pesadas y peligrosas.\n\n3. Modelos de aprendizaje visual por imitación:\nLos robots ya no se programan línea por línea; aprenden observando miles de horas de video de humanos realizando tareas complejas.\n\nEl software cambió cómo pensamos y nos comunicamos; la robótica con IA cambiará cómo se fabrican y mueven todas las cosas del planeta.\n\n¿Crees que veremos robots humanoides trabajando en tareas cotidianas antes de 2030?",
     "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1200&auto=format&fit=crop&q=80",
-    "scheduledDate": "2026-09-23T13:00:00.000Z",
+    "scheduledDate": "2026-09-25T13:00:00.000Z",
     "author": "Inspirado en Tendencias de Robótica",
     "originalUrl": "https://www.linkedin.com/in/stasbel/",
-    "category": "Robótica & Futuro Tech"
+    "category": "Robótica & Futuro Tech",
+    "bufferPostId": "6aa8860f9dd9674a3dc87136"
   },
   {
     "id": "62",
@@ -439,10 +447,11 @@
     "title": "El Error de los $100,000 en Startups: Construir lo que crees que quieren vs lo que pagan",
     "text": "El mayor elogio que un cliente puede darte no es decir 'qué buena idea'.\n\nEs sacar su tarjeta de crédito y pagar por la solución antes de que esté 100% terminada.\n\nEl 80% de las startups fracasan no por problemas técnicos, sino porque construyen productos impecables que nadie estaba dispuesto a comprar.\n\nPara validar la demanda real antes de gastar meses programando, aplica este filtro de 3 pasos:\n\n1. La prueba de la preventa:\nSi tienes una propuesta de valor clara, consigue 3 cartas de intención o pagos anticipados antes de escribir una sola línea de código complejo.\n\n2. El dolor agudo frente a la vitamina:\nNo construyas soluciones que sean 'agradables de tener' (vitaminas). Resuelve problemas que le cuesten miles de dólares o semanas de retraso al cliente (analgésicos).\n\n3. Si nadie se queja del precio, estás cobrando demasiado poco:\nCobrar un precio justo filtra a los clientes comprometidos y te da margen para ofrecer un servicio extraordinario.\n\nLas opiniones no pagan servidores; las transacciones reales son la única validación que cuenta.\n\n¿Cuál es el mejor criterio que has usado para validar si un producto tiene futuro comercial?",
     "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1200&auto=format&fit=crop&q=80",
-    "scheduledDate": "2026-09-24T13:00:00.000Z",
+    "scheduledDate": "2026-09-28T13:00:00.000Z",
     "author": "Inspirado en Ilya Strebulaev & Sam Altman",
     "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
-    "category": "Startups & Ventas B2B"
+    "category": "Startups & Ventas B2B",
+    "bufferPostId": "6aa88610ac4a884f436ac41a"
   },
   {
     "id": "70",
@@ -450,7 +459,7 @@
     "title": "Qué pasó con el metaverso",
     "text": "Hace 3 años, las grandes empresas creaban oficinas virtuales, compraban terrenos digitales y cambiaban sus nombres corporativos para apostar al 'Metaverso'.\n\nHoy, casi nadie habla de mundos virtuales y todo el capital se trasladó a la Inteligencia Artificial.\n\n¿Qué lección brutal de producto y mercado nos deja este giro histórico?\n\n1. La prueba de la fricción diaria:\nColocarse un visor pesado en la cabeza para tener una reunión de 30 minutos tenía demasiada fricción física. Si una tecnología no te hace la vida más fácil desde el día uno, el público masivo la abandonará.\n\n2. El valor inmediato frente a la promesa futura:\nChatGPT triunfó porque resolvió problemas reales en 3 segundos a través de una simple caja de texto. La IA entregó valor inmediato; el metaverso pedía cambiar hábitos completos.\n\n3. Seguir el dolor del cliente, no la moda tecnológica:\nConstruir tecnología buscando un problema que resolver es la forma más rápida de quemar capital. Resuelve un dolor existente y la adopción será natural.\n\nLa tecnología que sobrevive no es la más vistosa, sino la que elimina fricción sin pedir nada a cambio.\n\n¿Cuál crees que será la próxima tendencia tecnológica que no resistirá el paso del tiempo?",
     "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop&q=80",
-    "scheduledDate": "2026-09-25T13:00:00.000Z",
+    "scheduledDate": "2026-09-29T13:00:00.000Z",
     "author": "Inspirado en Ilya Strebulaev",
     "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
     "category": "Startups & Estrategia"
@@ -461,7 +470,7 @@
     "title": "El Protocolo de las 3 Respuestas: Cómo atender prospectos en 2 minutos sin vivir pegado al teléfono",
     "text": "El 78% de los clientes B2B contratan al primer proveedor que les responde con claridad y profesionalismo.\n\nSi un cliente potencial te escribe solicitando una propuesta y tardas 4 horas en contestar, ya perdiste la oportunidad frente a tu competencia.\n\nNo necesitas contratar un equipo de guardia 24/7. Puedes estructurar un sistema automático en 3 capas:\n\n1. Captura instantánea y enriquecimiento:\nUn formulario conectado a un webhook que extrae los datos del prospecto (sitio web, sector, tamaño de empresa) en 3 segundos.\n\n2. Calificación por IA contextual:\nUn modelo que evalúa si el prospecto cumple con tu Perfil de Cliente Ideal (ICP) y clasifica la urgencia del requerimiento.\n\n3. Enlace dinámico de agendamiento:\nEl sistema envía un correo personalizado con un resumen de cómo puedes ayudarlo y un enlace directo a tu calendario para fijar la llamada.\n\nLa velocidad de respuesta transmite solidez y respeto por el tiempo del cliente desde el primer contacto.\n\n¿Cuánto tiempo tarda en promedio tu negocio en responder a un nuevo prospecto interesado?",
     "image": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=1200&auto=format&fit=crop&q=80",
-    "scheduledDate": "2026-09-28T13:00:00.000Z",
+    "scheduledDate": "2026-09-30T13:00:00.000Z",
     "author": "Inspirado en Nico Manzaneque",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
     "category": "Automatización & Ventas"
@@ -472,7 +481,7 @@
     "title": "El factor incómodo de las personas exitosas",
     "text": "La diferencia entre quienes avanzan rápido en su carrera y quienes se quedan estancados rara vez tiene que ver con horas de trabajo o talento innato.\n\nTiene que ver con su tolerancia para sostener conversaciones incómodas.\n\nLa mayoría de las personas evitan la incomodidad a corto plazo y pagan el precio con frustración a largo plazo:\n• Aceptan clientes inadecuados por no decir 'no' a tiempo.\n• Posponen la retroalimentación honesta a un compañero de equipo.\n• Mantienen proyectos que ya no funcionan por apego emocional.\n\nLos profesionales de alto rendimiento aplican el 'factor incómodo' en 3 momentos clave:\n\n1. Claridad radical en acuerdos:\nEstablecer expectativas y límites no negociables desde la primera reunión evita el 90% de los conflictos posteriores.\n\n2. Cortar rápido lo que no funciona:\nAceptar un error temprano duele un día; arrastrar una mala decisión drena energía durante meses.\n\n3. Decir 'No' al 95% de las oportunidades:\nEl éxito no viene de aceptar todo lo que llega, sino de proteger tu foco para las pocas cosas que realmente mueven la aguja.\n\nTu crecimiento profesional es directamente proporcional a la cantidad de verdades incómodas que estés dispuesto a enfrentar con serenidad.\n\n¿Qué conversación o decisión estás posponiendo hoy por evitar la incomodidad?",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&auto=format&fit=crop&q=80",
-    "scheduledDate": "2026-09-29T13:00:00.000Z",
+    "scheduledDate": "2026-10-01T13:00:00.000Z",
     "author": "Inspirado en Sahil Bloom",
     "originalUrl": "https://www.linkedin.com/in/sahilbloom/",
     "category": "Liderazgo & Mentalidad"
@@ -483,7 +492,7 @@
     "title": "La Ley de Parkinson Invertida: Por qué darte 3 semanas para un proyecto garantiza que tardes 3 semanas",
     "text": "Si te das 30 días para limpiar tu casa, tardarás 30 días.\n\nSi te das 3 horas porque vienen visitas, tardarás 3 horas.\n\nEl software, los proyectos y los negocios funcionan bajo la misma regla invisible: La Ley de Parkinson. El trabajo se expande hasta llenar el tiempo disponible para completarlo.\n\nCuando un equipo se da 6 meses para lanzar un producto, pasan 5 meses discutiendo detalles secundarios que ningún cliente notará.\n\nPara multiplicar tu velocidad de entrega por 3x sin quemar al equipo, aplica estas 3 restricciones artificiales:\n\n1. La regla del límite de 48 horas:\nEn lugar de planificar meses por adelantado, define qué versión mínima funcional puedes tener probada con usuarios en menos de 48 horas.\n\n2. Reuniones de 15 minutos con agenda estricta:\nSi una reunión dura 60 minutos por defecto en el calendario, la gente hablará 60 minutos. Reducir los bloques a 15 minutos fuerza a ir directo a las decisiones.\n\n3. Restricción de alcance antes de retrasar fechas:\nSi la fecha límite se acerca, no extiendas el plazo. Elimina el 50% de las funcionalidades accesorias y entrega el núcleo impecable.\n\nLa creatividad y la eficiencia florecen bajo límites claros; la abundancia de tiempo solo produce sobreingeniería.\n\n¿Qué proyecto tienes entre manos que podrías terminar hoy mismo si redujeras su alcance a la mitad?",
     "image": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=1200&auto=format&fit=crop&q=80",
-    "scheduledDate": "2026-09-30T13:00:00.000Z",
+    "scheduledDate": "2026-10-02T13:00:00.000Z",
     "author": "Inspirado en Sahil Bloom & Alex Hormozi",
     "originalUrl": "https://www.linkedin.com/in/sahilbloom/",
     "category": "Productividad & Mentalidad Estratégica"
@@ -494,7 +503,7 @@
     "title": "El Síndrome de la Torre de Marfil: Por qué programar a espaldas del cliente arruina al 90% de los desarrolladores",
     "text": "El error más doloroso de un desarrollador no es un bug en producción.\n\nEs pasar 3 meses construyendo una arquitectura perfecta con TypeScript estricto, microservicios y bases de datos distribuidas... para una funcionalidad que ningún cliente quería.\n\nEn tecnología, es muy fácil enamorarse de la complejidad técnica y olvidarse del problema real de negocio.\n\nLos constructores de software más rentables siguen este ciclo de 3 pasos antes de escribir una sola línea de código:\n\n1. Habla con 3 usuarios antes de abrir el editor:\nDescubre exactamente qué tarea manual les hace perder 30 minutos al día. Ese es tu único objetivo a resolver.\n\n2. Elige la solución más aburrida y rápida:\nSi una base de datos simple en PostgreSQL y un solo servidor resuelven el problema, no inventes una infraestructura hipercompleja.\n\n3. Mide uso real, no opiniones:\nLo que un cliente dice en una entrevista importa poco; lo que hace cuando tiene el producto en sus manos lo es todo.\n\nEl mejor código no es el más sofisticado, sino aquel que resuelve un problema real a la primera.\n\n¿Alguna vez pasaste semanas programando algo que al final casi nadie usó?",
     "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80",
-    "scheduledDate": "2026-10-01T13:00:00.000Z",
+    "scheduledDate": "2026-10-05T13:00:00.000Z",
     "author": "Inspirado en Roy Lee & Paul Graham",
     "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
     "category": "Startups & Desarrollo de Software"
@@ -505,7 +514,7 @@
     "title": "La Trampa del Experto Ocupado: Por qué trabajar 12 horas al día es un síntoma de malos sistemas",
     "text": "Estar ocupado 12 horas al día no es una medalla de honor.\n\nEs una señal de que tu trabajo depende de tu esfuerzo manual y no de sistemas inteligentes.\n\nMuchos profesionales caen en la trampa de creer que trabajar más horas equivale a generar más valor. En la economía del conocimiento y la IA, el apalancamiento lo cambia todo.\n\nPara pasar de 'trabajador saturado' a 'operador estratégico', estructura tus actividades en esta pirámide de 4 niveles:\n\n1. Eliminar (El filtro radical):\nEl 30% de lo que haces a diario no aporta ningún resultado tangible. Cancela reportes que nadie lee y tareas que nadie agradece.\n\n2. Automatizar (Flujos No-Code e IA):\nTodo lo que sea copiar datos, enviar correos repetitivos o clasificar información debe ejecutarse automáticamente en segundo plano.\n\n3. Documentar (Crear sistemas replicables):\nSi resuelves un problema complejo hoy, escribe el paso a paso para que cualquier compañero pueda ejecutarlo la próxima vez sin consultarte.\n\n4. Foco de Alto Valor:\nDedica tu energía mental exclusivamente a las 2 o 3 decisiones que mueven el 80% de los ingresos o el impacto de tu proyecto.\n\nTrabajar duro es el primer paso; trabajar con sistemas es lo que te permite escalar de verdad.\n\n¿Qué tarea repetitiva de tu semana deberías haber automatizado hace seis meses?",
     "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&auto=format&fit=crop&q=80",
-    "scheduledDate": "2026-10-02T13:00:00.000Z",
+    "scheduledDate": "2026-10-06T13:00:00.000Z",
     "author": "Inspirado en Nico Manzaneque & Dan Koe",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
     "category": "Automatización & Sistemas de Trabajo"
@@ -516,7 +525,7 @@
     "title": "La Trampa de la Optimización Infinita: Por qué cambiar de herramientas no salvará un producto sin tracción",
     "text": "He visto a equipos pasar 2 meses migrando de React a Next.js, de REST a GraphQL y de PostgreSQL a Supabase... para un producto que todavía tiene cero usuarios activos.\n\nLa optimización prematura de herramientas es la forma más sofisticada de procrastinación en tecnología.\n\nPara no caer en la trampa del perfeccionismo técnico, los constructores pragmáticos siguen estas 3 reglas:\n\n1. La regla del 'Stack Aburrido':\nUsa las tecnologías que tu equipo ya domina a la perfección. La velocidad para resolver problemas de clientes siempre le gana a la última tendencia de moda.\n\n2. Optimiza la velocidad de aprendizaje, no los milisegundos:\nEn etapas tempranas, lo que necesitas es descubrir qué quiere el mercado, no crear una infraestructura capaz de soportar a un millón de usuarios imaginarios.\n\n3. Refactoriza solo cuando el dolor sea real:\nNo arregles problemas de escalabilidad que todavía no tienes. Construye, valida, cobra y luego escala sobre bases sólidas.\n\nEl éxito de un proyecto no se mide por la elegancia de su stack, sino por el valor real que entrega todos los días.\n\n¿Qué decisión técnica tomaste en el pasado que hoy simplificarías por completo?",
     "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&auto=format&fit=crop&q=80",
-    "scheduledDate": "2026-10-05T13:00:00.000Z",
+    "scheduledDate": "2026-10-13T13:00:00.000Z",
     "author": "Inspirado en Stas Bel & James Clear",
     "originalUrl": "https://www.linkedin.com/in/stasbel/",
     "category": "Arquitectura & Pragmatismo"
@@ -589,55 +598,56 @@
   },
   {
     "id": "73",
-    "status": "draft",
+    "status": "scheduled",
     "title": "7 Startups Chilenas y de Latam de IA & Automatización que están escalando en serio",
     "text": "No todas las startups de Inteligencia Artificial están en Silicon Valley ni quemando millones en marketing.\n\nEn Chile y Latinoamérica hay un grupo de empresas resolviendo dolores brutales de industrias tradicionales con IA, software de infraestructura y automatización que no paran de crecer:\n\n1. Fintoc (Chile 🇨🇱):\nLa infraestructura de pagos y Open Banking que conecta cuentas bancarias directamente con comercios para eliminar intermediarios y reducir comisiones a una fracción.\n\n2. Cero.ai (Chile / Latam 🇨🇱):\nAgentes de IA conversacionales para el sector salud que reducen el ausentismo médico en clínicas y hospitales gestionando citas de forma autónoma.\n\n3. SimpliRoute (Chile 🇨🇱):\nAlgoritmos de optimización logística e IA que recalculan rutas en tiempo real para flotas de reparto, reduciendo hasta un 30% los costos de combustible.\n\n4. Examedi (Chile / México 🇨🇱🇲🇽):\nSalud y telemedicina a domicilio apalancada en tecnología para coordinar exámenes médicos y enfermería en menos de 2 horas.\n\n5. Clay (Chile 🇨🇱):\nAutomatización contable y financiera con IA que concilia bancos, facturas del SII y estados de flujo de caja sin hojas de cálculo manuales.\n\n6. Buk (Chile / Latam 🇨🇱):\nLa plataforma líder de gestión de personas que automatizó el pago de remuneraciones, encuestas de clima y talento para miles de empresas en la región.\n\n7. Poliglota (Chile / Latam 🇨🇱):\nAprendizaje de idiomas apalancado en grupos de conversación y analítica de datos para medir el progreso real de fluidez en profesionales.\n\nEl verdadero talento tecnológico de nuestra región no está creando 'juguetes de IA', sino construyendo soluciones que le ahorran millones de dólares y miles de horas a los negocios todos los días.\n\n¿Qué otra startup o empresa tecnológica chilena o de Latam crees que debería estar sí o sí en esta lista? (Etiquétala en los comentarios 👇)",
     "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80",
-    "scheduledDate": null,
+    "scheduledDate": "2026-09-22T13:00:00.000Z",
     "author": "Curaduría Ecosistema Latam",
     "originalUrl": "https://www.linkedin.com/in/nicolaspe%C3%B1adiaz/",
-    "category": "Startups & Ecosistema Latam"
+    "category": "Startups & Ecosistema Latam",
+    "bufferPostId": "6aa8860ea56f2b823c931e5e"
   },
   {
     "id": "74",
-    "status": "draft",
+    "status": "scheduled",
     "title": "El Archivo SYSTEM-PROMPT.md para auditar código y arquitectura con IA",
     "text": "Si le pides a ChatGPT o Claude 'revisa este código', te dirá que todo se ve bien y cambiará dos nombres de variables.\n\nPara que la IA actúe como un Ingeniero de Software Staff y no como un asistente condescendiente, debes configurar un archivo de instrucciones estrictas.\n\nEste es el esquema de 4 reglas que uso en mi archivo SYSTEM-PROMPT.md antes de pasar cualquier módulo a revisión:\n\n1. Rol de Crítico Implacable:\n'Actúa como un Lead Architect especializado en seguridad y escalabilidad. Tu objetivo no es halagar el código, sino encontrar vulnerabilidades, cuellos de botella y fugas de memoria'.\n\n2. Análisis de Casos de Borde (Edge Cases):\n'Identifica exactamente qué ocurre si la base de datos responde con timeout, si el usuario envía un payload vacío o si la API de terceros cae'.\n\n3. Prohibición de Refactorizaciones Cosméticas:\n'No sugieras cambios de estilo o sintaxis que no aporten una mejora medible en rendimiento, mantenibilidad o seguridad'.\n\n4. Propuesta de Solución con Código Mínimo:\n'Entrega el cambio exacto con el menor número de líneas posibles para evitar introducir nueva deuda técnica'.\n\nCuando elevas el nivel de exigencia de las instrucciones, los modelos de IA se convierten en tu mejor filtro de calidad antes de enviar a producción.\n\nSi quieres la plantilla completa del archivo SYSTEM-PROMPT.md lista para copiar en tu editor, escribe 'PROMPT' en los comentarios y te la comparto por mensaje directo.",
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&auto=format&fit=crop&q=80",
-    "scheduledDate": null,
+    "scheduledDate": "2026-10-07T13:00:00.000Z",
     "author": "Ingeniería de Software & IA",
     "originalUrl": "https://www.linkedin.com/in/nicolaspe%C3%B1adiaz/",
     "category": "IA & Arquitectura"
   },
   {
     "id": "75",
-    "status": "draft",
+    "status": "scheduled",
     "title": "Las 3 preguntas que hace el CEO de Y Combinator antes de invertir $500,000",
     "text": "Garry Tan (CEO de Y Combinator) ha evaluado a miles de fundadores en la aceleradora más exitosa del mundo.\n\nEn una sesión con fundadores, reveló que no le importan las presentaciones de 40 diapositivas ni las proyecciones financieras a cinco años.\n\nPara saber si una startup sobrevivirá, solo busca respuestas claras a estas 3 preguntas:\n\n1. ¿Cuántos cambios lanzaron a producción la semana pasada?\nLa velocidad de iteración es la métrica número uno de supervivencia. Un equipo que lanza 3 mejoras por semana aprende 10 veces más rápido que uno que pasa un mes planificando.\n\n2. ¿Con cuántos clientes insatisfechos hablaste en los últimos 7 días?\nLos clientes que te felicitan inflan tu ego; los que están frustrados te dicen exactamente qué funcionalidad le falta a tu producto para que estén dispuestos a pagar más.\n\n3. ¿Por qué este problema no lo resuelve una empresa gigante hoy?\nSi tu única ventaja es que eres más rápido, te aplastarán. Necesitas entender un dolor específico tan a fondo que a los gigantes corporativos les parezca demasiado pequeño para prestarle atención.\n\nEl éxito en startups y tecnología no viene de ideas complejas, sino de una obsesión implacable por resolver un problema real a toda velocidad.\n\n¿Cuál de estas 3 preguntas crees que es la más difícil de responder con honestidad en tu proyecto?",
     "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1200&auto=format&fit=crop&q=80",
-    "scheduledDate": null,
+    "scheduledDate": "2026-10-08T13:00:00.000Z",
     "author": "Inspirado en Garry Tan (Y Combinator)",
     "originalUrl": "https://www.linkedin.com/in/garrytan/",
     "category": "Startups & Y Combinator"
   },
   {
     "id": "76",
-    "status": "draft",
+    "status": "scheduled",
     "title": "El Stack de IA de $0 al mes que reemplaza a un equipo de 3 personas",
     "text": "Muchas empresas creen que para automatizar sus operaciones necesitan contratar licencias Enterprise de $2,000 al mes.\n\nLa realidad es que con herramientas de código abierto y capas gratuitas puedes estructurar un sistema completo de captación y atención en un fin de semana sin pagar un solo dólar:\n\n1. n8n (Community Edition - Autoalojado):\nEl motor de automatización de flujos más potente del mercado. Puedes conectar formularios, bases de datos y correos sin límites de ejecuciones por mes.\n\n2. Supabase (Capa Gratuita de PostgreSQL):\nTu base de datos relacional y autenticación en la nube. Te permite almacenar contactos, estados de clientes y registros con velocidad instantánea.\n\n3. DeepSeek / Ollama (Modelos de IA Locales):\nPara clasificar mensajes entrantes, resumir documentos y redactar borradores de respuesta con costo de API prácticamente cero.\n\n4. Webhooks Nativos:\nConectar las acciones de tu sitio web directamente a tu flujo sin intermediarios de pago que cobren por cada tarea realizada.\n\nEl verdadero apalancamiento no se compra con presupuestos gigantes; se construye conectando herramientas sólidas con una arquitectura simple.\n\n¿Qué herramienta gratuita o de código abierto se ha vuelto indispensable en tu flujo de trabajo diario?",
     "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&auto=format&fit=crop&q=80",
-    "scheduledDate": null,
+    "scheduledDate": "2026-10-09T13:00:00.000Z",
     "author": "Automatización & Open Source",
     "originalUrl": "https://www.linkedin.com/in/nicolaspe%C3%B1adiaz/",
     "category": "Herramientas & Automatización"
   },
   {
     "id": "77",
-    "status": "draft",
+    "status": "scheduled",
     "title": "El Fraude de la Automatización Rápida: Por qué conectar 15 herramientas destruye empresas",
     "text": "He visto a empresas pagar cientos de dólares al mes conectando Typeform con Google Sheets, Slack, Notion, Airtable y HubSpot...\n\nHasta que un día cambia la estructura de un formulario, falla una sola clave API y se pierden 40 prospectos calificados en silencio sin que nadie se entere.\n\nEl 'Espagueti de Automatizaciones' es la nueva deuda técnica de las empresas modernas.\n\nPara construir sistemas de automatización que no colapsen a los tres meses, los operadores expertos siguen estas 3 reglas de resiliencia:\n\n1. La regla de una sola fuente de verdad (Single Source of Truth):\nElige un solo lugar donde viva la información maestra (tu base de datos o tu CRM). Si duplicas datos en cinco hojas de cálculo, el descontrol es inevitable.\n\n2. Manejo de errores y alertas visibles:\nSi un flujo automático falla, el sistema debe enviar una alerta inmediata a un canal de emergencias con los datos que no se pudieron procesar para no perder ninguna venta.\n\n3. Menos pasos, menos puntos de fallo:\nCada herramienta extra que metes en una cadena es una probabilidad más de que algo se rompa. Si puedes resolver un proceso en 2 pasos directos, nunca uses 6.\n\nLa mejor automatización no es la que tiene más nodos en pantalla, sino la que funciona de forma invisible y sólida los 365 días del año.\n\n¿Alguna vez sufriste la caída silenciosa de una automatización en tu negocio?",
     "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&auto=format&fit=crop&q=80",
-    "scheduledDate": null,
+    "scheduledDate": "2026-10-12T13:00:00.000Z",
     "author": "Arquitectura & Resiliencia",
     "originalUrl": "https://www.linkedin.com/in/nicolaspe%C3%B1adiaz/",
     "category": "Arquitectura & Procesos"
