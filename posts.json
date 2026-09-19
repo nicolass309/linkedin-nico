@@ -347,7 +347,7 @@
   },
   {
     "id": "65",
-    "status": "scheduled",
+    "status": "published",
     "title": "Así conviertes a Claude en una máquina de crear contenido",
     "text": "El 90% de la gente usa Claude como un buscador sofisticado: le piden un post y reciben un texto genérico lleno de clichés.\n\nClaude 3.5 Sonnet tiene la mejor capacidad de redacción del mercado, pero solo si le entregas la arquitectura de contexto correcta.\n\nPara transformarlo en tu mejor redactor y estratega de contenido, este es el sistema en 3 capas que debes usar:\n\n1. El archivo de voz de marca (Brand Voice File):\nNo le digas 'escribe profesional pero cercano'. Pásale un archivo de texto con 3 publicaciones tuyas que hayan tenido éxito, tus reglas de vocabulario prohibido y tu estructura de párrafos cortos.\n\n2. La regla del esquema previo (Outline First):\nNunca le pidas el borrador final en el primer mensaje. Pídele primero 3 ganchos iniciales y la estructura de puntos clave. Elige el mejor esquema y recién ahí dale la orden de redactar.\n\n3. Restricción radical de 'lenguaje corporativo':\nIncluye en tus instrucciones: 'Prohibido usar palabras vacías como revolucionario, sinergia, holístico o en el vertiginoso mundo de hoy'.\n\nCuando alimentas al modelo con tu contexto y límites claros, la velocidad de producción se multiplica por 5x sin perder tu toque humano.\n\n¿Has probado a entrenar un archivo de contexto para tus publicaciones de IA?",
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&auto=format&fit=crop&q=80",
@@ -355,11 +355,12 @@
     "author": "Inspirado en Roy Lee",
     "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
     "category": "IA & Contenido",
-    "bufferPostId": "6aa8860b4041488d44fb6768"
+    "bufferPostId": "6aa8860b4041488d44fb6768",
+    "publishedAt": "2026-09-15T13:00:00.000Z"
   },
   {
     "id": "66",
-    "status": "scheduled",
+    "status": "published",
     "title": "Los códigos secretos de ChatGPT no existen",
     "text": "Las guías de '500 Prompts Secretos para hacerte millonario con ChatGPT' son el equivalente moderno a vender humo digital.\n\nNo existen fórmulas mágicas ni códigos ocultos que hagan que un modelo de lenguaje piense por ti.\n\nLa inteligencia artificial funciona bajo un principio matemático simple: la calidad de la salida es directamente proporcional a la calidad de los datos de entrada.\n\nLos profesionales que obtienen resultados extraordinarios con IA no usan 'prompts secretos'; aplican estos 3 fundamentos:\n\n1. Contexto real sobre plantillas genéricas:\nUna plantilla de 300 palabras copiada de internet vale cero comparada con un prompt simple de 3 líneas que incluya tus datos reales de clientes o tu código de proyecto.\n\n2. Iteración en conversación:\nTratar a la IA como un colaborador con el que dialogas paso a paso en lugar de intentar obtener el producto final en un solo mensaje gigante.\n\n3. Criterio técnico humano para auditar:\nEl valor no está en generar texto a toda velocidad, sino en saber identificar alucinaciones, errores de lógica y ajustar el resultado.\n\nDeja de coleccionar listas de prompts interminables; domina el arte de dar contexto claro y estructurado.\n\n¿Cuál es el mito sobre la IA que más te cansa escuchar hoy en día?",
     "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&auto=format&fit=crop&q=80",
@@ -367,11 +368,12 @@
     "author": "Inspirado en Stas Bel",
     "originalUrl": "https://www.linkedin.com/in/stasbel/",
     "category": "IA & Productividad",
-    "bufferPostId": "6aa8860cac4a884f436ac38c"
+    "bufferPostId": "6aa8860cac4a884f436ac38c",
+    "publishedAt": "2026-09-16T13:00:00.000Z"
   },
   {
     "id": "67",
-    "status": "scheduled",
+    "status": "published",
     "title": "Puedes apostar a que Jesús vuelva antes que GTA VI",
     "text": "En plataformas de predicción descentralizadas como Polymarket, la gente está apostando millones de dólares a eventos absurdos:\n\nHay más probabilidades registradas de que descubramos vida extraterrestre este año a que se lance un software sin retrasos en su fecha oficial.\n\nMás allá del meme, esto revela una transformación gigante en cómo medimos la verdad en internet: La Economía de la Predicción.\n\nHistóricamente, los analistas y opinólogos de redes sociales podían equivocarse mil veces sin ninguna consecuencia.\n\nLos mercados de predicción cambian el juego con 3 realidades:\n\n1. Dinero en juego (Skin in the Game):\nUna opinión respaldada por dinero real en un mercado abierto es 10 veces más precisa que cualquier encuesta tradicional.\n\n2. El costo de la reputación en tecnología:\nPrometer lanzamientos imposibles genera atención a corto plazo, pero destruye la confianza del mercado cuando los plazos se incumplen.\n\n3. Sabiduría colectiva vs expertos individuales:\nLos mercados abiertos procesan información en tiempo real mucho más rápido que cualquier comité de expertos.\n\nEl futuro de la información no estará en quién grita más fuerte en redes, sino en qué dice la probabilidad colectiva respaldada por datos.\n\n¿Qué lanzamiento tecnológico o evento estás esperando con más escepticismo?",
     "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&auto=format&fit=crop&q=80",
@@ -379,11 +381,12 @@
     "author": "Inspirado en Creadores de Predicción",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
     "category": "Economía Digital & Tendencias",
-    "bufferPostId": "6aa8860c9a26ed5c2acdcfb5"
+    "bufferPostId": "6aa8860c9a26ed5c2acdcfb5",
+    "publishedAt": "2026-09-17T13:00:00.000Z"
   },
   {
     "id": "68",
-    "status": "scheduled",
+    "status": "published",
     "title": "Por qué todos los diseños creados con IA se parecen",
     "text": "Fondos oscuros con neón morado, personajes de plastilina 3D hiperbrillantes y tipografías flotantes.\n\nSeguro has visto este estilo 100 veces en la última semana: el 'look IA' se ha convertido en el nuevo cliché visual de internet.\n\n¿Por qué ocurre esto?\n\nPorque la mayoría de las herramientas de generación de imágenes fueron entrenadas sobre los mismos bancos de datos, convergiendo en un promedio estético predecible y artificial.\n\nPara que tu marca destaque en un mar de contenido homogéneo, sigue estas 3 reglas visuales:\n\n1. Fotografía real y sobria:\nLas imágenes auténticas de espacios de trabajo reales, pizarras con notas y personas en situaciones genuinas generan 3x más confianza que un render futurista exagerado.\n\n2. Diseño editorial minimalista:\nInspírate en la estética de publicaciones como Stripe Press o The Economist: tipografías limpias, alto contraste y gráficos estructurados.\n\n3. La imperfección humana como diferencial:\nUn boceto rápido o un diagrama a mano comunica más autenticidad que una imagen generada con 50 modificadores de estilo.\n\nCuando todos usan las mismas herramientas automáticas, la sobriedad y la autenticidad se convierten en tu mayor ventaja competitiva.\n\n¿También sientes que el 'estilo IA' ya saturó tu feed de redes sociales?",
     "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=1200&auto=format&fit=crop&q=80",
@@ -391,7 +394,8 @@
     "author": "Inspirado en Creadores de Diseño",
     "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
     "category": "Diseño & Marca",
-    "bufferPostId": "6aa8860da283eff81a50f33a"
+    "bufferPostId": "6aa8860da283eff81a50f33a",
+    "publishedAt": "2026-09-18T13:00:00.000Z"
   },
   {
     "id": "69",
