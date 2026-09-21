@@ -399,7 +399,7 @@
   },
   {
     "id": "69",
-    "status": "scheduled",
+    "status": "published",
     "title": "La prueba del CRM abandonado",
     "text": "El 70% de las empresas que compran licencias de $50,000 al año en Salesforce o HubSpot tienen sus bases de datos desiertas y desactualizadas.\n\nEl problema nunca fue la herramienta.\n\nEl problema es que exigirle a un equipo de ventas que pase 2 horas al día escribiendo notas manuales después de cada llamada es una batalla perdida.\n\nSi un sistema requiere disciplina heroica para mantenerse al día, está condenado a morir.\n\nLa automatización moderna resuelve la 'prueba del CRM' mediante 3 pasos invisibles:\n\n1. Registro automático de reuniones:\nAsistentes de IA que transcriben las llamadas, extraen los acuerdos clave y actualizan el estado de la oportunidad sin que el vendedor abra el CRM.\n\n2. Enriquecimiento de contactos en segundo plano:\nFlujos automáticos que completan el cargo, tamaño de empresa y sector del prospecto a partir de su correo electrónico.\n\n3. Alertas de seguimiento accionables:\nEn lugar de revisar dashboards complejos, el comercial recibe un mensaje directo en Slack con los 3 clientes a los que debe llamar hoy.\n\nEl mejor software no es el que tiene 500 funciones en pantalla, sino el que trabaja de forma invisible en segundo plano.\n\n¿En tu empresa mantienen el CRM al día o es una tarea que todos evitan?",
     "image": "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1200&auto=format&fit=crop&q=80",
@@ -407,7 +407,8 @@
     "author": "Inspirado en Nico Manzaneque",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
     "category": "Ventas B2B & Automatización",
-    "bufferPostId": "6aa8860dac4a884f436ac3dd"
+    "bufferPostId": "6aa8860dac4a884f436ac3dd",
+    "publishedAt": "2026-09-21T13:00:00.000Z"
   },
   {
     "id": "60",
