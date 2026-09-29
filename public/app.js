@@ -562,8 +562,8 @@ function renderCalendarTab(scheduledAndPublished) {
 
     // SECTION 1: SCHEDULED POSTS
     html += `
-        <div class="calendar-section-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
-            <h3 style="font-size: 1.2rem; font-weight: 700; color: #3b82f6; display: flex; align-items: center; gap: 0.6rem;">
+        <div class="calendar-section-header">
+            <h3 class="calendar-section-title scheduled">
                 <i class="fa-solid fa-clock"></i> Próximas Publicaciones Programadas (${scheduled.length})
             </h3>
         </div>
@@ -571,7 +571,7 @@ function renderCalendarTab(scheduledAndPublished) {
 
     if (scheduled.length === 0) {
         html += `
-            <div style="padding: 1.5rem; background: rgba(255, 255, 255, 0.02); border-radius: 12px; border: 1px dashed rgba(255, 255, 255, 0.1); margin-bottom: 2.5rem; text-align: center; color: var(--text-secondary);">
+            <div class="calendar-empty-state">
                 <p>No tienes publicaciones programadas pendientes por salir.</p>
             </div>
         `;
@@ -581,8 +581,8 @@ function renderCalendarTab(scheduledAndPublished) {
 
     // SECTION 2: PUBLISHED POSTS HISTORY
     html += `
-        <div class="calendar-section-header" style="display: flex; align-items: center; justify-content: space-between; margin-top: 1rem; margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
-            <h3 style="font-size: 1.2rem; font-weight: 700; color: #10b981; display: flex; align-items: center; gap: 0.6rem;">
+        <div class="calendar-section-header published-header">
+            <h3 class="calendar-section-title published">
                 <i class="fa-solid fa-circle-check"></i> Historial de Publicaciones Realizadas (${published.length})
             </h3>
         </div>
@@ -590,7 +590,7 @@ function renderCalendarTab(scheduledAndPublished) {
 
     if (published.length === 0) {
         html += `
-            <div style="padding: 1.5rem; background: rgba(255, 255, 255, 0.02); border-radius: 12px; border: 1px dashed rgba(255, 255, 255, 0.1); text-align: center; color: var(--text-secondary);">
+            <div class="calendar-empty-state">
                 <p>Aún no has realizado publicaciones anteriores.</p>
             </div>
         `;
