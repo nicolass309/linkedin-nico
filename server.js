@@ -18,7 +18,11 @@ const CONFIG_FILE = path.join(__dirname, 'config.json');
 
 // Composio API Production Credentials (LinkedIn Direct Channel)
 const COMPOSIO_API_KEY = process.env.COMPOSIO_API_KEY || 'ck_fOOHj9n4RVFhTNEED0jO';
-const LINKEDIN_PERSON_URN = process.env.LINKEDIN_PERSON_URN || 'urn:li:person:-4DFGTk-xF';
+// Strictly enforce correct person URN for Nicolás Peña Diaz (-4DFGTk-xF), ignoring any stale 800423380 env var
+let LINKEDIN_PERSON_URN = 'urn:li:person:-4DFGTk-xF';
+if (process.env.LINKEDIN_PERSON_URN && !process.env.LINKEDIN_PERSON_URN.includes('800423380')) {
+  LINKEDIN_PERSON_URN = process.env.LINKEDIN_PERSON_URN;
+}
 
 // GitHub Sync Secrets (Optional for persistent automatic commits on Render)
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || '';
@@ -233,8 +237,13 @@ function parseSSEResponse(body) {
 // Native Composio MCP Publisher (Publishes directly to LinkedIn API via Composio)
 function publishToLinkedInViaComposio(postText, imageUrl) {
   return new Promise((resolve, reject) => {
+    // Strictly sanitize author URN to match the connected Composio account
+    const authorUrn = (LINKEDIN_PERSON_URN && !LINKEDIN_PERSON_URN.includes('800423380'))
+      ? LINKEDIN_PERSON_URN
+      : 'urn:li:person:-4DFGTk-xF';
+
     const toolArgs = {
-      author: LINKEDIN_PERSON_URN,
+      author: authorUrn,
       commentary: postText,
       visibility: 'PUBLIC'
     };
@@ -364,12 +373,39 @@ app.get('/api/posts', (req, res) => {
   res.json(posts);
 });
 
+// 1.1 Sync client cache with server (Restores client approvals across server restarts)
+app.post('/api/posts/sync-client', (req, res) => {
+  const { scheduledMap = {}, publishedIds = [] } = req.body;
+  const posts = readDB();
+  let updated = false;
+
+  posts.forEach(p => {
+    if (p.status === 'draft' && scheduledMap[p.id]) {
+      p.status = 'scheduled';
+      p.scheduledDate = scheduledMap[p.id];
+      updated = true;
+    }
+    if (p.status !== 'published' && publishedIds.includes(p.id)) {
+      p.status = 'published';
+      p.publishedAt = p.publishedAt || p.scheduledDate || new Date().toISOString();
+      updated = true;
+    }
+  });
+
+  if (updated) {
+    writeDB(posts, 'Sync client approved and published posts');
+  }
+
+  res.json({ success: true, posts });
+});
+
 // 2. Get Configuration
 app.get('/api/config', (req, res) => {
   const config = readConfig();
   res.json({
     isConnected: true,
-    provider: 'Buffer (LinkedIn)',
+    provider: 'Composio (LinkedIn API Directo)',
+    personUrn: config.personUrn || 'urn:li:person:-4DFGTk-xF',
     autoPublishEnabled: config.autoPublishEnabled,
     blockedDates: config.blockedDates || [],
     githubConnected: config.githubConnected
