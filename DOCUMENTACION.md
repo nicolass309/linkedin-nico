@@ -12,9 +12,9 @@ El sistema es una plataforma web moderna diseñada para la automatización, cura
 1. **Servidor Backend Node.js / Express**:
    * Alojado 24/7 en los servidores en la nube de **Render** (`https://linkedin-nico.onrender.com`).
    * Ejecuta una tarea en segundo plano que revisa la cola de publicaciones cada 60 segundos.
-2. **Motor de Publicación Transparente (Buffer GraphQL API)**:
-   * Conectado al canal oficial de LinkedIn **`nicolaspeñadiaz`** vía Buffer API.
-   * Publica en tiempo real texto enriquecido e imágenes adjuntas (`ImageAssetInput`).
+2. **Motor de Publicación Directo (Composio LinkedIn API)**:
+   * Conectado al canal oficial de LinkedIn **`nicolaspeñadiaz`** (`urn:li:person:-4DFGTk-xF`) vía Composio MCP.
+   * Publica de forma transparente y sin límites de cuota reducidos de terceros.
 3. **Agente de Curación e Inteligencia Artificial (LinkedIn Content Engine)**:
    * Opera bajo la skill `linkedin-content-engine` con un pipeline de 16 pasos y 8 arquetipos narrativos.
    * Monitorea avances de frontera (OpenAI, Anthropic, Google, MCP, Y Combinator, startups Latam).
@@ -42,8 +42,8 @@ graph TD
     C -->|Borrador Aprobado| E[Asignación Automática de Fecha - 9:00 AM Chile]
     E --> F[Estado: Programado]
     F --> G[Cloud Engine en Render - 24/7]
-    G -->|Llega Fecha/Hora| H[Envío a API GraphQL de Buffer]
-    H --> I[Publicación en Perfil de LinkedIn con Foto HD]
+    G -->|Llega Fecha/Hora| H[Envío a API de Composio / LinkedIn]
+    H --> I[Publicación Directa en Perfil de LinkedIn]
     I --> J[Estado: Publicado en Historial]
 ```
 
@@ -51,7 +51,7 @@ graph TD
 1. **Fase 1 - Generación Inteligente**: La IA aplica los 16 pasos del `linkedin-content-engine` (investigación de frontera, anclaje de entidades, arquetipo narrativo, filtro anti-slop y scoring > 85/100) y registra el post como `draft` en `posts.json`.
 2. **Fase 2 - Subida al Front**: El borrador queda visible al instante en el dashboard web (`https://linkedin-nico.onrender.com/`).
 3. **Fase 3 - Revisión y Aprobación Humana**: Entras a **Borradores**, ajustas lo que consideres conveniente y haces clic en el botón de check **`✔`** (Aprobar). Si no te convence, lo editas con el lápiz o lo eliminas.
-4. **Fase 4 - Publicación Automática**: El motor en la nube de Render toma el post aprobado, le asigna el próximo horario libre a las 9:00 AM y lo publica vía Buffer sin requerir tu intervención.
+4. **Fase 4 - Publicación Automática**: El motor en la nube de Render toma el post aprobado, le asigna el próximo horario libre a las 9:00 AM y lo publica vía Composio sin requerir tu intervención.
 
 ---
 
@@ -64,7 +64,7 @@ graph TD
 
 #### 1. Panel General (Resumen)
 * **Bandeja de Borradores**: Vista previa rápida de los borradores sugeridos por la IA.
-* **Píldora de Estado**: Muestra `🟢 Buffer Conectado (LinkedIn)` confirmando que el motor en la nube está activo.
+* **Píldora de Estado**: Muestra `🟢 Composio Conectado (LinkedIn API)` confirmando que el motor en la nube está activo.
 
 #### 2. Borradores
 * **Visualizar y Editar**: Haz clic en el ícono de lápiz `✏️` para ajustar el título, contenido o la URL de la imagen.

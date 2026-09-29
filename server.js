@@ -16,9 +16,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 const DB_FILE = path.join(__dirname, 'posts.json');
 const CONFIG_FILE = path.join(__dirname, 'config.json');
 
-// Buffer API Production Credentials (LinkedIn Direct Channel)
-const BUFFER_API_KEY = process.env.BUFFER_API_KEY || 'YmF96n9SMorADYaTUnwaknAJtbZ-6yTrQElNgLN1H3Z';
-const BUFFER_CHANNEL_ID = process.env.BUFFER_CHANNEL_ID || '6a7749ba99afb4434926a809';
+// Composio API Production Credentials (LinkedIn Direct Channel)
+const COMPOSIO_API_KEY = process.env.COMPOSIO_API_KEY || 'ck_fOOHj9n4RVFhTNEED0jO';
+const LINKEDIN_PERSON_URN = process.env.LINKEDIN_PERSON_URN || 'urn:li:person:-4DFGTk-xF';
 
 // GitHub Sync Secrets (Optional for persistent automatic commits on Render)
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || '';
@@ -142,10 +142,10 @@ function readConfig() {
   }
 
   return {
-    bufferApiKey: BUFFER_API_KEY,
-    bufferChannelId: BUFFER_CHANNEL_ID,
+    provider: 'Composio (LinkedIn API Directo)',
+    personUrn: LINKEDIN_PERSON_URN,
     autoPublishEnabled: fileConfig.autoPublishEnabled !== undefined ? fileConfig.autoPublishEnabled : true,
-    blockedDates: Array.isArray(config => config.blockedDates) ? fileConfig.blockedDates : [],
+    blockedDates: Array.isArray(fileConfig.blockedDates) ? fileConfig.blockedDates : [],
     githubConnected: !!GITHUB_TOKEN
   };
 }
@@ -212,193 +212,132 @@ async function getNextAvailableSlot(existingPosts) {
   return fallback.toISOString();
 }
 
-// Native Buffer GraphQL API Scheduler (Queues post in Buffer Cloud for exact execution)
-function scheduleBufferPost(text, imageUrl, dueAtISO) {
-  return new Promise((resolve, reject) => {
-    const query = `
-      mutation CreatePost($input: CreatePostInput!) {
-        createPost(input: $input) {
-          __typename
-          ... on PostActionSuccess {
-            post {
-              id
-              status
-              dueAt
-            }
-          }
-          ... on MutationError {
-            message
-          }
-        }
-      }
-    `;
-
-    const variables = {
-      input: {
-        channelId: BUFFER_CHANNEL_ID,
-        text: text,
-        mode: "customScheduled",
-        schedulingType: "automatic",
-        needsApproval: false,
-        dueAt: dueAtISO
-      }
-    };
-
-    if (imageUrl && imageUrl.trim()) {
-      variables.input.assets = [
-        {
-          image: {
-            url: imageUrl.trim()
-          }
-        }
-      ];
-    }
-
-    const postData = JSON.stringify({ query, variables });
-    const options = {
-      hostname: 'api.buffer.com',
-      port: 443,
-      path: '/graphql',
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${BUFFER_API_KEY}`,
-        'Content-Type': 'application/json',
-        'Content-Length': Buffer.byteLength(postData)
-      }
-    };
-
-    const req = https.request(options, (res) => {
-      let body = '';
-      res.on('data', chunk => { body += chunk; });
-      res.on('end', () => {
-        try {
-          const parsed = JSON.parse(body);
-          if (parsed.data?.createPost?.post?.id) {
-            resolve({ success: true, post: parsed.data.createPost.post });
-          } else {
-            resolve({ success: false, error: parsed.data?.createPost?.message || parsed.errors?.[0]?.message || 'Unknown Buffer Error' });
-          }
-        } catch (e) {
-          resolve({ success: false, error: 'Failed to parse Buffer response' });
-        }
-      });
-    });
-
-    req.on('error', err => resolve({ success: false, error: err.message }));
-    req.write(postData);
-    req.end();
-  });
-}
-
-// Immediate Buffer Publisher (for manual 1-click publishing)
-function publishToLinkedInAPI(postText, imageUrl) {
-  return new Promise((resolve, reject) => {
-    const query = `
-      mutation CreatePost($input: CreatePostInput!) {
-        createPost(input: $input) {
-          __typename
-          ... on PostActionSuccess {
-            post {
-              id
-              status
-            }
-          }
-        }
-      }
-    `;
-
-    const variables = {
-      input: {
-        channelId: BUFFER_CHANNEL_ID,
-        text: postText,
-        mode: "shareNow",
-        schedulingType: "automatic"
-      }
-    };
-
-    if (imageUrl && imageUrl.trim()) {
-      variables.input.assets = [
-        {
-          image: {
-            url: imageUrl.trim()
-          }
-        }
-      ];
-    }
-
-    const postData = JSON.stringify({ query, variables });
-    const options = {
-      hostname: 'api.buffer.com',
-      port: 443,
-      path: '/graphql',
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${BUFFER_API_KEY}`,
-        'Content-Type': 'application/json',
-        'Content-Length': Buffer.byteLength(postData)
-      }
-    };
-
-    const req = https.request(options, (res) => {
-      let body = '';
-      res.on('data', chunk => { body += chunk; });
-      res.on('end', () => {
-        try {
-          const parsed = JSON.parse(body);
-          if (res.statusCode >= 200 && res.statusCode < 300 && parsed.data && parsed.data.createPost && parsed.data.createPost.post) {
-            resolve({ success: true, statusCode: res.statusCode, data: parsed.data.createPost.post });
-          } else {
-            reject(new Error(`Buffer API Error (${res.statusCode}): ${JSON.stringify(parsed.errors || body)}`));
-          }
-        } catch (e) {
-          reject(new Error(`Error de comunicación con Buffer API (${res.statusCode})`));
-        }
-      });
-    });
-
-    req.on('error', reject);
-    req.write(postData);
-    req.end();
-  });
-}
-
-// Auto-Replenish Buffer Cloud Queue Engine
-async function syncQueueWithBuffer(posts) {
-  const now = new Date();
-  const scheduledPosts = posts
-    .filter(p => p.status === 'scheduled' && p.scheduledDate && new Date(p.scheduledDate).getTime() > now.getTime())
-    .sort((a, b) => new Date(a.scheduledDate) - new Date(b.scheduledDate));
-
-  let newlyQueued = 0;
-  for (const post of scheduledPosts) {
-    if (!post.bufferPostId) {
-      console.log(`📡 [Queue Engine] Pushing Post ID ${post.id} ("${post.title.substring(0, 30)}...") to Buffer Cloud Queue for ${post.scheduledDate}`);
-      const res = await scheduleBufferPost(post.text, post.image, post.scheduledDate);
-      if (res.success && res.post?.id) {
-        post.bufferPostId = res.post.id;
-        newlyQueued++;
-        console.log(`   -> Queued in Buffer! ID: ${post.bufferPostId}`);
-      } else {
-        console.log(`   -> Buffer Queue Notice: ${res.error}`);
-        // If queue limit (10 posts) is reached, stop pushing
-        if (res.error && res.error.includes('limit reached')) {
-          break;
-        }
-      }
+// Helper to parse SSE streaming response from Composio MCP
+function parseSSEResponse(body) {
+  const lines = body.split('\n');
+  for (const line of lines) {
+    if (line.startsWith('data: ')) {
+      const jsonStr = line.slice(6).trim();
+      try {
+        return JSON.parse(jsonStr);
+      } catch (e) {}
     }
   }
-  return newlyQueued;
+  try {
+    return JSON.parse(body);
+  } catch (e) {
+    return null;
+  }
 }
 
-// Periodic In-Server Check (runs every 60s when server is active)
+// Native Composio MCP Publisher (Publishes directly to LinkedIn API via Composio)
+function publishToLinkedInViaComposio(postText, imageUrl) {
+  return new Promise((resolve, reject) => {
+    const toolArgs = {
+      author: LINKEDIN_PERSON_URN,
+      commentary: postText,
+      visibility: 'PUBLIC'
+    };
+
+    const rpcData = JSON.stringify({
+      jsonrpc: '2.0',
+      id: Date.now(),
+      method: 'tools/call',
+      params: {
+        name: 'COMPOSIO_MULTI_EXECUTE_TOOL',
+        arguments: {
+          thought: 'Publish post directly to LinkedIn',
+          tools: [
+            {
+              tool_slug: 'LINKEDIN_CREATE_LINKED_IN_POST',
+              arguments: toolArgs
+            }
+          ],
+          sync_response_to_workbench: false
+        }
+      }
+    });
+
+    const options = {
+      hostname: 'connect.composio.dev',
+      port: 443,
+      path: '/mcp',
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${COMPOSIO_API_KEY}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json, text/event-stream',
+        'Content-Length': Buffer.byteLength(rpcData)
+      }
+    };
+
+    const req = https.request(options, (res) => {
+      let body = '';
+      res.on('data', chunk => { body += chunk; });
+      res.on('end', () => {
+        try {
+          const parsed = parseSSEResponse(body);
+          const contentText = parsed?.result?.content?.[0]?.text;
+          if (contentText) {
+            const inner = JSON.parse(contentText);
+            const toolResult = inner?.data?.results?.[0];
+            if (toolResult?.response?.successful) {
+              const postData = toolResult.response.data || {};
+              resolve({
+                success: true,
+                id: postData.id || postData.x_restli_id || Date.now().toString(),
+                data: postData
+              });
+            } else {
+              reject(new Error(toolResult?.response?.error || 'Error al publicar en LinkedIn vía Composio'));
+            }
+            return;
+          }
+
+          if (res.statusCode >= 200 && res.statusCode < 300) {
+            resolve({ success: true, data: { raw: body } });
+          } else {
+            reject(new Error(`Composio API Error (${res.statusCode}): ${body.substring(0, 200)}`));
+          }
+        } catch (e) {
+          reject(new Error(`Error parseando respuesta de Composio: ${e.message}`));
+        }
+      });
+    });
+
+    req.on('error', err => reject(new Error(`Error de red con Composio: ${err.message}`)));
+    req.write(rpcData);
+    req.end();
+  });
+}
+
+// Periodic In-Server Auto-Publish Engine (runs every 60s 24/7 on Render)
 setInterval(async () => {
   const config = readConfig();
   if (!config.autoPublishEnabled) return;
 
   const posts = readDB();
-  const newlyQueued = await syncQueueWithBuffer(posts);
-  if (newlyQueued > 0) {
-    writeDB(posts, `Buffer Queue Engine: Synced ${newlyQueued} posts to Buffer cloud`);
+  const now = new Date();
+  let updated = false;
+
+  for (const post of posts) {
+    if (post.status === 'scheduled' && post.scheduledDate && new Date(post.scheduledDate).getTime() <= now.getTime()) {
+      console.log(`📡 [Composio Engine] Publicando Post ID ${post.id} ("${post.title.substring(0, 30)}...") vía Composio...`);
+      try {
+        const res = await publishToLinkedInViaComposio(post.text, post.image);
+        post.status = 'published';
+        post.publishedAt = new Date().toISOString();
+        post.composioPostId = res.id;
+        updated = true;
+        console.log(`   -> ✅ Publicado exitosamente en LinkedIn vía Composio! ID: ${post.composioPostId}`);
+      } catch (err) {
+        console.error(`   -> ❌ Error al publicar vía Composio: ${err.message}`);
+      }
+    }
+  }
+
+  if (updated) {
+    writeDB(posts, 'Composio Engine: Publicación automática de posts programados');
   }
 }, 60000);
 
@@ -452,7 +391,7 @@ app.post('/api/config', (req, res) => {
   }
 });
 
-// 4. Publish Post directly via Buffer API to LinkedIn (with Deduplication Guard)
+// 4. Publish Post directly via Composio API to LinkedIn
 app.post('/api/posts/:id/publish-api', async (req, res) => {
   const posts = readDB();
   const index = posts.findIndex(p => p.id === req.params.id);
@@ -464,13 +403,14 @@ app.post('/api/posts/:id/publish-api', async (req, res) => {
   const post = posts[index];
 
   try {
-    const result = await publishToLinkedInAPI(post.text, post.image);
+    const result = await publishToLinkedInViaComposio(post.text, post.image);
     
     posts[index].status = 'published';
     posts[index].publishedAt = new Date().toISOString();
-    writeDB(posts, `Published post ${post.id} to LinkedIn via Buffer`);
+    posts[index].composioPostId = result.id;
+    writeDB(posts, `Published post ${post.id} to LinkedIn via Composio`);
 
-    res.json({ success: true, message: 'Publicado exitosamente en tu perfil de LinkedIn vía Buffer!', result });
+    res.json({ success: true, message: 'Publicado exitosamente en tu perfil de LinkedIn vía Composio!', result });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -521,12 +461,9 @@ app.put('/api/posts/:id', async (req, res) => {
     category: req.body.category !== undefined ? req.body.category : posts[index].category
   };
 
-  // If date changed, reset bufferPostId and reschedule in Buffer
+  // If date changed, reset any scheduled tracking
   if (newDate && newDate !== oldDate && updatedPost.status === 'scheduled') {
-    const bufferRes = await scheduleBufferPost(updatedPost.text, updatedPost.image, newDate);
-    if (bufferRes.success && bufferRes.post?.id) {
-      updatedPost.bufferPostId = bufferRes.post.id;
-    }
+    updatedPost.scheduledDate = newDate;
   }
 
   posts[index] = updatedPost;
@@ -553,7 +490,7 @@ app.delete('/api/posts/:id', (req, res) => {
   }
 });
 
-// 8. Approve a draft (Schedules directly in Buffer Cloud)
+// 8. Approve a draft (Schedules for auto-publishing via Composio at 9:00 AM Chile)
 app.post('/api/posts/:id/approve', async (req, res) => {
   const posts = readDB();
   const index = posts.findIndex(p => p.id === req.params.id);
@@ -573,12 +510,6 @@ app.post('/api/posts/:id/approve', async (req, res) => {
 
   posts[index].status = 'scheduled';
   posts[index].scheduledDate = slot;
-
-  // Schedule directly in Buffer Cloud
-  const bufferRes = await scheduleBufferPost(posts[index].text, posts[index].image, slot);
-  if (bufferRes.success && bufferRes.post?.id) {
-    posts[index].bufferPostId = bufferRes.post.id;
-  }
 
   if (writeDB(posts, `Approve & schedule post ${req.params.id} for ${slot}`)) {
     res.json(posts[index]);
@@ -651,8 +582,7 @@ app.post('/api/posts/sync-client', async (req, res) => {
   }
 
   if (updated) {
-    await syncQueueWithBuffer(posts);
-    writeDB(posts, 'Sync client-side local cache to server and Buffer');
+    writeDB(posts, 'Sync client-side local cache to server');
   }
 
   res.json({ success: true, posts });
@@ -661,11 +591,11 @@ app.post('/api/posts/sync-client', async (req, res) => {
 // Start Server
 app.listen(PORT, () => {
   console.log(`==================================================`);
-  console.log(`🚀 Servidor de LinkedIn (vía Buffer Cloud Engine) en: http://localhost:${PORT}`);
-  console.log(`🔑 Buffer Channel: ${BUFFER_CHANNEL_ID} (nicolaspeñadiaz)`);
+  console.log(`🚀 Servidor de LinkedIn (vía Composio Direct Engine) en: http://localhost:${PORT}`);
+  console.log(`🔑 Composio Conectado: ${LINKEDIN_PERSON_URN} (nicolaspeñadiaz)`);
   console.log(`📁 Zona Horaria: 9:00 AM Chile (13:00 UTC)`);
   console.log(`📅 Días de Publicación: Lunes a Viernes (1, 2, 3, 4, 5)`);
-  console.log(`🛡️ Buffer Cloud Native Scheduling & Keep-Alive Activado`);
+  console.log(`🛡️ Composio Direct LinkedIn API Scheduling Activado`);
   console.log(`📁 Base de datos local: ${DB_FILE}`);
   console.log(`==================================================`);
 });
