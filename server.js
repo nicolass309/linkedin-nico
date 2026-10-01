@@ -234,20 +234,135 @@ function parseSSEResponse(body) {
   }
 }
 
-// Native Composio MCP Publisher (Publishes directly to LinkedIn API via Composio)
-function publishToLinkedInViaComposio(postText, imageUrl) {
-  return new Promise((resolve, reject) => {
-    // Strictly sanitize author URN to match the connected Composio account
-    const authorUrn = (LINKEDIN_PERSON_URN && !LINKEDIN_PERSON_URN.includes('800423380'))
-      ? LINKEDIN_PERSON_URN
-      : 'urn:li:person:-4DFGTk-xF';
+// Helper to upload an image asset to Composio S3 storage
+function uploadImageToComposio(imageUrl) {
+  return new Promise((resolve) => {
+    if (!imageUrl || typeof imageUrl !== 'string' || !imageUrl.startsWith('http')) {
+      return resolve(null);
+    }
 
-    const toolArgs = {
-      author: authorUrn,
-      commentary: postText,
-      visibility: 'PUBLIC'
+    const pythonScript = `
+import requests, tempfile, json
+try:
+    res = requests.get("${imageUrl}", timeout=30)
+    if res.status_code == 200:
+        ext = ".jpg"
+        ctype = res.headers.get("content-type", "").lower()
+        if "png" in ctype: ext = ".png"
+        elif "webp" in ctype: ext = ".webp"
+        with tempfile.NamedTemporaryFile(suffix=ext, delete=False) as f:
+            f.write(res.content)
+            tmp = f.name
+        upload_res, err = upload_local_file(tmp)
+        s3k = upload_res.get("s3key") if upload_res else None
+        print("JSON_START" + json.dumps({"s3key": s3k, "error": err, "ext": ext, "mimetype": ctype or "image/jpeg"}) + "JSON_END")
+    else:
+        print("JSON_START" + json.dumps({"error": f"HTTP {res.status_code}"}) + "JSON_END")
+except Exception as e:
+    print("JSON_START" + json.dumps({"error": str(e)}) + "JSON_END")
+`;
+
+    const rpcData = JSON.stringify({
+      jsonrpc: '2.0',
+      id: Date.now(),
+      method: 'tools/call',
+      params: {
+        name: 'COMPOSIO_REMOTE_WORKBENCH',
+        arguments: {
+          code_to_execute: pythonScript
+        }
+      }
+    });
+
+    const options = {
+      hostname: 'connect.composio.dev',
+      port: 443,
+      path: '/mcp',
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${COMPOSIO_API_KEY}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json, text/event-stream',
+        'Content-Length': Buffer.byteLength(rpcData)
+      }
     };
 
+    const req = https.request(options, (res) => {
+      let body = '';
+      res.on('data', chunk => { body += chunk; });
+      res.on('end', () => {
+        try {
+          const parsed = parseSSEResponse(body);
+          const contentText = parsed?.result?.content?.[0]?.text || body;
+          const match = contentText.match(/JSON_START(.*?)JSON_END/);
+          if (match) {
+            let jsonStr = match[1];
+            if (jsonStr.startsWith('\\"')) {
+              jsonStr = JSON.parse('"' + jsonStr + '"');
+            }
+            let info;
+            try {
+              info = JSON.parse(jsonStr);
+            } catch (e) {
+              info = JSON.parse(match[1].replace(/\\"/g, '"'));
+            }
+            if (info && info.s3key) {
+              return resolve(info);
+            }
+          }
+          resolve(null);
+        } catch (e) {
+          resolve(null);
+        }
+      });
+    });
+
+    req.on('error', () => resolve(null));
+    req.setTimeout(35000, () => {
+      req.destroy();
+      resolve(null);
+    });
+    req.write(rpcData);
+    req.end();
+  });
+}
+
+// Native Composio MCP Publisher (Publishes directly to LinkedIn API via Composio with image asset)
+async function publishToLinkedInViaComposio(postText, imageUrl) {
+  // Strictly sanitize author URN to match the connected Composio account
+  const authorUrn = (LINKEDIN_PERSON_URN && !LINKEDIN_PERSON_URN.includes('800423380'))
+    ? LINKEDIN_PERSON_URN
+    : 'urn:li:person:-4DFGTk-xF';
+
+  const toolArgs = {
+    author: authorUrn,
+    commentary: postText,
+    visibility: 'PUBLIC'
+  };
+
+  // Upload and attach image asset if available
+  if (imageUrl) {
+    try {
+      console.log(`🖼️ [Composio Engine] Subiendo asset de imagen a Composio S3 (${imageUrl.substring(0, 60)}...)...`);
+      const uploadInfo = await uploadImageToComposio(imageUrl);
+      if (uploadInfo && uploadInfo.s3key) {
+        toolArgs.images = [
+          {
+            name: 'post_visual_asset' + (uploadInfo.ext || '.jpg'),
+            mimetype: uploadInfo.mimetype || 'image/jpeg',
+            s3key: uploadInfo.s3key
+          }
+        ];
+        console.log(`   -> ✅ Asset visual adjuntado exitosamente (s3key: ${uploadInfo.s3key})`);
+      } else {
+        console.warn(`   -> ⚠️ No se pudo obtener s3key del asset. Se continuará con publicación estándar.`);
+      }
+    } catch (err) {
+      console.warn(`   -> ⚠️ Error subiendo asset: ${err.message}. Se continuará con publicación estándar.`);
+    }
+  }
+
+  return new Promise((resolve, reject) => {
     const rpcData = JSON.stringify({
       jsonrpc: '2.0',
       id: Date.now(),
@@ -255,7 +370,7 @@ function publishToLinkedInViaComposio(postText, imageUrl) {
       params: {
         name: 'COMPOSIO_MULTI_EXECUTE_TOOL',
         arguments: {
-          thought: 'Publish post directly to LinkedIn',
+          thought: 'Publish post directly to LinkedIn with attached media asset',
           tools: [
             {
               tool_slug: 'LINKEDIN_CREATE_LINKED_IN_POST',

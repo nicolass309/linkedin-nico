@@ -657,12 +657,12 @@
   },
   {
     "id": "79",
-    "status": "scheduled",
+    "status": "published",
     "title": "5 Startups Chilenas que usan IA para problemas duros de industria",
     "text": "Mientras medio internet sigue discutiendo si la IA va a escribir poemas o crear avatares hiperrealistas, hay un grupo de startups en Chile resolviendo dolores brutales de infraestructura, finanzas y logística.\n\nNo hacen ruido en redes ni prometen magia.\nAutomatizan procesos que antes requerían semanas de trabajo manual y millones de pesos en pérdidas:\n\n• Fintoc: Transformó la infraestructura de pagos y conciliación bancaria directa cuenta a cuenta en Chile y México, eliminando intermediarios costosos para el e-commerce y las fintech.\n\n• Fracttal: Usa mantenimiento predictivo e IoT en plantas industriales, transporte y minería para anticipar fallas de maquinaria antes de que paralicen una operación de millones de dólares.\n\n• SimpliRoute: Optimiza millones de entregas logísticas diarias en América Latina utilizando algoritmos de enrutamiento que reducen hasta un 30% los costos de combustible y la huella de carbono de flotas comerciales.\n\n• Cero.ai: Automatiza la gestión y confirmación de citas en redes hospitalarias y clínicas mediante flujos conversacionales, reduciendo el ausentismo médico en más de un 40% en toda la región.\n\n• Clay: Conecta la facturación electrónica del SII con las cuentas bancarias de las PYMEs, automatizando la contabilidad operativa que antes consumía 40 horas al mes a cada equipo financiero.\n\nEl verdadero ecosistema tecnológico de América Latina no se construye copiando las modas de Silicon Valley. Se construye resolviendo las ineficiencias estructurales de nuestras propias industrias.\n\n¿Qué otra startup chilena o de la región merece estar en este radar por su solidez de producto?",
     "image": "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=1200",
     "scheduledDate": "2026-10-01T13:00:00.000Z",
-    "publishedAt": null,
+    "publishedAt": "2026-10-01T13:00:00.000Z",
     "author": "Curaduría Ecosistema Latam",
     "originalUrl": "https://startupschile.com/",
     "category": "Ecosistema Startups & Latam"
