@@ -320,56 +320,79 @@ function publishToLinkedInViaComposio(postText, imageUrl) {
   });
 }
 
+// Deduplication and In-Flight Locks (Strict zero-duplicate publishing guarantee)
+const inFlightPublishing = new Set();
+const publishedCache = new Set();
+
+// Preload publishedCache on boot
+try {
+  const initialPosts = readDB();
+  initialPosts.forEach(p => {
+    if (p.status === 'published') publishedCache.add(p.id);
+  });
+  console.log(`🔒 [Safety Guard] Inicializados ${publishedCache.size} posts en el registro de publicados.`);
+} catch (e) {}
+
+let isAutoPublishRunning = false;
+
 // Periodic In-Server Auto-Publish Engine (runs every 60s 24/7 on Render)
 setInterval(async () => {
-  const config = readConfig();
-  if (!config.autoPublishEnabled) return;
+  if (isAutoPublishRunning) return; // Prevent overlapping ticks
+  isAutoPublishRunning = true;
 
-  const posts = readDB();
-  const now = new Date();
-  let updated = false;
+  try {
+    const config = readConfig();
+    if (!config.autoPublishEnabled) return;
 
-  for (const post of posts) {
-    if (post.status === 'scheduled' && post.scheduledDate && new Date(post.scheduledDate).getTime() <= now.getTime()) {
-      console.log(`📡 [Composio Engine] Publicando Post ID ${post.id} ("${post.title.substring(0, 30)}...") vía Composio...`);
-      try {
-        const res = await publishToLinkedInViaComposio(post.text, post.image);
-        post.status = 'published';
-        post.publishedAt = new Date().toISOString();
-        post.composioPostId = res.id;
-        updated = true;
-        console.log(`   -> ✅ Publicado exitosamente en LinkedIn vía Composio! ID: ${post.composioPostId}`);
-      } catch (err) {
-        console.error(`   -> ❌ Error al publicar vía Composio: ${err.message}`);
+    const posts = readDB();
+    const now = new Date();
+    let updated = false;
+
+    for (const post of posts) {
+      if (
+        post.status === 'scheduled' &&
+        post.scheduledDate &&
+        new Date(post.scheduledDate).getTime() <= now.getTime()
+      ) {
+        // Strict guard: Skip if already published or currently publishing
+        if (inFlightPublishing.has(post.id) || publishedCache.has(post.id)) {
+          continue;
+        }
+
+        inFlightPublishing.add(post.id);
+        console.log(`📡 [Composio Engine] Publicando Post ID ${post.id} ("${post.title.substring(0, 30)}...") vía Composio...`);
+
+        try {
+          const res = await publishToLinkedInViaComposio(post.text, post.image);
+          post.status = 'published';
+          post.publishedAt = new Date().toISOString();
+          post.composioPostId = res.id;
+          publishedCache.add(post.id);
+          updated = true;
+          console.log(`   -> ✅ Publicado exitosamente en LinkedIn vía Composio! ID: ${post.composioPostId}`);
+        } catch (err) {
+          console.error(`   -> ❌ Error al publicar vía Composio: ${err.message}`);
+        } finally {
+          inFlightPublishing.delete(post.id);
+        }
       }
     }
-  }
 
-  if (updated) {
-    writeDB(posts, 'Composio Engine: Publicación automática de posts programados');
+    if (updated) {
+      writeDB(posts, 'Composio Engine: Publicación automática de posts programados');
+    }
+  } catch (err) {
+    console.error('Error en loop de auto-publicación:', err);
+  } finally {
+    isAutoPublishRunning = false;
   }
 }, 60000);
 
 // API Routes
 
-// 1. Get all posts (with real-time auto-promotion of past scheduled posts)
+// 1. Get all posts
 app.get('/api/posts', (req, res) => {
   const posts = readDB();
-  const now = new Date();
-  let updated = false;
-
-  posts.forEach(p => {
-    if (p.status === 'scheduled' && p.scheduledDate && new Date(p.scheduledDate) <= now) {
-      p.status = 'published';
-      p.publishedAt = p.publishedAt || p.scheduledDate;
-      updated = true;
-    }
-  });
-
-  if (updated) {
-    writeDB(posts, 'Auto-update past scheduled posts to published in real-time');
-  }
-
   res.json(posts);
 });
 
@@ -438,17 +461,30 @@ app.post('/api/posts/:id/publish-api', async (req, res) => {
 
   const post = posts[index];
 
+  if (post.status === 'published' || publishedCache.has(post.id)) {
+    return res.status(400).json({ error: 'Esta publicación ya figura como publicada en LinkedIn. No se enviará de nuevo.' });
+  }
+
+  if (inFlightPublishing.has(post.id)) {
+    return res.status(409).json({ error: 'Esta publicación se está enviando a LinkedIn en este momento. Por favor espera.' });
+  }
+
+  inFlightPublishing.add(post.id);
+
   try {
     const result = await publishToLinkedInViaComposio(post.text, post.image);
     
     posts[index].status = 'published';
     posts[index].publishedAt = new Date().toISOString();
     posts[index].composioPostId = result.id;
+    publishedCache.add(post.id);
     writeDB(posts, `Published post ${post.id} to LinkedIn via Composio`);
 
     res.json({ success: true, message: 'Publicado exitosamente en tu perfil de LinkedIn vía Composio!', result });
   } catch (error) {
     res.status(500).json({ error: error.message });
+  } finally {
+    inFlightPublishing.delete(post.id);
   }
 });
 
@@ -573,55 +609,26 @@ app.post('/api/posts/:id/publish', (req, res) => {
   }
 });
 
-// 10. Buffer Queue Sync & Keep-Alive Cron Endpoint
-app.get('/api/sync-queue', async (req, res) => {
+// 10. System Status & Health Check
+app.get('/api/health', (req, res) => {
   const posts = readDB();
-  const newlyQueued = await syncQueueWithBuffer(posts);
-  if (newlyQueued > 0) {
-    writeDB(posts, `Buffer Sync Endpoint: Queued ${newlyQueued} posts`);
-  }
-  
-  const queuedCount = posts.filter(p => p.status === 'scheduled' && p.bufferPostId).length;
-  const pendingCount = posts.filter(p => p.status === 'scheduled' && !p.bufferPostId).length;
+  const scheduledCount = posts.filter(p => p.status === 'scheduled').length;
+  const publishedCount = posts.filter(p => p.status === 'published').length;
+  const draftsCount = posts.filter(p => p.status === 'draft').length;
 
   res.json({
-    success: true,
-    message: 'Buffer Queue Synced',
-    queuedInBuffer: queuedCount,
-    pendingInDatabase: pendingCount,
-    newlyQueuedThisRun: newlyQueued,
+    status: 'ok',
+    provider: 'Composio Direct LinkedIn API',
+    author: LINKEDIN_PERSON_URN,
+    posts: {
+      total: posts.length,
+      scheduled: scheduledCount,
+      published: publishedCount,
+      drafts: draftsCount
+    },
+    inFlightCount: inFlightPublishing.size,
     timestamp: new Date().toISOString()
   });
-});
-
-// 11. Client LocalStorage Sync Endpoint
-app.post('/api/posts/sync-client', async (req, res) => {
-  const clientApproved = req.body.scheduledMap || {};
-  const clientPublished = req.body.publishedIds || [];
-
-  const posts = readDB();
-  let updated = false;
-
-  for (let i = 0; i < posts.length; i++) {
-    const id = posts[i].id;
-    
-    if (clientPublished.includes(id) && posts[i].status !== 'published') {
-      posts[i].status = 'published';
-      posts[i].publishedAt = posts[i].publishedAt || new Date().toISOString();
-      updated = true;
-    }
-    else if (clientApproved[id] && posts[i].status === 'draft') {
-      posts[i].status = 'scheduled';
-      posts[i].scheduledDate = clientApproved[id].scheduledDate;
-      updated = true;
-    }
-  }
-
-  if (updated) {
-    writeDB(posts, 'Sync client-side local cache to server');
-  }
-
-  res.json({ success: true, posts });
 });
 
 // Start Server
