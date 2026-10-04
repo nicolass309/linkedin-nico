@@ -464,31 +464,44 @@ setInterval(async () => {
     let updated = false;
 
     for (const post of posts) {
-      if (
-        post.status === 'scheduled' &&
-        post.scheduledDate &&
-        new Date(post.scheduledDate).getTime() <= now.getTime()
-      ) {
-        // Strict guard: Skip if already published or currently publishing
-        if (inFlightPublishing.has(post.id) || publishedCache.has(post.id)) {
+      if (post.status === 'scheduled' && post.scheduledDate) {
+        const scheduledTime = new Date(post.scheduledDate).getTime();
+        const diffMs = now.getTime() - scheduledTime;
+
+        // 1. If scheduled time is overdue by more than 2 hours, do NOT publish to LinkedIn!
+        // Mark as published in memory & DB so it never fires again.
+        if (diffMs > 2 * 60 * 60 * 1000) {
+          console.log(`⚠️ [Auto-Expiry] Post ID ${post.id} ("${post.title.substring(0, 30)}...") venció hace más de 2h (${post.scheduledDate}). Se marca como publicado sin disparar.`);
+          post.status = 'published';
+          post.publishedAt = post.publishedAt || post.scheduledDate;
+          publishedCache.add(post.id);
+          updated = true;
           continue;
         }
 
-        inFlightPublishing.add(post.id);
-        console.log(`📡 [Composio Engine] Publicando Post ID ${post.id} ("${post.title.substring(0, 30)}...") vía Composio...`);
+        // 2. Active publishing window: scheduledTime reached and <= 2 hours old
+        if (diffMs >= 0 && diffMs <= 2 * 60 * 60 * 1000) {
+          // Strict guard: Skip if already published or currently publishing
+          if (inFlightPublishing.has(post.id) || publishedCache.has(post.id)) {
+            continue;
+          }
 
-        try {
-          const res = await publishToLinkedInViaComposio(post.text, post.image);
-          post.status = 'published';
-          post.publishedAt = new Date().toISOString();
-          post.composioPostId = res.id;
-          publishedCache.add(post.id);
-          updated = true;
-          console.log(`   -> ✅ Publicado exitosamente en LinkedIn vía Composio! ID: ${post.composioPostId}`);
-        } catch (err) {
-          console.error(`   -> ❌ Error al publicar vía Composio: ${err.message}`);
-        } finally {
-          inFlightPublishing.delete(post.id);
+          inFlightPublishing.add(post.id);
+          console.log(`📡 [Composio Engine] Publicando Post ID ${post.id} ("${post.title.substring(0, 30)}...") vía Composio...`);
+
+          try {
+            const res = await publishToLinkedInViaComposio(post.text, post.image);
+            post.status = 'published';
+            post.publishedAt = new Date().toISOString();
+            post.composioPostId = res.id;
+            publishedCache.add(post.id);
+            updated = true;
+            console.log(`   -> ✅ Publicado exitosamente en LinkedIn vía Composio! ID: ${post.composioPostId}`);
+          } catch (err) {
+            console.error(`   -> ❌ Error al publicar vía Composio: ${err.message}`);
+          } finally {
+            inFlightPublishing.delete(post.id);
+          }
         }
       }
     }
@@ -515,17 +528,23 @@ app.get('/api/posts', (req, res) => {
 app.post('/api/posts/sync-client', (req, res) => {
   const { scheduledMap = {}, publishedIds = [] } = req.body;
   const posts = readDB();
+  const now = new Date();
   let updated = false;
 
   posts.forEach(p => {
+    // Only accept client schedule if the date is strictly in the FUTURE!
     if (p.status === 'draft' && scheduledMap[p.id]) {
-      p.status = 'scheduled';
-      p.scheduledDate = scheduledMap[p.id];
-      updated = true;
+      const clientDate = new Date(scheduledMap[p.id]);
+      if (clientDate > now) {
+        p.status = 'scheduled';
+        p.scheduledDate = scheduledMap[p.id];
+        updated = true;
+      }
     }
     if (p.status !== 'published' && publishedIds.includes(p.id)) {
       p.status = 'published';
-      p.publishedAt = p.publishedAt || p.scheduledDate || new Date().toISOString();
+      p.publishedAt = p.publishedAt || p.scheduledDate || now.toISOString();
+      publishedCache.add(p.id);
       updated = true;
     }
   });
@@ -686,10 +705,17 @@ app.post('/api/posts/:id/approve', async (req, res) => {
     return res.status(404).json({ error: 'Publicación no encontrada' });
   }
 
-  if (posts[index].status === 'published') {
+  if (posts[index].status === 'published' || publishedCache.has(posts[index].id)) {
     return res.json({ 
       ...posts[index],
       message: 'Esta publicación ya fue publicada anteriormente. Se mantiene su estado.' 
+    });
+  }
+
+  if (posts[index].status === 'scheduled') {
+    return res.json({ 
+      ...posts[index],
+      message: `Esta publicación ya se encuentra programada para el ${posts[index].scheduledDate}. No se duplicará.` 
     });
   }
 

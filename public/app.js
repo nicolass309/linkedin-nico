@@ -10,7 +10,17 @@ const LS_PUBLISHED_KEY = 'nico_linkedin_published_cache_v2';
 
 function getLocalScheduled() {
     try {
-        return JSON.parse(localStorage.getItem(LS_SCHEDULED_KEY) || '{}');
+        const raw = JSON.parse(localStorage.getItem(LS_SCHEDULED_KEY) || '{}');
+        const now = new Date();
+        const cleaned = {};
+        for (const [id, val] of Object.entries(raw)) {
+            const dateStr = typeof val === 'object' && val !== null ? val.scheduledDate : val;
+            if (dateStr && new Date(dateStr) > now) {
+                cleaned[id] = val;
+            }
+        }
+        localStorage.setItem(LS_SCHEDULED_KEY, JSON.stringify(cleaned));
+        return cleaned;
     } catch (e) {
         return {};
     }
@@ -604,12 +614,24 @@ function renderCalendarTab(scheduledAndPublished) {
 // ----------------------------------------------------
 // DRAFT APPROVAL DIRECT ACTION
 // ----------------------------------------------------
+const approvingIds = new Set();
+
 async function approvePostDirect(id) {
+    if (approvingIds.has(id)) return;
+
     const post = posts.find(p => p.id === id);
     if (post && post.status === 'published') {
         showToast('Esta publicación ya fue publicada previamente. No se duplicará.', 'warning');
         return;
     }
+    if (post && post.status === 'scheduled') {
+        showToast(`Esta publicación ya está programada. No se duplicará.`, 'info');
+        return;
+    }
+
+    approvingIds.add(id);
+    const btns = document.querySelectorAll(`button[onclick*="${id}"]`);
+    btns.forEach(b => { b.disabled = true; b.style.opacity = '0.5'; });
 
     try {
         const response = await fetch(`/api/posts/${id}/approve`, { method: 'POST' });
@@ -630,10 +652,13 @@ async function approvePostDirect(id) {
             minute: '2-digit' 
         });
 
-        showToast(`Post aprobado y programado para el ${formattedDate}`, 'success');
-        fetchPosts();
+        showToast(approvedPost.message || `Post aprobado y programado para el ${formattedDate}`, 'success');
+        await fetchPosts();
     } catch (error) {
         showToast(error.message, 'danger');
+    } finally {
+        approvingIds.delete(id);
+        btns.forEach(b => { b.disabled = false; b.style.opacity = '1'; });
     }
 }
 

@@ -669,12 +669,12 @@
   },
   {
     "id": "80",
-    "status": "scheduled",
+    "status": "published",
     "title": "El archivo AGENTS.md que debes tener en la raíz de tu proyecto",
     "text": "Si le pides a Cursor, Claude Code o GitHub Copilot que trabaje en tu repositorio sin reglas estrictas, pasará exactamente esto:\n\nInstalará tres librerías innecesarias, romperá tus convenciones de arquitectura y escribirá 200 líneas de código espagueti que tendrás que borrar manualmente en tu próximo commit.\n\nEl problema no es el modelo. Es que los agentes de IA no tienen memoria institucional de tu proyecto a menos que se la des de forma explícita.\n\nLa solución que usan los equipos de software de alto rendimiento es un archivo AGENTS.md (o CLAUDE.md) en la raíz del repositorio.\n\nEste es el bloque esencial que deberías incluir hoy mismo:\n\n# Reglas de Arquitectura para Agentes\n- Stack: Node.js 22 LTS, TypeScript estricto, Docker multi-stage.\n- No instales dependencias externas sin verificar antes si Node.js nativo o las librerías ya instaladas resuelven el problema.\n- Cada función debe tener una sola responsabilidad y un límite estricto de 30 líneas.\n- Antes de proponer cambios, ejecuta la suite de pruebas unitarias con npm test.\n- Si encuentras un bug, escribe primero el test que reproduce el fallo antes de modificar la lógica de producción.\n\nCuando un agente lee estas restricciones antes de generar el primer token, la tasa de alucinaciones cae en más de un 80% y dejas de perder horas revisando Pull Requests basura.\n\nTrata a los agentes de IA como a un desarrollador junior brillante pero impulsivo: si no le defines los límites del terreno de juego, romperá producción.\n\nComenta AGENTES y te comparto la plantilla completa con reglas avanzadas para TypeScript, Python y pipelines de CI/CD.",
     "image": "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=1200",
     "scheduledDate": "2026-10-02T13:00:00.000Z",
-    "publishedAt": null,
+    "publishedAt": "2026-10-02T13:00:00.000Z",
     "author": "Ingeniería & Mejores Prácticas",
     "originalUrl": "https://github.com/",
     "category": "Ingeniería de Software & Agentes"
