@@ -450,28 +450,36 @@ try {
 
 let isAutoPublishRunning = false;
 
-// Periodic In-Server Auto-Publish Engine (runs every 60s 24/7 on Render)
-setInterval(async () => {
-  if (isAutoPublishRunning) return; // Prevent overlapping ticks
+// Core Auto-Publish Runner (Safe Same-Day Chile Window: 9:00 AM to 19:00 PM CLT)
+async function runAutoPublishCycle() {
+  if (isAutoPublishRunning) return { skipped: true, reason: 'Ya hay un ciclo de auto-publicación en ejecución' };
   isAutoPublishRunning = true;
 
   try {
     const config = readConfig();
-    if (!config.autoPublishEnabled) return;
+    if (!config.autoPublishEnabled) return { skipped: true, reason: 'Auto-publicación desactivada en configuración' };
 
     const posts = readDB();
     const now = new Date();
+
+    // Current date string and hour in Chile (America/Santiago)
+    const nowChileStr = now.toLocaleDateString('sv-SE', { timeZone: 'America/Santiago' });
+    const chileHour = parseInt(new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/Santiago',
+      hour: 'numeric',
+      hour12: false
+    }).format(now), 10);
+
     let updated = false;
+    let publishedCount = 0;
 
     for (const post of posts) {
       if (post.status === 'scheduled' && post.scheduledDate) {
-        const scheduledTime = new Date(post.scheduledDate).getTime();
-        const diffMs = now.getTime() - scheduledTime;
+        const postDateChileStr = new Date(post.scheduledDate).toLocaleDateString('sv-SE', { timeZone: 'America/Santiago' });
 
-        // 1. If scheduled time is overdue by more than 2 hours, do NOT publish to LinkedIn!
-        // Mark as published in memory & DB so it never fires again.
-        if (diffMs > 2 * 60 * 60 * 1000) {
-          console.log(`⚠️ [Auto-Expiry] Post ID ${post.id} ("${post.title.substring(0, 30)}...") venció hace más de 2h (${post.scheduledDate}). Se marca como publicado sin disparar.`);
+        // 1. If scheduled for a past day in Chile (yesterday or older), auto-expire in DB without calling LinkedIn
+        if (postDateChileStr < nowChileStr) {
+          console.log(`⚠️ [Auto-Expiry] Post ID ${post.id} ("${post.title.substring(0, 30)}...") correspondía a un día pasado (${postDateChileStr} < hoy ${nowChileStr}). Se marca como publicado sin disparar.`);
           post.status = 'published';
           post.publishedAt = post.publishedAt || post.scheduledDate;
           publishedCache.add(post.id);
@@ -479,28 +487,34 @@ setInterval(async () => {
           continue;
         }
 
-        // 2. Active publishing window: scheduledTime reached and <= 2 hours old
-        if (diffMs >= 0 && diffMs <= 2 * 60 * 60 * 1000) {
-          // Strict guard: Skip if already published or currently publishing
-          if (inFlightPublishing.has(post.id) || publishedCache.has(post.id)) {
-            continue;
-          }
+        // 2. If scheduled for TODAY in Chile:
+        if (postDateChileStr === nowChileStr) {
+          const targetSlotReached = now.getTime() >= new Date(post.scheduledDate).getTime();
+          const isBusinessHours = chileHour >= 9 && chileHour < 19; // Between 9:00 AM and 7:00 PM CLT
 
-          inFlightPublishing.add(post.id);
-          console.log(`📡 [Composio Engine] Publicando Post ID ${post.id} ("${post.title.substring(0, 30)}...") vía Composio...`);
+          if (targetSlotReached && isBusinessHours) {
+            // Strict guard: Skip if already published or currently in-flight
+            if (inFlightPublishing.has(post.id) || publishedCache.has(post.id)) {
+              continue;
+            }
 
-          try {
-            const res = await publishToLinkedInViaComposio(post.text, post.image);
-            post.status = 'published';
-            post.publishedAt = new Date().toISOString();
-            post.composioPostId = res.id;
-            publishedCache.add(post.id);
-            updated = true;
-            console.log(`   -> ✅ Publicado exitosamente en LinkedIn vía Composio! ID: ${post.composioPostId}`);
-          } catch (err) {
-            console.error(`   -> ❌ Error al publicar vía Composio: ${err.message}`);
-          } finally {
-            inFlightPublishing.delete(post.id);
+            inFlightPublishing.add(post.id);
+            console.log(`📡 [Composio Engine] Publicando Post ID ${post.id} ("${post.title.substring(0, 30)}...") vía Composio...`);
+
+            try {
+              const res = await publishToLinkedInViaComposio(post.text, post.image);
+              post.status = 'published';
+              post.publishedAt = new Date().toISOString();
+              post.composioPostId = res.id;
+              publishedCache.add(post.id);
+              updated = true;
+              publishedCount++;
+              console.log(`   -> ✅ Publicado exitosamente en LinkedIn vía Composio! ID: ${post.composioPostId}`);
+            } catch (err) {
+              console.error(`   -> ❌ Error al publicar vía Composio: ${err.message}`);
+            } finally {
+              inFlightPublishing.delete(post.id);
+            }
           }
         }
       }
@@ -509,12 +523,18 @@ setInterval(async () => {
     if (updated) {
       writeDB(posts, 'Composio Engine: Publicación automática de posts programados');
     }
+
+    return { success: true, publishedCount, updated, nowChileStr, chileHour };
   } catch (err) {
     console.error('Error en loop de auto-publicación:', err);
+    return { success: false, error: err.message };
   } finally {
     isAutoPublishRunning = false;
   }
-}, 60000);
+}
+
+// Periodic In-Server Auto-Publish Engine (runs every 60s 24/7 on Render)
+setInterval(runAutoPublishCycle, 60000);
 
 // API Routes
 
@@ -768,6 +788,18 @@ app.get('/api/health', (req, res) => {
       drafts: draftsCount
     },
     inFlightCount: inFlightPublishing.size,
+    timestamp: new Date().toISOString()
+  });
+});
+
+// 11. External Cron Trigger (Pings from cron-job.org or UptimeRobot to wake up Render & publish)
+app.get('/api/cron/trigger-publish', async (req, res) => {
+  console.log('⏰ [Cron Trigger] Petición externa de auto-publicación recibida.');
+  const result = await runAutoPublishCycle();
+  res.json({
+    status: 'ok',
+    message: 'Ciclo de auto-publicación ejecutado exitosamente',
+    result,
     timestamp: new Date().toISOString()
   });
 });
