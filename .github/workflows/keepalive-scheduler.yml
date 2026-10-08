@@ -1,17 +1,25 @@
-name: LinkedIn Keep-Alive & Auto-Sync Cron
+name: LinkedIn Auto-Publisher & Keep-Alive
 
 on:
   schedule:
-    # Run every 30 minutes to keep Render awake and sync Buffer queue
-    - cron: '*/30 * * * *'
+    # Runs every 15 minutes to guarantee Render is awake and trigger scheduled posts
+    - cron: '*/15 * * * *'
+    # Dedicated trigger at 11:55, 12:00, 12:15 UTC (around 8:55-9:15 AM Chile) Monday to Friday
+    - cron: '55 11 * * 1-5'
+    - cron: '0 12 * * 1-5'
+    - cron: '15 12 * * 1-5'
+    - cron: '0 13 * * 1-5'
   workflow_dispatch:
 
 jobs:
-  ping-and-sync:
+  trigger-publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping Render & Sync Buffer Queue
+      - name: Wake Render and Trigger Auto-Publish
         run: |
-          echo "Pinging LinkedIn server and syncing Buffer queue..."
-          curl -s -f "https://linkedin-nico.onrender.com/api/sync-queue" || curl -s "https://linkedin-nico.onrender.com/api/posts" || true
-          echo "Done."
+          echo "Triggering LinkedIn auto-publisher on Render..."
+          RESPONSE=$(curl -s -w "\nHTTP_STATUS:%{http_code}" "https://linkedin-nico.onrender.com/api/cron/trigger-publish")
+          echo "$RESPONSE"
+          echo "Health check verification..."
+          curl -s "https://linkedin-nico.onrender.com/api/health" | jq . || true
+          echo "Trigger cycle finished."
