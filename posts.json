@@ -681,12 +681,12 @@
   },
   {
     "id": "81",
-    "status": "scheduled",
+    "status": "published",
     "title": "El error de contratar seniors que rechazan flujos con IA en 2026",
     "text": "En 2023, la postura común en ingeniería era: 'La IA es solo para principiantes que no saben programar'.\n\nEn 2026, esa postura se ha convertido en el cuello de botella más caro para cualquier empresa de tecnología.\n\nUn ingeniero senior que domina arquitectura de sistemas y orquesta agentes de IA para scaffolding, pruebas y refactorización entrega en 4 horas lo que a un equipo tradicional le toma una semana entera de sprints.\n\nLa diferencia no está en escribir código más rápido.\nEl código nunca fue el recurso escaso.\n\nEl recurso escaso siempre ha sido:\n- Saber qué NO construir.\n- Diseñar modelos de datos resilientes a fallos y concurrencia.\n- Anticipar cuellos de botella de seguridad y latencia en producción.\n- Auditar con criterio quirúrgico lo que la máquina genera.\n\nEl programador que solo memorizaba sintaxis y copiaba snippets de Stack Overflow ya no tiene ventaja competitiva. El ingeniero que piensa en sistemas, domina la verificación formal y multiplica su capacidad con herramientas de frontera es hoy un departamento de desarrollo entero en una sola persona.\n\nAl evaluar talento técnico en 2026: ¿mides cuántas líneas escribe o la capacidad que tiene de diseñar sistemas estables a velocidad de mercado?",
     "image": "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1200",
     "scheduledDate": "2026-10-09T13:00:00.000Z",
-    "publishedAt": null,
+    "publishedAt": "2026-10-09T13:00:00.000Z",
     "author": "Liderazgo & Talento Técnico",
     "originalUrl": "https://www.ycombinator.com/library",
     "category": "Liderazgo Técnico & Contratación"
