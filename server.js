@@ -473,12 +473,8 @@ async function runAutoPublishCycle() {
       hour12: false
     }).format(now), 10);
 
-    // Strict Rule: Check if ANY post has already been published TODAY in Chile (max 1 post per calendar day)
-    const alreadyPublishedToday = posts.some(p => {
-      if (p.status !== 'published' || !p.publishedAt) return false;
-      const pubDateChileStr = new Date(p.publishedAt).toLocaleDateString('sv-SE', { timeZone: 'America/Santiago' });
-      return pubDateChileStr === nowChileStr;
-    });
+    let updated = false;
+    let publishedCount = 0;
 
     for (const post of posts) {
       if (post.status === 'scheduled' && post.scheduledDate) {
@@ -496,18 +492,27 @@ async function runAutoPublishCycle() {
 
         // 2. If scheduled for TODAY in Chile:
         if (postDateChileStr === nowChileStr) {
-          // If a post was already published today, strictly DO NOT publish another one today
-          if (alreadyPublishedToday || publishedCount >= 1) {
-            console.log(`🛡️ [Safety Guard] Ya se publicó un post hoy (${nowChileStr}). Regla inmutable: máximo 1 post por día.`);
-            break;
-          }
-
           const targetSlotReached = now.getTime() >= new Date(post.scheduledDate).getTime();
-          const isBusinessHours = chileHour >= 9 && chileHour < 19; // Between 9:00 AM and 7:00 PM CLT
+          const isBusinessHours = chileHour >= 9 && chileHour < 21; // Between 9:00 AM and 9:00 PM CLT
 
           if (targetSlotReached && isBusinessHours) {
             // Strict guard: Skip if already published or currently in-flight
             if (inFlightPublishing.has(post.id) || publishedCache.has(post.id)) {
+              continue;
+            }
+
+            // Safety interval: If another post was published today, ensure at least 2.5 hours have elapsed
+            const recentPublishToday = posts.find(p => {
+              if (p.status !== 'published' || !p.publishedAt) return false;
+              const pDate = new Date(p.publishedAt);
+              const pDateChileStr = pDate.toLocaleDateString('sv-SE', { timeZone: 'America/Santiago' });
+              if (pDateChileStr !== nowChileStr) return false;
+              const diffMs = now.getTime() - pDate.getTime();
+              return diffMs < (2.5 * 60 * 60 * 1000); // Less than 2.5 hours ago
+            });
+
+            if (recentPublishToday) {
+              console.log(`⏳ [Cooldown Guard] Ya se publicó un post hoy a las ${recentPublishToday.publishedAt}. Esperando intervalo mínimo entre posts.`);
               continue;
             }
 
