@@ -730,15 +730,16 @@
   },
   {
     "id": "85",
-    "status": "scheduled",
+    "status": "published",
     "title": "El Schema JSON estricto para que los agentes de IA no rompan producción",
     "text": "El error más ingenuo que cometen muchos equipos al integrar agentes de IA en sus sistemas es permitir que el modelo devuelva texto libre.\n\nSi dejas que la IA responda como si fuera un chat informal, tu backend fallará en menos de 48 horas debido a un formato inesperado, una clave faltante o un carácter no escapado.\n\nEn entornos de producción de misión crítica, la IA nunca debe hablar libremente.\nDebe estar obligada por contrato a responder bajo un esquema estricto de tipos con validación determinista.\n\nEste es el patrón arquitectónico en 3 pasos que usamos para garantizar cero fallos en producción:\n\n1. Esquema cerrado e inviolable (Zod o Pydantic):\nDefine cada campo con tipos estrictos, valores por defecto y validaciones de rango. Si el agente clasifica un prospecto, el campo 'score' debe ser obligatoriamente un número entero entre 0 y 100, jamás una cadena de texto como 'alto' o 'medio'.\n\n2. Modo de salida estructurada nativa (Structured Outputs):\nConfigura la llamada a la API forzando el modo JSON Schema. Esto garantiza a nivel de probabilidades de tokens que el modelo no puede emitir sintaxis que rompa el parser del servidor.\n\n3. Interceptor de reintento automático con contexto de error:\nSi por alguna anomalía de red la respuesta no supera la validación de tu esquema, el sistema intercepta el payload, añade el error exacto al contexto y solicita la corrección en menos de 300 milisegundos sin tirar el servicio.\n\nLa inteligencia artificial aporta el razonamiento probabilístico; el código determinista tradicional aporta la seguridad y la robustez.\n\nCuando combinas ambos mundos, los agentes pasan de ser un experimento inestable de oficina a convertirse en infraestructura confiable que procesa millones de operaciones al día.\n\nComenta SCHEMA y te comparto el repositorio con la plantilla en TypeScript y Python lista para implementar en tu stack.",
     "image": "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1200",
     "scheduledDate": "2026-10-15T13:00:00.000Z",
-    "publishedAt": null,
+    "publishedAt": "2026-10-15T15:40:09.335Z",
     "author": "Ingeniería de Software & Agentes",
     "originalUrl": "https://github.com/",
-    "category": "Ingeniería & Buenas Prácticas"
+    "category": "Ingeniería & Buenas Prácticas",
+    "composioPostId": "urn:li:share:7516523315218452482"
   },
   {
     "id": "86",
