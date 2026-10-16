@@ -16,3 +16,8 @@
 ## 3. Flujo de Publicación Inmutable
 - Toda publicación generada debe pasar primero por `posts.json` con `"status": "draft"`.
 - Jamás publicar directamente en LinkedIn sin la revisión y aprobación explícita de Nicolás en el dashboard (`https://linkedin-nico.onrender.com`).
+
+## 4. Manual Maestro de Operaciones y Aprendizaje Continuo
+- El archivo `WORKFLOW_KNOWLEDGE_BASE.md` es la **fuente única de verdad** de la arquitectura, configuración en producción (Composio, Render, GitHub Actions), historial de errores documentados y reglas editoriales.
+- El agente DEBE consultar `WORKFLOW_KNOWLEDGE_BASE.md` antes de planificar cambios o redacciones.
+- Cada vez que se aprenda un nuevo requerimiento, se resuelva un bug o se aplique una corrección, el agente DEBE actualizar inmediatamente `WORKFLOW_KNOWLEDGE_BASE.md`.
