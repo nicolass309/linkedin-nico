@@ -756,15 +756,16 @@
   },
   {
     "id": "87",
-    "status": "scheduled",
+    "status": "published",
     "title": "La muerte del organigrama inflado: Por qué ya no se premia contratar 50 personas",
     "text": "En 2021, la métrica de estatus favorita de muchos fundadores y directivos en América Latina era presumir cuántas personas habían sumado a su equipo en el último trimestre.\n\n'Levantamos $3 millones y vamos a contratar a 40 ingenieros', decían con orgullo.\n\nEn 2026, esa misma frase es vista por los mejores fondos de inversión y líderes de negocio como una señal de ineficiencia y falta de criterio técnico.\n\nEl paradigma cambió radicalmente: el mercado ya no premia el volumen de personas en nómina; premia la densidad de talento y el apalancamiento operativo por empleado.\n\nHoy veo a startups en Chile, Colombia y México generando $2 millones de dólares anuales con equipos de apenas 5 personas.\n\n¿Cómo lo logran sin que el equipo termine con burnout?\n\nNo trabajan 16 horas al día.\nOperan bajo la filosofía de los Small AI Teams:\n\n• Un ingeniero senior con herramientas de frontera produce el equivalente a un equipo de 6 desarrolladores tradicionales en arquitectura, pruebas y refactorización.\n\n• La atención al cliente y la clasificación de incidencias no se resuelve contratando a 15 personas para un call center, sino diseñando tuberías de eventos donde agentes resuelven el 75% de las consultas repetitivas en segundos.\n\n• La prospección B2B y el enriquecimiento de datos corre de forma desatendida mediante orquestadores en la nube que operan las 24 horas del día por menos de lo que cuesta el café de la oficina.\n\nEl valor de un líder en 2026 ya no se mide por la cantidad de personas que le reportan.\nSe mide por la capacidad de construir sistemas tan limpios y eficientes que su empresa pueda multiplicar los ingresos mientras mantiene la estructura ágil y el margen saludable.\n\n¿Hacia dónde va tu empresa este año: hacia estructuras pesadas y lentas o hacia equipos pequeños con alto apalancamiento tecnológico?",
     "image": "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1200",
     "scheduledDate": "2026-10-16T13:00:00.000Z",
-    "publishedAt": null,
+    "publishedAt": "2026-10-16T14:16:54.258Z",
     "author": "Estrategia & Liderazgo de Startups",
     "originalUrl": "https://www.ycombinator.com/library",
-    "category": "Liderazgo & Eficiencia Operativa"
+    "category": "Liderazgo & Eficiencia Operativa",
+    "composioPostId": "urn:li:share:7516864753558781952"
   },
   {
     "id": "88",
