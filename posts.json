@@ -769,15 +769,16 @@
   },
   {
     "id": "88",
-    "status": "scheduled",
+    "status": "published",
     "title": "El 65% de las inversiones de Venture Capital pierden dinero (y por qué esa es la clave)",
     "text": "El 65% de las inversiones de capital de riesgo en Silicon Valley pierden dinero o devuelven exactamente cero.\n\nNo es incompetencia.\nEs la regla matemática sobre la que se construyen los fondos más exitosos del planeta: la Ley de Potencia (Power Law).\n\nEn el mundo corporativo tradicional nos enseñan a evitar el error a toda costa:\n- Premiar proyectos seguros que prometen un 15% de retorno.\n- Exigir consenso unánime en comités de 8 personas antes de aprobar presupuesto.\n- Castigar a quien lideró una iniciativa que no funcionó.\n\nEl resultado de esa mentalidad es predecible: empresas lentas que solo generan mejoras marginales y son barridas por la siguiente ola tecnológica.\n\nComo demuestra el profesor Ilya Strebulaev en Stanford tras analizar dos décadas de datos de VC:\nEn innovación radical, los ponches (strikeouts) no importan; los cuadrangulares (home runs) lo pagan todo.\n\nLa asimetría es brutal:\nSi una apuesta sale mal, lo máximo que puedes perder es 1x (tu inversión inicial).\nPero si una apuesta sale extraordinariamente bien, el retorno no tiene techo: puede ser 50x, 100x o pagar el fondo completo.\n\nPara aplicar el 'Venture Mindset' en tu empresa o startup este año:\n\n1. Desconfía del consenso unánime:\nSi a todo el comité le parece una 'idea razonable', probablemente sea una idea mediocre que la competencia ya está implementando. Las ideas que cambian mercados siempre suenan incómodas o arriesgadas al principio.\n\n2. Aprende a desconectar rápido (Pull the plug):\nEl error de la mayoría no es equivocarse en una apuesta; es mantener proyectos zombis durante 18 meses por miedo a admitir que la hipótesis falló. Cortar una iniciativa a las 6 semanas con datos claros no es fracasar: es liberar capital para la siguiente oportunidad.\n\n3. Mide por potencial de impacto, no por tasa de acierto:\nUn equipo que acierta el 90% de sus proyectos pero solo mueve la aguja un 5% vale mucho menos que un equipo que falla el 70% de las veces pero lanza un producto que duplica los ingresos de la compañía.\n\nEn tu organización hoy: ¿se premia no cometer errores o se incentiva la toma de riesgos con asimetría positiva?",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&auto=format&fit=crop&q=80",
     "scheduledDate": "2026-10-19T13:00:00.000Z",
-    "publishedAt": null,
+    "publishedAt": "2026-10-19T13:56:17.461Z",
     "author": "Inspirado en Ilya Strebulaev",
     "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
-    "category": "Startups & Capital de Riesgo"
+    "category": "Startups & Capital de Riesgo",
+    "composioPostId": "urn:li:share:7517946729799794688"
   },
   {
     "id": "89",
