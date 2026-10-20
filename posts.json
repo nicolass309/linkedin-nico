@@ -782,15 +782,16 @@
   },
   {
     "id": "89",
-    "status": "scheduled",
+    "status": "published",
     "title": "La trampa del backend perfecto: Por qué 90% de devs construyen para 0 usuarios",
     "text": "Vi a un equipo de cuatro ingenieros pasar cinco meses construyendo una arquitectura impecable en AWS para una aplicación que hoy tiene exactamente doce usuarios activos.\n\nClúster de Kubernetes auto-escalable.\nMicroservicios desacoplados con Kafka.\nCobertura de pruebas unitarias al 95%.\nCosto mensual de infraestructura: $1,400 USD.\n\nCero tracción. Cero ingresos.\n\nEsta es la trampa más seductora para cualquier desarrollador técnico: esconderse detrás del código para no enfrentar el mercado.\n\nRoy Lee (fundador de Interview Coder y Cluely) levantó $15 millones de dólares de Andreessen Horowitz operando exactamente bajo la filosofía opuesta:\nDistribution-First Engineering.\n\nLa tesis es simple:\nEl código es el recurso más abundante y barato de la historia.\nLa atención del cliente y la distribución son los únicos recursos escasos.\n\nLa regla de los tres pasos para no quebrar antes de tener usuarios:\n\n1. Prototipo en 48 horas (Monolito sin vergüenza):\nUsa un framework simple (Next.js, FastAPI, Node), SQLite o Postgres básico y despliega en un PaaS en una tarde. Si te da vergüenza el código inicial, vas por buen camino. Tu único objetivo es comprobar si alguien está dispuesto a usar la herramienta.\n\n2. Valida la distribución antes de optimizar latencia:\nSi no tienes una estrategia clara de cómo vas a conseguir tus primeros 100 clientes (redes, contenido técnico, prospección directa o comunidad), construir un backend escalable es una pérdida de tiempo y dinero.\n\n3. Refactoriza solo bajo dolor de concurrencia:\nNo diseñes para un millón de usuarios cuando tienes diez. Optimiza las consultas, desacopla servicios y monta colas asíncronas el día que la base de datos comience a degradarse por exceso de tráfico real, nunca antes.\n\nLa elegancia técnica no se mide por la cantidad de microservicios que tienes corriendo. Se mide por la velocidad con la que conviertes una idea en software que la gente realmente utiliza y paga.\n\n¿En tu proyecto actual estás resolviendo problemas reales de usuarios o problemas imaginarios de escala?",
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&auto=format&fit=crop&q=80",
     "scheduledDate": "2026-10-20T13:00:00.000Z",
-    "publishedAt": null,
+    "publishedAt": "2026-10-20T15:51:32.415Z",
     "author": "Inspirado en Roy Lee",
     "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
-    "category": "Desarrollo & Startups"
+    "category": "Desarrollo & Startups",
+    "composioPostId": "urn:li:share:7518338120740675584"
   },
   {
     "id": "90",
