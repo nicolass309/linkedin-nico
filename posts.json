@@ -795,15 +795,16 @@
   },
   {
     "id": "90",
-    "status": "scheduled",
+    "status": "published",
     "title": "El mito de la automatización hipercompleja: Menos nodos, más estabilidad",
     "text": "Si tu sistema de automatización depende de 12 herramientas conectadas en cadena, no tienes una empresa automatizada: tienes una bomba de tiempo que va a explotar a las 2:00 AM.\n\nVeo a consultores y agencias vender 'ecosistemas de IA' con este nivel de fragilidad:\nUn formulario en Typeform que dispara un webhook a Make, que llama a OpenAI, que actualiza Airtable, que envía una notificación a Slack, que sincroniza con HubSpot y que termina enviando un correo por Gmail.\n\nBasta con que una sola de esas 7 APIs cambie su rate limit, expire un token o tarde 2 segundos de más en responder para que todo el pipeline comercial de la empresa quede paralizado.\n\nNico Manzaneque insiste en un principio operativo que separa a los aficionados de los ingenieros de sistemas:\nLa confiabilidad de un sistema es inversamente proporcional a la cantidad de intermediarios que tiene.\n\nLa arquitectura 'Clean Pipe' que implementamos para flujos B2B de misión crítica:\n\n1. Tubería directa con n8n auto-alojado:\nEn lugar de pagar suscripciones infladas por cada operación en plataformas cerradas, monta tu instancia en un VPS dedicado. Control absoluto sobre los logs, sin límites de ejecución y con privacidad total de los datos corporativos.\n\n2. Webhook único con validación de estado:\nTodo evento entra por un endpoint central. Si el payload no cumple con la estructura requerida, se descarta antes de consumir tokens o llamadas a servicios externos.\n\n3. Desacoplar el procesamiento pesado con colas:\nSi la tarea requiere consultar un modelo de IA o procesar un documento, no bloquees la respuesta HTTP. Encola la tarea, ejecútala en segundo plano y actualiza el CRM cuando el resultado esté 100% verificado.\n\nMenos herramientas.\nMenos puntos de fallo.\nCero llamadas innecesarias a APIs de terceros.\n\nComenta FLUJO si quieres que publique un desglose paso a paso de cómo configurar un pipeline B2B limpio sin sobreingeniería.",
     "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&auto=format&fit=crop&q=80",
     "scheduledDate": "2026-10-21T13:00:00.000Z",
-    "publishedAt": null,
+    "publishedAt": "2026-10-21T16:08:51.052Z",
     "author": "Inspirado en Nico Manzaneque",
     "originalUrl": "https://www.linkedin.com/in/nico-manzaneque/",
-    "category": "Automatización & B2B"
+    "category": "Automatización & B2B",
+    "composioPostId": "urn:li:share:7518704863883677696"
   },
   {
     "id": "91",
