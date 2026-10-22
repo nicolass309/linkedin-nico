@@ -84,12 +84,14 @@ Basado en el análisis de las métricas reales de los 365 días de Nicolás Peñ
 1. **Controversia Técnica / Contrarian Truths:** Desmentir mitos comunes de ingeniería (ej. *"El error de contratar seniors que rechazan IA"*, *"El Prompt Engineering murió: importa la Arquitectura de Contexto"*).
 2. **Arquitecturas y Números Reales:** Stacks con costos exactos (ej. VPS de $5, modelos de $0.002 por cuenta, tiempos de sprint de 4 horas vs 1 semana).
 3. **Casos Locales / Silicon Valley:** Hitos reales de startups chilenas o latinoamericanas (ej. Sintropix en Y Combinator, integraciones con SII/facturación local).
-4. **Lead Magnets en Comentarios:** Terminar con un llamado a la acción conciso: *"Comenta STACK y te paso el diagrama"*, *"Comenta PROMPT y te comparto el archivo SYSTEM-PROMPT.md"*. Esto dispara el algoritmo de LinkedIn en los primeros 60 minutos.
+4. **Enfoque Save-First (Dwell Time & Guardados):** Diseñar posts con frameworks estructurados y listas técnicas accionables que obliguen al usuario a hacer clic en 'Guardar'.
+5. **Debate Profesional Genuino:** Cerrar con preguntas técnicas abiertas dirigidas a directores, CTOs e ingenieros para generar hilos de comentarios profundos.
 
-### Lo que Está Prohibido (Anti-IA Slop):
+### Lo que Está Prohibido (Anti-IA Slop y Penalizaciones Algorítmicas):
+- ❌ **Comment Baiting:** Prohibido usar cierres tipo *"Comenta STACK"*, *"Comenta SCHEMA"* o *"Comenta X"*. El algoritmo actual (360Brew) detecta engagement artificial y recorta el alcance entre 40% y 50%.
 - ❌ Frases cliché de IA: *"En el vertiginoso mundo de hoy"*, *"Un cambio de paradigma revolucionario"*, *"La IA llegó para quedarse"*, *"Sinfonía de innovación"*.
 - ❌ Muros de texto sin respiración: Párrafos de más de 3 líneas. Usar siempre saltos de línea limpios y listas con guiones.
-- ❌ Posts abstractos sin herramientas ni código: Todo post debe nombrar tecnologías tangibles (N8N, Docker, Zod, Composio, PostgreSQL, FastMCP, Claude, etc.).
+- ❌ Posts abstractos sin herramientas ni código: Todo post debe nombrar tecnologías tangibles (N8N, Docker, Zod, Composio, PostgreSQL, FastMCP, Claude, MCP, etc.).
 
 ---
 
