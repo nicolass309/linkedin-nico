@@ -764,15 +764,16 @@
   },
   {
     "id": "91",
-    "status": "scheduled",
+    "status": "published",
     "title": "Por qué el 80% de los proyectos con LLMs mueren en la demo (y cómo pasar a producción)",
     "text": "El 80% de las iniciativas de IA en empresas se quedan estancadas para siempre en la fase de 'demo impresionante' y nunca llegan a producción.\n\nEl motivo no es que los modelos no sean inteligentes.\nEl motivo es que los equipos técnicos evalúan los LLMs como si fueran personas creativas, en lugar de tratarlos como sistemas probabilísticos que necesitan contratos deterministas.\n\nEn una reunión interna, alguien le hace 3 preguntas al modelo, la respuesta suena brillante y el equipo asume que la funcionalidad está lista.\n\nDos semanas después, el cliente final ingresa un caso de borde imprevisto: el sistema alucina, rompe el esquema de datos o emite información errónea.\n\nStanislav Belyaev (ex-Lead TPM en Microsoft) documentó exhaustivamente cómo gestionar la no-determinación de los modelos en producción:\nNo puedes desplegar software con LLMs sin un framework riguroso de evaluaciones continuas (Evals).\n\nEl protocolo de 3 capas para blindar pipelines con LLMs:\n\n1. Golden Dataset de regresión (mínimo 50 casos reales):\nAntes de cambiar una sola coma en tu system prompt o actualizar el modelo, corre tu suite de pruebas sobre un conjunto de datos curado con entradas reales y las salidas exactas que tu negocio espera.\n\n2. Validación estructural determinista primero:\nVerifica formato, tipos de datos, presencia de campos obligatorios y rangos numéricos mediante JSON Schema estricto. Si la salida no pasa el validador en milisegundos, ni siquiera la proceses.\n\n3. LLM-as-a-Judge para consistencia semántica:\nUtiliza un modelo rápido y de bajo costo para auditar si la respuesta del agente cumple con las directrices de tono, políticas de negocio y ausencia de promesas no autorizadas.\n\nSi no puedes medir numéricamente qué porcentaje de acierto tiene tu pipeline frente a casos de borde, no estás haciendo ingeniería: estás jugando a la lotería con la reputación de tu compañía.\n\n¿En tu equipo ya tienen una suite automatizada de evals para sus flujos de IA o siguen probando a mano en el chat?",
     "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&auto=format&fit=crop&q=80",
     "scheduledDate": "2026-10-22T13:00:00.000Z",
-    "publishedAt": null,
+    "publishedAt": "2026-10-22T13:17:28.364Z",
     "author": "Inspirado en Stas Bel",
     "originalUrl": "https://www.linkedin.com/in/stanislav-belyaev/",
-    "category": "IA & Gestión Técnica"
+    "category": "IA & Gestión Técnica",
+    "composioPostId": "urn:li:share:7519024123532984321"
   },
   {
     "id": "92",
