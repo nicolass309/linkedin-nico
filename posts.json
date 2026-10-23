@@ -777,15 +777,16 @@
   },
   {
     "id": "92",
-    "status": "scheduled",
+    "status": "published",
     "title": "El cuello de botella en 2026 ya no es el modelo: Es el ancho de banda del contexto",
     "text": "El 90% de las respuestas mediocres o errores de código que comete un asistente de IA se originan en los primeros 50 tokens del prompt.\n\nEn 2026, la discusión sobre 'cuál es el modelo más inteligente' dejó de ser el factor determinante.\nLos modelos de frontera resuelven problemas de lógica y arquitectura con solvencia absoluta.\n\nEl verdadero cuello de botella que separa a los desarrolladores de alto rendimiento del resto es el ancho de banda del contexto (Context Bandwidth).\n\nComo investiga Yaroslav Rebryk en herramientas de productividad y asistencia técnica:\nSi alimentas al modelo con 20 archivos irrelevantes, documentación desactualizada o explicaciones ambiguas, el mecanismo de atención del modelo se dispersa y la probabilidad de error se dispara exponencialmente.\n\nLas tres reglas para maximizar la precisión de los asistentes de código:\n\n1. El archivo de reglas de contexto (.context-rules / AGENTS.md):\nNo repitas tus preferencias en cada mensaje. Define en la raíz de tu repositorio un archivo estricto que declare: versión exacta de tu framework, librerías permitidas, convenciones de tipado y estilo arquitectónico. El asistente debe leerlo automáticamente antes de escribir una sola línea.\n\n2. Interfaces y contratos antes de la implementación:\nNo le pidas al modelo que 'programe un módulo de pagos'. Pásale primero la interfaz TypeScript o el esquema de la base de datos con los tipos de entrada y salida esperados. Forzar la frontera del contrato reduce las alucinaciones a cero.\n\n3. Contexto incremental en tareas atómicas de 15 minutos:\nDivide problemas grandes en bloques verificables. Si vas a refactorizar una consulta, dale solo el modelo de datos y la función actual. Prueba, compila y recién ahí avanza al siguiente paso.\n\nLa IA no programa mejor porque le escribas prompts más largos. Programa mejor cuando eliminas el ruido y le entregas exactamente el contexto mínimo indispensable para resolver el problema.\n\n¿Ya utilizas archivos de contexto dedicados en la raíz de tus proyectos o sigues redactando instrucciones en cada prompt?",
     "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&auto=format&fit=crop&q=80",
     "scheduledDate": "2026-10-23T13:00:00.000Z",
-    "publishedAt": null,
+    "publishedAt": "2026-10-23T14:26:06.508Z",
     "author": "Inspirado en Yaroslav Rebryk",
     "originalUrl": "https://www.linkedin.com/in/yaroslav-rebryk-37462024b/",
-    "category": "Productividad & Código con IA"
+    "category": "Productividad & Código con IA",
+    "composioPostId": "urn:li:share:7519403785077764097"
   },
   {
     "id": "93",
