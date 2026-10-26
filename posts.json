@@ -557,14 +557,16 @@
   },
   {
     "id": "74",
-    "status": "scheduled",
+    "status": "published",
     "title": "El Archivo SYSTEM-PROMPT.md para auditar código y arquitectura con IA",
     "text": "Si le pides a un modelo 'revisa este código', te dirá que todo se ve bien y cambiará dos nombres de variables.\n\nPara que la IA actúe como un Ingeniero de Software Staff y no como un asistente condescendiente, necesitas darle un contrato de auditoría estricto.\n\nEn los mejores equipos de ingeniería, no confían en la intuición del desarrollador al pedir revisiones: estandarizan un archivo SYSTEM-PROMPT.md en sus herramientas de asistencia técnica.\n\nLa anatomía del System Prompt de auditoría que detecta fallos antes de llegar a Pull Request:\n\n1. Rol y restricción de complacencia:\n'Actúa como un Principal Architect con tolerancia cero a la deuda técnica oculta. Prohibido elogiar el código. Tu único objetivo es encontrar vulnerabilidades de seguridad, condiciones de carrera y cuellos de botella de latencia'.\n\n2. Análisis en 3 capas de verificación:\n- Capa 1 (Concurrencia y Estado): ¿Qué pasa si dos clientes ejecutan esta mutación al mismo milisegundo? ¿Hay transacciones bloqueantes?\n- Capa 2 (Límites de memoria y red): ¿Hay consultas N+1? ¿El payload escala a 50,000 registros sin quebrar el heap?\n- Capa 3 (Fail-fast): ¿Las excepciones capturan el error real o lo silencian con un bloque catch genérico?\n\n3. Formato de salida estricto:\nCada observación debe incluir: Línea exacta, Severidad (Crítica / Media / Baja), Riesgo en producción y la solución en código con tipado estricto.\n\nCuando dejas de usar la IA para que te adule y la configuras para que sea el crítico más implacable de tu arquitectura, la calidad de tus despliegues se multiplica antes del code review humano.\n\n¿Tienes un prompt maestro estandarizado para auditar Pull Requests en tu equipo o cada desarrollador lo hace a su criterio?",
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&auto=format&fit=crop&q=80",
     "scheduledDate": "2026-10-26T13:00:00.000Z",
     "author": "Ingeniería de Software & IA",
     "originalUrl": "https://www.linkedin.com/in/nicolaspe%C3%B1adiaz/",
-    "category": "IA & Arquitectura"
+    "category": "IA & Arquitectura",
+    "publishedAt": "2026-10-26T13:00:21.140Z",
+    "composioPostId": "urn:li:share:7520469361162387457"
   },
   {
     "id": "75",
