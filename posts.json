@@ -581,14 +581,16 @@
   },
   {
     "id": "76",
-    "status": "scheduled",
+    "status": "published",
     "title": "El Stack de IA de $15 al mes que reemplaza a herramientas de $2,000",
     "text": "Muchas empresas siguen pagando entre $1,500 y $3,000 dólares al mes por suites SaaS cerradas que cobran sobreprecios absurdos por envolver modelos de IA en interfaces rígidas.\n\nLa realidad técnica en 2026 es que cualquier equipo puede montar un stack operativo completo, privado y escalable por menos de $15 dólares mensuales en infraestructura:\n\nLa arquitectura probada:\n\n1. Orquestación de eventos con N8N:\nAuto-alojado en un VPS de $5 USD (Hetzner o DigitalOcean). Control absoluto de webhooks, lógica condicional, colas de reintento y cero límites artificiales de ejecución.\n\n2. Modelos de razonamiento rápido y bajo costo:\nIntegración directa con APIs de alta velocidad y costo marginal (como DeepSeek-V3 o tiers optimizados de frontera) consumiendo menos de $0.002 dólares por flujo de extracción y análisis.\n\n3. Base de datos relacional con búsqueda vectorial (PostgreSQL + pgvector):\nAlmacenamiento unificado de clientes, estados de pedidos y embeddings en la misma base de datos, eliminando la necesidad de pagar costosas bases de datos vectoriales dedicadas.\n\n4. Notificaciones y entregables:\nConexión directa vía APIs de mensajería y correo transaccional sin intermediarios que inflen la factura.\n\nEl costo de la tecnología se redujo a mínimos históricos.\nLo que sigue siendo escaso es el criterio de arquitectura para ensamblar herramientas desacopladas en lugar de firmar contratos anuales de cinco cifras por software que no puedes personalizar.\n\n¿Tu empresa sigue pagando licencias infladas por herramientas empaquetadas o ya están construyendo sus propios pipelines internos?",
     "image": "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1200",
     "scheduledDate": "2026-10-27T13:00:00.000Z",
     "author": "Automatización & Open Source",
     "originalUrl": "https://www.linkedin.com/in/nicolaspe%C3%B1adiaz/",
-    "category": "Herramientas & Automatización"
+    "category": "Herramientas & Automatización",
+    "publishedAt": "2026-10-27T13:00:50.446Z",
+    "composioPostId": "urn:li:share:7520831875787939840"
   },
   {
     "id": "77",
