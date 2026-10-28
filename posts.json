@@ -818,15 +818,16 @@
   },
   {
     "id": "95",
-    "status": "scheduled",
+    "status": "published",
     "title": "El costo oculto del CRM: Por qué tus ejecutivos pierden 12 horas semanales",
     "text": "Si le preguntas a un gerente comercial por qué su equipo no alcanza las metas de prospección, casi siempre responderá: 'nos falta volumen de leads'.\n\nPero si auditas la jornada real de sus ejecutivos de venta, descubres una fuga mucho más grave:\nPasan entre el 35% y el 45% de su semana copiando datos de correos a mano, actualizando etapas en el CRM y redactando resúmenes de llamadas que nadie vuelve a leer.\n\nUn estudio en operaciones comerciales revela que los profesionales B2B pierden en promedio 12 horas cada semana en fricción puramente administrativa.\n\nCómo resolver la fuga en 3 pasos con automatización moderna:\n\n1. Transcripción y extracción estructurada de reuniones:\nEl audio de la videollamada se transcribe automáticamente y un modelo extrae: acuerdos tomados, objeciones del cliente, presupuesto mencionado y fecha del próximo paso.\n\n2. Sincronización bidireccional sin intervención humana:\nLos campos clave se inyectan directamente en el CRM mediante webhooks en el mismo minuto que termina la reunión.\n\n3. Borrador de seguimiento listo en 60 segundos:\nEl ejecutivo recibe una notificación interna con el borrador del correo de seguimiento perfectamente redactado, citando los puntos específicos discutidos. Solo revisa, ajusta y envía.\n\nEl rol de un cerrador de ventas es tener conversaciones estratégicas con prospectos calificados, no ser un digitador de datos para alimentar reportes internos.\n\n¿En tu empresa tus comerciales siguen cargando notas manualmente en el CRM o ya tienen automatizada la captura de acuerdos?",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80",
     "scheduledDate": "2026-10-28T13:00:00.000Z",
-    "publishedAt": null,
+    "publishedAt": "2026-10-28T14:11:53.241Z",
     "author": "Inspirado en Nico Manzaneque",
     "originalUrl": "https://www.linkedin.com/in/nico-manzaneque/",
-    "category": "Automatización & B2B"
+    "category": "Automatización & B2B",
+    "composioPostId": "urn:li:share:7521212144843911168"
   },
   {
     "id": "96",
