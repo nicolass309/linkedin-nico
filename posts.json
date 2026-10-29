@@ -831,15 +831,16 @@
   },
   {
     "id": "96",
-    "status": "scheduled",
+    "status": "published",
     "title": "El benchmark de 54 modelos para líderes técnicos: Por qué el Prompt Engineering murió",
     "text": "En 2023, la habilidad más cotizada en ofertas de empleo de inteligencia artificial era el 'Prompt Engineering': aprender a redactar frases con adjetivos elaborados para que el modelo no se equivocara.\n\nEn 2026, si tu arquitectura depende de que un prompt contenga la frase 'sé muy cuidadoso', tu sistema no está listo para producción.\n\nEl Prompt Engineering murió.\nLo que realmente importa hoy es la Arquitectura de Contexto (Context Architecture).\n\nStanislav Belyaev (ex-Lead TPM en Microsoft) corrió benchmarks exhaustivos evaluando 54 modelos de lenguaje en tareas reales de gestión, arquitectura y toma de decisiones.\n\nLa conclusión de los datos es inapelable:\nLa calidad de la respuesta de un modelo de frontera depende en un 10% de cómo le pidas las cosas y en un 90% de la pureza y estructura del contexto que le inyectas.\n\nLas tres capas de la Arquitectura de Contexto moderna:\n\n1. Contratos de entrada y salida deterministas:\nNunca le pidas al modelo un resumen en texto abierto si el siguiente paso de tu proceso requiere tomar una decisión. Oblígalo a responder bajo un esquema estricto (JSON Schema / Zod) con validación de tipos en tiempo de ejecución.\n\n2. Aislamiento de ruido (Context Pruning):\nPasarle la base de código entera o un PDF de 200 páginas satura los mecanismos de atención del modelo y dispara las alucinaciones. Extrae únicamente los fragmentos semánticamente relevantes utilizando búsqueda híbrida antes de enviar la solicitud.\n\n3. Few-Shot Contracts con ejemplos negativos:\nEl error más común es mostrarle al modelo solo ejemplos de respuestas perfectas. Los sistemas robustos en producción incluyen siempre ejemplos de fallos comunes y le indican explícitamente: 'Si la entrada contiene X, jamás devuelvas Y'.\n\nDejen de gastar semanas afinando adjetivos en un prompt. Diseñen tuberías de datos limpias, entreguen contexto quirúrgico y dejen que el modelo razone sobre datos estructurados.\n\n¿En tu equipo siguen debatiendo prompts en chats o ya tienen una arquitectura estructurada de contexto para sus aplicaciones?",
     "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&auto=format&fit=crop&q=80",
     "scheduledDate": "2026-10-29T13:00:00.000Z",
-    "publishedAt": null,
+    "publishedAt": "2026-10-29T16:04:00.811Z",
     "author": "Inspirado en Stas Bel",
     "originalUrl": "https://www.linkedin.com/in/stanislav-belyaev/",
-    "category": "IA & Gestión Técnica"
+    "category": "IA & Gestión Técnica",
+    "composioPostId": "urn:li:share:7521602746844749824"
   },
   {
     "id": "97",
