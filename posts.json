@@ -844,15 +844,16 @@
   },
   {
     "id": "97",
-    "status": "scheduled",
+    "status": "published",
     "title": "El 41% del código nuevo ya lo escribe la IA: El nuevo cuello de botella de la ingeniería",
     "text": "En 2026, más del 40% de todo el código nuevo que se escribe en el mundo es generado por asistentes de inteligencia artificial.\n\nLos desarrolladores escriben código entre un 35% y un 55% más rápido que hace dos años.\n\nSin embargo, los tiempos de entrega de funcionalidades en la mayoría de las empresas no se han reducido a la mitad. En muchas, incluso se han retrasado.\n\n¿Cómo es posible que con herramientas de programación ultraveloces los equipos entreguen más lento?\n\nPorque resolvimos el cuello de botella de escribir código, pero creamos un cuello de botella tres veces más costoso aguas abajo: la revisión de código (Code Review) y la deuda técnica invisible.\n\nLas métricas de la industria son contundentes:\n- Los Pull Requests masivos generados con IA tardan significativamente más tiempo en ser auditados por un humano.\n- El código generado sin supervisión arquitectónica suele esconder problemas sutiles de concurrencia, duplicación de lógica y dependencias innecesarias.\n\nCualquier persona puede pedirle a un modelo que genere 400 líneas de código en 10 segundos.\nLo que casi nadie puede hacer en 10 segundos es verificar si esas 400 líneas introducen una vulnerabilidad o rompen la coherencia del sistema a largo plazo.\n\nCómo responden los mejores equipos de ingeniería frente a esta paradoja:\n\n1. Gobernanza temprana (Shift-Left Verification):\nAntes de que un PR llegue a ojos de un ingeniero humano, pasa por suites de pruebas automáticas y validación estática de contratos.\n\n2. Prohibición de PRs masivos:\nLa velocidad de la IA tienta a los desarrolladores a entregar bloques gigantescos difíciles de auditar. El código asistido debe entregarse en micro-commits modulares.\n\n3. Medir impacto en negocio, no volumen de líneas:\nCelebrar cuántas líneas de código genera tu equipo es un error. La métrica real es el tiempo de ciclo (Cycle Time) desde la idea hasta el despliegue estable en producción sin incidentes posteriores.\n\nLa verdadera ventaja técnica hoy no es generar código como una ametralladora. Es tener el criterio de arquitectura para saber qué código merece existir en tu repositorio.\n\n¿En tu empresa ya sienten el cuello de botella en la revisión de PRs o siguen midiendo la productividad por la cantidad de código generado?",
     "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&auto=format&fit=crop&q=80",
     "scheduledDate": "2026-10-30T13:00:00.000Z",
-    "publishedAt": null,
+    "publishedAt": "2026-10-30T13:31:57.179Z",
     "author": "Inspirado en Yaroslav Rebryk",
     "originalUrl": "https://www.linkedin.com/in/yaroslav-rebryk-37462024b/",
-    "category": "Productividad & Código con IA"
+    "category": "Productividad & Código con IA",
+    "composioPostId": "urn:li:share:7521926871450677248"
   },
   {
     "id": "100",
