@@ -794,15 +794,16 @@
   },
   {
     "id": "93",
-    "status": "scheduled",
+    "status": "published",
     "title": "La trampa de la valuación de $1.000M: Por qué fundadores y empleados cobran $0",
     "text": "Un titular en prensa anuncia: 'Startup X levanta $100 millones a una valuación de $1.000 millones'.\n\nLos empleados celebran en la oficina.\nLos fundadores destapan champaña.\nEl mercado asume que todos son millonarios en papel.\n\nTres años después, la empresa se vende por $500 millones.\n¿El resultado real?\nLos inversores de las últimas rondas se quedan con todo el dinero y los empleados y fundadores se van a casa con exactamente $0.\n\nNo es una exageración: es la realidad contractual que el profesor Ilya Strebulaev descubrió en Stanford tras auditar cientos de unicornios respaldados por Venture Capital:\nCasi el 50% de los unicornios están técnicamente sobrevaluados debido a cláusulas ocultas de protección a la baja.\n\nEl culpable tiene nombre y apellido: la Preferencia de Liquidación (Liquidation Preference).\n\nCuando un fondo entra en rondas avanzadas a valuaciones estratosféricas, casi nunca compra acciones ordinarias como las de los fundadores o el equipo.\nExige acciones preferentes con cláusulas estrictas:\n- Preferencias de liquidación múltiple (1.5x o 2x garantizado antes que nadie vea un dólar).\n- Retornos mínimos garantizados y cláusulas de trinquete (ratchets).\n- Derechos de veto absolutos sobre cualquier venta por debajo del precio pactado.\n\nSi el valor de la empresa en la salida no supera la montaña de dinero acumulada en la 'cascada de preferencias' (preference stack), los accionistas comunes (quienes construyeron el producto) son barridos por completo.\n\nTres preguntas que todo fundador y empleado con stock options debería hacerse:\n\n1. ¿Cuál es el tamaño total del preference stack?\nSi tu empresa levantó $300 millones en total, una venta por $350 millones probablemente no deje ni un solo centavo para los empleados que trabajaron años en el proyecto.\n\n2. ¿Las acciones preferentes son participantes o no participantes?\nUna preferencia participante le permite al inversor recuperar todo su capital inicial y, además, participar en el porcentaje restante como si fuera accionista común (doble cobro).\n\n3. ¿Tu valuación refleja tracción real o ingeniería financiera?\nUna valuación inflada para impresionar en redes sociales se convierte en una trampa mortal cuando necesitas levantar capital en un mercado que exige rentabilidad operativa.\n\nEn capital de riesgo, el titular de prensa alimenta el ego. La estructura contractual del term sheet es lo único que define quién se queda con el dinero.\n\n¿En tu empresa alguna vez han explicado con transparencia cómo funciona la cascada de liquidación al equipo o sigue siendo un tema tabú?",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&auto=format&fit=crop&q=80",
     "scheduledDate": "2026-11-02T13:00:00.000Z",
-    "publishedAt": null,
+    "publishedAt": "2026-11-02T18:37:09.112Z",
     "author": "Inspirado en Ilya Strebulaev",
     "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
-    "category": "Startups & Capital de Riesgo"
+    "category": "Startups & Capital de Riesgo",
+    "composioPostId": "urn:li:share:7523090839997358080"
   },
   {
     "id": "94",
