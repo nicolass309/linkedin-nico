@@ -807,15 +807,16 @@
   },
   {
     "id": "94",
-    "status": "scheduled",
+    "status": "published",
     "title": "De 0 a $6M ARR en 10 semanas: Por qué la distribución es tu verdadero producto",
     "text": "El mayor error de los fundadores técnicos es creer que el mejor producto gana en el mercado por gravedad propia.\n\nNo es así: la historia de la tecnología está llena de productos técnicamente brillantes que quebraron en silencio porque nadie se enteró de que existían.\n\nEl caso de Lovable (plataforma de desarrollo asistido con IA fundada por Anton Osika) se convirtió en uno de los casos de estudio más analizados en Europa:\nPasaron de cero a $6 millones de dólares en ARR en solo diez semanas.\n\n¿Fue únicamente porque su modelo era superior?\nNo. Fue porque diseñaron su estrategia de distribución antes de terminar la primera versión del backend.\n\nLas tres lecciones de go-to-market que todo creador técnico debe aplicar:\n\n1. Construir en público con artefactos interactivos:\nEn lugar de publicar anuncios tradicionales, compartían videos de 45 segundos resolviendo problemas reales de usuarios en tiempo real. La prueba visual y tangible supera cualquier argumento de venta en texto.\n\n2. Reducir la fricción de valor a cero segundos:\nSi un usuario entra a tu plataforma y tiene que agendar una videollamada de 30 minutos con un comercial o ingresar su tarjeta de crédito antes de ver un resultado, el 90% se irá. Diseña un 'Time-To-Value' inmediato.\n\n3. Canales orgánicos apalancados en tu propia comunidad:\nCrear una masa crítica de usuarios que comparten lo que construyen convierte a tus primeros clientes en tu equipo de marketing más eficiente.\n\nSi eres desarrollador o fundador técnico, deja de pasar el 95% de tu tiempo puliendo detalles invisibles de código.\nDedica la mitad de tu energía a entender cómo vas a poner tu solución frente a las personas que sufren el problema todos los días.\n\n¿En tu proyecto estás dedicando suficiente tiempo a la distribución o sigues atrapado perfeccionando funcionalidades en privado?",
     "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1200&auto=format&fit=crop&q=80",
     "scheduledDate": "2026-11-03T13:00:00.000Z",
-    "publishedAt": null,
+    "publishedAt": "2026-11-03T15:37:33.437Z",
     "author": "Inspirado en Roy Lee",
     "originalUrl": "https://www.linkedin.com/in/roy-lee-goat/",
-    "category": "Desarrollo & Startups"
+    "category": "Desarrollo & Startups",
+    "composioPostId": "urn:li:share:7523408031997464579"
   },
   {
     "id": "95",
