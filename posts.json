@@ -570,14 +570,16 @@
   },
   {
     "id": "75",
-    "status": "scheduled",
+    "status": "published",
     "title": "Las 3 preguntas que hace el CEO de Y Combinator antes de invertir $500,000",
     "text": "En una entrevista de 10 minutos para entrar a Y Combinator, no hay tiempo para presentaciones de 30 diapositivas ni discursos ensayados sobre visión futurista.\n\nGarry Tan y los socios de YC evalúan a los fundadores con una precisión implacable enfocada en tres fundamentos esenciales:\n\n1. ¿Qué estás construyendo exactamente y para quién?\nSi necesitas más de dos oraciones para explicar tu producto sin usar palabras de moda como 'disrupción', 'ecosistema sinérgico' o 'plataforma holística', no tienes claridad sobre lo que estás resolviendo.\n\n2. ¿Quién es tu cliente y qué evidencia tienes de que necesita esto desesperadamente?\nNo les interesan encuestas de opinión hipotéticas. Quieren escuchar: 'Hablamos con 40 directores de operaciones, 12 nos mostraron su hoja de cálculo actual y 5 ya nos pagaron un adelanto para usar el piloto'.\n\n3. ¿Por qué este equipo es el indicado para resolver este problema y no otros 10 competidores?\nEl factor decisivo es el 'insight' único que solo alguien que ha vivido el problema desde adentro conoce. Los fundadores con experiencia directa en el barro de la industria ejecutan 5 veces más rápido.\n\nEl 90% de los proyectos no fracasan por falta de capital o por limitaciones técnicas:\nFracasan porque los fundadores se enamoran de una solución abstracta antes de validar si existe un dolor real, urgente y monetizable en el mercado.\n\nSi tuvieras 10 minutos frente al comité de YC hoy: ¿podrías responder estas tres preguntas con métricas y clientes reales sobre la mesa?",
     "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&auto=format&fit=crop&q=80",
     "scheduledDate": "2026-11-04T13:00:00.000Z",
     "author": "Inspirado en Garry Tan (Y Combinator)",
     "originalUrl": "https://www.linkedin.com/in/garrytan/",
-    "category": "Startups & Y Combinator"
+    "category": "Startups & Y Combinator",
+    "publishedAt": "2026-11-04T15:45:21.864Z",
+    "composioPostId": "urn:li:share:7523772384156434433"
   },
   {
     "id": "76",
