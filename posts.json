@@ -596,14 +596,16 @@
   },
   {
     "id": "77",
-    "status": "scheduled",
+    "status": "published",
     "title": "El Fraude de la Automatización Rápida: Por qué conectar 15 herramientas destruye empresas",
     "text": "Hay una tendencia peligrosa en redes sociales: creadores que muestran flujos con 18 herramientas conectadas en cadena como si fuera la cumbre de la eficiencia operativa.\n\nEn la práctica empresarial, eso no es automatización: es una trampa de fragilidad técnica que explota al primer cambio de API.\n\nSi una de las 18 herramientas actualiza su esquema de autenticación, renombra un campo o tiene 5 minutos de latencia, todo tu proceso comercial se detiene en seco sin que nadie sepa dónde ocurrió el fallo.\n\nTres principios de ingeniería para automatizaciones B2B robustas:\n\n1. La regla del desacoplamiento:\nCada paso crítico debe registrar su estado en una base de datos propia antes de invocar el siguiente servicio. Si una API externa falla, el sistema reintenta automáticamente ese nodo específico sin perder los datos previos.\n\n2. Menos nodos, más código directo:\nUna función de 15 líneas en TypeScript o Python reemplaza a menudo 4 nodos frágiles de formateo de texto, eliminando dependencias innecesarias de servicios de terceros.\n\n3. Observabilidad y alertas centralizadas:\nSi te enteras de que tu flujo de clientes falló porque un usuario te escribió quejándose, tu arquitectura no tiene observabilidad. Todo pipeline serio envía una alerta con el payload exacto del error en el instante que ocurre.\n\nLa verdadera elegancia en sistemas no se mide por la cantidad de herramientas que conectas en un lienzo, sino por la estabilidad con la que tus flujos operan cuando algo sale mal en el mundo real.\n\n¿Tus procesos automáticos tienen registro de fallos y reintentos o dependen de que ninguna API externa se caiga?",
     "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&auto=format&fit=crop&q=80",
     "scheduledDate": "2026-11-05T13:00:00.000Z",
     "author": "Arquitectura & Resiliencia",
     "originalUrl": "https://www.linkedin.com/in/nicolaspe%C3%B1adiaz/",
-    "category": "Arquitectura & Procesos"
+    "category": "Arquitectura & Procesos",
+    "publishedAt": "2026-11-05T16:50:24.471Z",
+    "composioPostId": "urn:li:share:7524151137973714945"
   },
   {
     "id": "78",
