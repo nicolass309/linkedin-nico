@@ -457,14 +457,16 @@
   },
   {
     "id": "63",
-    "status": "scheduled",
+    "status": "published",
     "title": "El Protocolo de las 3 Respuestas: Cómo atender prospectos en 2 minutos sin vivir pegado al teléfono",
     "text": "El 70% de las ventas en servicios B2B de alto ticket se cierran con el primer proveedor que responde con claridad y rapidez.\n\nSin embargo, muchos directivos y fundadores viven atrapados en un dilema desgastante:\nO pasan todo el día interrumpiendo su trabajo para contestar mensajes en tiempo real, o tardan 6 horas en responder y pierden al prospecto frente a la competencia.\n\nPara resolver esto sin perder el foco en la ejecución estratégica, los mejores operadores aplican el Protocolo de las 3 Respuestas:\n\n1. La Respuesta Inmediata de Contexto (Minuto 0 a 2):\nUn flujo automatizado no envía un mensaje genérico tipo 'gracias por escribirnos'. Confirma la recepción, identifica el servicio solicitado y entrega un recurso de alto valor relevante al problema exacto del cliente.\n\n2. La Calificación Asíncrona (Minuto 3 a 10):\nA través de 2 o 3 preguntas clave estructuradas, el sistema recopila los requerimientos técnicos y el alcance del proyecto sin necesidad de coordinar una llamada preliminar de 30 minutos.\n\n3. El Despacho al Especialista Calificado:\nSi el prospecto encaja con el perfil ideal de cliente, se genera automáticamente una cita en la agenda del especialista con todo el resumen cargado. Si no califica, se le deriva con cortesía a una alternativa adecuada.\n\nLa velocidad en ventas no requiere que trabajes 16 horas al día contestando chats. Requiere diseñar sistemas que filtren, eduquen y califiquen por ti mientras te concentras en entregar resultados de excelencia.\n\n¿En tu negocio la atención de prospectos depende de tu presencia constante o ya tienen un protocolo automatizado de respuesta y calificación?",
     "image": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&auto=format&fit=crop&q=80",
     "scheduledDate": "2026-11-06T13:00:00.000Z",
     "author": "Inspirado en Nico Manzaneque",
     "originalUrl": "https://www.linkedin.com/in/nicomanzaneque/",
-    "category": "Automatización & Ventas"
+    "category": "Automatización & Ventas",
+    "publishedAt": "2026-11-06T16:59:59.361Z",
+    "composioPostId": "urn:li:share:7524515940663894017"
   },
   {
     "id": "64",
