@@ -470,14 +470,16 @@
   },
   {
     "id": "64",
-    "status": "scheduled",
+    "status": "published",
     "title": "La Trampa de la Optimización Infinita: Por qué cambiar de herramientas no salvará un producto sin tracción",
     "text": "He visto a equipos técnicos pasar 3 meses migrando su base de datos de PostgreSQL a una arquitectura distribuida para 'prepararse para cuando tengamos un millón de usuarios'... cuando en la realidad tienen doce clientes activos.\n\nEste fenómeno tiene un nombre en ingeniería de software: Procrastinación Arquitectónica.\n\nEs mucho más cómodo debatir en foros sobre la última tecnología de moda, reescribir microservicios o rediseñar la infraestructura en la nube que enfrentarse a la verdad más incómoda de cualquier negocio:\nSaber si alguien está dispuesto a pagar por lo que construyes hoy.\n\nLas tres preguntas para saber si estás cayendo en la trampa:\n\n1. ¿Esta refactorización desbloquea ingresos en los próximos 30 días?\nSi la respuesta es 'no, es solo para que el código quede más limpio', esa tarea no debería estar en el sprint actual a menos que resuelva un fallo crítico de seguridad o disponibilidad.\n\n2. ¿El cuello de botella actual es técnico o de distribución?\nCasi ninguna empresa muere porque su backend tardó 40 milisegundos más en responder una consulta. Mueren porque no tienen suficientes clientes usando el sistema.\n\n3. ¿Tu arquitectura es modular para evolucionar cuando la escala real lo exija?\nConstruye con estándares limpios y contratos sólidos, pero no implementes infraestructura compleja para problemas que aún no tienes.\n\nEl código más valioso no es el que utiliza el framework más nuevo del mercado. Es el código que resuelve un problema real para un cliente que paga y sostiene la operación del negocio.\n\n¿En tu equipo actual están resolviendo dolores reales de usuarios o están construyendo defensas contra problemas hipotéticos de escala?",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80",
     "scheduledDate": "2026-11-09T13:00:00.000Z",
     "author": "Inspirado en Stas Bel & James Clear",
     "originalUrl": "https://www.linkedin.com/in/stasbel/",
-    "category": "Arquitectura & Pragmatismo"
+    "category": "Arquitectura & Pragmatismo",
+    "publishedAt": "2026-11-09T20:09:07.351Z",
+    "composioPostId": "urn:li:share:7525650700903669760"
   },
   {
     "id": "41",
