@@ -483,14 +483,16 @@
   },
   {
     "id": "41",
-    "status": "scheduled",
+    "status": "published",
     "title": "El error de $50,000 que cometen las startups al contratar su primer equipo técnico",
     "text": "Un fundador no técnico levanta sus primeros $100,000 dólares de capital y lo primero que hace es contratar a 3 desarrolladores full-time para construir la 'versión completa' de su visión.\n\nSeis meses después, se han gastado $50,000 en sueldos, el producto tiene decenas de funcionalidades que nadie utiliza y la cuenta bancaria está al límite.\n\n¿Por qué ocurre este patrón de forma tan predecible?\n\nPorque confundieron la capacidad de escribir código con la validación de un modelo de negocio.\n\nCómo abordan este desafío los fundadores experimentados:\n\n1. Empezar con arquitectura visual y prototipos funcionales:\nAntes de escribir una sola línea de código complejo de backend, valida el flujo de valor con herramientas de prototipado rápido y automatizaciones conectadas. Si los usuarios no interactúan con el prototipo, tampoco usarán la aplicación terminada.\n\n2. Contratar ingenieros con criterio de producto, no acumuladores de horas:\nUn solo ingeniero senior que entiende el problema de negocio y sabe utilizar herramientas de asistencia y aceleración entrega en 2 semanas lo que un equipo junior desorientado tarda 3 meses en construir.\n\n3. Construir para descartar rápido:\nEn etapas tempranas, la métrica clave es la velocidad de aprendizaje por dólar invertido. Cuanto más barato sea probar una hipótesis y desechar lo que no funciona, mayores probabilidades tienes de encontrar el encaje producto-mercado.\n\nEl software no genera valor por existir en un servidor. Genera valor cuando resuelve una fricción tan grande que los usuarios no pueden imaginar volver a su proceso anterior.\n\n¿Al construir nuevos proyectos prefieres validar primero con soluciones ligeras o eres partidario de levantar la arquitectura completa desde el día uno?",
     "image": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&auto=format&fit=crop&q=80",
     "scheduledDate": "2026-11-10T13:00:00.000Z",
     "author": "Inspirado en Ilya Strebulaev",
     "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
-    "category": "Startups & Negocios"
+    "category": "Startups & Negocios",
+    "publishedAt": "2026-11-10T18:02:09.453Z",
+    "composioPostId": "urn:li:share:7525981135906967552"
   },
   {
     "id": "42",
