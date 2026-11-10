@@ -91,7 +91,15 @@ Basado en el análisis de las métricas reales de los 365 días de Nicolás Peñ
 - ❌ **Comment Baiting:** Prohibido usar cierres tipo *"Comenta STACK"*, *"Comenta SCHEMA"* o *"Comenta X"*. El algoritmo actual (360Brew) detecta engagement artificial y recorta el alcance entre 40% y 50%.
 - ❌ Frases cliché de IA: *"En el vertiginoso mundo de hoy"*, *"Un cambio de paradigma revolucionario"*, *"La IA llegó para quedarse"*, *"Sinfonía de innovación"*.
 - ❌ Muros de texto sin respiración: Párrafos de más de 3 líneas. Usar siempre saltos de línea limpios y listas con guiones.
-- ❌ Posts abstractos sin herramientas ni código: Todo post debe nombrar tecnologías tangibles (N8N, Docker, Zod, Composio, PostgreSQL, FastMCP, Claude, MCP, etc.).
+- ❌ Posts abstractos sin herramientas ni código: Todo post debe nombrar tecnologías tangibles (N8N, Docker, Zod, Composio, PostgreSQL, FastMCP, Claude Opus 5.5, Claude Sonnet 5.5, GPT-6.1 Sol, DeepSeek V4.1 Flash, Gemini 3.8 Flash, gstack, gbrain, MCP, etc.).
+
+### Moneda de Frontera Verificada (Actualizado al 10 de Noviembre de 2026):
+- **Anthropic**: `Claude Opus 5.5`, `Claude Sonnet 5.5`, `Claude Fable 5.2`, `Claude Mythos 5.2`, `Claude Code`.
+- **OpenAI**: `GPT-6.1 Sol`, `Codex CLI / Cloud`.
+- **Google**: `Gemini 3.8 Flash` y variantes Pro.
+- **DeepSeek**: `DeepSeek V4 / V4.1 Flash`.
+- **Frameworks & Paradigmas**: `Agentic Engineering` (Andrej Karpathy), `gstack` + `gbrain` (Garry Tan / Y Combinator), `Model Context Protocol (MCP)`, `SWE-bench Pro`.
+- **Ecosistema Chile / Latam**: `Fintual`, `Buk`, `Toku`, `Xepelin`, `Vambe`, `Sintropix` (siempre escribir nombres limpios sin `@` ni negritas para etiquetado manual posterior).
 
 ---
 
