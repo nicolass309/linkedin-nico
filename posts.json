@@ -910,15 +910,16 @@
   },
   {
     "id": "101",
-    "status": "scheduled",
+    "status": "published",
     "title": "El setup open-source del CEO de Y Combinator (gstack + gbrain) para operar una startup con 3 personas",
     "text": "Garry Tan (CEO de Y Combinator) acaba de liberar en código abierto la infraestructura interna con la que opera sus propios proyectos de software: gstack y gbrain.\n\nEl mensaje para la industria es brutal:\nUna startup de 3 ingenieros senior armados con el arnés correcto de agentes hoy construye, audita y despliega a la velocidad que antes exigía una organización de 25 personas.\n\nEl problema de la mayoría de los equipos no es qué modelo usan.\nEs que sus agentes sufren de amnesia institucional: cada vez que abren una sesión de terminal, el modelo olvida las decisiones de arquitectura, los errores pasados y el contexto del negocio.\n\nCómo funciona la arquitectura de 3 capas que Garry Tan liberó en GitHub:\n\n1. Memoria institucional persistente (gbrain):\nEn lugar de depender del historial efímero del chat, todo el conocimiento de la empresa vive en archivos Markdown locales sincronizados con una base de datos PostgreSQL vectorial y determinista. Cada decisión de producto, bug resuelto y regla de negocio queda indexada para cualquier agente futuro.\n\n2. Roles de ingeniería con opinión propia (gstack):\nEn vez de usar un asistente genérico que dice que sí a todo, el flujo de Claude Code se divide en especialistas estrictos:\n- Un rol de Producto que cuestiona si la funcionalidad realmente mueve la aguja antes de escribir código.\n- Un rol de Arquitectura que bloquea dependencias innecesarias.\n- Un rol de Seguridad y QA que ejecuta pruebas automatizadas de extremo a extremo.\n\n3. Contratos en la raíz del repositorio (CLAUDE.md / AGENTS.md):\nLas reglas inmutables del proyecto se leen en el milisegundo cero de cada ejecución, obligando al agente a correr el linter y la suite de tests antes de proponer cualquier commit.\n\nLa ventaja competitiva en 2026 ya no es contratar más manos para picar código. Es construir un cerebro técnico persistente donde cada línea aprendida se acumula como interés compuesto.\n\n¿En tu equipo los agentes ya cuentan con memoria persistente del proyecto o siguen empezando desde cero en cada ventana de chat?",
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&auto=format&fit=crop&q=80",
-    "publishedAt": null,
+    "publishedAt": "2026-11-11T17:40:11.881Z",
     "author": "Inspirado en Garry Tan (Y Combinator)",
     "originalUrl": "https://github.com/garrytan",
     "category": "Startups & Ingeniería con IA",
-    "scheduledDate": "2026-11-11T13:00:00.000Z"
+    "scheduledDate": "2026-11-11T13:00:00.000Z",
+    "composioPostId": "urn:li:share:7526337997739302913"
   },
   {
     "id": "102",
