@@ -827,15 +827,16 @@
   },
   {
     "id": "102",
-    "status": "scheduled",
+    "status": "published",
     "scheduledDate": "2026-11-12T13:00:00.000Z",
     "title": "Estas son 7 startups con ADN chileno que están creciendo fuerte en 2026",
     "text": "Estas son 7 startups con ADN chileno que están rompiéndola en 2026 (y que todo founder debería tener en el radar):\n\nDurante mucho tiempo se repitió que en Chile solo copiábamos ideas de afuera.\nPero si miras lo que está pasando hoy, hay equipos locales construyendo tecnología de nivel mundial y escalando por toda la región.\n\nAquí van 7 casos reales en distintas etapas que vale la pena seguir de cerca:\n\n1. Fintual:\nPasaron por Y Combinator, levantaron capital con Sequoia y demostraron que desde Chile se puede crear una fintech con cultura de producto de Silicon Valley compitiendo de igual a igual en México.\n\n2. Buk:\nTomaron un problema que nadie quería tocar por lo complejo (recursos humanos y sueldos con las leyes de cada país) y construyeron una de las empresas de software B2B más grandes de Latinoamérica.\n\n3. Toku:\nTambién acelerada en Y Combinator, resolvió el dolor de cabeza de la cobranza y los pagos recurrentes para grandes empresas en toda la región.\n\n4. Xepelin:\nSe convirtió en el motor financiero de miles de pymes en Chile y México automatizando el acceso a capital de trabajo en minutos en vez de semanas.\n\n5. Vambe:\nUno de los crecimientos más explosivos del último tiempo. Fundada por chilenos jóvenes y respaldada por fondos como Monashees, está escalando en Chile, México y Brasil con agentes de IA que venden y atienden por WhatsApp.\n\n6. Sintropix:\nParte de la nueva camada que volvió a meter a Chile en Y Combinator, automatizando la contabilidad y gestión financiera con inteligencia artificial para empresas en múltiples países.\n\n7. Runway:\nCo-fundada por el chileno Cristóbal Valenzuela en Nueva York, hoy es una de las empresas de inteligencia artificial generativa de video más importantes del planeta.\n\nTalento técnico en Chile sobra. Lo que cambia el juego es atreverse a pensar en grande desde el día uno.\n\n¿Qué otra startup chilena está haciendo las cosas bien en silencio y agregarías a esta lista?",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&auto=format&fit=crop&q=80",
-    "publishedAt": null,
+    "publishedAt": "2026-11-12T13:00:12.546Z",
     "author": "Radar Startups Chile",
     "originalUrl": "https://www.ycombinator.com/",
-    "category": "Startups & Ecosistema Chile"
+    "category": "Startups & Ecosistema Chile",
+    "composioPostId": "urn:li:share:7526629924720283648"
   },
   {
     "id": "103",
