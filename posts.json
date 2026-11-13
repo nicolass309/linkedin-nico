@@ -840,15 +840,16 @@
   },
   {
     "id": "103",
-    "status": "scheduled",
+    "status": "published",
     "scheduledDate": "2026-11-13T13:00:00.000Z",
     "title": "El 88% de las startups del último batch de Y Combinator tienen algo en común",
     "text": "El 88% de las startups que entraron al último batch de Y Combinator tienen algo en común (y no es solo que usan IA):\n\nGarry Tan, el CEO de Y Combinator, compartió los datos internos de cómo están operando las nuevas empresas aceptadas en la aceleradora más importante del mundo.\n\nLos números parecen de ciencia ficción comparados con hace tres años:\n\n1. El 25% de las startups tiene el 95% de su código escrito por IA:\nYa no necesitan levantar millones de dólares solo para contratar a 15 programadores y sacar la primera versión. Equipos de 2 o 3 fundadores construyen el producto completo en semanas usando agentes como Claude Code y Cursor.\n\n2. De 0 a $10 millones de dólares con equipos de 10 personas:\nAntes, llegar a $10M de facturación anual (ARR) tomaba 5 años y más de 100 empleados. Hoy las startups más rápidas del batch lo están logrando en menos de 18 meses con equipos ultra pequeños.\n\n3. El fin de los \"chatbots para todo\":\nY Combinator dejó de financiar herramientas genéricas para escribir textos. La gran apuesta hoy son los Agentes Verticales: software que se mete a industrias tradicionales y \"aburridas\" (logística pesada, construcción, contabilidad, salud, agro) y hace el trabajo operativo completo de principio a fin.\n\nLa barrera para crear software cayó al piso.\nPor eso hoy ya no gana el que sabe programar más bonito, sino el que conoce a fondo los problemas reales de una industria y sale a vender primero.\n\nSi tuvieras que lanzar una startup hoy en Latinoamérica, ¿en qué industria tradicional meterías inteligencia artificial?",
     "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80",
-    "publishedAt": null,
+    "publishedAt": "2026-11-13T16:14:51.542Z",
     "author": "Inspirado en Garry Tan (Y Combinator)",
     "originalUrl": "https://www.ycombinator.com/",
-    "category": "Startups & Y Combinator"
+    "category": "Startups & Y Combinator",
+    "composioPostId": "urn:li:share:7527041295861612544"
   },
   {
     "id": "104",
