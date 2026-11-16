@@ -853,15 +853,16 @@
   },
   {
     "id": "104",
-    "status": "scheduled",
+    "status": "published",
     "scheduledDate": "2026-11-16T13:00:00.000Z",
     "title": "Un profesor de Stanford analizó más de 1.000 unicornios y derribó el mayor mito de las startups",
     "text": "Un profesor de Stanford analizó más de 1.000 unicornios y descubrió que nos mintieron durante años sobre quiénes crean las empresas más exitosas:\n\nLas películas y las redes sociales nos vendieron la idea de que para crear una gran empresa tecnológica tienes que tener 20 años, abandonar la universidad y encerrarte a programar en un garaje.\n\nIlya Strebulaev, profesor de finanzas en Stanford, decidió revisar los datos reales de los fundadores de empresas que superaron los $1.000 millones de dólares de valuación.\n\nLo que encontró rompe todos los clichés:\n\n- Los jóvenes que abandonan la universidad son una excepción rarísima (apenas 56 casos en toda la muestra).\n- La edad promedio real al fundar una empresa que llega a unicornio supera los 34 años.\n- La gran mayoría tiene estudios completos, posgrados o más de 10 años trabajando dentro de una industria antes de emprender.\n\n¿Por qué pasa esto en la vida real?\n\nPorque cuando tienes 20 años puedes aprender una tecnología nueva muy rápido, pero no conoces cómo funciona una empresa por dentro.\n\nEn cambio, cuando llevas 10 años trabajando en banca, construcción, minería, retail o salud:\n1. Sabes exactamente dónde se pierde plata de verdad (y no inventas problemas que no existen).\n2. Tienes la agenda de contactos para levantar el teléfono y conseguir tus primeros 10 clientes corporativos.\n3. Sabes vender y manejar presupuestos reales.\n\nSi tienes más de 30 o 40 años y sientes que se te pasó el tren para emprender en tecnología, los datos de Stanford dicen exactamente lo contrario: estás en tu mejor momento.\n\n¿Qué opinas tú: pesa más la energía de los 20 años o la experiencia y contactos de haber trabajado una década en la industria?",
     "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1200&auto=format&fit=crop&q=80",
-    "publishedAt": null,
+    "publishedAt": "2026-11-16T19:51:08.341Z",
     "author": "Inspirado en Ilya Strebulaev (Stanford)",
     "originalUrl": "https://www.linkedin.com/in/ilyavcandpe/",
-    "category": "Startups & Capital de Riesgo"
+    "category": "Startups & Capital de Riesgo",
+    "composioPostId": "urn:li:share:7528182888849199107"
   },
   {
     "id": "105",
