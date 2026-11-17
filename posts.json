@@ -866,15 +866,16 @@
   },
   {
     "id": "105",
-    "status": "scheduled",
+    "status": "published",
     "scheduledDate": "2026-11-17T13:00:00.000Z",
     "title": "Todos creen que necesitas gastar miles de dólares al mes para automatizar una empresa con IA",
     "text": "Todos creen que necesitas gastar miles de dólares al mes en licencias caras para automatizar tu empresa con inteligencia artificial.\n\nLa realidad es que hoy muchas agencias y softwares cobran $1.500 o $2.000 dólares mensuales por herramientas que tú mismo puedes armar casi gratis si conoces el stack correcto.\n\nSi estás empezando una startup o quieres ordenar la operación de tu negocio sin quemar caja, este es el setup que están usando los equipos más rápidos en 2026 por menos de lo que cuesta un almuerzo:\n\n1. Automatización de procesos (El reemplazo de Zapier caro):\nEn vez de pagar cientos de dólares por cada tarea en plataformas cerradas, puedes instalar n8n en tu propio servidor (un VPS de $5 dólares al mes) y tener flujos ilimitados conectando tus correos, planillas y WhatsApp.\n\n2. Base de datos y Backend (El reemplazo de servidores complejos):\nSupabase te da una base de datos PostgreSQL profesional, autenticación de usuarios y APIs listas para usar con un plan gratuito enorme para validar cualquier producto.\n\n3. Asistente de programación en tu computador:\nClaude Code o Cursor conectados con un archivo CLAUDE.md bien armado te permiten construir páginas, paneles internos y conectores en una tarde sin depender de terceros para cada cambio chico.\n\n4. Modelos de IA según la tarea (Para no regalar plata en APIs):\nUsa modelos económicos y ultrarrápidos como DeepSeek V4.1 Flash o Gemini 3.8 Flash para clasificar miles de mensajes o facturas por centavos, y guarda Claude Opus 5.5 o Sonnet 5.5 solo para las decisiones difíciles.\n\nHoy el que no automatiza su negocio ya no tiene la excusa del presupuesto. Es solo un tema de saber qué piezas conectar.\n\nGuarda esta lista si te sirve para tu proyecto. ¿Qué otra herramienta buena, bonita y barata sumarías al listado?",
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&auto=format&fit=crop&q=80",
-    "publishedAt": null,
+    "publishedAt": "2026-11-17T19:48:34.797Z",
     "author": "Herramientas & Startups",
     "originalUrl": "https://github.com/",
-    "category": "IA & Herramientas"
+    "category": "IA & Herramientas",
+    "composioPostId": "urn:li:share:7528544634289958912"
   },
   {
     "id": "106",
