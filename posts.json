@@ -879,15 +879,16 @@
   },
   {
     "id": "106",
-    "status": "scheduled",
+    "status": "published",
     "scheduledDate": "2026-11-18T13:00:00.000Z",
     "title": "El CEO de Y Combinator presumió haber escrito miles de líneas de código con IA (y lo que pasó después dejó una lección brutal)",
     "text": "El CEO de Y Combinator, Garry Tan, publicó orgulloso en redes que llevaba días seguidos subiendo decenas de miles de líneas de código generadas con inteligencia artificial.\n\nQuería demostrar que hoy una sola persona puede construir a la velocidad de una empresa entera.\n\nPero pocas horas después pasó algo que nadie esperaba:\nVarios ingenieros independientes entraron a revisar en vivo los proyectos que Garry Tan había subido.\n\n¿Qué encontraron cuando abrieron el capó?\nPáginas sobrecargadas, peticiones innecesarias al servidor y miles de líneas de código repetido que no servían para nada. En internet lo bautizaron rápido como \"AI Slop\" (basura generada por IA sin revisión).\n\nEl episodio se volvió viral en todo Silicon Valley porque dejó al descubierto el mayor peligro de programar con IA en 2026:\n\nConfundir velocidad con progreso.\n\nQue una herramienta te permita generar 10.000 líneas de código en una noche no significa que hayas avanzado un mes de trabajo.\nA veces solo significa que creaste un incendio diez veces más difícil de arreglar cuando entren clientes reales.\n\nPor eso Andrej Karpathy (cofundador de OpenAI) dice que la etapa de pedirle cosas a la IA \"al ojo\" sin mirar el código ya murió.\n\nLos equipos que de verdad están ganando plata con esto hacen lo opuesto:\n- Usan la IA para ir rápido, sí.\n- Pero hacen cambios cortos, prueban cada parte antes de subirla y nunca ponen en producción algo que ellos mismos no entienden cómo funciona.\n\nLa IA es el mejor copiloto del mundo, pero si sueltas el volante por completo, te vas a estrellar más rápido.\n\n¿Te ha pasado ver proyectos hechos 100% con IA que por fuera se ven increíbles pero por dentro se caen solos?",
     "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&auto=format&fit=crop&q=80",
-    "publishedAt": null,
+    "publishedAt": "2026-11-18T18:22:42.545Z",
     "author": "Inspirado en Garry Tan & Andrej Karpathy",
     "originalUrl": "https://www.ycombinator.com/",
-    "category": "IA & Desarrollo"
+    "category": "IA & Desarrollo",
+    "composioPostId": "urn:li:share:7528885412011081728"
   },
   {
     "id": "107",
