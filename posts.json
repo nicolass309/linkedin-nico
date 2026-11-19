@@ -892,15 +892,16 @@
   },
   {
     "id": "107",
-    "status": "scheduled",
+    "status": "published",
     "scheduledDate": "2026-11-19T13:00:00.000Z",
     "title": "Este simple archivo de texto está haciendo que equipos de 2 personas trabajen como si fueran 20",
     "text": "Este simple archivo de texto está haciendo que equipos de 2 personas trabajen como si fueran 20:\n\nVeo a diario a personas frustradas diciendo que la IA \"se equivoca mucho\", que les cambia cosas que no pidieron o que les da respuestas genéricas.\n\nCasi siempre pasa por lo mismo: cada vez que abren un chat nuevo, la IA tiene amnesia. No sabe cómo trabajas, qué herramientas usas ni qué errores ya cometió ayer.\n\nLos mejores fundadores y programadores en Silicon Valley solucionaron esto con un archivo gratuito que toma 10 minutos crear: el archivo CLAUDE.md (también llamado AGENTS.md).\n\nEs literalmente un bloc de notas que dejas en la carpeta principal de tu proyecto y que la IA lee automáticamente antes de responderte cualquier cosa.\n\nSi quieres que la IA deje de adivinar y trabaje como un socio senior, ponle estas 4 cosas en español simple:\n\n1. Qué hace tu negocio y para quién:\n\"Somos una plataforma B2B en Chile para empresas de logística. Nuestros usuarios son gerentes de operaciones que necesitan respuestas simples y rápidas\".\n\n2. Tus herramientas fijas (lo que puede y no puede tocar):\n\"Usamos Node, PostgreSQL y Tailwind. Prohibido instalar librerías nuevas sin preguntar antes\".\n\n3. La lista negra de errores prohibidos:\nCada vez que la IA se equivoque en algo, agrega una línea ahí: \"Nunca borres comentarios antiguos. Nunca cambies los nombres de las columnas de la base de datos\". No volverá a cometer ese mismo error.\n\n4. Cómo revisar su propio trabajo:\n\"Antes de entregarme cualquier cambio, corre las pruebas y asegúrate de que no haya ningún error en consola\".\n\nEs impresionante cómo cambia la calidad de las respuestas cuando dejas de repetir las mismas instrucciones todos los días y le das una memoria fija a tu proyecto.\n\nGuárdalo para armar el tuyo esta semana. ¿Ya estás usando un archivo de memoria en tus proyectos o todavía le explicas todo desde cero en cada chat?",
     "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&auto=format&fit=crop&q=80",
-    "publishedAt": null,
+    "publishedAt": "2026-11-19T16:54:27.354Z",
     "author": "Productividad & IA",
     "originalUrl": "https://docs.anthropic.com/",
-    "category": "Productividad & Código con IA"
+    "category": "Productividad & Código con IA",
+    "composioPostId": "urn:li:share:7529225589266927616"
   },
   {
     "id": "108",
