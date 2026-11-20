@@ -905,15 +905,16 @@
   },
   {
     "id": "108",
-    "status": "scheduled",
+    "status": "published",
     "scheduledDate": "2026-11-20T13:00:00.000Z",
     "title": "Levantar capital en Chile y Latinoamérica hoy es durísimo (pero casi nadie te dice la verdadera razón)",
     "text": "Levantar capital en Chile y Latinoamérica hoy es durísimo (pero casi nadie te dice la verdadera razón):\n\nConversando con founders todas las semanas, escucho la misma queja: \"Los fondos en la región están cerrados, ya nadie quiere invertir\".\n\nPero cuando miras las cifras reales del ecosistema este año, la plata sí se está moviendo.\nLo que cambió por completo es a quién se la están dando.\n\nHace cuatro años bastaba con tener una presentación bonita en PowerPoint, ponerle la palabra \"disruptivo\" y prometer que ibas a crecer rápido aunque perdieras plata en cada venta.\n\nHoy ese libreto está muerto.\n\nPor qué el 80% de los founders rebota con los inversionistas hoy (y qué hacen distinto el 20% que sí levanta o crece solo):\n\n1. Piden plata para validar lo que hoy cuesta $0 construir:\nAntes necesitabas $200.000 dólares para armar un prototipo. Hoy un inversionista sabe que con las herramientas actuales puedes armar el producto en dos semanas. Si llegas a pedir plata sin haber construido nada, te descartan en 5 minutos.\n\n2. La mejor ronda pre-seed es la factura de un cliente:\nNada convence más a un fondo (ni te da más tranquilidad a ti) que llegar diciendo: \"Ya tenemos 5 empresas pagándonos todos los meses y queremos capital solo para multiplicar lo que ya funciona\".\n\n3. Rentabilidad desde el primer día:\nLas startups chilenas que están destacando en los rankings de Forbes y Rockstart este año tienen una obsesión en común: cuidar la caja y cobrar bien desde el primer mes.\n\nEn vez de pasar 6 meses persiguiendo inversionistas en cafés, pasa 6 semanas cerrando tus primeros 10 clientes reales. Cuando tienes ventas, los inversionistas te buscan a ti.\n\n¿Sientes que en Latinoamérica todavía hay demasiada obsesión con \"levantar rondas\" en vez de enfocarse en vender y ser rentables?",
     "image": "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&auto=format&fit=crop&q=80",
-    "publishedAt": null,
+    "publishedAt": "2026-11-20T13:00:34.202Z",
     "author": "Startups & Venture Capital Latam",
     "originalUrl": "https://www.ycombinator.com/",
-    "category": "Startups & Capital de Riesgo"
+    "category": "Startups & Capital de Riesgo",
+    "composioPostId": "urn:li:share:7529529118506414082"
   },
   {
     "id": "109",
