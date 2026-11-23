@@ -76,9 +76,17 @@ Este documento es la **fuente única de verdad (Single Source of Truth)** para e
 
 ---
 
-## ✍️ 4. Guía Editorial y Calibración Anti-Slop (@nico.innova)
+## ✍️ 4. Guía Editorial y Calibración Anti-Slop (@nico.innova — v2.0 Auditoría 365 Días)
 
-Basado en el análisis de las métricas reales de los 365 días de Nicolás Peña Díaz:
+Basado en el análisis forense de los últimos 365 días (`24/11/2025 – 23/11/2026`: **640.814 impresiones**, **287.076 miembros alcanzados**, **9.608 seguidores**):
+- **Fase Viral (Ene–May 2026):** 551.922 impresiones (86.1% del año).
+- **Fase de Caída (Jun–Nov 2026):** 64.854 impresiones (-88.2%), promediando ~153 impr/día en noviembre.
+- **5 Causas Raíz de la Caída:**
+  1. **Hora Dorada muerta (0 presencia humana en los primeros 60 min):** Al publicar 100% en piloto automático sin responder/comentar en la primera hora, el algoritmo 360Brew restringe la distribución al 83%–90% dentro de la propia red y corta el alcance viral fuera de red.
+  2. **Fotos Genéricas de Stock de Unsplash:** Provocan *Banner Blindness* inmediato. **PROHIBIDO** usar fotos genéricas de edificios, oficinas o laptops; reemplazar por Carruseles PDF (4:5), Screenshots reales anotados, Infografías HTML→PNG limpias o Video Demos cortos (30–60s).
+  3. **Exceso de Largo y Tono Técnico de Backend:** Posts de 2.000+ caracteres sobre jerga de programación pierden al 92% de la audiencia (44% son CEOs/Gerentes/Founders; solo 1%–5% son devs puros). **Sweet spot:** 800–1.400 caracteres (400–800 si lleva Carrusel/Video), 1–2 líneas por párrafo, 0–2 emojis funcionales máximo.
+  4. **Parón de Junio–Julio 2026 + Bugs de Duplicación (Ago–Oct):** Enfriaron el *Creator Score* de la cuenta.
+  5. **Falta de Enfoque Outlier (<30k) y Pipeline X-to-LinkedIn:** Debemos replicar formatos y temas que rompen 5x–20x en cuentas de <30k seguidores en San Francisco, IA y Startups.
 
 ### Lo que Funciona (Alto Alcance e Interacción — Validado con Excel de 365 y 90 días):
 1. **Lenguaje Conversacional, Simple y Transversal (Cero Jerga Académica de Backend):**
