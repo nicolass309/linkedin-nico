@@ -918,15 +918,16 @@
   },
   {
     "id": "109",
-    "status": "scheduled",
+    "status": "published",
     "scheduledDate": "2026-11-23T13:00:00.000Z",
     "title": "Veo a diario a empresas tradicionales en Chile perder millones por intentar usar IA al revés",
     "text": "Veo a diario a empresas tradicionales en Chile perder millones por intentar implementar inteligencia artificial completamente al revés:\n\nPasa en constructoras, inmobiliarias, clínicas, empresas de logística y firmas de servicios.\n\nEl directorio escucha que \"hay que meterse en IA para no quedarse atrás\".\n¿Y qué hacen?\nContratan una consultoría eterna de 6 meses para hacer un diagnóstico en PowerPoint, o compran un software corporativo carísimo que ningún vendedor ni administrativo termina usando porque es lento y complicado.\n\nMientras tanto, su verdadero problema sigue intacto:\n- Tienen a cientos de clientes preguntando por WhatsApp o correo y tardan 6 horas en responderles.\n- Tienen a ejecutivos buenos perdiendo toda la mañana copiando datos de facturas y planillas de Excel a mano.\n- Pierden ventas todos los días porque nadie le hace seguimiento al cliente que pidió una cotización el martes pasado.\n\nLas empresas que de verdad están viendo retorno de inversión con IA en Chile no empiezan con proyectos faraónicos de medio año.\n\nEmpiezan por lo simple que mueve la aguja en 2 semanas:\n1. Que cada prospecto que escriba reciba atención y calificación en menos de 2 minutos, 24/7.\n2. Que la información de reuniones y documentos pase sola al sistema sin que nadie tenga que digitarla a mano.\n3. Que el equipo comercial dedique su día a llamar y cerrar acuerdos, no a llenar planillas.\n\nLa tecnología no sirve para colgarse una medalla de innovación en el directorio; sirve para vender más rápido y operar con menos fricción que tu competencia.\n\n¿Cuál es el proceso más lento y manual que sigues viendo todos los días en las empresas tradicionales?",
     "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&auto=format&fit=crop&q=80",
-    "publishedAt": null,
+    "publishedAt": "2026-11-23T13:13:09.136Z",
     "author": "Operaciones & B2B Chile",
     "originalUrl": "https://www.linkedin.com/",
-    "category": "Automatización & Negocios B2B"
+    "category": "Automatización & Negocios B2B",
+    "composioPostId": "urn:li:share:7530619448177618944"
   },
   {
     "id": "110",
