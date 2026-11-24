@@ -1061,5 +1061,65 @@
     "author": "Ingeniería Inversa LinkedIn",
     "originalUrl": "https://www.linkedin.com/",
     "category": "Crecimiento & Estrategia Digital"
+  },
+  {
+    "id": "122",
+    "status": "scheduled",
+    "scheduledDate": "2026-12-14T13:00:00.000Z",
+    "title": "La batalla silenciosa que está definiendo el futuro de Latinoamérica: Mercado Libre vs. Nubank en la carrera por la IA",
+    "text": "La batalla silenciosa más grande de Latinoamérica hoy no es solo por quién vende más productos o entrega más tarjetas.\n\nEs una carrera brutal entre Mercado Libre (Marcos Galperin) y Nubank (David Vélez) por quién construye el mejor cerebro de inteligencia artificial financiera de la región.\n\nMira los números reales detrás de este choque de gigantes:\n\n1. Nubank acaba de superar los 130 millones de clientes en Brasil, México y Colombia y alcanzó el puesto #1 en el Evident AI Index para bancos en Latinoamérica. Usan modelos propios para aprobar créditos y atender a millones sin sucursales físicas.\n\n2. Mercado Libre y Mercado Pago combinan logística, datos de compra en tiempo real y herramientas de IA generativa para dar crédito a cientos de miles de pymes que la banca tradicional siempre ignoró.\n\nLa lección para cualquier banco, retail o empresa en Chile y Latam es durísima:\nYa no compites contra el competidor local de la esquina. Compites contra ecosistemas digitales que usan tus mismos datos diez veces más rápido que tú.\n\n¿Quién crees que terminará dominando los servicios financieros digitales en Latinoamérica de aquí a 2028: Mercado Pago o Nubank?",
+    "image": "https://linkedin-nico.onrender.com/media/post-122.jpg",
+    "publishedAt": null,
+    "author": "Análisis Ecosistema Latam",
+    "originalUrl": "https://www.mercadolibre.com/",
+    "category": "Startups & Negocios Latam"
+  },
+  {
+    "id": "123",
+    "status": "scheduled",
+    "scheduledDate": "2026-12-16T13:00:00.000Z",
+    "title": "Mark Zuckerberg y Stripe acaban de abrir la puerta a los asistentes que compran y pagan solos por ti",
+    "text": "Mark Zuckerberg acaba de mostrar hacia dónde se mueve el comercio electrónico en 2027 (y casi ningún dueño de tienda online en Latinoamérica lo está viendo venir).\n\nMeta expandió su asistente autónomo Muse conectado directamente con Stripe y billeteras digitales para ejecutar compras, reservas de viajes y pagos completos sin que el usuario tenga que entrar a una página web ni llenar un carrito.\n\nEsto tiene nombre en Silicon Valley: Comercio Agéntico (Agentic Commerce).\n\n¿Qué cambia para cualquier negocio que venda por internet hoy?\n\n1. El cliente deja de buscar en 10 pestañas:\nEn vez de navegar por tu sitio web viendo banners y pop-ups, el usuario le dice a su asistente: \"Cómprame este producto al mejor precio con despacho para mañana\".\n\n2. Si tus datos no están ordenados, te vuelves invisible:\nLos agentes compran donde el inventario, el precio y las condiciones de envío están limpios y accesibles vía API. No se dejan convencer por un anuncio bonito.\n\n3. El checkout de 5 pasos murió:\nEl pago ocurre de forma nativa dentro de la conversación en segundos.\n\nSi hoy dependes 100% de que la gente haga clic en anuncios y navegue tu web, el terreno acaba de cambiar debajo de tus pies.\n\n¿Te sentirías cómodo dejando que un asistente de IA compre y pague por ti tus compras habituales?",
+    "image": "https://linkedin-nico.onrender.com/media/post-123.jpg",
+    "publishedAt": null,
+    "author": "Noticias Big Tech & E-commerce",
+    "originalUrl": "https://stripe.com/",
+    "category": "IA & Comercio Digital"
+  },
+  {
+    "id": "124",
+    "status": "scheduled",
+    "scheduledDate": "2026-12-17T13:00:00.000Z",
+    "title": "Apple acaba de poner un freno de emergencia a los agentes de IA en Mac (y casi nadie entendió la jugada real de Tim Cook)",
+    "text": "Apple acaba de lanzar controles de seguridad estrictos y advertencias directas en macOS contra los nuevos agentes de IA que piden acceso total a tu computador.\n\nMuchos salieron a criticar a Tim Cook diciendo que Apple \"llegó tarde a la carrera de la inteligencia artificial\".\n\nPero si miras el tablero completo, la jugada de Apple es mucho más fría y estratégica de lo que parece:\n\n1. El riesgo real de darle las llaves de tu empresa a un agente:\nMiles de profesionales están instalando herramientas que piden permiso total de disco, correos y contraseñas. Un solo error o ataque de inyección puede exponer toda la información confidencial de una compañía en segundos.\n\n2. Mientras todos pelean por modelos en la nube, Apple vende el hardware:\nLos Mac Mini y Mac Studio se convirtieron en la máquina favorita de fundadores e ingenieros para correr modelos de IA de forma 100% local y privada sin subir datos sensibles a servidores externos.\n\nApple nunca busca ser el primero en lanzar una tecnología; busca controlar la confianza, el hardware y el estándar de privacidad cuando el mercado se asusta.\n\n¿Confías en darle acceso completo a tu computador a un agente de IA o prefieres mantener barreras estrictas de privacidad?",
+    "image": "https://linkedin-nico.onrender.com/media/post-124.jpg",
+    "publishedAt": null,
+    "author": "Análisis Big Tech & Estrategia",
+    "originalUrl": "https://techcrunch.com/",
+    "category": "Tecnología & Estrategia"
+  },
+  {
+    "id": "125",
+    "status": "scheduled",
+    "scheduledDate": "2026-12-18T13:00:00.000Z",
+    "title": "Los datos internos de Stripe revelan por qué las startups de IA facturan mucho más rápido que el software tradicional",
+    "text": "Patrick Collison (CEO de Stripe) tiene una ventaja única para leer la economía digital antes que nadie: por sus servidores pasan los pagos de millones de empresas en todo el mundo.\n\nLos datos recientes de Stripe confirman un quiebre histórico en cómo se hace dinero con software:\nLas nuevas startups de IA están escalando su facturación a una velocidad que aplasta al modelo clásico de SaaS de la última década.\n\n¿Por qué están creciendo tan rápido si el mercado está más competitivo que nunca?\n\n1. Se acabó cobrar por \"licencia de usuario\" (per-seat):\nAntes le vendías a una empresa un software a $30 dólares por empleado para que ellos hicieran el trabajo. Hoy les cobras por resultado entregado: llamadas atendidas, facturas conciliadas o reuniones agendadas.\n\n2. El cliente ve el ahorro en la primera semana:\nYa no tienes que convencer a un gerente de pagar por una herramienta que su equipo tardará 3 meses en aprender a usar. Si el sistema resuelve el trabajo desde el día uno, se aprueba el presupuesto en una reunión.\n\n3. El mercado de servicios es 10 veces más grande que el de software:\nLas startups de IA ya no compiten por el presupuesto de TI; compiten por el presupuesto de operación y ventas de la empresa.\n\nSi vendes B2B hoy, revisa tu modelo de precios: ¿estás vendiendo una herramienta más o estás vendiendo un resultado medible?",
+    "image": "https://linkedin-nico.onrender.com/media/post-125.jpg",
+    "publishedAt": null,
+    "author": "Inspirado en Patrick Collison (Stripe)",
+    "originalUrl": "https://stripe.com/",
+    "category": "Startups & Modelos de Negocio"
+  },
+  {
+    "id": "126",
+    "status": "scheduled",
+    "scheduledDate": "2026-12-21T13:00:00.000Z",
+    "title": "Por qué las empresas más rentables de 2027 no van a vender software, van a vender trabajo terminado",
+    "text": "Jeff Bezos repetía una pregunta que hoy separa a las empresas que sobreviven de las que desaparecen:\n\"¿Qué NO va a cambiar en los próximos 10 años?\"\n\nLos clientes siempre van a querer resultados más rápidos, más baratos y con menos esfuerzo.\n\nY ahí está la trampa en la que están atrapadas miles de empresas de software hoy:\nSiguen construyendo paneles llenos de gráficos, botones y configuraciones esperando que el cliente tenga tiempo para operarlos.\n\nLa verdad incómoda es que ningún gerente general quiere otro dashboard más donde iniciar sesión.\nLo que quiere es el trabajo terminado.\n\nMira cómo está cambiando la ecuación de valor hacia 2027:\n\n→ Antes: Vendías un CRM para que un vendedor llenara datos a mano.\n→ Ahora: Vendes un sistema que escucha la reunión, actualiza el CRM solo y deja el seguimiento listo.\n\n→ Antes: Vendías una plataforma contable para que alguien subiera 200 facturas.\n→ Ahora: Vendes la conciliación resuelta y lista para aprobar con un clic.\n\nLas compañías que entiendan este paso de \"vender herramientas\" a \"entregar trabajo terminado\" van a capturar márgenes que nunca existieron en la industria tradicional.\n\nEn tu negocio hoy, ¿le estás dando más trabajo a tu cliente para usar tu servicio o le estás quitando trabajo de encima?",
+    "image": "https://linkedin-nico.onrender.com/media/post-126.jpg",
+    "publishedAt": null,
+    "author": "Estrategia & Futuro B2B",
+    "originalUrl": "https://www.ycombinator.com/",
+    "category": "Negocios & Emprendimiento"
   }
 ]
