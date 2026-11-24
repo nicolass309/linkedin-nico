@@ -931,15 +931,16 @@
   },
   {
     "id": "110",
-    "status": "scheduled",
+    "status": "published",
     "scheduledDate": "2026-11-24T13:00:00.000Z",
     "title": "Sam Altman dijo que pronto veríamos la primera empresa de $1.000 millones con un solo empleado. Mira estos números:",
     "text": "Hace un par de años, Sam Altman (CEO de OpenAI) hizo una apuesta con otros fundadores en Silicon Valley:\nDijo que pronto íbamos a ver la primera empresa de $1.000 millones de dólares manejada por una sola persona.\n\nEn ese momento muchos se rieron y dijeron que era puro marketing.\n\nPero si miras los números de las startups que más rápido están creciendo en 2026, la tendencia da escalofríos:\n\n- En el año 2015, una empresa de software necesitaba en promedio entre 100 y 150 empleados para llegar a $10 millones de dólares en ventas anuales.\n- Hoy hay decenas de startups superando los $10 millones de dólares anuales con equipos de apenas 5 a 10 personas.\n\n¿Qué cambió para que un equipo del tamaño de un grupo de amigos facture como una corporación?\n\nQue antes, cada vez que una empresa crecía, tenía que contratar ejércitos de personas para tareas repetitivas: soporte nivel 1, entrada de datos, redacción básica, pruebas manuales de código y prospección en frío.\n\nHoy, una empresa moderna contrata solo a personas clave con muchísimo criterio y les pone herramientas y agentes autónomos a hacer el trabajo mecánico de 50 personas por detrás.\n\nEsto cambia por completo cómo deberíamos pensar un negocio hoy:\nEl éxito de una empresa ya no se mide por qué tan grande es tu oficina ni cuánta gente tienes a cargo en el organigrama.\nSe mide por cuánto valor y cuánta facturación eres capaz de generar por cada persona de tu equipo.\n\n¿Prefieres construir una empresa grande de 100 personas o un equipo ultra pequeño de 5 personas hiper-automatizado y rentable?",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80",
-    "publishedAt": null,
+    "publishedAt": "2026-11-24T15:08:37.869Z",
     "author": "Inspirado en Sam Altman & Y Combinator",
     "originalUrl": "https://www.ycombinator.com/",
-    "category": "Startups & Futuro del Trabajo"
+    "category": "Startups & Futuro del Trabajo",
+    "composioPostId": "urn:li:share:7531010897830375424"
   },
   {
     "id": "111",
