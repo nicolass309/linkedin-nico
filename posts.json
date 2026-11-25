@@ -944,15 +944,16 @@
   },
   {
     "id": "111",
-    "status": "scheduled",
+    "status": "published",
     "scheduledDate": "2026-11-25T13:00:00.000Z",
     "title": "Por qué el 90% de los cursos de Prompt Engineering quedaron obsoletos este año (y qué habilidad los reemplazó)",
     "text": "¿Te acuerdas cuando hace dos años todo el mundo vendía que \"Prompt Engineering\" iba a ser la carrera mejor pagada del futuro?\n\nHabía listas interminables de \"los 50 prompts secretos para ChatGPT\" que prometían resolverte la vida con una frase mágica.\n\nEn 2026 eso quedó completamente obsoleto.\n\nCon los modelos actuales (como Claude Opus 5.5, Sonnet 5.5 o GPT-6.1 Sol), ya no necesitas hablarle a la máquina con palabras rebuscadas ni trucos raros. El modelo entiende perfectamente lo que le pides en lenguaje normal.\n\nEntonces, ¿por qué dos personas usan exactamente la misma herramienta de IA y una obtiene resultados increíbles mientras la otra recibe respuestas mediocres?\n\nLa diferencia hoy no está en cómo redactas la pregunta.\nEstá en dos cosas mucho más simples y valiosas:\n\n1. Qué información le pasas antes de preguntar (El Contexto):\nSi le pides a la IA \"escríbeme una propuesta comercial\", te va a dar un texto genérico que huele a robot a kilómetros.\nSi antes le pasas la transcripción de tu llamada con el cliente, tus precios reales y 2 ejemplos de propuestas ganadoras tuyas, el resultado es mejor que el de una agencia.\n\n2. Tener criterio real sobre el tema:\nLa IA no sabe cuándo te está diciendo una mentira muy bien redactada. Si no entiendes de finanzas, de ventas o de arquitectura, no vas a notar el error hasta que pierdas plata con un cliente.\n\nLos trucos de prompts duraron un año. El criterio de negocio y saber ordenar la información de tu empresa siguen siendo irreemplazables.\n\n¿Sientes que hoy la gente sigue buscando \"el prompt mágico\" en vez de ordenar primero los datos de su propio negocio?",
     "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&auto=format&fit=crop&q=80",
-    "publishedAt": null,
+    "publishedAt": "2026-11-25T20:39:38.371Z",
     "author": "IA & Negocios",
     "originalUrl": "https://www.anthropic.com/",
-    "category": "IA & Productividad"
+    "category": "IA & Productividad",
+    "composioPostId": "urn:li:share:7531456585567461376"
   },
   {
     "id": "112",
