@@ -957,15 +957,16 @@
   },
   {
     "id": "112",
-    "status": "scheduled",
+    "status": "published",
     "scheduledDate": "2026-11-26T13:00:00.000Z",
     "title": "Chile acaba de cerrar dos acuerdos históricos en IA que casi ningún founder está aprovechando todavía",
     "text": "Chile acaba de cerrar dos acuerdos históricos en inteligencia artificial que casi ningún founder está aprovechando todavía.\n\nMientras todos miran qué pasa en Silicon Valley, en las últimas semanas se concretaron dos movidas gigantes para emprender desde acá:\n\n1. Alianza \"OpenAI para Chile\":\nEl Ministerio de Ciencia y Sam Altman anunciaron un acuerdo oficial para impulsar el ecosistema local de startups y acelerar aplicaciones construidas con modelos avanzados desde Chile.\n\n2. ElevenLabs regala 44 millones de créditos a startups chilenas:\nLa empresa líder mundial en IA de voz abrió un convenio que entrega hasta 44 millones de créditos gratis por 12 meses a startups locales elegibles.\n\n¿Qué significa esto en la práctica?\nQue hoy puedes construir agentes de voz, productos B2B o herramientas de atención global desde Santiago con costo inicial cero en infraestructura de audio.\n\nLa excusa de \"acá no hay acceso a la tecnología de afuera\" se terminó.\n\nGuarda este post o compártelo con algún founder en Chile que necesite postular a estos créditos antes de que se llenen los cupos.",
     "image": "https://linkedin-nico.onrender.com/media/post-112.jpg",
-    "publishedAt": null,
+    "publishedAt": "2026-11-26T20:34:46.236Z",
     "author": "Radar Ecosistema Chile & IA",
     "originalUrl": "https://www.minciencia.gob.cl/",
-    "category": "Startups & Ecosistema Chile"
+    "category": "Startups & Ecosistema Chile",
+    "composioPostId": "urn:li:share:7531817748872445952"
   },
   {
     "id": "113",
