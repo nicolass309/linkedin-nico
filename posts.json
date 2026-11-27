@@ -970,15 +970,16 @@
   },
   {
     "id": "113",
-    "status": "scheduled",
+    "status": "published",
     "scheduledDate": "2026-11-27T13:00:00.000Z",
     "title": "Anthropic acaba de salir a bolsa en Nasdaq (ANT) y sus números muestran la verdadera cara del negocio de la IA",
     "text": "Anthropic acaba de salir a bolsa en Nasdaq bajo el ticker ANT.\n\nEs un punto de quiebre histórico: por primera vez, un laboratorio de IA de frontera queda expuesto al escrutinio trimestral de Wall Street.\n\nDurante tres años la industria vivió en la opacidad de rondas privadas gigantescas y promesas de futuro.\nA partir de ahora, cada trimestre vamos a ver la verdad sin filtro:\n\n→ Cuánto facturan realmente las empresas que pagan por Claude.\n→ Cuánto cuesta mantener encendidos los servidores y GPUs detrás de cada respuesta.\n→ Qué tan real es el margen de negocio cuando la IA deja de ser una moda y pasa a ser infraestructura.\n\n¿Qué cambia esto para cualquier founder o empresa en Latinoamérica?\n\nSe acabó la era de construir \"envoltorios bonitos\" sin clientes que renueven mes a mes.\nSi el mercado público exige rentabilidad real a los gigantes de la IA, los fondos y clientes corporativos van a exigir exactamente lo mismo a todas las startups.\n\n¿Crees que la salida a bolsa de Anthropic va a acelerar la adopción corporativa o va a pinchar la burbuja de valuaciones infladas?",
     "image": "https://linkedin-nico.onrender.com/media/post-113.jpg",
-    "publishedAt": null,
+    "publishedAt": "2026-11-27T13:17:39.210Z",
     "author": "Análisis Tech & Mercados",
     "originalUrl": "https://www.anthropic.com/",
-    "category": "Noticias IA & Mercados"
+    "category": "Noticias IA & Mercados",
+    "composioPostId": "urn:li:share:7532070133112987648"
   },
   {
     "id": "115",
